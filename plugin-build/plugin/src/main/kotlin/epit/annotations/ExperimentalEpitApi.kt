@@ -4,4 +4,4 @@ package epit.annotations
     message = "This API is considered experimental. Please use with caution",
     level = RequiresOptIn.Level.WARNING
 )
-annotation class EpitExperimentalApi
+annotation class ExperimentalEpitApi

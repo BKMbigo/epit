@@ -1,3 +1,4 @@
+import epit.annotations.ExperimentalEpitApi
 import epit.dsl.*
 import epit.dsl.androidx.*
 import epit.dsl.compose.Compose
@@ -38,6 +39,7 @@ android {
     }
 
     dependencies {
+        @OptIn(ExperimentalEpitApi::class)
         epitDependencies {
             androidx {
                 activity(libs.versions.androidx.activity.get()) {

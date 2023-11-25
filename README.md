@@ -20,6 +20,7 @@ dependencies {
 ###### with epit
 ```Kotlin
 dependencies {
+  @OptIn(ExperimentalEpitApi::class)
   epitDependencies {
     androidx {
       core("1.12.0") {
