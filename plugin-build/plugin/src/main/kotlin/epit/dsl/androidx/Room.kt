@@ -1,5 +1,6 @@
 package epit.dsl.androidx
 
+import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 sealed class Room(
@@ -35,10 +36,12 @@ class EpitAndroidXRoomScope(
         add("implementation", room.dependency)
     }
 
+    @ExperimentalEpitApi
     fun DependencyHandlerScope.kapt(room: Room.room_compiler = Room.room_compiler) {
         add("kapt", room.dependency)
     }
 
+    @ExperimentalEpitApi
     fun DependencyHandlerScope.ksp(room: Room.room_compiler = Room.room_compiler) {
         add("ksp", room.dependency)
     }
