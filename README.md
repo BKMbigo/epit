@@ -66,6 +66,12 @@ dependencies {
   - room
   - test
   - espresso
+- kotlinx
+  - atomicfu
+  - coroutines
+  - collections-immutable
+  - datetime
+  - serialization
 - firebase
 - koin
 

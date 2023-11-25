@@ -4,6 +4,7 @@ import epit.dsl.androidx.*
 import epit.dsl.compose.Compose
 import epit.dsl.firebase.Firebase
 import epit.dsl.koin.Koin
+import epit.dsl.kotlinx.*
 
 
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
@@ -224,6 +225,39 @@ android {
                 testImplementation(Koin.koin_test.dependency)
                 androidTestImplementation(Koin.koin_android_test.dependency)
             }
+
+            kotlinx {
+                atomicfu(libs.versions.kotlinx.atomicfu.get()) {
+                    implementation(AtomicFU.atomicfu)
+                }
+                coroutines(libs.versions.kotlinx.coroutines.get()) {
+                    implementation(Coroutines.coroutines_core)
+                    implementation(Coroutines.coroutines_debug)
+                    implementation(Coroutines.coroutines_android)
+                    implementation(Coroutines.coroutines_play_services)
+                    implementation(Coroutines.coroutines_test)
+                    implementation(Coroutines.coroutines_javafx)
+                    implementation(Coroutines.coroutines_rx2)
+                    implementation(Coroutines.coroutines_rx3)
+                    implementation(Coroutines.coroutines_guava)
+                    implementation(Coroutines.coroutines_reactive)
+                    implementation(Coroutines.coroutines_jdk9)
+                    implementation(Coroutines.coroutines_slf4j)
+                    implementation(Coroutines.coroutines_swing)
+                }
+                collectionsImmutable(libs.versions.kotlinx.collections.immutable.get()) {
+                    implementation(CollectionsImmutable.collections_immutable)
+                }
+                datetime(libs.versions.kotlinx.datetime.get()) {
+                    implementation(Datetime.datetime)
+                }
+                serialization(libs.versions.kotlinx.serialization.get()) {
+                    implementation(Serialization.serialization_core)
+                    implementation(Serialization.serialization_json)
+                }
+            }
+
+
         }
     }
 }

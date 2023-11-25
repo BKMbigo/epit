@@ -39,3 +39,8 @@ fun EpitDependenciesScope.koin(bomVersion: String, block: EpitKoinScope.() -> Un
     }
     block(koinScope)
 }
+
+
+fun EpitDependenciesScope.kotlinx(block: EpitKotlinxScope.() -> Unit) {
+    block(EpitKotlinxScope)
+}

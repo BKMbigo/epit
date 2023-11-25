@@ -38,6 +38,12 @@ firebase-bom = "32.6.0"
 
 koin-bom = "3.5.1"
 
+kotlinx-atomicfu = "0.23.0"
+kotlinx-coroutines = "1.7.3"
+kotlinx-datetime = "0.4.1"
+kotlinx-collections-immutable = "0.3.6"
+kotlinx-serialization = "1.6.1"
+
 [plugins]
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin"}
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
