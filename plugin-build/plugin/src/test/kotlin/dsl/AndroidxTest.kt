@@ -77,6 +77,9 @@ class AndroidxTest {
                     navigation("1.0.0") {
                         implementation(Navigation.navigation_common)
                     }
+                    paging("1.0.0") {
+                        implementation(Paging.paging_common)
+                    }
                     recyclerview("1.0.0") {
                         implementation(RecyclerView.recyclerview)
                     }
@@ -87,11 +90,11 @@ class AndroidxTest {
                         testCore("1.0.0") {
                             implementation(TestCore.core)
                         }
-                        testRunner("1.0.0") {
-                            implementation(TestRunner.runner)
-                        }
                         testRules("1.0.0") {
                             implementation(TestRules.rules)
+                        }
+                        testRunner("1.0.0") {
+                            implementation(TestRunner.runner)
                         }
                     }
                     testEspresso("1.0.0") {
@@ -119,6 +122,7 @@ class AndroidxTest {
             Fragment.fragment.moduleName,
             Lifecycle.lifecycle_common.moduleName,
             Navigation.navigation_common.moduleName,
+            Paging.paging_common.moduleName,
             RecyclerView.recyclerview.moduleName,
             Room.room_common.moduleName,
             TestCore.core.moduleName,

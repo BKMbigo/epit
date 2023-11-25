@@ -65,6 +65,10 @@ object EpitAndroidxScope {
         block(EpitAndroidXNavigationScope(navigationVersion))
     }
 
+    fun paging(pagingVersion: String, block: EpitAndroidXPagingScope.() -> Unit) {
+        block(EpitAndroidXPagingScope(pagingVersion))
+    }
+
     fun recyclerview(recyclerviewVersion: String, block: EpitAndroidXRecyclerViewScope.() -> Unit) {
         block(EpitAndroidXRecyclerViewScope(recyclerviewVersion))
     }
