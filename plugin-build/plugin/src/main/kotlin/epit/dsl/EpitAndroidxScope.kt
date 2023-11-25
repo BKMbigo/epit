@@ -1,71 +1,74 @@
 package epit.dsl
 
+import epit.dsl.androidx.*
+
 object EpitAndroidxScope {
 
-    fun activity(activityVersion: String, block: epit.dsl.androidx.EpitAndroidXActivityScope.() -> Unit) {
-        block(epit.dsl.androidx.EpitAndroidXActivityScope(activityVersion))
+    fun activity(activityVersion: String, block: EpitAndroidXActivityScope.() -> Unit) {
+        block(EpitAndroidXActivityScope(activityVersion))
     }
 
-    fun appcompat(appcompatVersion: String, block: epit.dsl.androidx.EpitAndroidXAppCompatScope.() -> Unit) {
-        block(epit.dsl.androidx.EpitAndroidXAppCompatScope(appcompatVersion))
+    fun appcompat(appcompatVersion: String, block: EpitAndroidXAppCompatScope.() -> Unit) {
+        block(EpitAndroidXAppCompatScope(appcompatVersion))
     }
 
-    fun camera(cameraVersion: String, block: epit.dsl.androidx.EpitAndroidXCameraScope.() -> Unit) {
-        block(epit.dsl.androidx.EpitAndroidXCameraScope(cameraVersion))
+    fun camera(cameraVersion: String, block: EpitAndroidXCameraScope.() -> Unit) {
+        block(EpitAndroidXCameraScope(cameraVersion))
     }
 
-    fun composeAnimation(composeAnimationVersion: String, block: epit.dsl.androidx.EpitAndroidXComposeAnimationScope.() -> Unit) {
-        block(epit.dsl.androidx.EpitAndroidXComposeAnimationScope(composeAnimationVersion))
+    fun composeAnimation(composeAnimationVersion: String, block: EpitAndroidXComposeAnimationScope.() -> Unit) {
+        block(EpitAndroidXComposeAnimationScope(composeAnimationVersion))
     }
 
-    fun composeCompiler(composeCompilerVersion: String, block: epit.dsl.androidx.EpitAndroidXComposeCompilerScope.() -> Unit) {
-        block(epit.dsl.androidx.EpitAndroidXComposeCompilerScope(composeCompilerVersion))
+    fun composeCompiler(composeCompilerVersion: String, block: EpitAndroidXComposeCompilerScope.() -> Unit) {
+        block(EpitAndroidXComposeCompilerScope(composeCompilerVersion))
     }
 
-    fun composeFoundation(composeFoundationVersion: String, block: epit.dsl.androidx.EpitAndroidXComposeFoundationScope.() -> Unit) {
-        block(epit.dsl.androidx.EpitAndroidXComposeFoundationScope(composeFoundationVersion))
+    fun composeFoundation(composeFoundationVersion: String, block: EpitAndroidXComposeFoundationScope.() -> Unit) {
+        block(EpitAndroidXComposeFoundationScope(composeFoundationVersion))
     }
 
-    fun composeMaterial(composeMaterialVersion: String, block: epit.dsl.androidx.EpitAndroidXComposeMaterialScope.() -> Unit) {
-        block(epit.dsl.androidx.EpitAndroidXComposeMaterialScope(composeMaterialVersion))
+    fun composeMaterial(composeMaterialVersion: String, block: EpitAndroidXComposeMaterialScope.() -> Unit) {
+        block(EpitAndroidXComposeMaterialScope(composeMaterialVersion))
     }
 
-    fun composeMaterial3(composeMaterial3Version: String, block: epit.dsl.androidx.EpitAndroidXComposeMaterial3Scope.() -> Unit) {
-        block(epit.dsl.androidx.EpitAndroidXComposeMaterial3Scope(composeMaterial3Version))
+    fun composeMaterial3(composeMaterial3Version: String, block: EpitAndroidXComposeMaterial3Scope.() -> Unit) {
+        block(EpitAndroidXComposeMaterial3Scope(composeMaterial3Version))
     }
 
-    fun composeRuntime(composeRuntimeVersion: String, block: epit.dsl.androidx.EpitAndroidXComposeRuntimeScope.() -> Unit) {
-        block(epit.dsl.androidx.EpitAndroidXComposeRuntimeScope(composeRuntimeVersion))
+    fun composeRuntime(composeRuntimeVersion: String, block: EpitAndroidXComposeRuntimeScope.() -> Unit) {
+        block(EpitAndroidXComposeRuntimeScope(composeRuntimeVersion))
     }
 
-    fun composeUI(composeUIVersion: String, block: epit.dsl.androidx.EpitAndroidXComposeUIScope.() -> Unit) {
-        block(epit.dsl.androidx.EpitAndroidXComposeUIScope(composeUIVersion))
+    fun composeUI(composeUIVersion: String, block: EpitAndroidXComposeUIScope.() -> Unit) {
+        block(EpitAndroidXComposeUIScope(composeUIVersion))
     }
 
-    fun constraintlayout(constraintLayoutVersion: String, block: epit.dsl.androidx.EpitAndroidXConstraintLayoutScope.() -> Unit) {
-        block(epit.dsl.androidx.EpitAndroidXConstraintLayoutScope(constraintLayoutVersion))
+    fun constraintlayout(constraintLayoutVersion: String, block: EpitAndroidXConstraintLayoutScope.() -> Unit) {
+        block(EpitAndroidXConstraintLayoutScope(constraintLayoutVersion))
     }
 
-    fun core(androidxCoreVersion: String, block: epit.dsl.androidx.EpitAndroidXCoreScope.() -> Unit) {
-        block(epit.dsl.androidx.EpitAndroidXCoreScope(androidxCoreVersion))
+    fun core(androidxCoreVersion: String, block: EpitAndroidXCoreScope.() -> Unit) {
+        block(EpitAndroidXCoreScope(androidxCoreVersion))
     }
 
-    fun fragment(fragmentVersion: String, block: epit.dsl.androidx.EpitAndroidXFragmentScope.() -> Unit) {
-        block(epit.dsl.androidx.EpitAndroidXFragmentScope(fragmentVersion))
+    fun fragment(fragmentVersion: String, block: EpitAndroidXFragmentScope.() -> Unit) {
+        block(EpitAndroidXFragmentScope(fragmentVersion))
     }
 
-    fun lifecycle(lifecycleVersion: String, block: epit.dsl.androidx.EpitAndroidXLifecycleScope.() -> Unit) {
-        block(epit.dsl.androidx.EpitAndroidXLifecycleScope(lifecycleVersion))
+    fun lifecycle(lifecycleVersion: String, block: EpitAndroidXLifecycleScope.() -> Unit) {
+        block(EpitAndroidXLifecycleScope(lifecycleVersion))
     }
 
-    fun navigation(navigationVersion: String, block: epit.dsl.androidx.EpitAndroidXNavigationScope.() -> Unit) {
-        block(epit.dsl.androidx.EpitAndroidXNavigationScope(navigationVersion))
-    }
-    fun recyclerview(recyclerviewVersion: String, block: epit.dsl.androidx.EpitAndroidXRecyclerViewScope.() -> Unit) {
-        block(epit.dsl.androidx.EpitAndroidXRecyclerViewScope(recyclerviewVersion))
+    fun navigation(navigationVersion: String, block: EpitAndroidXNavigationScope.() -> Unit) {
+        block(EpitAndroidXNavigationScope(navigationVersion))
     }
 
-    fun room(roomVersion: String, block: epit.dsl.androidx.EpitAndroidXRoomScope.() -> Unit) {
-        block(epit.dsl.androidx.EpitAndroidXRoomScope(roomVersion))
+    fun recyclerview(recyclerviewVersion: String, block: EpitAndroidXRecyclerViewScope.() -> Unit) {
+        block(EpitAndroidXRecyclerViewScope(recyclerviewVersion))
+    }
+
+    fun room(roomVersion: String, block: EpitAndroidXRoomScope.() -> Unit) {
+        block(EpitAndroidXRoomScope(roomVersion))
     }
 }

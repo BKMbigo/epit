@@ -1,7 +1,4 @@
-import epit.dsl.EpitScope.androidx
-import epit.dsl.EpitScope.compose
-import epit.dsl.EpitScope.firebase
-import epit.dsl.EpitScope.koin
+import epit.dsl.*
 import epit.dsl.androidx.*
 import epit.dsl.compose.Compose
 import epit.dsl.firebase.Firebase
@@ -41,103 +38,106 @@ android {
     }
 
     dependencies {
-        androidx {
-            activity(libs.versions.androidx.activity.get()) {
-                implementation(Activity.activity)
-                implementation(Activity.activity_compose)
-                implementation(Activity.activity_ktx)
+        epitDependencies {
+            androidx {
+                activity(libs.versions.androidx.activity.get()) {
+                    implementation(Activity.activity)
+                    implementation(Activity.activity_compose)
+                    implementation(Activity.activity_ktx)
+                }
+                appcompat(libs.versions.androidx.appcompat.get()) {
+                    implementation(Appcompat.appcompat)
+                    implementation(Appcompat.appcompat_resources)
+                }
+                camera(libs.versions.androidx.camera.get()) {
+                    implementation(Camera.camera_lifecycle)
+                    implementation(Camera.camera_extensions)
+                    implementation(Camera.camera_core)
+                    implementation(Camera.camera_view)
+                    implementation(Camera.camera_camera2)
+                    implementation(Camera.camera_video)
+                }
+                core(libs.versions.androidx.core.toString()) {
+                    implementation(Core.core)
+                    implementation(Core.core_ktx)
+//                    testImplementation(Core.core_testing.dependency)
+                }
+                fragment(libs.versions.androidx.fragment.toString()) {
+                    implementation(Fragment.fragment)
+                    implementation(Fragment.fragment_ktx)
+                    implementation(Fragment.fragment_testing)
+                    implementation(Fragment.fragment_testing_manifest)
+                }
+                lifecycle(libs.versions.androidx.lifecycle.core.get()) {
+                    implementation(Lifecycle.lifecycle_livedata_core_ktx)
+                    implementation(Lifecycle.lifecycle_runtime_compose)
+                    implementation(Lifecycle.lifecycle_viewmodel_compose)
+                }
+                navigation(libs.versions.androidx.navigation.get()) {
+                    implementation(Navigation.navigation_compose)
+                    implementation(Navigation.navigation_common)
+                    implementation(Navigation.navigation_common_ktx)
+                    implementation(Navigation.navigation_runtime)
+                    implementation(Navigation.navigation_fragment)
+                    implementation(Navigation.navigation_fragment_ktx)
+                    implementation(Navigation.navigation_runtime_ui)
+                    implementation(Navigation.navigation_runtime_ui_ktx)
+                    implementation(Navigation.navigation_dynamic_features_fragment)
+                    implementation(Navigation.navigation_dynamic_features_runtime)
+                    implementation(Navigation.navigation_runtime_safe_args_generator)
+                    implementation(Navigation.navigation_runtime_testing)
+                }
+                room(libs.versions.androidx.room.get()) {
+                    implementation(Room.room_ktx)
+                    implementation(Room.room_testing)
+                    implementation(Room.room_guava)
+                    implementation(Room.room_paging)
+                    implementation(Room.room_common)
+                    implementation(Room.room_compiler)
+                    implementation(Room.room_runtime)
+                    implementation(Room.room_rxjava2)
+                    implementation(Room.room_rxjava3)
+                    implementation(Room.room_paging_guava)
+                    implementation(Room.room_paging_rxjava2)
+                    implementation(Room.room_paging_rxjava3)
+                }
             }
-            appcompat(libs.versions.androidx.appcompat.get()) {
-                implementation(Appcompat.appcompat)
-                implementation(Appcompat.appcompat_resources)
+
+            compose(libs.versions.androidx.compose.bom.get()) {
+                implementation(Compose.ComposeRuntime.runtime)
+                implementation(Compose.ComposeRuntime.runtime_livedata)
+                implementation(Compose.ComposeFoundation.foundation)
+                implementation(Compose.ComposeMaterial.material)
+                implementation(Compose.ComposeMaterial3.material3)
+                implementation(Compose.ComposeMaterial3.material3_window_size_class)
             }
-            camera(libs.versions.androidx.camera.get()) {
-                implementation(Camera.camera_lifecycle)
-                implementation(Camera.camera_extensions)
-                implementation(Camera.camera_core)
-                implementation(Camera.camera_view)
-                implementation(Camera.camera_camera2)
-                implementation(Camera.camera_video)
+
+
+            firebase(libs.versions.firebase.bom.get()) {
+                implementation(Firebase.firebase_firestore_ktx)
+                implementation(Firebase.firebase_database_ktx)
+                implementation(Firebase.firebase_auth_ktx)
+                implementation(Firebase.firebase_analytics)
+                implementation(Firebase.firebase_storage_ktx)
+                implementation(Firebase.firebase_analytics_ktx)
+                implementation(Firebase.firebase_appcheck)
+                implementation(Firebase.firebase_dynamic_links_ktx)
+                implementation(Firebase.firebase_messaging_ktx)
+                implementation(Firebase.firebase_functions_ktx)
+                implementation(Firebase.firebase_config_ktx)
             }
-            core(libs.versions.androidx.core.toString()) {
-                implementation(Core.core)
-                implementation(Core.core_ktx)
-//                    implementation(Core.core_testing)
-            }
-            fragment(libs.versions.androidx.fragment.toString()) {
-                implementation(Fragment.fragment)
-                implementation(Fragment.fragment_ktx)
-                implementation(Fragment.fragment_testing)
-                implementation(Fragment.fragment_testing_manifest)
-            }
-            lifecycle(libs.versions.androidx.lifecycle.core.get()) {
-                implementation(Lifecycle.lifecycle_livedata_core_ktx)
-                implementation(Lifecycle.lifecycle_runtime_compose)
-                implementation(Lifecycle.lifecycle_viewmodel_compose)
-            }
-            navigation(libs.versions.androidx.navigation.get()) {
-                implementation(Navigation.navigation_compose)
-                implementation(Navigation.navigation_common)
-                implementation(Navigation.navigation_common_ktx)
-                implementation(Navigation.navigation_runtime)
-                implementation(Navigation.navigation_fragment)
-                implementation(Navigation.navigation_fragment_ktx)
-                implementation(Navigation.navigation_runtime_ui)
-                implementation(Navigation.navigation_runtime_ui_ktx)
-                implementation(Navigation.navigation_dynamic_features_fragment)
-                implementation(Navigation.navigation_dynamic_features_runtime)
-                implementation(Navigation.navigation_runtime_safe_args_generator)
-                implementation(Navigation.navigation_runtime_testing)
-            }
-            room(libs.versions.androidx.room.get()) {
-                implementation(Room.room_ktx)
-                implementation(Room.room_testing)
-//                    implementation(Room.room_guava)
-                implementation(Room.room_paging)
-                implementation(Room.room_common)
-                implementation(Room.room_compiler)
-                implementation(Room.room_runtime)
-//                    implementation(Room.room_rxjava2)
-//                    implementation(Room.room_rxjava3)
-//                    implementation(Room.room_paging_guava)
-//                    implementation(Room.room_paging_rxjava2)
-//                    implementation(Room.room_paging_rxjava3)
+
+
+            koin(libs.versions.koin.bom.get()) {
+                implementation(Koin.koin_core)
+                implementation(Koin.koin_android)
+                implementation(Koin.koin_compose)
+                implementation(Koin.koin_androidx_compose)
+                implementation(Koin.koin_androidx_navigation)
+                testImplementation(Koin.koin_test.dependency)
+                androidTestImplementation(Koin.koin_android_test.dependency)
             }
         }
-
-        compose(libs.versions.androidx.compose.bom.get()) {
-            implementation(Compose.ComposeRuntime.runtime)
-            implementation(Compose.ComposeRuntime.runtime_livedata)
-            implementation(Compose.ComposeFoundation.foundation)
-            implementation(Compose.ComposeMaterial.material)
-            implementation(Compose.ComposeMaterial3.material3)
-            implementation(Compose.ComposeMaterial3.material3_window_size_class)
-        }
-
-        firebase(libs.versions.firebase.bom.get()) {
-            implementation(Firebase.firebase_firestore_ktx)
-            implementation(Firebase.firebase_database_ktx)
-            implementation(Firebase.firebase_auth_ktx)
-            implementation(Firebase.firebase_analytics)
-            implementation(Firebase.firebase_storage_ktx)
-            implementation(Firebase.firebase_analytics_ktx)
-            implementation(Firebase.firebase_appcheck)
-            implementation(Firebase.firebase_dynamic_links_ktx)
-            implementation(Firebase.firebase_messaging_ktx)
-            implementation(Firebase.firebase_functions_ktx)
-            implementation(Firebase.firebase_config_ktx)
-        }
-
-        koin(libs.versions.koin.bom.get()) {
-            implementation(Koin.koin_core)
-            implementation(Koin.koin_android)
-            implementation(Koin.koin_compose)
-            implementation(Koin.koin_androidx_compose)
-            implementation(Koin.koin_android_navigation)
-            testImplementation(Koin.koin_test.dependency)
-            androidTestImplementation(Koin.koin_android_test.dependency)
-        }
-
     }
 }
 
