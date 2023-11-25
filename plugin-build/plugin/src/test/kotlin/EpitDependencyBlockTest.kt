@@ -11,7 +11,7 @@ class EpitDependencyBlockTest {
     @Test
     fun `epitDependencies block is available after adding project`() {
         val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("com.github.bkmbigo.epit")
+        project.pluginManager.apply("io.github.bkmbigo.epit")
         project.configurations.create("implementation")
         project.configurations.create("kapt")
         project.configurations.create("ksp")

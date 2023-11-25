@@ -6,15 +6,15 @@ class EpitPluginTest {
     @Test
     fun `plugin is applied to the project`() {
         val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("com.github.bkmbigo.epit")
+        project.pluginManager.apply("io.github.bkmbigo.epit")
 
-        assert(project.plugins.hasPlugin("com.github.bkmbigo.epit"))
+        assert(project.plugins.hasPlugin("io.github.bkmbigo.epit"))
     }
 
     @Test
     fun `plugin extension is available in the project`() {
         val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("com.github.bkmbigo.epit")
+        project.pluginManager.apply("io.github.bkmbigo.epit")
 
         assertDoesNotThrow { project.extensions.getByName("epit") }
     }

@@ -1,11 +1,11 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    alias(libs.plugins.kotlin)
     `kotlin-dsl`
+    alias(libs.plugins.kotlin)
 }
 
-group = "com.github.bkmbigo.epit"
+group = "io.github.bkmbigo.epit"
 version = "unspecified"
 
 repositories {
@@ -17,6 +17,7 @@ dependencies {
 }
 
 tasks.withType<KotlinCompile> {
+    /* Opt-in to content receivers */
     kotlinOptions.freeCompilerArgs += "-Xcontext-receivers"
 }
 
@@ -26,11 +27,13 @@ tasks.test {
 
 gradlePlugin {
     plugins {
-        create("com.github.bkmbigo.epit") {
-            id = "com.github.bkmbigo.epit"
+        create("io.github.bkmbigo.epit") {
+            id = "io.github.bkmbigo.epit"
             implementationClass = "EpitPlugin"
             version = "0.0.0-beta.1"
             displayName = "Epit"
+            description = "The Plugins adds type-safe dependency declarations to your kotlin build scripts"
+            tags.set(listOf("dependencies", "android", "kotlin"))
         }
     }
 

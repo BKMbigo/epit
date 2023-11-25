@@ -11,7 +11,7 @@ import epit.dsl.kotlinx.*
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
-    id("com.github.bkmbigo.epit")
+    id("io.github.bkmbigo.epit")
 }
 
 android {

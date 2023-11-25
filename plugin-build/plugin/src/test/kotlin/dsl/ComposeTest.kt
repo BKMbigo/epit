@@ -14,7 +14,7 @@ class ComposeTest {
     @Test
     fun `compose block adds dependencies`() {
         val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("com.github.bkmbigo.epit")
+        project.pluginManager.apply("io.github.bkmbigo.epit")
         val conf = project.configurations.create("implementation")
 
         project.dependencies {
