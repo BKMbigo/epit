@@ -35,8 +35,12 @@ dependencies {
         implementation(Camera.camera_camera2)
         implementation(Camera.camera_video)
       }
-        }
     }
+
+    compose("2023.10.01") {
+      implementation(Compose.ComposeRuntime.runtime)
+    }
+  }
 }
 ```
 
@@ -60,6 +64,8 @@ dependencies {
   - navigation
   - recyclerview
   - room
+  - test
+  - espresso
 - firebase
 - koin
 

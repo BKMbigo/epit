@@ -16,5 +16,5 @@ enum class Koin(
     koin_androidx_compose(moduleName = "io.insert-koin:koin-androidx-compose"),
     koin_androidx_compose_navigation(moduleName = "io.insert-koin:koin-androidx-compose-navigation"),
     koin_ktor(moduleName = "io.insert-koin:koin-ktor"),
-    koin_logger_slf4j(moduleName = "io.insert-koin:koin-slf4j")
+    koin_logger_slf4j(moduleName = "io.insert-koin:koin-logger-slf4j")
 }

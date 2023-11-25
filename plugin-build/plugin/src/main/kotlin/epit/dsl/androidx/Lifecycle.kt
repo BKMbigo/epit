@@ -2,39 +2,40 @@ package epit.dsl.androidx
 
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
-sealed class Lifecycle(
+enum class Lifecycle(
     internal val moduleName: String
-) {
-    object lifecycle_common: epit.dsl.androidx.Lifecycle("androidx.lifecycle:lifecycle-common")
-    object lifecycle_common_java8: epit.dsl.androidx.Lifecycle("androidx.lifecycle:lifecycle-common-java8")
-    object lifecycle_compiler: epit.dsl.androidx.Lifecycle("androidx.lifecycle:lifecycle-compiler")
-//    object lifecycle_extensions: Lifecycle("androidx.lifecycle:lifecycle-extensions")
-    object lifecycle_livedata: epit.dsl.androidx.Lifecycle("androidx.lifecycle:lifecycle-livedata")
-    object lifecycle_livedata_core: epit.dsl.androidx.Lifecycle("androidx.lifecycle:lifecycle-livedata-core")
-    object lifecycle_livedata_core_ktx: epit.dsl.androidx.Lifecycle("androidx.lifecycle:lifecycle-livedata-core-ktx")
-    object lifecycle_livedata_ktx: epit.dsl.androidx.Lifecycle("androidx.lifecycle:lifecycle-livedata-ktx")
-    object lifecycle_process: epit.dsl.androidx.Lifecycle("androidx.lifecycle:lifecycle-process")
-    object lifecycle_reactivestreams: epit.dsl.androidx.Lifecycle("androidx.lifecycle:lifecycle-reactivestreams")
-    object lifecycle_reactivestreams_ktx: epit.dsl.androidx.Lifecycle("androidx.lifecycle:lifecycle-reactivestreams-ktx")
-    object lifecycle_runtime: epit.dsl.androidx.Lifecycle("androidx.lifecycle:lifecycle-runtime")
-    object lifecycle_runtime_compose: epit.dsl.androidx.Lifecycle("androidx.lifecycle:lifecycle-runtime-compose")
-    object lifecycle_runtime_ktx: epit.dsl.androidx.Lifecycle("androidx.lifecycle:lifecycle-ktx")
-    object lifecycle_runtime_testing: epit.dsl.androidx.Lifecycle("androidx.lifecycle:lifecycle-testing")
-    object lifecycle_service: epit.dsl.androidx.Lifecycle("androidx.lifecycle:lifecycle-service")
-    object lifecycle_viewmodel: epit.dsl.androidx.Lifecycle("androidx.lifecycle:lifecycle-viewmodel")
-    object lifecycle_viewmodel_compose: epit.dsl.androidx.Lifecycle("androidx.lifecycle:lifecycle-viewmodel-compose")
-    object lifecycle_viewmodel_ktx: epit.dsl.androidx.Lifecycle("androidx.lifecycle:lifecycle-viewmodel-ktx")
-    object lifecycle_viewmodel_savedstate: epit.dsl.androidx.Lifecycle("androidx.lifecycle:lifecycle-viewmodel-savedstate")
+) : AndroidXDependencies {
+    lifecycle_common("androidx.lifecycle:lifecycle-common"),
+    lifecycle_common_java8("androidx.lifecycle:lifecycle-common-java8"),
+    lifecycle_compiler("androidx.lifecycle:lifecycle-compiler"),
+
+    //    lifecycle_extensions: Lifecycle("androidx.lifecycle:lifecycle-extensions"),
+    lifecycle_livedata("androidx.lifecycle:lifecycle-livedata"),
+    lifecycle_livedata_core("androidx.lifecycle:lifecycle-livedata-core"),
+    lifecycle_livedata_core_ktx("androidx.lifecycle:lifecycle-livedata-core-ktx"),
+    lifecycle_livedata_ktx("androidx.lifecycle:lifecycle-livedata-ktx"),
+    lifecycle_process("androidx.lifecycle:lifecycle-process"),
+    lifecycle_reactivestreams("androidx.lifecycle:lifecycle-reactivestreams"),
+    lifecycle_reactivestreams_ktx("androidx.lifecycle:lifecycle-reactivestreams-ktx"),
+    lifecycle_runtime("androidx.lifecycle:lifecycle-runtime"),
+    lifecycle_runtime_compose("androidx.lifecycle:lifecycle-runtime-compose"),
+    lifecycle_runtime_ktx("androidx.lifecycle:lifecycle-runtime-ktx"),
+    lifecycle_runtime_testing("androidx.lifecycle:lifecycle-runtime-testing"),
+    lifecycle_service("androidx.lifecycle:lifecycle-service"),
+    lifecycle_viewmodel("androidx.lifecycle:lifecycle-viewmodel"),
+    lifecycle_viewmodel_compose("androidx.lifecycle:lifecycle-viewmodel-compose"),
+    lifecycle_viewmodel_ktx("androidx.lifecycle:lifecycle-viewmodel-ktx"),
+    lifecycle_viewmodel_savedstate("androidx.lifecycle:lifecycle-viewmodel-savedstate")
 }
 
 
 class EpitAndroidXLifecycleScope(
     private val androidXLifecycleVersion: String
 ) {
-    val epit.dsl.androidx.Lifecycle.dependency
+    val Lifecycle.dependency
         get(): String = "${this.moduleName}:${androidXLifecycleVersion}"
 
-    fun DependencyHandlerScope.implementation(lifecycle: epit.dsl.androidx.Lifecycle) {
+    fun DependencyHandlerScope.implementation(lifecycle: Lifecycle) {
         add("implementation", lifecycle.dependency)
     }
 }

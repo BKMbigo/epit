@@ -1,5 +1,6 @@
 package epit.dsl
 
+import epit.annotations.ExperimentalEpitApi
 import epit.dsl.androidx.*
 
 object EpitAndroidxScope {
@@ -44,12 +45,12 @@ object EpitAndroidxScope {
         block(EpitAndroidXComposeUIScope(composeUIVersion))
     }
 
-    fun constraintlayout(constraintLayoutVersion: String, block: EpitAndroidXConstraintLayoutScope.() -> Unit) {
-        block(EpitAndroidXConstraintLayoutScope(constraintLayoutVersion))
+    fun constraintLayout(block: EpitAndroidxGeneralConstraintLayoutScope.() -> Unit) {
+        block(EpitAndroidxGeneralConstraintLayoutScope)
     }
 
-    fun core(androidxCoreVersion: String, block: EpitAndroidXCoreScope.() -> Unit) {
-        block(EpitAndroidXCoreScope(androidxCoreVersion))
+    fun core(block: EpitAndroidxGeneralCoreScope.() -> Unit) {
+        block(EpitAndroidxGeneralCoreScope)
     }
 
     fun fragment(fragmentVersion: String, block: EpitAndroidXFragmentScope.() -> Unit) {
@@ -71,4 +72,16 @@ object EpitAndroidxScope {
     fun room(roomVersion: String, block: EpitAndroidXRoomScope.() -> Unit) {
         block(EpitAndroidXRoomScope(roomVersion))
     }
+
+    @ExperimentalEpitApi
+    fun test(block: EpitAndroidxGeneralTestScope.() -> Unit) {
+        block(EpitAndroidxGeneralTestScope)
+    }
+
+    @ExperimentalEpitApi
+    fun testEspresso(espressoVersion: String, block: EpitAndroidXTestEspressoScope.() -> Unit) {
+        block(EpitAndroidXTestEspressoScope(espressoVersion))
+    }
+
+
 }

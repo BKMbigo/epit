@@ -50,9 +50,12 @@ sealed class Compose(
 
         object foundation_layout_desktop :
             ComposeFoundation(moduleName = "androidx.compose.foundation:foundation-desktop")
+    }
 
+    sealed class ComposeFoundationText(
+        override val moduleName: String
+    ) : Compose(moduleName = moduleName) {
         object foundation_text : ComposeFoundation(moduleName = "androidx.compose.foundation:foundation-text")
-
     }
 
     sealed class ComposeMaterial(
@@ -89,6 +92,19 @@ sealed class Compose(
         override val moduleName: String
     ) : Compose(moduleName = moduleName) {
         object material3 : ComposeMaterial3("androidx.compose.material3:material3")
+        object material3_android : ComposeMaterial3("androidx.compose.material3:material3-android")
+        object material3_desktop : ComposeMaterial3("androidx.compose.material3:material3-desktop")
+        object material3_window_size_class : ComposeMaterial3("androidx.compose.material3:material3-window-size-class")
+        object material3_window_size_class_android :
+            ComposeMaterial3("androidx.compose.material3:material3-window-size-class-android")
+
+        object material3_window_size_class_desktop :
+            ComposeMaterial3("androidx.compose.material3:material3-window-size-class-desktop")
+    }
+
+    sealed class ComposeMaterial3Adaptive(
+        override val moduleName: String
+    ) : Compose(moduleName = moduleName) {
         object material3_adaptive : ComposeMaterial3("androidx.compose.material3:material3-adaptive")
         object material3_adaptive_android : ComposeMaterial3("androidx.compose.material3:material3-adaptive-android")
         object material3_adaptive_desktop : ComposeMaterial3("androidx.compose.material3:material3-adaptive-desktop")
@@ -101,16 +117,7 @@ sealed class Compose(
         object material3_adaptive_navigation_suite_desktop :
             ComposeMaterial3("androidx.compose.material3:material3-adaptive-navigation-suite-desktop")
 
-        object material3_android : ComposeMaterial3("androidx.compose.material3:material3-android")
-        object material3_desktop : ComposeMaterial3("androidx.compose.material3:material3-desktop")
-        object material3_window_size_class : ComposeMaterial3("androidx.compose.material3:material3-window-size-class")
-        object material3_window_size_class_android :
-            ComposeMaterial3("androidx.compose.material3:material3-window-size-class-android")
-
-        object material3_window_size_class_desktop :
-            ComposeMaterial3("androidx.compose.material3:material3-window-size-class-desktop")
     }
-
 
     sealed class ComposeRuntime(
         override val moduleName: String
@@ -118,7 +125,8 @@ sealed class Compose(
         object runtime : ComposeRuntime(moduleName = "androidx.compose.runtime:runtime")
         object runtime_android : ComposeRuntime(moduleName = "androidx.compose.runtime:runtime-android")
         object runtime_desktop : ComposeRuntime(moduleName = "androidx.compose.runtime:runtime-desktop")
-        object runtime_dispatch : ComposeRuntime(moduleName = "androidx.compose.runtime:runtime-dispatch")
+
+        //        object runtime_dispatch : ComposeRuntime(moduleName = "androidx.compose.runtime:runtime-dispatch")
         object runtime_livedata : ComposeRuntime(moduleName = "androidx.compose.runtime:runtime-livedata")
         object runtime_rxjava2 : ComposeRuntime(moduleName = "androidx.compose.runtime:runtime-rxjava2")
         object runtime_rxjava3 : ComposeRuntime(moduleName = "androidx.compose.runtime:runtime-rxjava3")
@@ -128,10 +136,18 @@ sealed class Compose(
 
         object runtime_saveable_desktop :
             ComposeRuntime(moduleName = "androidx.compose.runtime:runtime-saveable-desktop")
+    }
 
+    sealed class ComposeRuntimeSavedInstanceState(
+        override val moduleName: String
+    ) : Compose(moduleName = moduleName) {
         object runtime_saved_instance_state :
             ComposeRuntime(moduleName = "androidx.compose.runtime:runtime-saved-instance-state")
+    }
 
+    sealed class ComposeRuntimeTracing(
+        override val moduleName: String
+    ) : Compose(moduleName = moduleName) {
         object runtime_tracing : ComposeRuntime(moduleName = "androidx.compose.runtime:runtime-tracing")
     }
 

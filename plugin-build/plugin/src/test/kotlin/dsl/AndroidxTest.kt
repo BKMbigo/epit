@@ -52,11 +52,21 @@ class AndroidxTest {
                     composeUI("1.5.4") {
                         implementation(Compose.ComposeUI.ui)
                     }
-                    constraintlayout("1.0.0") {
-                        implementation(ConstraintLayout.constraintlayout)
+                    constraintLayout {
+                        constraintlayout("1.0.0") {
+                            implementation(ConstraintLayout.constraintlayout)
+                        }
+                        constraintlayoutCompose("1.0.0") {
+                            implementation(ConstraintLayoutCompose.constraintlayout_compose)
+                        }
                     }
-                    core("1.0.0") {
-                        implementation(Core.core)
+                    core {
+                        core("1.0.0") {
+                            implementation(Core.core)
+                        }
+                        coreSplashscreen("1.0.0") {
+                            implementation(CoreSplashscreen.core_splashscreen)
+                        }
                     }
                     fragment("1.0.0") {
                         implementation(Fragment.fragment)
@@ -72,6 +82,20 @@ class AndroidxTest {
                     }
                     room("1.0.0") {
                         implementation(Room.room_common)
+                    }
+                    test {
+                        testCore("1.0.0") {
+                            implementation(TestCore.core)
+                        }
+                        testRunner("1.0.0") {
+                            implementation(TestRunner.runner)
+                        }
+                        testRules("1.0.0") {
+                            implementation(TestRules.rules)
+                        }
+                    }
+                    testEspresso("1.0.0") {
+                        implementation(TestEspresso.espresso_core)
                     }
                 }
             }
@@ -89,12 +113,18 @@ class AndroidxTest {
             Compose.ComposeRuntime.runtime.moduleName,
             Compose.ComposeUI.ui.moduleName,
             ConstraintLayout.constraintlayout.moduleName,
+            ConstraintLayoutCompose.constraintlayout_compose.moduleName,
             Core.core.moduleName,
+            CoreSplashscreen.core_splashscreen.moduleName,
             Fragment.fragment.moduleName,
             Lifecycle.lifecycle_common.moduleName,
             Navigation.navigation_common.moduleName,
             RecyclerView.recyclerview.moduleName,
-            Room.room_common.moduleName
+            Room.room_common.moduleName,
+            TestCore.core.moduleName,
+            TestRules.rules.moduleName,
+            TestRunner.runner.moduleName,
+            TestEspresso.espresso_core.moduleName
         )
 
         assertContentEquals(expectedDependencies, conf.dependencies.map { "${it.group}:${it.name}" })

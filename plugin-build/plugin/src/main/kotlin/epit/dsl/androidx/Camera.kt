@@ -4,7 +4,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 enum class Camera(
     internal val moduleName: String
-): epit.dsl.androidx.AndroidXDependencies {
+) : AndroidXDependencies {
     camera_camera2(moduleName = "androidx.camera:camera-camera2"),
     camera_core("androidx.camera:camera-core"),
     camera_extensions("androidx.camera:camera-extensions"),
@@ -18,10 +18,10 @@ enum class Camera(
 class EpitAndroidXCameraScope(
     private val androidXCameraVersion: String
 ) {
-    val epit.dsl.androidx.Camera.dependency
+    val Camera.dependency
         get(): String = "${this.moduleName}:${androidXCameraVersion}"
 
-    fun DependencyHandlerScope.implementation(camera: epit.dsl.androidx.Camera) {
+    fun DependencyHandlerScope.implementation(camera: Camera) {
         add("implementation", camera.dependency)
     }
 }

@@ -59,10 +59,24 @@ android {
                     implementation(Camera.camera_camera2)
                     implementation(Camera.camera_video)
                 }
-                core(libs.versions.androidx.core.toString()) {
-                    implementation(Core.core)
-                    implementation(Core.core_ktx)
-//                    testImplementation(Core.core_testing.dependency)
+                constraintLayout {
+                    constraintlayout(libs.versions.androidx.constraintlayout.toString()) {
+                        implementation(ConstraintLayout.constraintlayout)
+                    }
+                    constraintlayoutCompose(libs.versions.androidx.constraintlayout.compose.get()) {
+                        implementation(ConstraintLayoutCompose.constraintlayout_compose)
+                        implementation(ConstraintLayoutCompose.constraintlayout_compose_android)
+                    }
+                }
+                core {
+                    core(libs.versions.androidx.core.toString()) {
+                        implementation(Core.core)
+                        implementation(Core.core_ktx)
+//                        androidTestImplementation(Core.core_testing.dependency)
+                    }
+                    coreSplashscreen(libs.versions.androidx.core.splashscreen.get()) {
+                        implementation(CoreSplashscreen.core_splashscreen)
+                    }
                 }
                 fragment(libs.versions.androidx.fragment.toString()) {
                     implementation(Fragment.fragment)
@@ -71,9 +85,25 @@ android {
                     implementation(Fragment.fragment_testing_manifest)
                 }
                 lifecycle(libs.versions.androidx.lifecycle.core.get()) {
+                    implementation(Lifecycle.lifecycle_common)
+                    implementation(Lifecycle.lifecycle_common_java8)
+                    implementation(Lifecycle.lifecycle_compiler)
+                    implementation(Lifecycle.lifecycle_process)
+                    implementation(Lifecycle.lifecycle_service)
+                    implementation(Lifecycle.lifecycle_livedata)
+                    implementation(Lifecycle.lifecycle_livedata_ktx)
+                    implementation(Lifecycle.lifecycle_livedata_core)
                     implementation(Lifecycle.lifecycle_livedata_core_ktx)
+                    implementation(Lifecycle.lifecycle_reactivestreams)
+                    implementation(Lifecycle.lifecycle_reactivestreams_ktx)
+                    implementation(Lifecycle.lifecycle_runtime)
+                    implementation(Lifecycle.lifecycle_runtime_ktx)
                     implementation(Lifecycle.lifecycle_runtime_compose)
+                    implementation(Lifecycle.lifecycle_runtime_testing)
+                    implementation(Lifecycle.lifecycle_viewmodel)
                     implementation(Lifecycle.lifecycle_viewmodel_compose)
+                    implementation(Lifecycle.lifecycle_viewmodel_ktx)
+                    implementation(Lifecycle.lifecycle_viewmodel_savedstate)
                 }
                 navigation(libs.versions.androidx.navigation.get()) {
                     implementation(Navigation.navigation_compose)
@@ -103,6 +133,26 @@ android {
                     implementation(Room.room_paging_rxjava2)
                     implementation(Room.room_paging_rxjava3)
                 }
+                test {
+                    testCore(libs.versions.androidx.test.core.get()) {
+                        testImplementation(TestCore.core.dependency)
+                    }
+                    testRunner(libs.versions.androidx.test.runner.get()) {
+                        testImplementation(TestRunner.runner.dependency)
+                    }
+                    testRules(libs.versions.androidx.test.rules.get()) {
+                        testImplementation(TestRules.rules.dependency)
+                    }
+                }
+                testEspresso(libs.versions.androidx.test.espresso.get()) {
+                    testImplementation(TestEspresso.espresso_core.dependency)
+                    testImplementation(TestEspresso.espresso_web.dependency)
+                    testImplementation(TestEspresso.espresso_remote.dependency)
+                    testImplementation(TestEspresso.espresso_contrib.dependency)
+                    testImplementation(TestEspresso.espresso_intents.dependency)
+                    testImplementation(TestEspresso.espresso_accessibility.dependency)
+                    testImplementation(TestEspresso.espresso_idling_resource.dependency)
+                }
             }
 
             compose(libs.versions.androidx.compose.bom.get()) {
@@ -131,11 +181,17 @@ android {
 
 
             koin(libs.versions.koin.bom.get()) {
-                implementation(Koin.koin_core)
                 implementation(Koin.koin_android)
-                implementation(Koin.koin_compose)
+                implementation(Koin.koin_android_compat)
                 implementation(Koin.koin_androidx_compose)
+                implementation(Koin.koin_androidx_compose_navigation)
                 implementation(Koin.koin_androidx_navigation)
+                implementation(Koin.koin_androidx_workmanager)
+                implementation(Koin.koin_compose)
+                implementation(Koin.koin_core)
+                implementation(Koin.koin_core_coroutines)
+                implementation(Koin.koin_ktor)
+                implementation(Koin.koin_logger_slf4j)
                 testImplementation(Koin.koin_test.dependency)
                 androidTestImplementation(Koin.koin_android_test.dependency)
             }

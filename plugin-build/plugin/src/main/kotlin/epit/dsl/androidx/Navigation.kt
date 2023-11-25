@@ -2,32 +2,32 @@ package epit.dsl.androidx
 
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
-sealed class Navigation(
+enum class Navigation(
     internal val moduleName: String
-): epit.dsl.androidx.AndroidXDependencies {
-    object navigation_common: epit.dsl.androidx.Navigation(moduleName = "androidx.navigation:navigation-common")
-    object navigation_common_ktx: epit.dsl.androidx.Navigation(moduleName = "androidx.navigation:navigation-common-ktx")
-    object navigation_compose: epit.dsl.androidx.Navigation(moduleName = "androidx.navigation:navigation-compose")
-    object navigation_dynamic_features_fragment: epit.dsl.androidx.Navigation(moduleName = "androidx.navigation:navigation-dynamic-features-fragment")
-    object navigation_dynamic_features_runtime: epit.dsl.androidx.Navigation(moduleName = "androidx.navigation:navigation-dynamic-features-runtime")
-    object navigation_fragment: epit.dsl.androidx.Navigation(moduleName = "androidx.navigation:navigation-fragment")
-    object navigation_fragment_ktx: epit.dsl.androidx.Navigation(moduleName = "androidx.navigation:navigation-fragment-ktx")
-    object navigation_runtime: epit.dsl.androidx.Navigation(moduleName = "androidx.navigation:navigation-runtime")
-    object navigation_runtime_ktx: epit.dsl.androidx.Navigation(moduleName = "androidx.navigation:navigation-runtime-ktx")
-    object navigation_runtime_safe_args_generator: epit.dsl.androidx.Navigation(moduleName = "androidx.navigation:navigation-safe-args-generator")
-    object navigation_runtime_safe_args_gradle_plugin: epit.dsl.androidx.Navigation(moduleName = "androidx.navigation:navigation-safe-args-gradle-plugin")
-    object navigation_runtime_testing: epit.dsl.androidx.Navigation(moduleName = "androidx.navigation:navigation-testing")
-    object navigation_runtime_ui: epit.dsl.androidx.Navigation(moduleName = "androidx.navigation:navigation-ui")
-    object navigation_runtime_ui_ktx: epit.dsl.androidx.Navigation(moduleName = "androidx.navigation:navigation-ui-ktx")
+) : AndroidXDependencies {
+    navigation_common(moduleName = "androidx.navigation:navigation-common"),
+    navigation_common_ktx(moduleName = "androidx.navigation:navigation-common-ktx"),
+    navigation_compose(moduleName = "androidx.navigation:navigation-compose"),
+    navigation_dynamic_features_fragment(moduleName = "androidx.navigation:navigation-dynamic-features-fragment"),
+    navigation_dynamic_features_runtime(moduleName = "androidx.navigation:navigation-dynamic-features-runtime"),
+    navigation_fragment(moduleName = "androidx.navigation:navigation-fragment"),
+    navigation_fragment_ktx(moduleName = "androidx.navigation:navigation-fragment-ktx"),
+    navigation_runtime(moduleName = "androidx.navigation:navigation-runtime"),
+    navigation_runtime_ktx(moduleName = "androidx.navigation:navigation-runtime-ktx"),
+    navigation_runtime_safe_args_generator(moduleName = "androidx.navigation:navigation-safe-args-generator"),
+    navigation_runtime_safe_args_gradle_plugin(moduleName = "androidx.navigation:navigation-safe-args-gradle-plugin"),
+    navigation_runtime_testing(moduleName = "androidx.navigation:navigation-testing"),
+    navigation_runtime_ui(moduleName = "androidx.navigation:navigation-ui"),
+    navigation_runtime_ui_ktx(moduleName = "androidx.navigation:navigation-ui-ktx")
 }
 
 class EpitAndroidXNavigationScope(
     private val androidXNavigationVersion: String
 ) {
-    val epit.dsl.androidx.Navigation.dependency
+    val Navigation.dependency
         get(): String = "${this.moduleName}:${androidXNavigationVersion}"
 
-    fun DependencyHandlerScope.implementation(navigation: epit.dsl.androidx.Navigation) {
+    fun DependencyHandlerScope.implementation(navigation: Navigation) {
         add("implementation", navigation.dependency)
     }
 }

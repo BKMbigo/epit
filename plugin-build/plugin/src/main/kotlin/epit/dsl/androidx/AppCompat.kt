@@ -4,7 +4,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 enum class Appcompat(
     internal val moduleName: String
-): epit.dsl.androidx.AndroidXDependencies {
+) : AndroidXDependencies {
     appcompat(moduleName = "androidx.appcompat:appcompat"),
     appcompat_resources("androidx.appcompat:appcompat-resources")
 }
@@ -12,10 +12,10 @@ enum class Appcompat(
 class EpitAndroidXAppCompatScope(
     private val androidXAppcompatVersion: String
 ) {
-    val epit.dsl.androidx.Appcompat.dependency
+    val Appcompat.dependency
         get(): String = "${this.moduleName}:${androidXAppcompatVersion}"
 
-    fun DependencyHandlerScope.implementation(appcompat: epit.dsl.androidx.Appcompat) {
+    fun DependencyHandlerScope.implementation(appcompat: Appcompat) {
         add("implementation", appcompat.dependency)
     }
 }
