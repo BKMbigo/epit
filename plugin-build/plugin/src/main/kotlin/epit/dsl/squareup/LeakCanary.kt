@@ -2,8 +2,10 @@ package epit.dsl.squareup
 
 import epit.EpitDependency
 import epit.annotations.EpitInvalidApi
+import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
+@ExperimentalEpitApi
 enum class LeakCanary(
     internal val moduleName: String
 ) : EpitDependency {
@@ -42,14 +44,18 @@ enum class LeakCanary(
 //    leakcanary_android_no_op(moduleName = "com.squareup.leakcanary:leakcanary-android-no-op")
 }
 
+@ExperimentalEpitApi
 class EpitSquareLeakCanaryScope(
     private val squareLeakCanaryVersion: String
 ) {
+    @ExperimentalEpitApi
     val LeakCanary.dependency
         get(): String = "${this.moduleName}:${squareLeakCanaryVersion}"
 
+    @ExperimentalEpitApi
     fun LeakCanary.dependency(version: String) = "${this.moduleName}:${version}"
 
+    @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(leakCanary: LeakCanary) {
         add("implementation", leakCanary.dependency)
     }

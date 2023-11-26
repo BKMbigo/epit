@@ -1,7 +1,7 @@
 package dsl
 
 import epit.annotations.ExperimentalEpitApi
-import epit.dsl.epitDependencies
+import epit.dsl.epitPreview
 import epit.dsl.squareup.LeakCanary
 import epit.dsl.squareup.OkHttp3
 import epit.dsl.squareup.Picasso
@@ -41,7 +41,7 @@ class SquareTest {
         }
 
         project.dependencies {
-            epitDependencies {
+            epitPreview {
                 squareup {
                     leakcanary("1.0.0") {
                         implementation(LeakCanary.leakcanary_android)

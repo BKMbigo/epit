@@ -1,7 +1,9 @@
 package epit.dsl.firebase
 
 import epit.EpitDependency
+import epit.annotations.ExperimentalEpitApi
 
+@ExperimentalEpitApi
 enum class Firebase(
     internal val moduleName: String
 ): EpitDependency {

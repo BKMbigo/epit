@@ -2,9 +2,10 @@ package epit.dsl.androidx
 
 import epit.EpitDependency
 import epit.annotations.EpitInvalidApi
+import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
-
+@ExperimentalEpitApi
 enum class Paging(
     internal val moduleName: String
 ) : AndroidXDependency {
@@ -39,14 +40,18 @@ enum class Paging(
 //    paging_testing_macosx64(moduleName = "androidx.paging:paging-testing-macosx64")
 }
 
+@ExperimentalEpitApi
 class EpitAndroidXPagingScope(
     private val androidXPagingVersion: String
 ) {
+    @ExperimentalEpitApi
     val Paging.dependency
         get(): String = "${this.moduleName}:${androidXPagingVersion}"
 
+    @ExperimentalEpitApi
     fun Paging.dependency(version: String) = "${this.moduleName}:${version}"
 
+    @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(paging: Paging) {
         add("implementation", paging.dependency)
     }

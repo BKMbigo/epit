@@ -2,8 +2,10 @@ package epit.dsl.androidx
 
 import epit.EpitDependency
 import epit.annotations.EpitInvalidApi
+import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
+@ExperimentalEpitApi
 enum class ConstraintLayoutCompose(
     internal val moduleName: String
 ) : AndroidXDependency {
@@ -14,14 +16,18 @@ enum class ConstraintLayoutCompose(
 //    constraintlayout_solver(moduleName = "androidx.constraintlayout:constraintlayout-solver")
 }
 
+@ExperimentalEpitApi
 class EpitAndroidXConstraintLayoutComposeScope(
     private val androidXConstraintLayoutComposeVersion: String
 ) {
+    @ExperimentalEpitApi
     val ConstraintLayoutCompose.dependency
         get(): String = "${this.moduleName}:${androidXConstraintLayoutComposeVersion}"
 
+    @ExperimentalEpitApi
     fun ConstraintLayoutCompose.dependency(version: String) = "${this.moduleName}:${version}"
 
+    @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(constraintLayoutCompose: ConstraintLayoutCompose) {
         add("implementation", constraintLayoutCompose.dependency)
     }

@@ -3,7 +3,7 @@ package dsl
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.androidx.*
 import epit.dsl.compose.Compose
-import epit.dsl.epitDependencies
+import epit.dsl.epitPreview
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.testfixtures.ProjectBuilder
@@ -30,7 +30,7 @@ class AndroidxTest {
         }
 
         project.dependencies {
-            epitDependencies {
+            epitPreview {
                 androidx {
                     activity("1.8.1") {
                         implementation(Activity.activity)

@@ -2,8 +2,10 @@ package epit.dsl.androidx
 
 import epit.EpitDependency
 import epit.annotations.EpitInvalidApi
+import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
+@ExperimentalEpitApi
 enum class Core(
     internal val moduleName: String
 ) : AndroidXDependency {
@@ -26,14 +28,18 @@ enum class Core(
     core_testing(moduleName = "androidx.core:core-testing")
 }
 
+@ExperimentalEpitApi
 class EpitAndroidXCoreScope(
     private val androidXCoreVersion: String
 ) {
+    @ExperimentalEpitApi
     val Core.dependency
         get(): String = "${this.moduleName}:${androidXCoreVersion}"
 
+    @ExperimentalEpitApi
     fun Core.dependency(version: String) = "${this.moduleName}:${version}"
 
+    @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(core: Core) {
         add("implementation", core.dependency)
     }

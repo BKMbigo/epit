@@ -4,7 +4,7 @@ import epit.EpitDependency
 import epit.annotations.EpitInvalidApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
-class EpitDependenciesScope(
+class EpitPreviewScope(
     internal val dependencyHandlerScope: DependencyHandlerScope
 ) {
 

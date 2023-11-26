@@ -2,7 +2,7 @@ package dsl
 
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.compose.Compose
-import epit.dsl.epitDependencies
+import epit.dsl.epitPreview
 import org.gradle.api.artifacts.Dependency
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.dependencies
@@ -38,7 +38,7 @@ class ComposeTest {
         }
 
         project.dependencies {
-            epitDependencies {
+            epitPreview {
                 compose("2023.10.01") {
                     implementation(Compose.ComposeRuntime.runtime)
 

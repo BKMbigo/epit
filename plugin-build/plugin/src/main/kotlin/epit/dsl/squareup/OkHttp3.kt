@@ -2,8 +2,10 @@ package epit.dsl.squareup
 
 import epit.EpitDependency
 import epit.annotations.EpitInvalidApi
+import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
+@ExperimentalEpitApi
 enum class OkHttp3(
     internal val moduleName: String
 ) : EpitDependency {
@@ -39,19 +41,25 @@ enum class OkHttp3(
 //    okhttp_ws(moduleName = "com.squareup.okhttp3:okhttp-ws")
 }
 
+@ExperimentalEpitApi
 class EpitSquareOkHttp3BOMScope(
     private val squareOkHttp3BOMVersion: String
 ) {
 
+    @ExperimentalEpitApi
     val bom = "${OkHttp3.okhttp_bom.moduleName}:${squareOkHttp3BOMVersion}"
 
+    @ExperimentalEpitApi
     fun bom(customVersion: String) = "${OkHttp3.okhttp_bom.moduleName}:${customVersion}"
 
+    @ExperimentalEpitApi
     val OkHttp3.dependency
         get(): String = "${this.moduleName}:${squareOkHttp3BOMVersion}"
 
+    @ExperimentalEpitApi
     fun OkHttp3.dependency(version: String) = "${this.moduleName}:${version}"
 
+    @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(okHttp3: OkHttp3) {
         add("implementation", okHttp3.moduleName)
     }

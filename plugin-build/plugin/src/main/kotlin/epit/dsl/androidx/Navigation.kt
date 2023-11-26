@@ -2,8 +2,10 @@ package epit.dsl.androidx
 
 import epit.EpitDependency
 import epit.annotations.EpitInvalidApi
+import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
+@ExperimentalEpitApi
 enum class Navigation(
     internal val moduleName: String
 ) : AndroidXDependency {
@@ -23,14 +25,18 @@ enum class Navigation(
     navigation_runtime_ui_ktx(moduleName = "androidx.navigation:navigation-ui-ktx")
 }
 
+@ExperimentalEpitApi
 class EpitAndroidXNavigationScope(
     private val androidXNavigationVersion: String
 ) {
+    @ExperimentalEpitApi
     val Navigation.dependency
         get(): String = "${this.moduleName}:${androidXNavigationVersion}"
 
+    @ExperimentalEpitApi
     fun Navigation.dependency(version: String) = "${this.moduleName}:${version}"
 
+    @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(navigation: Navigation) {
         add("implementation", navigation.dependency)
     }

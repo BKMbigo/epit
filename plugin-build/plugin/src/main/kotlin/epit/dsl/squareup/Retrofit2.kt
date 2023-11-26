@@ -2,8 +2,10 @@ package epit.dsl.squareup
 
 import epit.EpitDependency
 import epit.annotations.EpitInvalidApi
+import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
+@ExperimentalEpitApi
 enum class Retrofit2(
     internal val moduleName: String
 ) : EpitDependency {
@@ -30,14 +32,18 @@ enum class Retrofit2(
 //    parent(moduleName = "com.squareup.retrofit2:parent")
 }
 
+@ExperimentalEpitApi
 class EpitSquareRetrofit2Scope(
     private val squareRetrofit2Version: String
 ) {
+    @ExperimentalEpitApi
     val Retrofit2.dependency
         get(): String = "${this.moduleName}:${squareRetrofit2Version}"
 
+    @ExperimentalEpitApi
     fun Retrofit2.dependency(version: String) = "${this.moduleName}:${version}"
 
+    @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(retrofit2: Retrofit2) {
         add("implementation", retrofit2.dependency)
     }

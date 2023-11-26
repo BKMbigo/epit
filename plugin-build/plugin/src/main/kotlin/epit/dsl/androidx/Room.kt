@@ -5,6 +5,7 @@ import epit.annotations.EpitInvalidApi
 import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
+@ExperimentalEpitApi
 enum class Room(
     internal val moduleName: String
 ) : AndroidXDependency {
@@ -29,14 +30,18 @@ enum class Room(
     room_testing(moduleName = "androidx.room:room-testing")
 }
 
+@ExperimentalEpitApi
 class EpitAndroidXRoomScope(
     private val androidXRoomVersion: String
 ) {
+    @ExperimentalEpitApi
     val Room.dependency
         get(): String = "${this.moduleName}:${androidXRoomVersion}"
 
+    @ExperimentalEpitApi
     fun Room.dependency(version: String) = "${this.moduleName}:${version}"
 
+    @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(room: Room) {
         add("implementation", room.dependency)
     }

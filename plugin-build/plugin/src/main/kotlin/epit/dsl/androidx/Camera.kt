@@ -2,8 +2,10 @@ package epit.dsl.androidx
 
 import epit.EpitDependency
 import epit.annotations.EpitInvalidApi
+import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
+@ExperimentalEpitApi
 enum class Camera(
     internal val moduleName: String
 ) : AndroidXDependency {
@@ -17,14 +19,18 @@ enum class Camera(
 //    camera_viewfinder("androidx.camera:camera-viewfinder")
 }
 
+@ExperimentalEpitApi
 class EpitAndroidXCameraScope(
     private val androidXCameraVersion: String
 ) {
+    @ExperimentalEpitApi
     val Camera.dependency
         get(): String = "${this.moduleName}:${androidXCameraVersion}"
 
+    @ExperimentalEpitApi
     fun Camera.dependency(version: String) = "${this.moduleName}:${version}"
 
+    @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(camera: Camera) {
         add("implementation", camera.dependency)
     }

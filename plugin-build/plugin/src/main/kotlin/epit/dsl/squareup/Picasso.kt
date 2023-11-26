@@ -2,8 +2,10 @@ package epit.dsl.squareup
 
 import epit.EpitDependency
 import epit.annotations.EpitInvalidApi
+import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
+@ExperimentalEpitApi
 enum class Picasso(
     internal val moduleName: String
 ) : EpitDependency {
@@ -14,14 +16,18 @@ enum class Picasso(
     picasso_pollexor(moduleName = "com.squareup.picasso:picasso-pollexor")
 }
 
+@ExperimentalEpitApi
 class EpitSquarePicassoScope(
     private val squarePicassoVersion: String
 ) {
+    @ExperimentalEpitApi
     val Picasso.dependency
         get(): String = "${this.moduleName}:${squarePicassoVersion}"
 
+    @ExperimentalEpitApi
     fun Picasso.dependency(version: String) = "${this.moduleName}:${version}"
 
+    @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(picasso: Picasso) {
         add("implementation", picasso.dependency)
     }

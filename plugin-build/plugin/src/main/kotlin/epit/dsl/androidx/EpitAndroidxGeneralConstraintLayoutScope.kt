@@ -5,8 +5,10 @@ import epit.annotations.EpitInvalidApi
 import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
+@ExperimentalEpitApi
 object EpitAndroidxGeneralConstraintLayoutScope {
 
+    @ExperimentalEpitApi
     fun EpitAndroidxGeneralConstraintLayoutScope.constraintlayout(
         constraintLayoutVersion: String,
         block: EpitAndroidXConstraintLayoutScope.() -> Unit

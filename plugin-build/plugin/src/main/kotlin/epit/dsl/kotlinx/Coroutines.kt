@@ -2,8 +2,10 @@ package epit.dsl.kotlinx
 
 import epit.EpitDependency
 import epit.annotations.EpitInvalidApi
+import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
+@ExperimentalEpitApi
 enum class Coroutines(
     internal val moduleName: String
 ) : KotlinxDependencies {
@@ -22,14 +24,18 @@ enum class Coroutines(
     coroutines_test(moduleName = "org.jetbrains.kotlinx:kotlinx-coroutines-test")
 }
 
+@ExperimentalEpitApi
 class EpitKotlinxCoroutinesScope internal constructor(
     private val kotlinxCoroutinesVersion: String
 ) {
+    @ExperimentalEpitApi
     val Coroutines.dependency
         get(): String = "${this.moduleName}:${kotlinxCoroutinesVersion}"
 
+    @ExperimentalEpitApi
     fun Coroutines.dependency(version: String) = "${this.moduleName}:${version}"
 
+    @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(coroutines: Coroutines) {
         add("implementation", coroutines.dependency)
     }

@@ -2,8 +2,10 @@ package epit.dsl.androidx
 
 import epit.EpitDependency
 import epit.annotations.EpitInvalidApi
+import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
+@ExperimentalEpitApi
 enum class Lifecycle(
     internal val moduleName: String
 ) : AndroidXDependency {
@@ -30,15 +32,18 @@ enum class Lifecycle(
     lifecycle_viewmodel_savedstate("androidx.lifecycle:lifecycle-viewmodel-savedstate")
 }
 
-
+@ExperimentalEpitApi
 class EpitAndroidXLifecycleScope(
     private val androidXLifecycleVersion: String
 ) {
+    @ExperimentalEpitApi
     val Lifecycle.dependency
         get(): String = "${this.moduleName}:${androidXLifecycleVersion}"
 
+    @ExperimentalEpitApi
     fun Lifecycle.dependency(version: String) = "${this.moduleName}:${version}"
 
+    @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(lifecycle: Lifecycle) {
         add("implementation", lifecycle.dependency)
     }

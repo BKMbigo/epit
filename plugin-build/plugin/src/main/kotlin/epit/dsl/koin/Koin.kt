@@ -1,5 +1,8 @@
 package epit.dsl.koin
 
+import epit.annotations.ExperimentalEpitApi
+
+@ExperimentalEpitApi
 enum class Koin(
     internal val moduleName: String
 ) {

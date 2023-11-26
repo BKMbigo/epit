@@ -2,8 +2,10 @@ package epit.dsl.androidx
 
 import epit.EpitDependency
 import epit.annotations.EpitInvalidApi
+import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
+@ExperimentalEpitApi
 enum class TestEspresso(
     internal val moduleName: String
 ) : AndroidXDependency {
@@ -18,14 +20,18 @@ enum class TestEspresso(
     espresso_web(moduleName = "androidx.test.espresso:espresso-web")
 }
 
+@ExperimentalEpitApi
 class EpitAndroidXTestEspressoScope(
     private val androidXTestEspressoVersion: String
 ) {
+    @ExperimentalEpitApi
     val TestEspresso.dependency
         get(): String = "${this.moduleName}:${androidXTestEspressoVersion}"
 
+    @ExperimentalEpitApi
     fun TestEspresso.dependency(version: String) = "${this.moduleName}:${version}"
 
+    @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(testEspresso: TestEspresso) {
         add("implementation", testEspresso.dependency)
     }

@@ -1,7 +1,7 @@
 package dsl
 
 import epit.annotations.ExperimentalEpitApi
-import epit.dsl.epitDependencies
+import epit.dsl.epitPreview
 import epit.dsl.kotlinx.*
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.dependencies
@@ -30,7 +30,7 @@ class KotlinxTest {
         }
 
         project.dependencies {
-            epitDependencies {
+            epitPreview {
                 kotlinx {
                     atomicfu("1.0.0") {
                         implementation(AtomicFU.atomicfu)

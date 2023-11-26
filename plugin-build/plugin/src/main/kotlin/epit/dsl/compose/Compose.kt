@@ -1,9 +1,12 @@
 package epit.dsl.compose
 
 import epit.EpitDependency
+import epit.annotations.ExperimentalEpitApi
 
+@ExperimentalEpitApi
 sealed interface Compose : EpitDependency {
 
+    @ExperimentalEpitApi
     enum class ComposeAnimation(
         internal val moduleName: String
     ) : Compose {
@@ -19,12 +22,14 @@ sealed interface Compose : EpitDependency {
         animation_tooling_internal(moduleName = "androidx.compose.animation:animation-tooling-internal")
     }
 
+    @ExperimentalEpitApi
     enum class ComposeBom(
         internal val moduleName: String
     ) : Compose {
         compose_bom("androidx.compose:compose-bom")
     }
 
+    @ExperimentalEpitApi
     enum class ComposeCompiler(
         internal val moduleName: String
     ) : Compose {
@@ -33,6 +38,7 @@ sealed interface Compose : EpitDependency {
         compiler_hosted(moduleName = "androidx.compose.compiler:compiler-hosted")
     }
 
+    @ExperimentalEpitApi
     enum class ComposeFoundation(
         internal val moduleName: String
     ) : Compose {
@@ -44,12 +50,14 @@ sealed interface Compose : EpitDependency {
         foundation_layout_desktop(moduleName = "androidx.compose.foundation:foundation-desktop")
     }
 
+    @ExperimentalEpitApi
     enum class ComposeFoundationText(
         internal val moduleName: String
     ) : Compose {
         foundation_text(moduleName = "androidx.compose.foundation:foundation-text")
     }
 
+    @ExperimentalEpitApi
     enum class ComposeMaterial(
         internal val moduleName: String
     ) : Compose {
@@ -67,6 +75,7 @@ sealed interface Compose : EpitDependency {
         material_ripple_desktop(moduleName = "androidx.compose.material:material-ripple-desktop")
     }
 
+    @ExperimentalEpitApi
     enum class ComposeMaterial3(
         internal val moduleName: String
     ) : Compose {
@@ -78,6 +87,7 @@ sealed interface Compose : EpitDependency {
         material3_window_size_class_desktop("androidx.compose.material3:material3-window-size-class-desktop")
     }
 
+    @ExperimentalEpitApi
     enum class ComposeMaterial3Adaptive(
         internal val moduleName: String
     ) : Compose {
@@ -89,6 +99,7 @@ sealed interface Compose : EpitDependency {
         material3_adaptive_navigation_suite_desktop("androidx.compose.material3:material3-adaptive-navigation-suite-desktop")
     }
 
+    @ExperimentalEpitApi
     enum class ComposeRuntime(
         internal val moduleName: String
     ) : Compose {
@@ -105,18 +116,21 @@ sealed interface Compose : EpitDependency {
         runtime_saveable_desktop(moduleName = "androidx.compose.runtime:runtime-saveable-desktop")
     }
 
+    @ExperimentalEpitApi
     enum class ComposeRuntimeSavedInstanceState(
         internal val moduleName: String
     ) : Compose {
         runtime_saved_instance_state(moduleName = "androidx.compose.runtime:runtime-saved-instance-state")
     }
 
+    @ExperimentalEpitApi
     enum class ComposeRuntimeTracing(
         internal val moduleName: String
     ) : Compose {
         runtime_tracing(moduleName = "androidx.compose.runtime:runtime-tracing")
     }
 
+    @ExperimentalEpitApi
     enum class ComposeUI(
         internal val moduleName: String
     ) : Compose {

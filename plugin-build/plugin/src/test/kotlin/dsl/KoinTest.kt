@@ -1,7 +1,7 @@
 package dsl
 
 import epit.annotations.ExperimentalEpitApi
-import epit.dsl.epitDependencies
+import epit.dsl.epitPreview
 import epit.dsl.koin.Koin
 import org.gradle.api.artifacts.Dependency
 import org.gradle.kotlin.dsl.DependencyHandlerScope
@@ -39,7 +39,7 @@ class KoinTest {
         }
 
         project.dependencies {
-            epitDependencies {
+            epitPreview {
                 koin("3.5.1") {
                     implementation(Koin.koin_android)
 

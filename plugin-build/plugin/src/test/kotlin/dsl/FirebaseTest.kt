@@ -1,7 +1,7 @@
 package dsl
 
 import epit.annotations.ExperimentalEpitApi
-import epit.dsl.epitDependencies
+import epit.dsl.epitPreview
 import epit.dsl.firebase.Firebase
 import org.gradle.api.artifacts.Dependency
 import org.gradle.kotlin.dsl.DependencyHandlerScope
@@ -38,7 +38,7 @@ class FirebaseTest {
         }
 
         project.dependencies {
-            epitDependencies {
+            epitPreview {
                 firebase("32.6.0") {
                     implementation(Firebase.firebase_firestore)
 

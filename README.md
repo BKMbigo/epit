@@ -14,6 +14,9 @@ dependencies {
     implementation("androidx.camera:camera-view:1.3.0")
     implementation("androidx.camera:camera-camera2:1.3.0")
     implementation("androidx.camera:camera-video:1.3.0")
+  implementation("androidx.compose:compose-bom:2023.10.01")
+  implementation("androidx.compose.runtime:runtime")
+  implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
 }
 ```
 
@@ -21,11 +24,13 @@ dependencies {
 ```Kotlin
 dependencies {
   @OptIn(ExperimentalEpitApi::class)
-  epitDependencies {
+  epitPreview {
     androidx {
-      core("1.12.0") {
-        implementation(Core.core)
-        implementation(Core.core_ktx)
+      core {
+        core("1.12.0") {
+          implementation(Core.core)
+          implementation(Core.core_ktx)
+        }
       }
       camera("1.3.0") {
         implementation(Camera.camera_lifecycle)
@@ -36,9 +41,13 @@ dependencies {
         implementation(Camera.camera_video)
       }
     }
-
     compose("2023.10.01") {
       implementation(Compose.ComposeRuntime.runtime)
+    }
+    kotlinx {
+      coroutines("1.7.3") {
+        implementation(Coroutines.coroutines_core)
+      }
     }
   }
 }
@@ -74,8 +83,8 @@ dependencies {
   - serialization
 - squareup
   - leakcanary
+  - okhttp3
   - picasso
   - retrofit2
-  - okhttp3
 - firebase
 - koin

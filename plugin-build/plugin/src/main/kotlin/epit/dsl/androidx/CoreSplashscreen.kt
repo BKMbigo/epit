@@ -2,8 +2,10 @@ package epit.dsl.androidx
 
 import epit.EpitDependency
 import epit.annotations.EpitInvalidApi
+import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
+@ExperimentalEpitApi
 enum class CoreSplashscreen(
     internal val moduleName: String
 ) : AndroidXDependency {
@@ -24,14 +26,18 @@ enum class CoreSplashscreen(
 //    object core_testing: Core(moduleName = "androidx.core:core-testing")
 }
 
+@ExperimentalEpitApi
 class EpitAndroidXCoreSpashscreenScope(
     private val androidXCoreVersion: String
 ) {
+    @ExperimentalEpitApi
     val CoreSplashscreen.dependency
         get(): String = "${this.moduleName}:${androidXCoreVersion}"
 
+    @ExperimentalEpitApi
     fun CoreSplashscreen.dependency(version: String) = "${this.moduleName}:${version}"
 
+    @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(coreSplashscreen: CoreSplashscreen) {
         add("implementation", coreSplashscreen.dependency)
     }

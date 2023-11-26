@@ -1,6 +1,6 @@
 import epit.annotations.ExperimentalEpitApi
-import epit.dsl.*
 import epit.dsl.androidx.Room
+import epit.dsl.epitPreview
 import epit.dsl.squareup.Retrofit2
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.testfixtures.ProjectBuilder
@@ -21,7 +21,7 @@ class EpitDependencyBlockTest {
 
         assertDoesNotThrow {
             project.dependencies {
-                epitDependencies {
+                epitPreview {
                     androidx {
                         room("1.0.0") {
                             implementation(Room.room_runtime)

@@ -1,7 +1,6 @@
-import epit.annotations.ExperimentalEpitApi
-import epit.dsl.*
 import epit.dsl.androidx.*
 import epit.dsl.compose.Compose
+import epit.dsl.epitPreview
 import epit.dsl.firebase.Firebase
 import epit.dsl.koin.Koin
 import epit.dsl.kotlinx.*
@@ -44,8 +43,7 @@ android {
     }
 
     dependencies {
-        @OptIn(ExperimentalEpitApi::class)
-        epitDependencies {
+        epitPreview {
             androidx {
                 activity(libs.versions.androidx.activity.get()) {
                     implementation(Activity.activity)
@@ -210,8 +208,6 @@ android {
                     }
                 }
             }
-
-
         }
     }
 }
