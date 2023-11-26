@@ -4,26 +4,26 @@ import epit.dsl.kotlinx.*
 
 object EpitKotlinxScope {
 
-    fun atomicfu(atomicfuVersion: String, block: EpitKotlinxAtomicFUScope.() -> Unit) {
+    fun EpitKotlinxScope.atomicfu(atomicfuVersion: String, block: EpitKotlinxAtomicFUScope.() -> Unit) {
         block(EpitKotlinxAtomicFUScope(atomicfuVersion))
     }
 
-    fun coroutines(coroutinesVersion: String, block: EpitKotlinxCoroutinesScope.() -> Unit) {
+    fun EpitKotlinxScope.coroutines(coroutinesVersion: String, block: EpitKotlinxCoroutinesScope.() -> Unit) {
         block(EpitKotlinxCoroutinesScope(coroutinesVersion))
     }
 
-    fun collectionsImmutable(
+    fun EpitKotlinxScope.collectionsImmutable(
         collectionsImmutableVersion: String,
         block: EpitKotlinxImmutableCollectionsScope.() -> Unit
     ) {
         block(EpitKotlinxImmutableCollectionsScope(collectionsImmutableVersion))
     }
 
-    fun datetime(datetimeVersion: String, block: EpitKotlinxDatetimeScope.() -> Unit) {
+    fun EpitKotlinxScope.datetime(datetimeVersion: String, block: EpitKotlinxDatetimeScope.() -> Unit) {
         block(EpitKotlinxDatetimeScope(datetimeVersion))
     }
 
-    fun serialization(serializationVersion: String, block: EpitKotlinxSerializationScope.() -> Unit) {
+    fun EpitKotlinxScope.serialization(serializationVersion: String, block: EpitKotlinxSerializationScope.() -> Unit) {
         block(EpitKotlinxSerializationScope(serializationVersion))
     }
 
