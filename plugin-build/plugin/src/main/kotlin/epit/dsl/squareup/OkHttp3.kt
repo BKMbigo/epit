@@ -1,6 +1,7 @@
 package epit.dsl.squareup
 
 import epit.EpitDependency
+import epit.annotations.EpitInvalidApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 enum class OkHttp3(
@@ -53,5 +54,10 @@ class EpitSquareOkHttp3BOMScope(
 
     fun DependencyHandlerScope.implementation(okHttp3: OkHttp3) {
         add("implementation", okHttp3.moduleName)
+    }
+
+    @EpitInvalidApi
+    fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
+        throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")
     }
 }

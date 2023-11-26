@@ -1,6 +1,7 @@
 package epit.dsl.squareup
 
 import epit.EpitDependency
+import epit.annotations.EpitInvalidApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 enum class Retrofit2(
@@ -39,5 +40,10 @@ class EpitSquareRetrofit2Scope(
 
     fun DependencyHandlerScope.implementation(retrofit2: Retrofit2) {
         add("implementation", retrofit2.dependency)
+    }
+
+    @EpitInvalidApi
+    fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
+        throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")
     }
 }

@@ -1,7 +1,10 @@
 package epit.dsl
 
+import epit.EpitDependency
+import epit.annotations.EpitInvalidApi
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.androidx.*
+import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 object EpitAndroidxScope {
 
@@ -106,4 +109,8 @@ object EpitAndroidxScope {
         block(EpitAndroidXTestEspressoScope(espressoVersion))
     }
 
+    @EpitInvalidApi
+    fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
+        throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")
+    }
 }

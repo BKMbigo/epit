@@ -1,6 +1,9 @@
 package epit.dsl
 
+import epit.EpitDependency
+import epit.annotations.EpitInvalidApi
 import epit.dsl.kotlinx.*
+import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 object EpitKotlinxScope {
 
@@ -27,4 +30,8 @@ object EpitKotlinxScope {
         block(EpitKotlinxSerializationScope(serializationVersion))
     }
 
+    @EpitInvalidApi
+    fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
+        throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")
+    }
 }

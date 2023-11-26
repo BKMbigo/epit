@@ -1,5 +1,7 @@
 package epit.dsl.kotlinx
 
+import epit.EpitDependency
+import epit.annotations.EpitInvalidApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 enum class Coroutines(
@@ -30,5 +32,10 @@ class EpitKotlinxCoroutinesScope internal constructor(
 
     fun DependencyHandlerScope.implementation(coroutines: Coroutines) {
         add("implementation", coroutines.dependency)
+    }
+
+    @EpitInvalidApi
+    fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
+        throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")
     }
 }

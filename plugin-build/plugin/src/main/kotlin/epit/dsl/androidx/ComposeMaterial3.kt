@@ -1,5 +1,7 @@
 package epit.dsl.androidx
 
+import epit.EpitDependency
+import epit.annotations.EpitInvalidApi
 import epit.dsl.compose.Compose
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -14,5 +16,10 @@ class EpitAndroidXComposeMaterial3Scope(
 
     fun DependencyHandlerScope.implementation(composeMaterial3: Compose.ComposeMaterial3) {
         add("implementation", composeMaterial3.dependency)
+    }
+
+    @EpitInvalidApi
+    fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
+        throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")
     }
 }

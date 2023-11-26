@@ -1,5 +1,7 @@
 package epit.dsl.kotlinx
 
+import epit.EpitDependency
+import epit.annotations.EpitInvalidApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 enum class Serialization(
@@ -19,5 +21,10 @@ class EpitKotlinxSerializationScope internal constructor(
 
     fun DependencyHandlerScope.implementation(serialization: Serialization) {
         add("implementation", serialization.dependency)
+    }
+
+    @EpitInvalidApi
+    fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
+        throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")
     }
 }

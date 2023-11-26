@@ -1,5 +1,7 @@
 package epit.dsl.androidx
 
+import epit.EpitDependency
+import epit.annotations.EpitInvalidApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 enum class Appcompat(
@@ -19,5 +21,10 @@ class EpitAndroidXAppCompatScope(
 
     fun DependencyHandlerScope.implementation(appcompat: Appcompat) {
         add("implementation", appcompat.dependency)
+    }
+
+    @EpitInvalidApi
+    fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
+        throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")
     }
 }

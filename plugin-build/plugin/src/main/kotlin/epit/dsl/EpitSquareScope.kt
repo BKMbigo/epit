@@ -1,5 +1,7 @@
 package epit.dsl
 
+import epit.EpitDependency
+import epit.annotations.EpitInvalidApi
 import epit.dsl.squareup.EpitSquareLeakCanaryScope
 import epit.dsl.squareup.EpitSquareOkHttp3BOMScope
 import epit.dsl.squareup.EpitSquarePicassoScope
@@ -30,4 +32,8 @@ class EpitSquareScope(
         block(EpitSquareRetrofit2Scope(retrofit2Version))
     }
 
+    @EpitInvalidApi
+    fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
+        throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")
+    }
 }

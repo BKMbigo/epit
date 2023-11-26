@@ -1,5 +1,7 @@
 package epit.dsl.androidx
 
+import epit.EpitDependency
+import epit.annotations.EpitInvalidApi
 import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -47,5 +49,10 @@ class EpitAndroidXRoomScope(
     @ExperimentalEpitApi
     fun DependencyHandlerScope.ksp(room: Room = Room.room_compiler) {
         add("ksp", room.dependency)
+    }
+
+    @EpitInvalidApi
+    fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
+        throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")
     }
 }
