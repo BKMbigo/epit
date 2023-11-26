@@ -2,7 +2,6 @@ package dsl
 
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.epitDependencies
-import epit.dsl.kotlinx
 import epit.dsl.kotlinx.*
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.dependencies

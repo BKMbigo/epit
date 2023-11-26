@@ -2,7 +2,6 @@ package dsl
 
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.epitDependencies
-import epit.dsl.koin
 import epit.dsl.koin.Koin
 import org.gradle.api.artifacts.Dependency
 import org.gradle.kotlin.dsl.DependencyHandlerScope

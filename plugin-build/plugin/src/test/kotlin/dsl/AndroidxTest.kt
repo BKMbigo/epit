@@ -1,7 +1,6 @@
 package dsl
 
 import epit.annotations.ExperimentalEpitApi
-import epit.dsl.androidx
 import epit.dsl.androidx.*
 import epit.dsl.compose.Compose
 import epit.dsl.epitDependencies

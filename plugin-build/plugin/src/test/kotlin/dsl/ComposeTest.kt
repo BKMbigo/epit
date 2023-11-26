@@ -1,7 +1,6 @@
 package dsl
 
 import epit.annotations.ExperimentalEpitApi
-import epit.dsl.compose
 import epit.dsl.compose.Compose
 import epit.dsl.epitDependencies
 import org.gradle.api.artifacts.Dependency

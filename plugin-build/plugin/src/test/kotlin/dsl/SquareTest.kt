@@ -2,7 +2,6 @@ package dsl
 
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.epitDependencies
-import epit.dsl.squareup
 import epit.dsl.squareup.LeakCanary
 import epit.dsl.squareup.OkHttp3
 import epit.dsl.squareup.Picasso
