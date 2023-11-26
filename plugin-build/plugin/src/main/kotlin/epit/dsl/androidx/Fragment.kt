@@ -4,7 +4,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 enum class Fragment(
     internal val moduleName: String
-) : AndroidXDependencies {
+) : AndroidXDependency {
     fragment(moduleName = "androidx.fragment:fragment"),
     fragment_ktx(moduleName = "androidx.fragment:fragment-ktx"),
     fragment_testing(moduleName = "androidx.fragment:fragment-testing"),
@@ -16,6 +16,8 @@ class EpitAndroidXFragmentScope(
 ) {
     val Fragment.dependency
         get(): String = "${this.moduleName}:${androidXFragmentVersion}"
+
+    fun Fragment.dependency(version: String) = "${this.moduleName}:${version}"
 
     fun DependencyHandlerScope.implementation(fragment: Fragment) {
         add("implementation", fragment.dependency)

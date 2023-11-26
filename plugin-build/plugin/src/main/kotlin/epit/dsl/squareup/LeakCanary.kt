@@ -47,6 +47,8 @@ class EpitSquareLeakCanaryScope(
     val LeakCanary.dependency
         get(): String = "${this.moduleName}:${squareLeakCanaryVersion}"
 
+    fun LeakCanary.dependency(version: String) = "${this.moduleName}:${version}"
+
     fun DependencyHandlerScope.implementation(leakCanary: LeakCanary) {
         add("implementation", leakCanary.dependency)
     }

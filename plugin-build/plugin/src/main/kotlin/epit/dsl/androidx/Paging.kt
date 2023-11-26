@@ -5,7 +5,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 enum class Paging(
     internal val moduleName: String
-) : AndroidXDependencies {
+) : AndroidXDependency {
     paging_common(moduleName = "androidx.paging:paging-common"),
 
     //    paging_common_android(moduleName = "androidx.paging:paging-common-android"),
@@ -42,6 +42,8 @@ class EpitAndroidXPagingScope(
 ) {
     val Paging.dependency
         get(): String = "${this.moduleName}:${androidXPagingVersion}"
+
+    fun Paging.dependency(version: String) = "${this.moduleName}:${version}"
 
     fun DependencyHandlerScope.implementation(paging: Paging) {
         add("implementation", paging.dependency)

@@ -4,7 +4,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 enum class Core(
     internal val moduleName: String
-): AndroidXDependencies {
+) : AndroidXDependency {
     core(moduleName = "androidx.core:core"),
 
     //    core_animation(moduleName = "androidx.core:core-animation")
@@ -29,6 +29,8 @@ class EpitAndroidXCoreScope(
 ) {
     val Core.dependency
         get(): String = "${this.moduleName}:${androidXCoreVersion}"
+
+    fun Core.dependency(version: String) = "${this.moduleName}:${version}"
 
     fun DependencyHandlerScope.implementation(core: Core) {
         add("implementation", core.dependency)

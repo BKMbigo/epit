@@ -19,6 +19,8 @@ class EpitSquarePicassoScope(
     val Picasso.dependency
         get(): String = "${this.moduleName}:${squarePicassoVersion}"
 
+    fun Picasso.dependency(version: String) = "${this.moduleName}:${version}"
+
     fun DependencyHandlerScope.implementation(picasso: Picasso) {
         add("implementation", picasso.dependency)
     }

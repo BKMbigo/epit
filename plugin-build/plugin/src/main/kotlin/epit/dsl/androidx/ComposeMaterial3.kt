@@ -10,6 +10,8 @@ class EpitAndroidXComposeMaterial3Scope(
     val Compose.ComposeMaterial3.dependency
         get(): String = "${this.moduleName}:${androidXComposeMaterial3Version}"
 
+    fun Compose.ComposeMaterial3.dependency(version: String) = "${this.moduleName}:${version}"
+
     fun DependencyHandlerScope.implementation(composeMaterial3: Compose.ComposeMaterial3) {
         add("implementation", composeMaterial3.dependency)
     }

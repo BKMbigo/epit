@@ -4,7 +4,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 enum class TestRules(
     internal val moduleName: String
-) : AndroidXDependencies {
+) : AndroidXDependency {
     rules(moduleName = "androidx.test:rules")
 }
 
@@ -13,6 +13,8 @@ class EpitAndroidXTestRulesScope(
 ) {
     val TestRules.dependency
         get(): String = "${this.moduleName}:${androidXTestRulesVersion}"
+
+    fun TestRules.dependency(version: String) = "${this.moduleName}:${version}"
 
     fun DependencyHandlerScope.implementation(testRules: TestRules) {
         add("implementation", testRules.dependency)

@@ -4,7 +4,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 enum class Lifecycle(
     internal val moduleName: String
-) : AndroidXDependencies {
+) : AndroidXDependency {
     lifecycle_common("androidx.lifecycle:lifecycle-common"),
     lifecycle_common_java8("androidx.lifecycle:lifecycle-common-java8"),
     lifecycle_compiler("androidx.lifecycle:lifecycle-compiler"),
@@ -34,6 +34,8 @@ class EpitAndroidXLifecycleScope(
 ) {
     val Lifecycle.dependency
         get(): String = "${this.moduleName}:${androidXLifecycleVersion}"
+
+    fun Lifecycle.dependency(version: String) = "${this.moduleName}:${version}"
 
     fun DependencyHandlerScope.implementation(lifecycle: Lifecycle) {
         add("implementation", lifecycle.dependency)

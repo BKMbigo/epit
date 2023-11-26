@@ -14,6 +14,8 @@ class EpitKotlinxImmutableCollectionsScope internal constructor(
     val CollectionsImmutable.dependency
         get(): String = "${this.moduleName}:${kotinxCollectionsImmutableVersion}"
 
+    fun CollectionsImmutable.dependency(version: String) = "${this.moduleName}:${version}"
+
     fun DependencyHandlerScope.implementation(collectionsImmutable: CollectionsImmutable) {
         add("implementation", collectionsImmutable.dependency)
     }

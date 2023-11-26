@@ -4,6 +4,7 @@ import epit.annotations.ExperimentalEpitApi
 import epit.dsl.epitDependencies
 import epit.dsl.kotlinx
 import epit.dsl.kotlinx.*
+import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.testfixtures.ProjectBuilder
 import org.junit.jupiter.api.Test
@@ -16,26 +17,46 @@ class KotlinxTest {
     fun `androidx block adds dependencies`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
-        val conf = project.configurations.create("implementation")
 
+        val config = project.configurations.create("implementation")
+        val customConfig = project.configurations.create("customImplementation")
+        val customVersionConfig = project.configurations.create("customVersionImplementation")
+
+        fun DependencyHandlerScope.customImplementation(dependency: String) {
+            add("customImplementation", dependency)
+        }
+
+        fun DependencyHandlerScope.customVersionImplementation(dependency: String) {
+            add("customVersionImplementation", dependency)
+        }
 
         project.dependencies {
             epitDependencies {
                 kotlinx {
                     atomicfu("1.0.0") {
                         implementation(AtomicFU.atomicfu)
+                        customImplementation(AtomicFU.atomicfu.dependency)
+                        customVersionImplementation(AtomicFU.atomicfu.dependency("1.1.1"))
                     }
                     collectionsImmutable("1.0.0") {
                         implementation(CollectionsImmutable.collections_immutable)
+                        customImplementation(CollectionsImmutable.collections_immutable.dependency)
+                        customVersionImplementation(CollectionsImmutable.collections_immutable.dependency("1.1.1"))
                     }
                     coroutines("1.0.0") {
                         implementation(Coroutines.coroutines_core)
+                        customImplementation(Coroutines.coroutines_core.dependency)
+                        customVersionImplementation(Coroutines.coroutines_core.dependency("1.1.1"))
                     }
                     datetime("1.0.0") {
                         implementation(Datetime.datetime)
+                        customImplementation(Datetime.datetime.dependency)
+                        customVersionImplementation(Datetime.datetime.dependency("1.1.1"))
                     }
                     serialization("1.0.0") {
                         implementation(Serialization.serialization_core)
+                        customImplementation(Serialization.serialization_core.dependency)
+                        customVersionImplementation(Serialization.serialization_core.dependency("1.1.1"))
                     }
                 }
             }
@@ -49,6 +70,22 @@ class KotlinxTest {
             Serialization.serialization_core.moduleName
         )
 
-        assertContentEquals(expectedDependencies, conf.dependencies.map { "${it.group}:${it.name}" })
+        assertContentEquals(
+            expectedDependencies,
+            config.dependencies.map { "${it.group}:${it.name}" },
+            "kotlinx dependencies using implementation() differ"
+        )
+
+        assertContentEquals(
+            expectedDependencies,
+            customConfig.dependencies.map { "${it.group}:${it.name}" },
+            "koltinx dependencies using implementation(dependency.dependency) differ"
+        )
+
+        assertContentEquals(
+            expectedDependencies,
+            customVersionConfig.dependencies.map { "${it.group}:${it.name}" },
+            "kotlinx dependencies using implementation(dependency.dependency('version') differ"
+        )
     }
 }

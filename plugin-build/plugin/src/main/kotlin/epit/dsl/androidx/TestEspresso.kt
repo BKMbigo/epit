@@ -4,7 +4,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 enum class TestEspresso(
     internal val moduleName: String
-) : AndroidXDependencies {
+) : AndroidXDependency {
     espresso_accessibility(moduleName = "androidx.test.espresso:espresso-accessibility"),
     espresso_contrib(moduleName = "androidx.test.espresso:espresso-contrib"),
     espresso_core(moduleName = "androidx.test.espresso:espresso-core"),
@@ -21,6 +21,8 @@ class EpitAndroidXTestEspressoScope(
 ) {
     val TestEspresso.dependency
         get(): String = "${this.moduleName}:${androidXTestEspressoVersion}"
+
+    fun TestEspresso.dependency(version: String) = "${this.moduleName}:${version}"
 
     fun DependencyHandlerScope.implementation(testEspresso: TestEspresso) {
         add("implementation", testEspresso.dependency)

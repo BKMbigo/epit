@@ -26,6 +26,8 @@ class EpitKotlinxCoroutinesScope internal constructor(
     val Coroutines.dependency
         get(): String = "${this.moduleName}:${kotlinxCoroutinesVersion}"
 
+    fun Coroutines.dependency(version: String) = "${this.moduleName}:${version}"
+
     fun DependencyHandlerScope.implementation(coroutines: Coroutines) {
         add("implementation", coroutines.dependency)
     }

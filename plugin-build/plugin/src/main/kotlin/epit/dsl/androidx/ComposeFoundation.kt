@@ -10,6 +10,8 @@ class EpitAndroidXComposeFoundationScope(
     val Compose.ComposeFoundation.dependency
         get(): String = "${this.moduleName}:${androidXComposeFoundationVersion}"
 
+    fun Compose.ComposeFoundation.dependency(version: String) = "${this.moduleName}:${version}"
+
     fun DependencyHandlerScope.implementation(composeFoundation: Compose.ComposeFoundation) {
         add("implementation", composeFoundation.dependency)
     }

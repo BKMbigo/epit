@@ -15,6 +15,8 @@ class EpitKotlinxSerializationScope internal constructor(
     val Serialization.dependency
         get(): String = "${this.moduleName}:${kotinxSerializationVersion}"
 
+    fun Serialization.dependency(version: String) = "${this.moduleName}:${version}"
+
     fun DependencyHandlerScope.implementation(serialization: Serialization) {
         add("implementation", serialization.dependency)
     }

@@ -14,6 +14,8 @@ class EpitKotlinxAtomicFUScope internal constructor(
     val AtomicFU.dependency
         get(): String = "${this.moduleName}:${kotinxAtomicfuVersion}"
 
+    fun AtomicFU.dependency(version: String) = "${this.moduleName}:${version}"
+
     fun DependencyHandlerScope.implementation(atomicFU: AtomicFU) {
         add("implementation", atomicFU.dependency)
     }

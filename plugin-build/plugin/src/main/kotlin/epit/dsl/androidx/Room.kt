@@ -5,7 +5,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 enum class Room(
     internal val moduleName: String
-) : AndroidXDependencies {
+) : AndroidXDependency {
     androidx_room_gradle_plugin(moduleName = "androidx.room:androidx.room.gradle.plugin"),
     room_common(moduleName = "androidx.room:room-common"),
     room_compiler(moduleName = "androidx.room:room-compiler"),
@@ -32,6 +32,8 @@ class EpitAndroidXRoomScope(
 ) {
     val Room.dependency
         get(): String = "${this.moduleName}:${androidXRoomVersion}"
+
+    fun Room.dependency(version: String) = "${this.moduleName}:${version}"
 
     fun DependencyHandlerScope.implementation(room: Room) {
         add("implementation", room.dependency)

@@ -10,6 +10,8 @@ class EpitAndroidXComposeRuntimeScope(
     val Compose.ComposeRuntime.dependency
         get(): String = "${this.moduleName}:${androidXComposeRuntimeVersion}"
 
+    fun Compose.ComposeRuntime.dependency(version: String) = "${this.moduleName}:${version}"
+
     fun DependencyHandlerScope.implementation(composeRuntime: Compose.ComposeRuntime) {
         add("implementation", composeRuntime.dependency)
     }

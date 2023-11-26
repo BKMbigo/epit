@@ -11,6 +11,8 @@ class EpitAndroidXComposeAnimationScope(
     val Compose.ComposeAnimation.dependency
         get(): String = "${this.moduleName}:${androidXComposeAnimationVersion}"
 
+    fun Compose.ComposeAnimation.dependency(version: String) = "${this.moduleName}:${version}"
+
     fun DependencyHandlerScope.implementation(composeAnimation: Compose.ComposeAnimation) {
         add("implementation", composeAnimation.dependency)
     }

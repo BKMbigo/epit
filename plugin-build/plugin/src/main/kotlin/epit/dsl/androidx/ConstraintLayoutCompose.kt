@@ -4,7 +4,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 enum class ConstraintLayoutCompose(
     internal val moduleName: String
-) : AndroidXDependencies {
+) : AndroidXDependency {
     //    constraintlayout(moduleName = "androidx.constraintlayout:constraintlayout"),
     constraintlayout_compose(moduleName = "androidx.constraintlayout:constraintlayout-compose"),
     constraintlayout_compose_android(moduleName = "androidx.constraintlayout:constraintlayout-compose-android"),
@@ -17,6 +17,8 @@ class EpitAndroidXConstraintLayoutComposeScope(
 ) {
     val ConstraintLayoutCompose.dependency
         get(): String = "${this.moduleName}:${androidXConstraintLayoutComposeVersion}"
+
+    fun ConstraintLayoutCompose.dependency(version: String) = "${this.moduleName}:${version}"
 
     fun DependencyHandlerScope.implementation(constraintLayoutCompose: ConstraintLayoutCompose) {
         add("implementation", constraintLayoutCompose.dependency)

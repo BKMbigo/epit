@@ -10,6 +10,8 @@ class EpitAndroidXComposeUIScope(
     val Compose.ComposeUI.dependency
         get(): String = "${this.moduleName}:${androidXComposeUIVersion}"
 
+    fun Compose.ComposeUI.dependency(version: String) = "${this.moduleName}:${version}"
+
     fun DependencyHandlerScope.implementation(composeUI: Compose.ComposeUI) {
         add("implementation", composeUI.dependency)
     }

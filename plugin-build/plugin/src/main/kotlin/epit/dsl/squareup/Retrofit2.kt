@@ -35,6 +35,8 @@ class EpitSquareRetrofit2Scope(
     val Retrofit2.dependency
         get(): String = "${this.moduleName}:${squareRetrofit2Version}"
 
+    fun Retrofit2.dependency(version: String) = "${this.moduleName}:${version}"
+
     fun DependencyHandlerScope.implementation(retrofit2: Retrofit2) {
         add("implementation", retrofit2.dependency)
     }

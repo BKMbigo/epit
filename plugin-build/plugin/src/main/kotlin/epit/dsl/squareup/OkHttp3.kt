@@ -44,8 +44,12 @@ class EpitSquareOkHttp3BOMScope(
 
     val bom = "${OkHttp3.okhttp_bom.moduleName}:${squareOkHttp3BOMVersion}"
 
+    fun bom(customVersion: String) = "${OkHttp3.okhttp_bom.moduleName}:${customVersion}"
+
     val OkHttp3.dependency
         get(): String = "${this.moduleName}:${squareOkHttp3BOMVersion}"
+
+    fun OkHttp3.dependency(version: String) = "${this.moduleName}:${version}"
 
     fun DependencyHandlerScope.implementation(okHttp3: OkHttp3) {
         add("implementation", okHttp3.moduleName)

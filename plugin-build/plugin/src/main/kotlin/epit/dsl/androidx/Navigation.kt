@@ -4,7 +4,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 enum class Navigation(
     internal val moduleName: String
-) : AndroidXDependencies {
+) : AndroidXDependency {
     navigation_common(moduleName = "androidx.navigation:navigation-common"),
     navigation_common_ktx(moduleName = "androidx.navigation:navigation-common-ktx"),
     navigation_compose(moduleName = "androidx.navigation:navigation-compose"),
@@ -26,6 +26,8 @@ class EpitAndroidXNavigationScope(
 ) {
     val Navigation.dependency
         get(): String = "${this.moduleName}:${androidXNavigationVersion}"
+
+    fun Navigation.dependency(version: String) = "${this.moduleName}:${version}"
 
     fun DependencyHandlerScope.implementation(navigation: Navigation) {
         add("implementation", navigation.dependency)

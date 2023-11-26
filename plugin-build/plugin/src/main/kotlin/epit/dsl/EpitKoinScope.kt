@@ -9,8 +9,12 @@ class EpitKoinScope(
 
     val bom = "${Koin.koin_bom.moduleName}:${koinBOMVersion}"
 
+    fun bom(customVersion: String) = "${Koin.koin_bom.moduleName}:${customVersion}"
+
     val Koin.dependency
         get() = this.moduleName
+
+    fun Koin.dependency(version: String) = "${this.moduleName}:${version}"
 
     fun DependencyHandlerScope.implementation(koin: Koin) {
         add("implementation", koin.moduleName)

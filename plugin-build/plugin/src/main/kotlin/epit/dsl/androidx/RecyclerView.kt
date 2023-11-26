@@ -4,7 +4,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 enum class RecyclerView(
     internal val moduleName: String
-) : AndroidXDependencies {
+) : AndroidXDependency {
     recyclerview(moduleName = "androidx.recyclerview:recyclerview"),
 //    recyclerview_selection("androidx.recyclerview:recyclerview-selection")
 }
@@ -14,6 +14,8 @@ class EpitAndroidXRecyclerViewScope(
 ) {
     val RecyclerView.dependency
         get(): String = "${this.moduleName}:${androidXRecyclerViewVersion}"
+
+    fun RecyclerView.dependency(version: String) = "${this.moduleName}:${version}"
 
     fun DependencyHandlerScope.implementation(recyclerView: RecyclerView) {
         add("implementation", recyclerView.dependency)

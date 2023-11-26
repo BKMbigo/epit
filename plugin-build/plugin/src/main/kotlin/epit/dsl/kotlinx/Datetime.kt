@@ -16,6 +16,8 @@ class EpitKotlinxDatetimeScope internal constructor(
     val Datetime.dependency
         get(): String = "${this.moduleName}:${kotinxDatetimeVersion}"
 
+    fun Datetime.dependency(version: String) = "${this.moduleName}:${version}"
+
     fun DependencyHandlerScope.implementation(datetime: Datetime) {
         add("implementation", datetime.dependency)
     }

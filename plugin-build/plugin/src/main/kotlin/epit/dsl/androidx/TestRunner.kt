@@ -4,7 +4,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 enum class TestRunner(
     internal val moduleName: String
-) : AndroidXDependencies {
+) : AndroidXDependency {
     runner("androidx.test:runner")
 }
 
@@ -13,6 +13,8 @@ class EpitAndroidXTestRunnerScope(
 ) {
     val TestRunner.dependency
         get(): String = "${this.moduleName}:${androidXTestCoreVersion}"
+
+    fun TestRunner.dependency(version: String) = "${this.moduleName}:${version}"
 
     fun DependencyHandlerScope.implementation(testRunner: TestRunner) {
         add("implementation", testRunner.dependency)

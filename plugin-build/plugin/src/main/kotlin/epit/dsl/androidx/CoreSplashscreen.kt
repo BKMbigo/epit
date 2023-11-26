@@ -4,7 +4,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 enum class CoreSplashscreen(
     internal val moduleName: String
-) : AndroidXDependencies {
+) : AndroidXDependency {
     //    object core: Core(moduleName = "androidx.core:core")
 //    object core_animation: Core(moduleName = "androidx.core:core-animation")
 //    object core_animation_testing: Core(moduleName = "androidx.core:core-animation-testing")
@@ -27,6 +27,8 @@ class EpitAndroidXCoreSpashscreenScope(
 ) {
     val CoreSplashscreen.dependency
         get(): String = "${this.moduleName}:${androidXCoreVersion}"
+
+    fun CoreSplashscreen.dependency(version: String) = "${this.moduleName}:${version}"
 
     fun DependencyHandlerScope.implementation(coreSplashscreen: CoreSplashscreen) {
         add("implementation", coreSplashscreen.dependency)
