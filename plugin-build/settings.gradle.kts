@@ -20,4 +20,4 @@ dependencyResolutionManagement {
 
 
 
-include(":plugin")
+include(":epit")
