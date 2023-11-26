@@ -40,7 +40,10 @@ fun EpitDependenciesScope.koin(bomVersion: String, block: EpitKoinScope.() -> Un
     block(koinScope)
 }
 
-
 fun EpitDependenciesScope.kotlinx(block: EpitKotlinxScope.() -> Unit) {
     block(EpitKotlinxScope)
+}
+
+fun EpitDependenciesScope.squareup(block: EpitSquareScope.() -> Unit) {
+    block(EpitSquareScope(dependencyHandlerScope))
 }

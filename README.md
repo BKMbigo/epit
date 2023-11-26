@@ -72,6 +72,10 @@ dependencies {
   - collections-immutable
   - datetime
   - serialization
+- squareup
+  - leakcanary
+  - picasso
+  - retrofit2
+  - okhttp3
 - firebase
 - koin
-

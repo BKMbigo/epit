@@ -5,6 +5,10 @@ import epit.dsl.compose.Compose
 import epit.dsl.firebase.Firebase
 import epit.dsl.koin.Koin
 import epit.dsl.kotlinx.*
+import epit.dsl.squareup.LeakCanary
+import epit.dsl.squareup.OkHttp3
+import epit.dsl.squareup.Picasso
+import epit.dsl.squareup.Retrofit2
 
 
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
@@ -86,82 +90,24 @@ android {
                     implementation(Fragment.fragment_testing_manifest)
                 }
                 lifecycle(libs.versions.androidx.lifecycle.core.get()) {
-                    implementation(Lifecycle.lifecycle_common)
-                    implementation(Lifecycle.lifecycle_common_java8)
-                    implementation(Lifecycle.lifecycle_compiler)
-                    implementation(Lifecycle.lifecycle_process)
-                    implementation(Lifecycle.lifecycle_service)
-                    implementation(Lifecycle.lifecycle_livedata)
-                    implementation(Lifecycle.lifecycle_livedata_ktx)
-                    implementation(Lifecycle.lifecycle_livedata_core)
-                    implementation(Lifecycle.lifecycle_livedata_core_ktx)
-                    implementation(Lifecycle.lifecycle_reactivestreams)
-                    implementation(Lifecycle.lifecycle_reactivestreams_ktx)
-                    implementation(Lifecycle.lifecycle_runtime)
-                    implementation(Lifecycle.lifecycle_runtime_ktx)
-                    implementation(Lifecycle.lifecycle_runtime_compose)
-                    implementation(Lifecycle.lifecycle_runtime_testing)
-                    implementation(Lifecycle.lifecycle_viewmodel)
-                    implementation(Lifecycle.lifecycle_viewmodel_compose)
-                    implementation(Lifecycle.lifecycle_viewmodel_ktx)
-                    implementation(Lifecycle.lifecycle_viewmodel_savedstate)
+                    Lifecycle.values().forEach {
+                        implementation(it)
+                    }
                 }
                 navigation(libs.versions.androidx.navigation.get()) {
-                    implementation(Navigation.navigation_compose)
-                    implementation(Navigation.navigation_common)
-                    implementation(Navigation.navigation_common_ktx)
-                    implementation(Navigation.navigation_runtime)
-                    implementation(Navigation.navigation_fragment)
-                    implementation(Navigation.navigation_fragment_ktx)
-                    implementation(Navigation.navigation_runtime_ui)
-                    implementation(Navigation.navigation_runtime_ui_ktx)
-                    implementation(Navigation.navigation_dynamic_features_fragment)
-                    implementation(Navigation.navigation_dynamic_features_runtime)
-                    implementation(Navigation.navigation_runtime_safe_args_generator)
-                    implementation(Navigation.navigation_runtime_testing)
+                    Navigation.values().forEach {
+                        implementation(it)
+                    }
                 }
                 paging(libs.versions.androidx.paging.get()) {
-                    implementation(Paging.paging_common)
-//                    implementation(Paging.paging_common_jvm)
-                    implementation(Paging.paging_common_ktx)
-//                    implementation(Paging.paging_common_android)
-//                    implementation(Paging.paging_common_iosx64)
-//                    implementation(Paging.paging_common_iosarm64)
-//                    implementation(Paging.paging_common_iossimulatorarm64)
-//                    implementation(Paging.paging_common_linuxx64)
-//                    implementation(Paging.paging_common_macosarm64)
-//                    implementation(Paging.paging_common_macosx64)
-                    implementation(Paging.paging_compose)
-                    implementation(Paging.paging_compose_android)
-                    implementation(Paging.paging_guava)
-                    implementation(Paging.paging_runtime)
-                    implementation(Paging.paging_runtime_ktx)
-                    implementation(Paging.paging_rxjava2)
-                    implementation(Paging.paging_rxjava2_ktx)
-                    implementation(Paging.paging_rxjava3)
-                    implementation(Paging.paging_testing)
-//                    implementation(Paging.paging_testing_android)
-//                    implementation(Paging.paging_testing_jvm)
-//                    implementation(Paging.paging_testing_iosx64)
-//                    implementation(Paging.paging_testing_iosarm64)
-//                    implementation(Paging.paging_testing_iossimulatorarm64)
-//                    implementation(Paging.paging_testing_linuxx64)
-//                    implementation(Paging.paging_testing_macosarm64)
-//                    implementation(Paging.paging_testing_macosx64)
+                    Paging.values().forEach {
+                        implementation(it)
+                    }
                 }
                 room(libs.versions.androidx.room.get()) {
-                    implementation(Room.room_ktx)
-                    implementation(Room.room_testing)
-                    implementation(Room.room_guava)
-                    implementation(Room.room_paging)
-                    implementation(Room.room_common)
-                    implementation(Room.room_compiler)
-                    implementation(Room.room_runtime)
-                    implementation(Room.room_rxjava2)
-                    implementation(Room.room_rxjava3)
-                    implementation(Room.room_paging_guava)
-                    implementation(Room.room_paging_rxjava2)
-                    implementation(Room.room_paging_rxjava3)
+                    Room.values().forEach {
+                        implementation(it)
+                    }
                 }
                 test {
                     testCore(libs.versions.androidx.test.core.get()) {
@@ -196,17 +142,9 @@ android {
 
 
             firebase(libs.versions.firebase.bom.get()) {
-                implementation(Firebase.firebase_firestore_ktx)
-                implementation(Firebase.firebase_database_ktx)
-                implementation(Firebase.firebase_auth_ktx)
-                implementation(Firebase.firebase_analytics)
-                implementation(Firebase.firebase_storage_ktx)
-                implementation(Firebase.firebase_analytics_ktx)
-                implementation(Firebase.firebase_appcheck)
-                implementation(Firebase.firebase_dynamic_links_ktx)
-                implementation(Firebase.firebase_messaging_ktx)
-                implementation(Firebase.firebase_functions_ktx)
-                implementation(Firebase.firebase_config_ktx)
+                Firebase.values().forEach {
+                    implementation(it)
+                }
             }
 
 
@@ -231,19 +169,9 @@ android {
                     implementation(AtomicFU.atomicfu)
                 }
                 coroutines(libs.versions.kotlinx.coroutines.get()) {
-                    implementation(Coroutines.coroutines_core)
-                    implementation(Coroutines.coroutines_debug)
-                    implementation(Coroutines.coroutines_android)
-                    implementation(Coroutines.coroutines_play_services)
-                    implementation(Coroutines.coroutines_test)
-                    implementation(Coroutines.coroutines_javafx)
-                    implementation(Coroutines.coroutines_rx2)
-                    implementation(Coroutines.coroutines_rx3)
-                    implementation(Coroutines.coroutines_guava)
-                    implementation(Coroutines.coroutines_reactive)
-                    implementation(Coroutines.coroutines_jdk9)
-                    implementation(Coroutines.coroutines_slf4j)
-                    implementation(Coroutines.coroutines_swing)
+                    Coroutines.values().forEach {
+                        implementation(it)
+                    }
                 }
                 collectionsImmutable(libs.versions.kotlinx.collections.immutable.get()) {
                     implementation(CollectionsImmutable.collections_immutable)
@@ -254,6 +182,32 @@ android {
                 serialization(libs.versions.kotlinx.serialization.get()) {
                     implementation(Serialization.serialization_core)
                     implementation(Serialization.serialization_json)
+                }
+            }
+
+            squareup {
+                retrofit2(libs.versions.squareup.retrofit2.get()) {
+                    Retrofit2.values().forEach {
+                        implementation(it)
+                    }
+                }
+
+                okhttp3(libs.versions.squareup.okhttp3.bom.get()) {
+                    OkHttp3.values().forEach {
+                        implementation(it)
+                    }
+                }
+
+                picasso(libs.versions.squareup.picasso.get()) {
+                    Picasso.values().forEach {
+                        implementation(it)
+                    }
+                }
+
+                leakcanary(libs.versions.squareup.leakcanary.get()) {
+                    LeakCanary.values().forEach {
+                        implementation(it)
+                    }
                 }
             }
 

@@ -1,6 +1,7 @@
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.*
 import epit.dsl.androidx.Room
+import epit.dsl.squareup.Retrofit2
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.testfixtures.ProjectBuilder
 import org.junit.jupiter.api.Test
@@ -32,6 +33,16 @@ class EpitDependencyBlockTest {
                     compose("2023.10.01") { }
                     koin("3.5.1") { }
                     firebase("32.6.0") { }
+                    kotlinx {
+                        coroutines("1.0.0") {
+
+                        }
+                    }
+                    squareup {
+                        retrofit2("1.0.0") {
+                            implementation(Retrofit2.retrofit)
+                        }
+                    }
                 }
             }
         }

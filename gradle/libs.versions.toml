@@ -46,6 +46,11 @@ kotlinx-datetime = "0.4.1"
 kotlinx-collections-immutable = "0.3.6"
 kotlinx-serialization = "1.6.1"
 
+squareup-retrofit2 = "2.9.0"
+squareup-leakcanary = "2.12"
+squareup-okhttp3-bom = "5.0.0-alpha.11"
+squareup-picasso = "2.8"
+
 [plugins]
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin"}
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
