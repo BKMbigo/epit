@@ -6,25 +6,18 @@ import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
-enum class AtomicFU(
-    internal val moduleName: String
-) : KotlinxDependencies {
-    atomicfu(moduleName = "org.jetbrains.kotlinx:atomicfu")
-}
-
-@ExperimentalEpitApi
 class EpitKotlinxAtomicFUScope internal constructor(
     private val kotinxAtomicfuVersion: String
 ) {
     @ExperimentalEpitApi
-    val AtomicFU.dependency
+    val KotlinX.AtomicFU.dependency
         get(): String = "${this.moduleName}:${kotinxAtomicfuVersion}"
 
     @ExperimentalEpitApi
-    fun AtomicFU.dependency(version: String) = "${this.moduleName}:${version}"
+    fun KotlinX.AtomicFU.dependency(version: String) = "${this.moduleName}:${version}"
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(atomicFU: AtomicFU) {
+    fun DependencyHandlerScope.implementation(atomicFU: KotlinX.AtomicFU) {
         add("implementation", atomicFU.dependency)
     }
 

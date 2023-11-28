@@ -6,29 +6,18 @@ import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
-enum class Picasso(
-    internal val moduleName: String
-) : EpitDependency {
-    picasso(moduleName = "com.squareup.picasso:picasso"),
-
-    //    picasso_sample(moduleName = "com.squareup.picasso:picasso-sample"),
-//    picasso_parent(moduleName = "com.squareup.picasso:picasso-parent"),
-    picasso_pollexor(moduleName = "com.squareup.picasso:picasso-pollexor")
-}
-
-@ExperimentalEpitApi
 class EpitSquarePicassoScope(
     private val squarePicassoVersion: String
 ) {
     @ExperimentalEpitApi
-    val Picasso.dependency
+    val SquareUp.Picasso.dependency
         get(): String = "${this.moduleName}:${squarePicassoVersion}"
 
     @ExperimentalEpitApi
-    fun Picasso.dependency(version: String) = "${this.moduleName}:${version}"
+    fun SquareUp.Picasso.dependency(version: String) = "${this.moduleName}:${version}"
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(picasso: Picasso) {
+    fun DependencyHandlerScope.implementation(picasso: SquareUp.Picasso) {
         add("implementation", picasso.dependency)
     }
 

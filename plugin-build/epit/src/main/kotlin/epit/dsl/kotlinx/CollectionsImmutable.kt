@@ -6,25 +6,18 @@ import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
-enum class CollectionsImmutable(
-    internal val moduleName: String
-) : KotlinxDependencies {
-    collections_immutable(moduleName = "org.jetbrains.kotlinx:kotlinx-collections-immutable")
-}
-
-@ExperimentalEpitApi
 class EpitKotlinxImmutableCollectionsScope internal constructor(
     private val kotinxCollectionsImmutableVersion: String
 ) {
     @ExperimentalEpitApi
-    val CollectionsImmutable.dependency
+    val KotlinX.CollectionsImmutable.dependency
         get(): String = "${this.moduleName}:${kotinxCollectionsImmutableVersion}"
 
     @ExperimentalEpitApi
-    fun CollectionsImmutable.dependency(version: String) = "${this.moduleName}:${version}"
+    fun KotlinX.CollectionsImmutable.dependency(version: String) = "${this.moduleName}:${version}"
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(collectionsImmutable: CollectionsImmutable) {
+    fun DependencyHandlerScope.implementation(collectionsImmutable: KotlinX.CollectionsImmutable) {
         add("implementation", collectionsImmutable.dependency)
     }
 

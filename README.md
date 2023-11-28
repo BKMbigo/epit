@@ -28,17 +28,17 @@ dependencies {
     androidx {
       core {
         core("1.12.0") {
-          implementation(Core.core)
-          implementation(Core.core_ktx)
+          implementation(AndroidX.Core.core)
+          implementation(AndroidX.Core.core_ktx)
         }
       }
       camera("1.3.0") {
-        implementation(Camera.camera_lifecycle)
-        implementation(Camera.camera_extensions)
-        implementation(Camera.camera_core)
-        implementation(Camera.camera_view)
-        implementation(Camera.camera_camera2)
-        implementation(Camera.camera_video)
+        implementation(AndroidX.Camera.camera_lifecycle)
+        implementation(AndroidX.Camera.camera_extensions)
+        implementation(AndroidX.Camera.camera_core)
+        implementation(AndroidX.Camera.camera_view)
+        implementation(AndroidX.Camera.camera_camera2)
+        implementation(AndroidX.Camera.camera_video)
       }
     }
     compose("2023.10.01") {
@@ -46,7 +46,7 @@ dependencies {
     }
     kotlinx {
       coroutines("1.7.3") {
-        implementation(Coroutines.coroutines_core)
+        implementation(KotlinX.Coroutines.coroutines_core)
       }
     }
   }

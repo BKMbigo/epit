@@ -3,10 +3,11 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     `kotlin-dsl`
     alias(libs.plugins.kotlin)
+    alias(libs.plugins.gradlePluginPublish)
 }
 
 group = "io.github.bkmbigo.epit"
-version = "unspecified"
+version = "0.0.0-beta.2"
 
 repositories {
     mavenCentral()

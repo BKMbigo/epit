@@ -1,7 +1,7 @@
 import epit.annotations.ExperimentalEpitApi
-import epit.dsl.androidx.Room
+import epit.dsl.androidx.AndroidX
 import epit.dsl.epitPreview
-import epit.dsl.squareup.Retrofit2
+import epit.dsl.squareup.SquareUp
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.testfixtures.ProjectBuilder
 import org.junit.jupiter.api.Test
@@ -24,10 +24,10 @@ class EpitDependencyBlockTest {
                 epitPreview {
                     androidx {
                         room("1.0.0") {
-                            implementation(Room.room_runtime)
+                            implementation(AndroidX.Room.room_runtime)
                             kapt()
                             ksp()
-                            add("debugImplementation", Room.room_runtime.dependency)
+                            add("debugImplementation", AndroidX.Room.room_runtime.dependency)
                         }
                     }
                     compose("2023.10.01") { }
@@ -40,7 +40,7 @@ class EpitDependencyBlockTest {
                     }
                     squareup {
                         retrofit2("1.0.0") {
-                            implementation(Retrofit2.retrofit)
+                            implementation(SquareUp.Retrofit2.retrofit)
                         }
                     }
                 }

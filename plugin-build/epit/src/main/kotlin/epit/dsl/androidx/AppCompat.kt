@@ -6,26 +6,18 @@ import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
-enum class Appcompat(
-    internal val moduleName: String
-) : AndroidXDependency {
-    appcompat(moduleName = "androidx.appcompat:appcompat"),
-    appcompat_resources("androidx.appcompat:appcompat-resources")
-}
-
-@ExperimentalEpitApi
 class EpitAndroidXAppCompatScope(
     private val androidXAppcompatVersion: String
 ) {
     @ExperimentalEpitApi
-    val Appcompat.dependency
+    val AndroidX.Appcompat.dependency
         get(): String = "${this.moduleName}:${androidXAppcompatVersion}"
 
     @ExperimentalEpitApi
-    fun Appcompat.dependency(version: String) = "${this.moduleName}:${version}"
+    fun AndroidX.Appcompat.dependency(version: String) = "${this.moduleName}:${version}"
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(appcompat: Appcompat) {
+    fun DependencyHandlerScope.implementation(appcompat: AndroidX.Appcompat) {
         add("implementation", appcompat.dependency)
     }
 

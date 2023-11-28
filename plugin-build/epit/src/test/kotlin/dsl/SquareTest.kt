@@ -2,10 +2,7 @@ package dsl
 
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.epitPreview
-import epit.dsl.squareup.LeakCanary
-import epit.dsl.squareup.OkHttp3
-import epit.dsl.squareup.Picasso
-import epit.dsl.squareup.Retrofit2
+import epit.dsl.squareup.SquareUp
 import org.gradle.api.artifacts.Dependency
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.dependencies
@@ -44,39 +41,39 @@ class SquareTest {
             epitPreview {
                 squareup {
                     leakcanary("1.0.0") {
-                        implementation(LeakCanary.leakcanary_android)
-                        customImplementation(LeakCanary.leakcanary_android.dependency)
-                        customVersionImplementation(LeakCanary.leakcanary_android.dependency("1.1.1"))
+                        implementation(SquareUp.LeakCanary.leakcanary_android)
+                        customImplementation(SquareUp.LeakCanary.leakcanary_android.dependency)
+                        customVersionImplementation(SquareUp.LeakCanary.leakcanary_android.dependency("1.1.1"))
                     }
                     okhttp3("1.0.0") {
-                        implementation(OkHttp3.okhttp)
+                        implementation(SquareUp.OkHttp3.okhttp)
 
                         customImplementation(platform(bom))
-                        customImplementation(OkHttp3.okhttp.dependency)
+                        customImplementation(SquareUp.OkHttp3.okhttp.dependency)
 
                         customVersionImplementation(platform(bom("1.1.1")))
-                        customVersionImplementation(OkHttp3.okhttp.dependency("1.1.1"))
+                        customVersionImplementation(SquareUp.OkHttp3.okhttp.dependency("1.1.1"))
                     }
                     picasso("1.0.0") {
-                        implementation(Picasso.picasso)
-                        customImplementation(Picasso.picasso.dependency)
-                        customVersionImplementation(Picasso.picasso.dependency("1.1.1"))
+                        implementation(SquareUp.Picasso.picasso)
+                        customImplementation(SquareUp.Picasso.picasso.dependency)
+                        customVersionImplementation(SquareUp.Picasso.picasso.dependency("1.1.1"))
                     }
                     retrofit2("1.0.0") {
-                        implementation(Retrofit2.retrofit)
-                        customImplementation(Retrofit2.retrofit.dependency)
-                        customVersionImplementation(Retrofit2.retrofit.dependency("1.1.1"))
+                        implementation(SquareUp.Retrofit2.retrofit)
+                        customImplementation(SquareUp.Retrofit2.retrofit.dependency)
+                        customVersionImplementation(SquareUp.Retrofit2.retrofit.dependency("1.1.1"))
                     }
                 }
             }
         }
 
         val expectedDependencies = listOf(
-            LeakCanary.leakcanary_android.moduleName,
-            OkHttp3.okhttp_bom.moduleName,
-            OkHttp3.okhttp.moduleName,
-            Picasso.picasso.moduleName,
-            Retrofit2.retrofit.moduleName
+            SquareUp.LeakCanary.leakcanary_android.moduleName,
+            SquareUp.OkHttp3.okhttp_bom.moduleName,
+            SquareUp.OkHttp3.okhttp.moduleName,
+            SquareUp.Picasso.picasso.moduleName,
+            SquareUp.Retrofit2.retrofit.moduleName
         )
 
         assertContentEquals(

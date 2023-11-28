@@ -2,7 +2,7 @@ package dsl
 
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.epitPreview
-import epit.dsl.kotlinx.*
+import epit.dsl.kotlinx.KotlinX
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.testfixtures.ProjectBuilder
@@ -33,40 +33,40 @@ class KotlinxTest {
             epitPreview {
                 kotlinx {
                     atomicfu("1.0.0") {
-                        implementation(AtomicFU.atomicfu)
-                        customImplementation(AtomicFU.atomicfu.dependency)
-                        customVersionImplementation(AtomicFU.atomicfu.dependency("1.1.1"))
+                        implementation(KotlinX.AtomicFU.atomicfu)
+                        customImplementation(KotlinX.AtomicFU.atomicfu.dependency)
+                        customVersionImplementation(KotlinX.AtomicFU.atomicfu.dependency("1.1.1"))
                     }
                     collectionsImmutable("1.0.0") {
-                        implementation(CollectionsImmutable.collections_immutable)
-                        customImplementation(CollectionsImmutable.collections_immutable.dependency)
-                        customVersionImplementation(CollectionsImmutable.collections_immutable.dependency("1.1.1"))
+                        implementation(KotlinX.CollectionsImmutable.collections_immutable)
+                        customImplementation(KotlinX.CollectionsImmutable.collections_immutable.dependency)
+                        customVersionImplementation(KotlinX.CollectionsImmutable.collections_immutable.dependency("1.1.1"))
                     }
                     coroutines("1.0.0") {
-                        implementation(Coroutines.coroutines_core)
-                        customImplementation(Coroutines.coroutines_core.dependency)
-                        customVersionImplementation(Coroutines.coroutines_core.dependency("1.1.1"))
+                        implementation(KotlinX.Coroutines.coroutines_core)
+                        customImplementation(KotlinX.Coroutines.coroutines_core.dependency)
+                        customVersionImplementation(KotlinX.Coroutines.coroutines_core.dependency("1.1.1"))
                     }
                     datetime("1.0.0") {
-                        implementation(Datetime.datetime)
-                        customImplementation(Datetime.datetime.dependency)
-                        customVersionImplementation(Datetime.datetime.dependency("1.1.1"))
+                        implementation(KotlinX.Datetime.datetime)
+                        customImplementation(KotlinX.Datetime.datetime.dependency)
+                        customVersionImplementation(KotlinX.Datetime.datetime.dependency("1.1.1"))
                     }
                     serialization("1.0.0") {
-                        implementation(Serialization.serialization_core)
-                        customImplementation(Serialization.serialization_core.dependency)
-                        customVersionImplementation(Serialization.serialization_core.dependency("1.1.1"))
+                        implementation(KotlinX.Serialization.serialization_core)
+                        customImplementation(KotlinX.Serialization.serialization_core.dependency)
+                        customVersionImplementation(KotlinX.Serialization.serialization_core.dependency("1.1.1"))
                     }
                 }
             }
         }
 
         val expectedDependencies = listOf(
-            AtomicFU.atomicfu.moduleName,
-            CollectionsImmutable.collections_immutable.moduleName,
-            Coroutines.coroutines_core.moduleName,
-            Datetime.datetime.moduleName,
-            Serialization.serialization_core.moduleName
+            KotlinX.AtomicFU.atomicfu.moduleName,
+            KotlinX.CollectionsImmutable.collections_immutable.moduleName,
+            KotlinX.Coroutines.coroutines_core.moduleName,
+            KotlinX.Datetime.datetime.moduleName,
+            KotlinX.Serialization.serialization_core.moduleName
         )
 
         assertContentEquals(

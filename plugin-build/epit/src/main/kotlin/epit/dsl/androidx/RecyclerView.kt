@@ -6,26 +6,18 @@ import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
-enum class RecyclerView(
-    internal val moduleName: String
-) : AndroidXDependency {
-    recyclerview(moduleName = "androidx.recyclerview:recyclerview"),
-//    recyclerview_selection("androidx.recyclerview:recyclerview-selection")
-}
-
-@ExperimentalEpitApi
 class EpitAndroidXRecyclerViewScope(
     private val androidXRecyclerViewVersion: String
 ) {
     @ExperimentalEpitApi
-    val RecyclerView.dependency
+    val AndroidX.RecyclerView.dependency
         get(): String = "${this.moduleName}:${androidXRecyclerViewVersion}"
 
     @ExperimentalEpitApi
-    fun RecyclerView.dependency(version: String) = "${this.moduleName}:${version}"
+    fun AndroidX.RecyclerView.dependency(version: String) = "${this.moduleName}:${version}"
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(recyclerView: RecyclerView) {
+    fun DependencyHandlerScope.implementation(recyclerView: AndroidX.RecyclerView) {
         add("implementation", recyclerView.dependency)
     }
 

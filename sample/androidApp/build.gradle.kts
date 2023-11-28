@@ -1,13 +1,10 @@
-import epit.dsl.androidx.*
+import epit.dsl.androidx.AndroidX
 import epit.dsl.compose.Compose
 import epit.dsl.epitPreview
 import epit.dsl.firebase.Firebase
 import epit.dsl.koin.Koin
-import epit.dsl.kotlinx.*
-import epit.dsl.squareup.LeakCanary
-import epit.dsl.squareup.OkHttp3
-import epit.dsl.squareup.Picasso
-import epit.dsl.squareup.Retrofit2
+import epit.dsl.kotlinx.KotlinX
+import epit.dsl.squareup.SquareUp
 
 
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
@@ -46,86 +43,86 @@ android {
         epitPreview {
             androidx {
                 activity(libs.versions.androidx.activity.get()) {
-                    implementation(Activity.activity)
-                    implementation(Activity.activity_compose)
-                    implementation(Activity.activity_ktx)
+                    implementation(AndroidX.Activity.activity)
+                    implementation(AndroidX.Activity.activity_compose)
+                    implementation(AndroidX.Activity.activity_ktx)
                 }
                 appcompat(libs.versions.androidx.appcompat.get()) {
-                    implementation(Appcompat.appcompat)
-                    implementation(Appcompat.appcompat_resources)
+                    implementation(AndroidX.Appcompat.appcompat)
+                    implementation(AndroidX.Appcompat.appcompat_resources)
                 }
                 camera(libs.versions.androidx.camera.get()) {
-                    implementation(Camera.camera_lifecycle)
-                    implementation(Camera.camera_extensions)
-                    implementation(Camera.camera_core)
-                    implementation(Camera.camera_view)
-                    implementation(Camera.camera_camera2)
-                    implementation(Camera.camera_video)
+                    implementation(AndroidX.Camera.camera_lifecycle)
+                    implementation(AndroidX.Camera.camera_extensions)
+                    implementation(AndroidX.Camera.camera_core)
+                    implementation(AndroidX.Camera.camera_view)
+                    implementation(AndroidX.Camera.camera_camera2)
+                    implementation(AndroidX.Camera.camera_video)
                 }
                 constraintLayout {
                     constraintlayout(libs.versions.androidx.constraintlayout.toString()) {
-                        implementation(ConstraintLayout.constraintlayout)
+                        implementation(AndroidX.ConstraintLayout.constraintlayout)
                     }
                     constraintlayoutCompose(libs.versions.androidx.constraintlayout.compose.get()) {
-                        implementation(ConstraintLayoutCompose.constraintlayout_compose)
-                        implementation(ConstraintLayoutCompose.constraintlayout_compose_android)
+                        implementation(AndroidX.ConstraintLayoutCompose.constraintlayout_compose)
+                        implementation(AndroidX.ConstraintLayoutCompose.constraintlayout_compose_android)
                     }
                 }
                 core {
                     core(libs.versions.androidx.core.toString()) {
-                        implementation(Core.core)
-                        implementation(Core.core_ktx)
+                        implementation(AndroidX.Core.core)
+                        implementation(AndroidX.Core.core_ktx)
 //                        androidTestImplementation(Core.core_testing.dependency)
                     }
                     coreSplashscreen(libs.versions.androidx.core.splashscreen.get()) {
-                        implementation(CoreSplashscreen.core_splashscreen)
+                        implementation(AndroidX.CoreSplashscreen.core_splashscreen)
                     }
                 }
                 fragment(libs.versions.androidx.fragment.toString()) {
-                    implementation(Fragment.fragment)
-                    implementation(Fragment.fragment_ktx)
-                    implementation(Fragment.fragment_testing)
-                    implementation(Fragment.fragment_testing_manifest)
+                    implementation(AndroidX.Fragment.fragment)
+                    implementation(AndroidX.Fragment.fragment_ktx)
+                    implementation(AndroidX.Fragment.fragment_testing)
+                    implementation(AndroidX.Fragment.fragment_testing_manifest)
                 }
                 lifecycle(libs.versions.androidx.lifecycle.core.get()) {
-                    Lifecycle.values().forEach {
+                    AndroidX.Lifecycle.values().forEach {
                         implementation(it)
                     }
                 }
                 navigation(libs.versions.androidx.navigation.get()) {
-                    Navigation.values().forEach {
+                    AndroidX.Navigation.values().forEach {
                         implementation(it)
                     }
                 }
                 paging(libs.versions.androidx.paging.get()) {
-                    Paging.values().forEach {
+                    AndroidX.Paging.values().forEach {
                         implementation(it)
                     }
                 }
                 room(libs.versions.androidx.room.get()) {
-                    Room.values().forEach {
+                    AndroidX.Room.values().forEach {
                         implementation(it)
                     }
                 }
                 test {
                     testCore(libs.versions.androidx.test.core.get()) {
-                        testImplementation(TestCore.core.dependency)
+                        testImplementation(AndroidX.TestCore.core.dependency)
                     }
                     testRunner(libs.versions.androidx.test.runner.get()) {
-                        testImplementation(TestRunner.runner.dependency)
+                        testImplementation(AndroidX.TestRunner.runner.dependency)
                     }
                     testRules(libs.versions.androidx.test.rules.get()) {
-                        testImplementation(TestRules.rules.dependency)
+                        testImplementation(AndroidX.TestRules.rules.dependency)
                     }
                 }
                 testEspresso(libs.versions.androidx.test.espresso.get()) {
-                    testImplementation(TestEspresso.espresso_core.dependency)
-                    testImplementation(TestEspresso.espresso_web.dependency)
-                    testImplementation(TestEspresso.espresso_remote.dependency)
-                    testImplementation(TestEspresso.espresso_contrib.dependency)
-                    testImplementation(TestEspresso.espresso_intents.dependency)
-                    testImplementation(TestEspresso.espresso_accessibility.dependency)
-                    testImplementation(TestEspresso.espresso_idling_resource.dependency)
+                    testImplementation(AndroidX.TestEspresso.espresso_core.dependency)
+                    testImplementation(AndroidX.TestEspresso.espresso_web.dependency)
+                    testImplementation(AndroidX.TestEspresso.espresso_remote.dependency)
+                    testImplementation(AndroidX.TestEspresso.espresso_contrib.dependency)
+                    testImplementation(AndroidX.TestEspresso.espresso_intents.dependency)
+                    testImplementation(AndroidX.TestEspresso.espresso_accessibility.dependency)
+                    testImplementation(AndroidX.TestEspresso.espresso_idling_resource.dependency)
                 }
             }
 
@@ -145,7 +142,6 @@ android {
                 }
             }
 
-
             koin(libs.versions.koin.bom.get()) {
                 implementation(Koin.koin_android)
                 implementation(Koin.koin_android_compat)
@@ -164,46 +160,46 @@ android {
 
             kotlinx {
                 atomicfu(libs.versions.kotlinx.atomicfu.get()) {
-                    implementation(AtomicFU.atomicfu)
+                    implementation(KotlinX.AtomicFU.atomicfu)
                 }
                 coroutines(libs.versions.kotlinx.coroutines.get()) {
-                    Coroutines.values().forEach {
+                    KotlinX.Coroutines.values().forEach {
                         implementation(it)
                     }
                 }
                 collectionsImmutable(libs.versions.kotlinx.collections.immutable.get()) {
-                    implementation(CollectionsImmutable.collections_immutable)
+                    implementation(KotlinX.CollectionsImmutable.collections_immutable)
                 }
                 datetime(libs.versions.kotlinx.datetime.get()) {
-                    implementation(Datetime.datetime)
+                    implementation(KotlinX.Datetime.datetime)
                 }
                 serialization(libs.versions.kotlinx.serialization.get()) {
-                    implementation(Serialization.serialization_core)
-                    implementation(Serialization.serialization_json)
+                    implementation(KotlinX.Serialization.serialization_core)
+                    implementation(KotlinX.Serialization.serialization_json)
                 }
             }
 
             squareup {
                 retrofit2(libs.versions.squareup.retrofit2.get()) {
-                    Retrofit2.values().forEach {
+                    SquareUp.Retrofit2.values().forEach {
                         implementation(it)
                     }
                 }
 
                 okhttp3(libs.versions.squareup.okhttp3.bom.get()) {
-                    OkHttp3.values().forEach {
+                    SquareUp.OkHttp3.values().forEach {
                         implementation(it)
                     }
                 }
 
                 picasso(libs.versions.squareup.picasso.get()) {
-                    Picasso.values().forEach {
+                    SquareUp.Picasso.values().forEach {
                         implementation(it)
                     }
                 }
 
                 leakcanary(libs.versions.squareup.leakcanary.get()) {
-                    LeakCanary.values().forEach {
+                    SquareUp.LeakCanary.values().forEach {
                         implementation(it)
                     }
                 }

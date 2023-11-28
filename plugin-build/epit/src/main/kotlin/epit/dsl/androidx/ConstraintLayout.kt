@@ -6,29 +6,18 @@ import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
-enum class ConstraintLayout(
-    internal val moduleName: String
-) : AndroidXDependency {
-    constraintlayout(moduleName = "androidx.constraintlayout:constraintlayout"),
-//    constraintlayout_compose(moduleName = "androidx.constraintlayout:constraintlayout-compose"),
-//    constraintlayout_compose_android(moduleName = "androidx.constraintlayout:constraintlayout-compose-android"),
-//    constraintlayout_core(moduleName = "androidx.constraintlayout:constraintlayout-core"),
-//    constraintlayout_solver(moduleName = "androidx.constraintlayout:constraintlayout-solver")
-}
-
-@ExperimentalEpitApi
 class EpitAndroidXConstraintLayoutScope(
     private val androidXConstraintLayoutVersion: String
 ) {
     @ExperimentalEpitApi
-    val ConstraintLayout.dependency
+    val AndroidX.ConstraintLayout.dependency
         get(): String = "${this.moduleName}:${androidXConstraintLayoutVersion}"
 
     @ExperimentalEpitApi
-    fun ConstraintLayout.dependency(version: String) = "${this.moduleName}:${version}"
+    fun AndroidX.ConstraintLayout.dependency(version: String) = "${this.moduleName}:${version}"
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(constraintLayout: ConstraintLayout) {
+    fun DependencyHandlerScope.implementation(constraintLayout: AndroidX.ConstraintLayout) {
         add("implementation", constraintLayout.dependency)
     }
 

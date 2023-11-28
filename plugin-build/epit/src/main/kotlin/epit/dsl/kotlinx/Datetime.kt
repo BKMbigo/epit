@@ -6,26 +6,19 @@ import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
-enum class Datetime(
-    internal val moduleName: String
-) : KotlinxDependencies {
-    datetime(moduleName = "org.jetbrains.kotlinx:kotlinx-datetime")
-}
-
-@ExperimentalEpitApi
 class EpitKotlinxDatetimeScope internal constructor(
     private val kotinxDatetimeVersion: String
 ) {
 
     @ExperimentalEpitApi
-    val Datetime.dependency
+    val KotlinX.Datetime.dependency
         get(): String = "${this.moduleName}:${kotinxDatetimeVersion}"
 
     @ExperimentalEpitApi
-    fun Datetime.dependency(version: String) = "${this.moduleName}:${version}"
+    fun KotlinX.Datetime.dependency(version: String) = "${this.moduleName}:${version}"
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(datetime: Datetime) {
+    fun DependencyHandlerScope.implementation(datetime: KotlinX.Datetime) {
         add("implementation", datetime.dependency)
     }
 

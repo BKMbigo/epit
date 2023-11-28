@@ -6,25 +6,18 @@ import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
-enum class TestRules(
-    internal val moduleName: String
-) : AndroidXDependency {
-    rules(moduleName = "androidx.test:rules")
-}
-
-@ExperimentalEpitApi
 class EpitAndroidXTestRulesScope(
     private val androidXTestRulesVersion: String
 ) {
     @ExperimentalEpitApi
-    val TestRules.dependency
+    val AndroidX.TestRules.dependency
         get(): String = "${this.moduleName}:${androidXTestRulesVersion}"
 
     @ExperimentalEpitApi
-    fun TestRules.dependency(version: String) = "${this.moduleName}:${version}"
+    fun AndroidX.TestRules.dependency(version: String) = "${this.moduleName}:${version}"
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(testRules: TestRules) {
+    fun DependencyHandlerScope.implementation(testRules: AndroidX.TestRules) {
         add("implementation", testRules.dependency)
     }
 
