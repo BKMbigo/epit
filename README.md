@@ -32,7 +32,7 @@ Go to your project level `build.gradle.kts` and import epit
 
 ```kotlin
 plugins {
-    id("io.github.bkmbigo.epit") version "0.0.0-beta.2" apply false
+    id("io.github.bkmbigo.epit") version "0.0.0-beta.3" apply false
 }
 ```
 
