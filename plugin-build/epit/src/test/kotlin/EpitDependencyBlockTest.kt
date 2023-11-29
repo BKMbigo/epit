@@ -30,7 +30,6 @@ class EpitDependencyBlockTest {
                             add("debugImplementation", AndroidX.Room.room_runtime.dependency)
                         }
                     }
-                    compose("2023.10.01") { }
                     koin("3.5.1") { }
                     firebase("32.6.0") { }
                     kotlinx {

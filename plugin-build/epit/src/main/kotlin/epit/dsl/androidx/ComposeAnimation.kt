@@ -3,7 +3,6 @@ package epit.dsl.androidx
 import epit.EpitDependency
 import epit.annotations.EpitInvalidApi
 import epit.annotations.ExperimentalEpitApi
-import epit.dsl.compose.Compose
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
@@ -12,14 +11,14 @@ class EpitAndroidXComposeAnimationScope(
 ) {
 
     @ExperimentalEpitApi
-    val Compose.ComposeAnimation.dependency
+    val AndroidX.Compose.Animation.dependency
         get(): String = "${this.moduleName}:${androidXComposeAnimationVersion}"
 
     @ExperimentalEpitApi
-    fun Compose.ComposeAnimation.dependency(version: String) = "${this.moduleName}:${version}"
+    fun AndroidX.Compose.Animation.dependency(version: String) = "${this.moduleName}:${version}"
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(composeAnimation: Compose.ComposeAnimation) {
+    fun DependencyHandlerScope.implementation(composeAnimation: AndroidX.Compose.Animation) {
         add("implementation", composeAnimation.dependency)
     }
 

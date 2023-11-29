@@ -3,17 +3,17 @@ epit aims to provide a rich library of kotlin and android dependencies in the lo
 
 ### Table of contents
 - [AndroidX libraries](#androidx-libraries)
-- KotlinX libraries
+- [KotlinX libraries](#kotlinx-libraries)
 - Koin
 - Firebase
 
-#### AndroidX Libraries
+### AndroidX Libraries
 This are android-specific libraries 
 ###### Table of contents
   - [activity](#androidx-activity)
   - [appcompat](#androidx-appcompat)
   - [camera](#androidx-camera)
-  - [composeAnimation](#androidx-camera)
+- [composeAnimation](#androidx-compose-animation)
   - [composeCompiler](#androidx-compose-compiler)
   - [composeFoundation](#androidx-compose-foundation)
   - [composeMaterial](#androidx-compose-material)
@@ -81,18 +81,44 @@ dependencies {
 }
 ```
 
+##### Androidx Compose
+
+For compose, you can either opt to use the bill of materials, or add individual libraries separately.  
+If you choose to use the bom, add the libraries as follows:
+
+```kotlin
+dependencies {
+    epitPreview {
+        androidx {
+            compose(/* Enter the version of compose-bom: "2023.10.01" */) {
+                implementation(AndroidX.Compose.Animation.animation)
+                implementation(AndroidX.Compose.Runtime.Runtime.runtime)
+            }
+        }
+    }
+}
+```
+
+> **Note**  
+> The following libraries are not currently bundled in the bom:
+>   - `androidx.compose.foundation:foundation-text`
+>   - `androidx.compose.material3:material3-adaptive`
+>   - `androidx.compose.material3:material3-adaptive-navigation-suite`
+>   - `androidx.compose.runtime:runtime-tracing`
+
 ##### Androidx Compose Animation
-If you want to use compose bill of materials, please refer to the compose section
+
+If you want to use compose bill of materials, please refer to the compose [section](#androidx-compose)
 
 ```kotlin
 dependencies {
     epitPreview {
         androidx {
             composeAnimation(/* Place the version of compose.animation library you want: "1.5.4" */) {
-                implementation(Compose.ComposeAnimation.animation)
-                implementation(Compose.ComposeAnimation.animation_core)
-                implementation(Compose.ComposeAnimation.animation_graphics)
-                implementation(Compose.ComposeAnimation.animation_tooling_internal)
+                implementation(AndroidX.Compose.Animation.animation)
+                implementation(AndroidX.Compose.Animation.animation_core)
+                implementation(AndroidX.Compose.Animation.animation_graphics)
+                implementation(AndroidX.Compose.Animation.animation_tooling_internal)
             }
         }
     }
@@ -100,16 +126,17 @@ dependencies {
 ```
 
 ##### Androidx Compose Compiler
-If you want to use compose bill of materials, please refer to the compose section
+
+If you want to use compose bill of materials, please refer to the compose [section](#androidx-compose)
 
 ```kotlin
 dependencies {
     epitPreview {
         androidx {
             composeCompiler(/* Place the version of compose.compiler library you want: "1.5.4" */) {
-                implementation(Compose.ComposeCompiler.compiler)
-                implementation(Compose.ComposeCompiler.compiler_daemon)
-                implementation(Compose.ComposeCompiler.compiler_hosted)
+                implementation(AndroidX.Compose.Compiler.compiler)
+                implementation(AndroidX.Compose.Compiler.compiler_daemon)
+                implementation(AndroidX.Compose.Compiler.compiler_hosted)
             }
         }
     }
@@ -117,15 +144,16 @@ dependencies {
 ```
 
 ##### Androidx Compose Foundation
-If you want to use compose bill of materials, please refer to the compose section
+
+If you want to use compose bill of materials, please refer to the compose [section](#androidx-compose)
 
 ```kotlin
 dependencies {
     epitPreview {
         androidx {
             composeFoundation(/* Place the version of compose.foundation library you want: "1.5.4" */) {
-                implementation(Compose.ComposeFoundation.foundation)
-                implementation(Compose.ComposeFoundation.foundation_layout)
+                implementation(AndroidX.Compose.Foundation.Foundation.foundation)
+                implementation(AndroidX.Compose.Foundation.Foundation.foundation_layout)
             }
         }
     }
@@ -140,7 +168,7 @@ dependencies {
 >       epitPreview {
 >           androidx {
 >               composeFoundationText(/* Place the version of compose.foundation_text library you want: "1.0.0-alpha07" */) {
->                   implementation(Compose.ComposeFoundation.foundation_text)
+>                   implementation(AndroidX.Compose.Foundation.FoundationText.foundation_text)
 >               }
 >           }
 >       }
@@ -149,17 +177,18 @@ dependencies {
 > 
 
 ##### Androidx Compose Material
-If you want to use compose bill of materials, please refer to the compose section
+
+If you want to use compose bill of materials, please refer to the compose [section](#androidx-compose)
 
 ```kotlin
 dependencies {
     epitPreview {
         androidx {
             composeMaterial(/* Place the version of compose.material library you want: "1.5.4" */) {
-                implementation(Compose.ComposeMaterial.material)
-                implementation(Compose.ComposeMaterial.material_icons_core)
-                implementation(Compose.ComposeMaterial.material_icons_extended)
-                implementation(Compose.ComposeMaterial.material_ripple)
+                implementation(AndroidX.Compose.Material.material)
+                implementation(AndroidX.Compose.Material.material_icons_core)
+                implementation(AndroidX.Compose.Material.material_icons_extended)
+                implementation(AndroidX.Compose.Material.material_ripple)
             }
         }
     }
@@ -167,15 +196,16 @@ dependencies {
 ```
 
 ##### Androidx Compose Material 3
-If you want to use compose bill of materials, please refer to the compose section
+
+If you want to use compose bill of materials, please refer to the compose [section](#androidx-compose)
 
 ```kotlin
 dependencies {
     epitPreview {
         androidx {
             composeMaterial3(/* Place the version of compose.material3 library you want: "1.1.2" */) {
-                implementation(Compose.ComposeMaterial3.material3)
-                implementation(Compose.ComposeMaterial3.material3_window_size_class)
+                implementation(AndroidX.Compose.Material3.Material3.material3)
+                implementation(AndroidX.Compose.Material3.Material3.material3_window_size_class)
             }
         }
     }
@@ -192,8 +222,8 @@ dependencies {
 >        epitPreview {
 >            androidx {
 >                composeMaterial3Adaptive(/* Place the version of compose.material3 library you want: "1.0.0-alpha01" */) {
->                    implementation(Compose.ComposeMaterial3Adaptive.material3_adaptive)
->                    implementation(Compose.ComposeMaterial3Adaptive.material3_adaptive_navigation_suite)
+>                    implementation(AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive)
+>                    implementation(AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive_navigation_suite)
 >                }
 >            }
 >        }
@@ -201,18 +231,19 @@ dependencies {
 > ```
 
 ##### Androidx Compose Runtime
-If you want to use compose bill of materials, please refer to the compose section
+
+If you want to use compose bill of materials, please refer to the compose [section](#androidx-compose)
 
 ```kotlin
 dependencies {
     epitPreview {
         androidx {
             composeRuntime(/* Place the version of compose.runtime library you want: "1.5.4" */) {
-                implementation(Compose.ComposeRuntime.runtime)
-                implementation(Compose.ComposeRuntime.runtime_livedata)
-                implementation(Compose.ComposeRuntime.runtime_rxjava2)
-                implementation(Compose.ComposeRuntime.runtime_rxjava3)
-                implementation(Compose.ComposeRuntime.runtime_saveable)
+                implementation(AndroidX.Compose.Runtime.Runtime.runtime)
+                implementation(AndroidX.Compose.Runtime.Runtime.runtime_livedata)
+                implementation(AndroidX.Compose.Runtime.Runtime.runtime_rxjava2)
+                implementation(AndroidX.Compose.Runtime.Runtime.runtime_rxjava3)
+                implementation(AndroidX.Compose.Runtime.Runtime.runtime_saveable)
             }
         }
     }
@@ -229,7 +260,7 @@ dependencies {
 >        epitPreview {
 >            androidx {
 >                composeRuntimeTracing(/* Place the version of compose.runtime_tracing library you want: "1.0.0-alpha05" */) {
->                    implementation(Compose.ComposeRuntimeTracing.runtime_tracing)
+>                    implementation(AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing)
 >                }
 >            }
 >        }
@@ -238,28 +269,19 @@ dependencies {
 > 
 
 ##### Androidx Compose UI
-If you want to use compose bill of materials, please refer to the compose section
+
+If you want to use compose bill of materials, please refer to the compose [section](#androidx-compose)
 
 ```kotlin
 dependencies {
     epitPreview {
         androidx {
             composeUI(/* Place the version of compose.ui library you want: "1.5.4" */) {
-                implementation(Compose.ComposeUI.ui)
-                implementation(Compose.ComposeUI.ui_android_stubs)
-                implementation(Compose.ComposeUI.ui_geometry)
-                implementation(Compose.ComposeUI.ui_graphics)
-                implementation(Compose.ComposeUI.ui_test)
-                implementation(Compose.ComposeUI.ui_test_junit4)
-                implementation(Compose.ComposeUI.ui_test_manifest)
-                implementation(Compose.ComposeUI.ui_text)
-                implementation(Compose.ComposeUI.ui_text_google_fonts)
-                implementation(Compose.ComposeUI.ui_tooling)
-                implementation(Compose.ComposeUI.ui_tooling_data)
-                implementation(Compose.ComposeUI.ui_tooling_preview)
-                implementation(Compose.ComposeUI.ui_unit)
-                implementation(Compose.ComposeUI.ui_util)
-                implementation(Compose.ComposeUI.ui_viewbinding)
+                implementation(AndroidX.Compose.UI.ui)
+                implementation(AndroidX.Compose.UI.ui_android_stubs)
+                implementation(AndroidX.Compose.UI.ui_geometry)
+                implementation(AndroidX.Compose.UI.ui_graphics)
+                ...
             }
         }
     }
@@ -512,8 +534,6 @@ dependencies {
 >}
 >```
 
-
-
 ##### Androidx Test Ext
 Different libraries under `androidx.test.ext` have different versions, therefore cannot be grouped together
 
@@ -537,3 +557,32 @@ dependencies {
     }
 }
 ```
+
+### KotlinX Libraries
+
+```kotlin
+dependencies {
+    epitPreview {
+        kotlinx {
+            atomicfu(/* Place the version of kotlinx.atomicfu library you want: "0.23.0" */) {
+                implementation(KotlinX.AtomicFU.atomicfu)
+            }
+            collectionsImmutable(/* Place the version of kotlinx.collections-immutable library you want: "0.3.6" */) {
+                implementation(KotlinX.CollectionsImmutable.collections_immutable)
+            }
+            coroutines(/* Place the version of kotlinx.coroutines library you want: "1.7.3" */) {
+                implementation(KotlinX.Coroutines.coroutines_core)
+                ...
+            }
+            datetime(/* Place the version of kotlinx.datetime library you want: "0.4.1" */) {
+                implementation(KotlinX.Datetime.datetime)
+            }
+            serialization(/* Place the version of kotlinx.serialization library you want: "1.6.1" */) {
+                implementation(KotlinX.Serialization.serialization_core)
+                implementation(KotlinX.Serialization.serialization_json)
+            }
+        }
+    }
+}
+```
+

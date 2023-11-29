@@ -3,23 +3,21 @@ package epit.dsl.androidx
 import epit.EpitDependency
 import epit.annotations.EpitInvalidApi
 import epit.annotations.ExperimentalEpitApi
-import epit.dsl.compose.Compose
 import org.gradle.kotlin.dsl.DependencyHandlerScope
-
 
 @ExperimentalEpitApi
 class EpitAndroidXComposeRuntimeTracingScope(
     private val androidXComposeRuntimeTracingVersion: String
 ) {
     @ExperimentalEpitApi
-    val Compose.ComposeRuntimeTracing.dependency
+    val AndroidX.Compose.Runtime.RuntimeTracing.dependency
         get(): String = "${this.moduleName}:${androidXComposeRuntimeTracingVersion}"
 
     @ExperimentalEpitApi
-    fun Compose.ComposeRuntimeTracing.dependency(version: String) = "${this.moduleName}:${version}"
+    fun AndroidX.Compose.Runtime.RuntimeTracing.dependency(version: String) = "${this.moduleName}:${version}"
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(composeRuntimeTracing: Compose.ComposeRuntimeTracing) {
+    fun DependencyHandlerScope.implementation(composeRuntimeTracing: AndroidX.Compose.Runtime.RuntimeTracing) {
         add("implementation", composeRuntimeTracing.dependency)
     }
 

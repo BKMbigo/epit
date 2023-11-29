@@ -7,25 +7,39 @@ import epit.dsl.androidx.*
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
-object EpitAndroidxScope {
+class EpitAndroidxScope(
+    internal val dependencyHandlerScope: DependencyHandlerScope
+) {
 
     @ExperimentalEpitApi
-    fun EpitAndroidxScope.activity(activityVersion: String, block: EpitAndroidXActivityScope.() -> Unit) {
+    fun activity(activityVersion: String, block: EpitAndroidXActivityScope.() -> Unit) {
         block(EpitAndroidXActivityScope(activityVersion))
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxScope.appcompat(appcompatVersion: String, block: EpitAndroidXAppCompatScope.() -> Unit) {
+    fun appcompat(appcompatVersion: String, block: EpitAndroidXAppCompatScope.() -> Unit) {
         block(EpitAndroidXAppCompatScope(appcompatVersion))
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxScope.camera(cameraVersion: String, block: EpitAndroidXCameraScope.() -> Unit) {
+    fun camera(cameraVersion: String, block: EpitAndroidXCameraScope.() -> Unit) {
         block(EpitAndroidXCameraScope(cameraVersion))
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxScope.composeAnimation(
+    fun compose(
+        bomVersion: String,
+        block: EpitAndroidXComposeBomScope.() -> Unit
+    ) {
+        val composeScope = EpitAndroidXComposeBomScope(bomVersion)
+        with(this.dependencyHandlerScope) {
+            add("implementation", platform(composeScope.bom))
+        }
+        block(composeScope)
+    }
+
+    @ExperimentalEpitApi
+    fun composeAnimation(
         composeAnimationVersion: String,
         block: EpitAndroidXComposeAnimationScope.() -> Unit
     ) {
@@ -33,7 +47,7 @@ object EpitAndroidxScope {
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxScope.composeCompiler(
+    fun composeCompiler(
         composeCompilerVersion: String,
         block: EpitAndroidXComposeCompilerScope.() -> Unit
     ) {
@@ -41,7 +55,7 @@ object EpitAndroidxScope {
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxScope.composeFoundation(
+    fun composeFoundation(
         composeFoundationVersion: String,
         block: EpitAndroidXComposeFoundationScope.() -> Unit
     ) {
@@ -49,7 +63,7 @@ object EpitAndroidxScope {
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxScope.composeFoundationText(
+    fun composeFoundationText(
         composeFoundationTextVersion: String,
         block: EpitAndroidXComposeFoundationTextScope.() -> Unit
     ) {
@@ -57,7 +71,7 @@ object EpitAndroidxScope {
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxScope.composeMaterial(
+    fun composeMaterial(
         composeMaterialVersion: String,
         block: EpitAndroidXComposeMaterialScope.() -> Unit
     ) {
@@ -65,7 +79,7 @@ object EpitAndroidxScope {
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxScope.composeMaterial3(
+    fun composeMaterial3(
         composeMaterial3Version: String,
         block: EpitAndroidXComposeMaterial3Scope.() -> Unit
     ) {
@@ -73,7 +87,7 @@ object EpitAndroidxScope {
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxScope.composeMaterial3Adaptive(
+    fun composeMaterial3Adaptive(
         composeMaterial3AdaptiveVersion: String,
         block: EpitAndroidXComposeMaterial3AdaptiveScope.() -> Unit
     ) {
@@ -81,7 +95,7 @@ object EpitAndroidxScope {
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxScope.composeRuntime(
+    fun composeRuntime(
         composeRuntimeVersion: String,
         block: EpitAndroidXComposeRuntimeScope.() -> Unit
     ) {
@@ -89,7 +103,7 @@ object EpitAndroidxScope {
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxScope.composeRuntimeTracing(
+    fun composeRuntimeTracing(
         composeRuntimeTracingVersion: String,
         block: EpitAndroidXComposeRuntimeTracingScope.() -> Unit
     ) {
@@ -97,72 +111,72 @@ object EpitAndroidxScope {
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxScope.composeUI(composeUIVersion: String, block: EpitAndroidXComposeUIScope.() -> Unit) {
+    fun composeUI(composeUIVersion: String, block: EpitAndroidXComposeUIScope.() -> Unit) {
         block(EpitAndroidXComposeUIScope(composeUIVersion))
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxScope.constraintLayout(block: EpitAndroidxGeneralConstraintLayoutScope.() -> Unit) {
+    fun constraintLayout(block: EpitAndroidxGeneralConstraintLayoutScope.() -> Unit) {
         block(EpitAndroidxGeneralConstraintLayoutScope)
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxScope.core(block: EpitAndroidxGeneralCoreScope.() -> Unit) {
+    fun core(block: EpitAndroidxGeneralCoreScope.() -> Unit) {
         block(EpitAndroidxGeneralCoreScope)
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxScope.fragment(fragmentVersion: String, block: EpitAndroidXFragmentScope.() -> Unit) {
+    fun fragment(fragmentVersion: String, block: EpitAndroidXFragmentScope.() -> Unit) {
         block(EpitAndroidXFragmentScope(fragmentVersion))
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxScope.lifecycle(lifecycleVersion: String, block: EpitAndroidXLifecycleScope.() -> Unit) {
+    fun lifecycle(lifecycleVersion: String, block: EpitAndroidXLifecycleScope.() -> Unit) {
         block(EpitAndroidXLifecycleScope(lifecycleVersion))
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxScope.navigation(navigationVersion: String, block: EpitAndroidXNavigationScope.() -> Unit) {
+    fun navigation(navigationVersion: String, block: EpitAndroidXNavigationScope.() -> Unit) {
         block(EpitAndroidXNavigationScope(navigationVersion))
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxScope.paging(pagingVersion: String, block: EpitAndroidXPagingScope.() -> Unit) {
+    fun paging(pagingVersion: String, block: EpitAndroidXPagingScope.() -> Unit) {
         block(EpitAndroidXPagingScope(pagingVersion))
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxScope.recyclerview(recyclerviewVersion: String, block: EpitAndroidXRecyclerViewScope.() -> Unit) {
+    fun recyclerview(recyclerviewVersion: String, block: EpitAndroidXRecyclerViewScope.() -> Unit) {
         block(EpitAndroidXRecyclerViewScope(recyclerviewVersion))
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxScope.room(roomVersion: String, block: EpitAndroidXRoomScope.() -> Unit) {
+    fun room(roomVersion: String, block: EpitAndroidXRoomScope.() -> Unit) {
         block(EpitAndroidXRoomScope(roomVersion))
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxScope.test(block: EpitAndroidxGeneralTestScope.() -> Unit) {
+    fun test(block: EpitAndroidxGeneralTestScope.() -> Unit) {
         block(EpitAndroidxGeneralTestScope)
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxScope.testEspresso(espressoVersion: String, block: EpitAndroidXTestEspressoScope.() -> Unit) {
+    fun testEspresso(espressoVersion: String, block: EpitAndroidXTestEspressoScope.() -> Unit) {
         block(EpitAndroidXTestEspressoScope(espressoVersion))
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxScope.testEspressoDevice(espressoDeviceVersion: String, block: EpitAndroidXTestEspressoDeviceScope.() -> Unit) {
+    fun testEspressoDevice(espressoDeviceVersion: String, block: EpitAndroidXTestEspressoDeviceScope.() -> Unit) {
         block(EpitAndroidXTestEspressoDeviceScope(espressoDeviceVersion))
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxScope.testEspressoIdling(espressoIdlingVersion: String, block: EpitAndroidXTestEspressoIdlingScope.() -> Unit) {
+    fun testEspressoIdling(espressoIdlingVersion: String, block: EpitAndroidXTestEspressoIdlingScope.() -> Unit) {
         block(EpitAndroidXTestEspressoIdlingScope(espressoIdlingVersion))
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxScope.testExt(block: EpitAndroidxGeneralTestExtScope.() -> Unit) {
+    fun testExt(block: EpitAndroidxGeneralTestExtScope.() -> Unit) {
         block(EpitAndroidxGeneralTestExtScope)
     }
 

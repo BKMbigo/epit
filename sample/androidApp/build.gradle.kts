@@ -1,6 +1,4 @@
-import epit.annotations.ExperimentalEpitApi
 import epit.dsl.androidx.AndroidX
-import epit.dsl.compose.Compose
 import epit.dsl.epitPreview
 import epit.dsl.firebase.Firebase
 import epit.dsl.koin.Koin
@@ -64,6 +62,15 @@ android {
                     implementation(AndroidX.Camera.camera_view)
                     implementation(AndroidX.Camera.camera_camera2)
                     implementation(AndroidX.Camera.camera_video)
+                }
+                compose(libs.versions.androidx.compose.bom.get()) {
+                    implementation(AndroidX.Compose.Runtime.Runtime.runtime)
+                    implementation(AndroidX.Compose.Runtime.Runtime.runtime_livedata)
+                    implementation(AndroidX.Compose.Foundation.Foundation.foundation)
+                    implementation(AndroidX.Compose.Material.material)
+                    implementation(AndroidX.Compose.Material3.Material3.material3)
+                    implementation(AndroidX.Compose.Material3.Material3.material3_window_size_class)
+                    implementation(AndroidX.Compose.Material3.Material3.material3_window_size_class)
                 }
                 constraintLayout {
                     constraintlayout(libs.versions.androidx.constraintlayout.toString()) {
@@ -187,16 +194,6 @@ android {
                     }
                 }
             }
-
-            compose(libs.versions.androidx.compose.bom.get()) {
-                implementation(Compose.ComposeRuntime.runtime)
-                implementation(Compose.ComposeRuntime.runtime_livedata)
-                implementation(Compose.ComposeFoundation.foundation)
-                implementation(Compose.ComposeMaterial.material)
-                implementation(Compose.ComposeMaterial3.material3)
-                implementation(Compose.ComposeMaterial3.material3_window_size_class)
-            }
-
 
             firebase(libs.versions.firebase.bom.get()) {
                 Firebase.values().forEach {

@@ -2,7 +2,6 @@ package dsl
 
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.androidx.AndroidX
-import epit.dsl.compose.Compose
 import epit.dsl.epitPreview
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.dependencies
@@ -48,54 +47,62 @@ class AndroidxTest {
                         customVersionImplementation(AndroidX.Camera.camera_camera2.dependency("1.1.2"))
                     }
                     composeAnimation("1.0.0") {
-                        implementation(Compose.ComposeAnimation.animation)
-                        customImplementation(Compose.ComposeAnimation.animation.dependency)
-                        customVersionImplementation(Compose.ComposeAnimation.animation.dependency("1.1.2"))
+                        implementation(AndroidX.Compose.Animation.animation)
+                        customImplementation(AndroidX.Compose.Animation.animation.dependency)
+                        customVersionImplementation(AndroidX.Compose.Animation.animation.dependency("1.1.2"))
                     }
                     composeCompiler("1.0.0") {
-                        implementation(Compose.ComposeCompiler.compiler)
-                        customImplementation(Compose.ComposeCompiler.compiler.dependency)
-                        customVersionImplementation(Compose.ComposeCompiler.compiler.dependency("1.1.2"))
+                        implementation(AndroidX.Compose.Compiler.compiler)
+                        customImplementation(AndroidX.Compose.Compiler.compiler.dependency)
+                        customVersionImplementation(AndroidX.Compose.Compiler.compiler.dependency("1.1.2"))
                     }
                     composeFoundation("1.0.0") {
-                        implementation(Compose.ComposeFoundation.foundation)
-                        customImplementation(Compose.ComposeFoundation.foundation.dependency)
-                        customVersionImplementation(Compose.ComposeFoundation.foundation.dependency("1.1.2"))
+                        implementation(AndroidX.Compose.Foundation.Foundation.foundation)
+                        customImplementation(AndroidX.Compose.Foundation.Foundation.foundation.dependency)
+                        customVersionImplementation(AndroidX.Compose.Foundation.Foundation.foundation.dependency("1.1.2"))
                     }
                     composeFoundationText("1.0.0") {
-                        implementation(Compose.ComposeFoundationText.foundation_text)
-                        customImplementation(Compose.ComposeFoundationText.foundation_text.dependency)
-                        customVersionImplementation(Compose.ComposeFoundationText.foundation_text.dependency("1.1.2"))
+                        implementation(AndroidX.Compose.Foundation.FoundationText.foundation_text)
+                        customImplementation(AndroidX.Compose.Foundation.FoundationText.foundation_text.dependency)
+                        customVersionImplementation(
+                            AndroidX.Compose.Foundation.FoundationText.foundation_text.dependency(
+                                "1.1.2"
+                            )
+                        )
                     }
                     composeMaterial("1.0.0") {
-                        implementation(Compose.ComposeMaterial.material)
-                        customImplementation(Compose.ComposeMaterial.material.dependency)
-                        customVersionImplementation(Compose.ComposeMaterial.material.dependency("1.1.2"))
+                        implementation(AndroidX.Compose.Material.material)
+                        customImplementation(AndroidX.Compose.Material.material.dependency)
+                        customVersionImplementation(AndroidX.Compose.Material.material.dependency("1.1.2"))
                     }
                     composeMaterial3("1.0.0") {
-                        implementation(Compose.ComposeMaterial3.material3)
-                        customImplementation(Compose.ComposeMaterial3.material3.dependency)
-                        customVersionImplementation(Compose.ComposeMaterial3.material3.dependency("1.1.2"))
+                        implementation(AndroidX.Compose.Material3.Material3.material3)
+                        customImplementation(AndroidX.Compose.Material3.Material3.material3.dependency)
+                        customVersionImplementation(AndroidX.Compose.Material3.Material3.material3.dependency("1.1.2"))
                     }
                     composeMaterial3Adaptive("1.0.0") {
-                        implementation(Compose.ComposeMaterial3Adaptive.material3_adaptive)
-                        customImplementation(Compose.ComposeMaterial3Adaptive.material3_adaptive.dependency)
-                        customVersionImplementation(Compose.ComposeMaterial3Adaptive.material3_adaptive.dependency("1.1.2"))
+                        implementation(AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive)
+                        customImplementation(AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive.dependency)
+                        customVersionImplementation(
+                            AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive.dependency(
+                                "1.1.2"
+                            )
+                        )
                     }
                     composeRuntime("1.0.0") {
-                        implementation(Compose.ComposeRuntime.runtime)
-                        customImplementation(Compose.ComposeRuntime.runtime.dependency)
-                        customVersionImplementation(Compose.ComposeRuntime.runtime.dependency("1.1.2"))
+                        implementation(AndroidX.Compose.Runtime.Runtime.runtime)
+                        customImplementation(AndroidX.Compose.Runtime.Runtime.runtime.dependency)
+                        customVersionImplementation(AndroidX.Compose.Runtime.Runtime.runtime.dependency("1.1.2"))
                     }
                     composeRuntimeTracing("1.0.0") {
-                        implementation(Compose.ComposeRuntimeTracing.runtime_tracing)
-                        customImplementation(Compose.ComposeRuntimeTracing.runtime_tracing.dependency)
-                        customVersionImplementation(Compose.ComposeRuntimeTracing.runtime_tracing.dependency("1.1.2"))
+                        implementation(AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing)
+                        customImplementation(AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing.dependency)
+                        customVersionImplementation(AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing.dependency("1.1.2"))
                     }
                     composeUI("1.0.0") {
-                        implementation(Compose.ComposeUI.ui)
-                        customImplementation(Compose.ComposeUI.ui.dependency)
-                        customVersionImplementation(Compose.ComposeUI.ui.dependency("1.1.2"))
+                        implementation(AndroidX.Compose.UI.ui)
+                        customImplementation(AndroidX.Compose.UI.ui.dependency)
+                        customVersionImplementation(AndroidX.Compose.UI.ui.dependency("1.1.2"))
                     }
                     constraintLayout {
                         constraintlayout("1.0.0") {
@@ -127,7 +134,11 @@ class AndroidxTest {
                         coreGoogleShortcuts("1.0.0") {
                             implementation(AndroidX.Core.CoreGoogleShortcuts.core_google_shortcuts)
                             customImplementation(AndroidX.Core.CoreGoogleShortcuts.core_google_shortcuts.dependency)
-                            customVersionImplementation(AndroidX.Core.CoreGoogleShortcuts.core_google_shortcuts.dependency("1.1.2"))
+                            customVersionImplementation(
+                                AndroidX.Core.CoreGoogleShortcuts.core_google_shortcuts.dependency(
+                                    "1.1.2"
+                                )
+                            )
                         }
                         coreLocation("1.0.0") {
                             implementation(AndroidX.Core.CoreLocation.core_location_altitude)
@@ -262,16 +273,16 @@ class AndroidxTest {
             AndroidX.Activity.activity.moduleName,
             AndroidX.Appcompat.appcompat.moduleName,
             AndroidX.Camera.camera_camera2.moduleName,
-            Compose.ComposeAnimation.animation.moduleName,
-            Compose.ComposeCompiler.compiler.moduleName,
-            Compose.ComposeFoundation.foundation.moduleName,
-            Compose.ComposeFoundationText.foundation_text.moduleName,
-            Compose.ComposeMaterial.material.moduleName,
-            Compose.ComposeMaterial3.material3.moduleName,
-            Compose.ComposeMaterial3Adaptive.material3_adaptive.moduleName,
-            Compose.ComposeRuntime.runtime.moduleName,
-            Compose.ComposeRuntimeTracing.runtime_tracing.moduleName,
-            Compose.ComposeUI.ui.moduleName,
+            AndroidX.Compose.Animation.animation.moduleName,
+            AndroidX.Compose.Compiler.compiler.moduleName,
+            AndroidX.Compose.Foundation.Foundation.foundation.moduleName,
+            AndroidX.Compose.Foundation.FoundationText.foundation_text.moduleName,
+            AndroidX.Compose.Material.material.moduleName,
+            AndroidX.Compose.Material3.Material3.material3.moduleName,
+            AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive.moduleName,
+            AndroidX.Compose.Runtime.Runtime.runtime.moduleName,
+            AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing.moduleName,
+            AndroidX.Compose.UI.ui.moduleName,
             AndroidX.ConstraintLayout.ConstraintLayout.constraintlayout.moduleName,
             AndroidX.ConstraintLayout.ConstraintLayoutCompose.constraintlayout_compose.moduleName,
             AndroidX.Core.Core.core.moduleName,

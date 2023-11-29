@@ -2,27 +2,19 @@ package epit.dsl
 
 import epit.EpitDependency
 import epit.annotations.EpitInvalidApi
+import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 class EpitPreviewScope(
     internal val dependencyHandlerScope: DependencyHandlerScope
 ) {
 
+    @OptIn(ExperimentalEpitApi::class)
     fun androidx(block: EpitAndroidxScope.() -> Unit) {
-        block(EpitAndroidxScope)
+        block(EpitAndroidxScope(dependencyHandlerScope))
     }
 
-    fun compose(
-        bomVersion: String,
-        block: EpitComposeScope.() -> Unit
-    ) {
-        val composeScope = EpitComposeScope(bomVersion)
-        with(this.dependencyHandlerScope) {
-            add("implementation", platform(composeScope.bom))
-        }
-        block(composeScope)
-    }
-
+    @ExperimentalEpitApi
     fun firebase(bomVersion: String, block: EpitFirebaseScope.() -> Unit) {
         val firebaseScope = EpitFirebaseScope(bomVersion)
         with(dependencyHandlerScope) {
@@ -44,6 +36,8 @@ class EpitPreviewScope(
         block(EpitKotlinxScope)
     }
 
+
+    @OptIn(ExperimentalEpitApi::class)
     fun squareup(block: EpitSquareScope.() -> Unit) {
         block(EpitSquareScope(dependencyHandlerScope))
     }

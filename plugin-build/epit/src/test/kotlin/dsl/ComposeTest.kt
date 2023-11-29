@@ -1,7 +1,7 @@
 package dsl
 
 import epit.annotations.ExperimentalEpitApi
-import epit.dsl.compose.Compose
+import epit.dsl.androidx.AndroidX
 import epit.dsl.epitPreview
 import org.gradle.api.artifacts.Dependency
 import org.gradle.kotlin.dsl.DependencyHandlerScope
@@ -39,21 +39,23 @@ class ComposeTest {
 
         project.dependencies {
             epitPreview {
-                compose("2023.10.01") {
-                    implementation(Compose.ComposeRuntime.runtime)
+                androidx {
+                    compose("2023.10.01") {
+                        implementation(AndroidX.Compose.Runtime.Runtime.runtime)
 
-                    customImplementation(platform(bom))
-                    customImplementation(Compose.ComposeRuntime.runtime.dependency)
+                        customImplementation(platform(bom))
+                        customImplementation(AndroidX.Compose.Runtime.Runtime.runtime.dependency)
 
-                    customVersionImplementation(platform(bom("2023.09.00")))
-                    customVersionImplementation(Compose.ComposeRuntime.runtime.dependency("1.1.1"))
+                        customVersionImplementation(platform(bom("2023.09.00")))
+                        customVersionImplementation(AndroidX.Compose.Runtime.Runtime.runtime.dependency("1.1.1"))
+                    }
                 }
             }
         }
 
         val expectedDependencies = listOf(
-            Compose.ComposeBom.compose_bom.moduleName,
-            Compose.ComposeRuntime.runtime.moduleName
+            AndroidX.Compose.Bom.compose_bom.moduleName,
+            AndroidX.Compose.Runtime.Runtime.runtime.moduleName
         )
 
         assertContentEquals(
