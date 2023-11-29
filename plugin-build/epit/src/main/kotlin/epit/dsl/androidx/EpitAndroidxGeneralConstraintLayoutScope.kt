@@ -1,8 +1,8 @@
 package epit.dsl.androidx
 
 import epit.EpitDependency
-import epit.annotations.EpitInvalidApi
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InvalidScopeEpitDependency
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
@@ -38,7 +38,7 @@ object EpitAndroidxGeneralConstraintLayoutScope {
         block(EpitAndroidXConstraintLayoutSolverScope(constraintLayoutSolverVersion))
     }
 
-    @EpitInvalidApi
+    @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")
     }

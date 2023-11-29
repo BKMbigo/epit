@@ -1,8 +1,8 @@
 package epit.dsl
 
 import epit.EpitDependency
-import epit.annotations.EpitInvalidApi
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InvalidScopeEpitDependency
 import epit.dsl.koin.Koin
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -29,7 +29,7 @@ class EpitKoinScope(
         add("implementation", koin.moduleName)
     }
 
-    @EpitInvalidApi
+    @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")
     }

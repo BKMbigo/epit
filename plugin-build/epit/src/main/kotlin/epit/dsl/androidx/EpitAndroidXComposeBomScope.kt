@@ -1,8 +1,8 @@
 package epit.dsl.androidx
 
 import epit.EpitDependency
-import epit.annotations.EpitInvalidApi
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InvalidScopeEpitDependency
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
@@ -29,13 +29,13 @@ class EpitAndroidXComposeBomScope(
     }
 
     @Suppress("UNUSED_PARAMETER")
-    @EpitInvalidApi
+    @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(composeDependency: AndroidX.Compose) {
         throw IllegalStateException("The library is not included in the Bill Of Materials. You have to specifically include its version")
     }
 
     @Suppress("UNUSED_PARAMETER")
-    @EpitInvalidApi
+    @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")
     }
