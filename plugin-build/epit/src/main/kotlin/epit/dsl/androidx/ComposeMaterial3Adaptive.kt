@@ -7,19 +7,19 @@ import epit.dsl.compose.Compose
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
-class EpitAndroidXComposeRuntimeScope(
-    private val androidXComposeRuntimeVersion: String
+class EpitAndroidXComposeMaterial3AdaptiveScope(
+    private val androidXComposeMaterial3AdaptiveVersion: String
 ) {
     @ExperimentalEpitApi
-    val Compose.ComposeRuntime.dependency
-        get(): String = "${this.moduleName}:${androidXComposeRuntimeVersion}"
+    val Compose.ComposeMaterial3Adaptive.dependency
+        get(): String = "${this.moduleName}:${androidXComposeMaterial3AdaptiveVersion}"
 
     @ExperimentalEpitApi
-    fun Compose.ComposeRuntime.dependency(version: String) = "${this.moduleName}:${version}"
+    fun Compose.ComposeMaterial3Adaptive.dependency(version: String) = "${this.moduleName}:${version}"
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(composeRuntimeTracing: Compose.ComposeRuntime) {
-        add("implementation", composeRuntimeTracing.dependency)
+    fun DependencyHandlerScope.implementation(composeMaterial3Adaptive: Compose.ComposeMaterial3Adaptive) {
+        add("implementation", composeMaterial3Adaptive.dependency)
     }
 
     @EpitInvalidApi

@@ -35,39 +35,55 @@ sealed interface AndroidX : EpitDependency {
 //    camera_viewfinder("androidx.camera:camera-viewfinder")
     }
 
-    enum class ConstraintLayout(
-        internal val moduleName: String
-    ) : AndroidX {
-        constraintlayout(moduleName = "androidx.constraintlayout:constraintlayout"),
-//    constraintlayout_compose(moduleName = "androidx.constraintlayout:constraintlayout-compose"),
-//    constraintlayout_compose_android(moduleName = "androidx.constraintlayout:constraintlayout-compose-android"),
-//    constraintlayout_core(moduleName = "androidx.constraintlayout:constraintlayout-core"),
-//    constraintlayout_solver(moduleName = "androidx.constraintlayout:constraintlayout-solver")
-    }
+    @ExperimentalEpitApi
+    sealed interface ConstraintLayout {
 
-    enum class ConstraintLayoutCompose(
-        internal val moduleName: String
-    ) : AndroidX {
-        //    constraintlayout(moduleName = "androidx.constraintlayout:constraintlayout"),
-        constraintlayout_compose(moduleName = "androidx.constraintlayout:constraintlayout-compose"),
-        constraintlayout_compose_android(moduleName = "androidx.constraintlayout:constraintlayout-compose-android"),
-//    constraintlayout_core(moduleName = "androidx.constraintlayout:constraintlayout-core"),
-//    constraintlayout_solver(moduleName = "androidx.constraintlayout:constraintlayout-solver")
+        @ExperimentalEpitApi
+        enum class ConstraintLayout(
+            internal val moduleName: String
+        ) : AndroidX.ConstraintLayout {
+            constraintlayout(moduleName = "androidx.constraintlayout:constraintlayout")
+        }
+
+        @ExperimentalEpitApi
+        enum class ConstraintLayoutCompose(
+            internal val moduleName: String
+        ) : AndroidX.ConstraintLayout {
+            constraintlayout_compose(moduleName = "androidx.constraintlayout:constraintlayout-compose"),
+            //    constraintlayout_compose_android(moduleName = "androidx.constraintlayout:constraintlayout-compose-android")
+        }
+
+        @ExperimentalEpitApi
+        enum class ConstraintLayoutCore(
+            internal val moduleName: String
+        ) : AndroidX {
+            constraintlayout_core(moduleName = "androidx.constraintlayout:constraintlayout-core")
+        }
+
+        @ExperimentalEpitApi
+        enum class ConstraintLayoutSolver(
+            internal val moduleName: String
+        ) : AndroidX {
+            constraintlayout_solver(moduleName = "androidx.constraintlayout:constraintlayout-solver")
+        }
     }
 
     @ExperimentalEpitApi
-    enum class Core(
-        internal val moduleName: String
-    ) : AndroidX {
-        core(moduleName = "androidx.core:core"),
+    sealed interface Core {
 
-        //    core_animation(moduleName = "androidx.core:core-animation")
+        @ExperimentalEpitApi
+        enum class Core(
+            internal val moduleName: String
+        ) : AndroidX {
+            core(moduleName = "androidx.core:core"),
+
+            //    core_animation(moduleName = "androidx.core:core-animation")
 //    core_animation_testing(moduleName = "androidx.core:core-animation-testing")
 //    core_google_shortcuts(moduleName = "androidx.core:core-google-shortcuts")
 //    core_i18n(moduleName = "androidx.core:core-i18n")
-        core_ktx(moduleName = "androidx.core:core-ktx"),
+            core_ktx(moduleName = "androidx.core:core-ktx"),
 
-        //    core_location_altitude(moduleName = "androidx.core:core-location-altitude")
+            //    core_location_altitude(moduleName = "androidx.core:core-location-altitude")
 //    core_performance(moduleName = "androidx.core:core-performance")
 //    core_performance_play_services(moduleName = "androidx.core:core-performance-play-services")
 //    core_performance_testing(moduleName = "androidx.core:core-performance-testing")
@@ -75,27 +91,69 @@ sealed interface AndroidX : EpitDependency {
 //    core_role(moduleName = "androidx.core:core-role")
 //    core_splashscreen(moduleName = "androidx.core:core-splashscreen")
 //    core_telecom(moduleName = "androidx.core:core-telecom")
-        core_testing(moduleName = "androidx.core:core-testing")
-    }
+            core_testing(moduleName = "androidx.core:core-testing")
+        }
 
-    enum class CoreSplashscreen(
-        internal val moduleName: String
-    ) : AndroidX {
-        //    object core: Core(moduleName = "androidx.core:core")
-//    object core_animation: Core(moduleName = "androidx.core:core-animation")
-//    object core_animation_testing: Core(moduleName = "androidx.core:core-animation-testing")
-//    object core_google_shortcuts: Core(moduleName = "androidx.core:core-google-shortcuts")
-//    object core_i18n: Core(moduleName = "androidx.core:core-i18n")
-//    object core_ktx: Core(moduleName = "androidx.core:core-ktx")
-//    object core_location_altitude: Core(moduleName = "androidx.core:core-location-altitude")
-//    object core_performance: Core(moduleName = "androidx.core:core-performance")
-//    object core_performance_play_services: Core(moduleName = "androidx.core:core-performance-play-services")
-//    object core_performance_testing: Core(moduleName = "androidx.core:core-performance-testing")
-//    object core_remoteviews: Core(moduleName = "androidx.core:core-remoteviews")
-//    object core_role: Core(moduleName = "androidx.core:core-role")
-        core_splashscreen(moduleName = "androidx.core:core-splashscreen")
-//    object core_telecom: Core(moduleName = "androidx.core:core-telecom")
-//    object core_testing: Core(moduleName = "androidx.core:core-testing")
+        @ExperimentalEpitApi
+        enum class CoreAnimation(
+            internal val moduleName: String
+        ) : AndroidX {
+            core_animation(moduleName = "androidx.core:core-animation"),
+            core_animation_testing(moduleName = "androidx.core:core-animation-testing")
+        }
+
+        @ExperimentalEpitApi
+        enum class CoreGoogleShortcuts(
+            internal val moduleName: String
+        ) : AndroidX {
+            core_google_shortcuts(moduleName = "androidx.core:core-google-shortcuts")
+        }
+
+        @ExperimentalEpitApi
+        enum class CoreLocation(
+            internal val moduleName: String
+        ) : AndroidX {
+            core_i18n(moduleName = "androidx.core:core-i18n"),
+            core_location_altitude(moduleName = "androidx.core:core-location-altitude")
+        }
+
+        @ExperimentalEpitApi
+        enum class CorePerformance(
+            internal val moduleName: String
+        ) : AndroidX {
+            core_performance(moduleName = "androidx.core:core-performance"),
+            core_performance_play_services(moduleName = "androidx.core:core-performance-play-services"),
+            core_performance_testing(moduleName = "androidx.core:core-performance-testing")
+        }
+
+        @ExperimentalEpitApi
+        enum class CoreRemoteViews(
+            internal val moduleName: String
+        ) : AndroidX {
+            core_remoteviews(moduleName = "androidx.core:core-remoteviews")
+        }
+
+        @ExperimentalEpitApi
+        enum class CoreRole(
+            internal val moduleName: String
+        ) : AndroidX {
+            core_role(moduleName = "androidx.core:core-role")
+        }
+
+        @ExperimentalEpitApi
+        enum class CoreSplashscreen(
+            internal val moduleName: String
+        ) : AndroidX {
+            core_splashscreen(moduleName = "androidx.core:core-splashscreen")
+        }
+
+        @ExperimentalEpitApi
+        enum class CoreTelecom(
+            internal val moduleName: String
+        ) : AndroidX {
+            core_telecom(moduleName = "androidx.core:core-telecom")
+        }
+
     }
 
     enum class Fragment(
@@ -169,7 +227,8 @@ sealed interface AndroidX : EpitDependency {
         //        paging_common_macosarm64(moduleName = "androidx.paging:paging-common-macosarm64"),
         //        paging_common_macosx64(moduleName = "androidx.paging:paging-common-macosx64"),
         paging_compose(moduleName = "androidx.paging:paging-compose"),
-        paging_compose_android(moduleName = "androidx.paging:paging-compose-android"),
+
+        //        paging_compose_android(moduleName = "androidx.paging:paging-compose-android"),
         paging_guava(moduleName = "androidx.paging:paging-guava"),
         paging_runtime(moduleName = "androidx.paging:paging-runtime"),
         paging_runtime_ktx(moduleName = "androidx.paging:paging-runtime-ktx"),
@@ -220,27 +279,52 @@ sealed interface AndroidX : EpitDependency {
     }
 
     @ExperimentalEpitApi
-    enum class TestCore(
-        internal val moduleName: String
-    ) : AndroidX {
-        core(moduleName = "androidx.test:core"),
-        core_ktx(moduleName = "androidx.test:core-ktx")
+    sealed interface Test {
+
+        @ExperimentalEpitApi
+        enum class TestAnnotation(
+            internal val moduleName: String
+        ) : AndroidX {
+            test_annotation(moduleName = "androidx.test:annotation"),
+        }
+
+        @ExperimentalEpitApi
+        enum class TestCore(
+            internal val moduleName: String
+        ) : AndroidX {
+            core(moduleName = "androidx.test:core"),
+            core_ktx(moduleName = "androidx.test:core-ktx")
+        }
+
+        @ExperimentalEpitApi
+        enum class TestMonitor(
+            internal val moduleName: String
+        ) : AndroidX {
+            monitor(moduleName = "androidx.test:monitor")
+        }
+
+        @ExperimentalEpitApi
+        enum class TestOrchestrator(
+            internal val moduleName: String
+        ) : AndroidX {
+            orchestrator(moduleName = "androidx.test:orchestrator")
+        }
+
+        @ExperimentalEpitApi
+        enum class TestRules(
+            internal val moduleName: String
+        ) : AndroidX {
+            rules(moduleName = "androidx.test:rules")
+        }
+
+        @ExperimentalEpitApi
+        enum class TestRunner(
+            internal val moduleName: String
+        ) : AndroidX {
+            runner("androidx.test:runner")
+        }
     }
 
-    enum class TestRules(
-        internal val moduleName: String
-    ) : AndroidX {
-        rules(moduleName = "androidx.test:rules")
-    }
-
-    enum class TestRunner(
-        internal val moduleName: String
-    ) : AndroidX {
-        runner("androidx.test:runner")
-    }
-
-
-    @ExperimentalEpitApi
     enum class TestEspresso(
         internal val moduleName: String
     ) : AndroidX {
@@ -255,5 +339,41 @@ sealed interface AndroidX : EpitDependency {
         espresso_web(moduleName = "androidx.test.espresso:espresso-web")
     }
 
+    enum class TestEspressoDevice(
+        internal val moduleName: String
+    ) : AndroidX {
+        espresso_device(moduleName = "androidx.test.espresso:espresso-device"),
+    }
 
+    enum class TestEspressoIdling(
+        internal val moduleName: String
+    ) : AndroidX {
+        idling_concurrent(moduleName = "androidx.test.espresso.idling:idling-concurrent"),
+        idling_net(moduleName = "androidx.test.espresso.idling:idling-net")
+    }
+
+    @ExperimentalEpitApi
+    sealed interface TestExt {
+        @ExperimentalEpitApi
+        enum class TestExtJUnit(
+            internal val moduleName: String
+        ) : AndroidX {
+            junit(moduleName = "androidx.test.ext:junit"),
+            junit_ktx(moduleName = "androidx.test.ext:junit")
+        }
+
+        @ExperimentalEpitApi
+        enum class TestExtJUnitGTest(
+            internal val moduleName: String
+        ) : AndroidX {
+            junit_gtest(moduleName = "androidx.test.ext:junit-gtest")
+        }
+
+        @ExperimentalEpitApi
+        enum class TestExtTruth(
+            internal val moduleName: String
+        ) : AndroidX {
+            truth(moduleName = "androidx.test.ext:truth")
+        }
+    }
 }

@@ -1,3 +1,4 @@
+import epit.annotations.ExperimentalEpitApi
 import epit.dsl.androidx.AndroidX
 import epit.dsl.compose.Compose
 import epit.dsl.epitPreview
@@ -14,6 +15,11 @@ plugins {
     id("io.github.bkmbigo.epit")
 }
 
+repositories {
+    google()
+    mavenCentral()
+}
+
 android {
     namespace = "com.github.bkmbigo.epit.sample.android"
     compileSdk = 34
@@ -21,7 +27,7 @@ android {
     defaultConfig {
         minSdk = 24
 
-        testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
 
@@ -61,21 +67,59 @@ android {
                 }
                 constraintLayout {
                     constraintlayout(libs.versions.androidx.constraintlayout.toString()) {
-                        implementation(AndroidX.ConstraintLayout.constraintlayout)
+                        implementation(AndroidX.ConstraintLayout.ConstraintLayout.constraintlayout)
                     }
                     constraintlayoutCompose(libs.versions.androidx.constraintlayout.compose.get()) {
-                        implementation(AndroidX.ConstraintLayoutCompose.constraintlayout_compose)
-                        implementation(AndroidX.ConstraintLayoutCompose.constraintlayout_compose_android)
+                        implementation(AndroidX.ConstraintLayout.ConstraintLayoutCompose.constraintlayout_compose)
+                    }
+                    constraintlayoutCore(libs.versions.androidx.constraintlayout.core.get()) {
+                        implementation(AndroidX.ConstraintLayout.ConstraintLayoutCore.constraintlayout_core)
+                    }
+                    constraintlayoutSolver(libs.versions.androidx.constraintlayout.solver.get()) {
+                        implementation(AndroidX.ConstraintLayout.ConstraintLayoutSolver.constraintlayout_solver)
                     }
                 }
                 core {
                     core(libs.versions.androidx.core.toString()) {
-                        implementation(AndroidX.Core.core)
-                        implementation(AndroidX.Core.core_ktx)
+                        implementation(AndroidX.Core.Core.core)
+                        implementation(AndroidX.Core.Core.core_ktx)
 //                        androidTestImplementation(Core.core_testing.dependency)
                     }
+                    coreAnimation(libs.versions.androidx.core.animation.get()) {
+                        AndroidX.Core.CoreAnimation.values().forEach {
+                            implementation(it)
+                        }
+                    }
+                    coreGoogleShortcuts(libs.versions.androidx.core.google.shortcuts.get()) {
+                        AndroidX.Core.CoreGoogleShortcuts.values().forEach {
+                            implementation(it)
+                        }
+                    }
+                    coreLocation(libs.versions.androidx.core.location.get()) {
+                        AndroidX.Core.CoreLocation.values().forEach {
+                            implementation(it)
+                        }
+                    }
+                    corePerformance(libs.versions.androidx.core.performance.get()) {
+                        AndroidX.Core.CorePerformance.values().forEach {
+                            implementation(it)
+                        }
+                    }
+                    coreRole(libs.versions.androidx.core.role.get()) {
+                        AndroidX.Core.CoreRole.values().forEach {
+                            implementation(it)
+                        }
+                    }
+                    coreRemoteViews(libs.versions.androidx.core.remoteviews.get()) {
+                        AndroidX.Core.CoreRemoteViews.values().forEach {
+                            implementation(it)
+                        }
+                    }
                     coreSplashscreen(libs.versions.androidx.core.splashscreen.get()) {
-                        implementation(AndroidX.CoreSplashscreen.core_splashscreen)
+                        implementation(AndroidX.Core.CoreSplashscreen.core_splashscreen)
+                    }
+                    coreTelecom(libs.versions.androidx.core.telecom.get()) {
+                        implementation(AndroidX.Core.CoreTelecom.core_telecom)
                     }
                 }
                 fragment(libs.versions.androidx.fragment.toString()) {
@@ -106,23 +150,41 @@ android {
                 }
                 test {
                     testCore(libs.versions.androidx.test.core.get()) {
-                        testImplementation(AndroidX.TestCore.core.dependency)
+                        androidTestImplementation(AndroidX.Test.TestCore.core.dependency)
                     }
                     testRunner(libs.versions.androidx.test.runner.get()) {
-                        testImplementation(AndroidX.TestRunner.runner.dependency)
+                        androidTestImplementation(AndroidX.Test.TestRunner.runner.dependency)
                     }
                     testRules(libs.versions.androidx.test.rules.get()) {
-                        testImplementation(AndroidX.TestRules.rules.dependency)
+                        androidTestImplementation(AndroidX.Test.TestRules.rules.dependency)
                     }
                 }
-                testEspresso(libs.versions.androidx.test.espresso.get()) {
-                    testImplementation(AndroidX.TestEspresso.espresso_core.dependency)
-                    testImplementation(AndroidX.TestEspresso.espresso_web.dependency)
-                    testImplementation(AndroidX.TestEspresso.espresso_remote.dependency)
-                    testImplementation(AndroidX.TestEspresso.espresso_contrib.dependency)
-                    testImplementation(AndroidX.TestEspresso.espresso_intents.dependency)
-                    testImplementation(AndroidX.TestEspresso.espresso_accessibility.dependency)
-                    testImplementation(AndroidX.TestEspresso.espresso_idling_resource.dependency)
+                testEspresso(libs.versions.androidx.test.espresso.toString()) {
+//                    androidTestImplementation(AndroidX.TestEspresso.espresso_core.dependency)
+//                    androidTestImplementation(AndroidX.TestEspresso.espresso_web.dependency)
+//                    androidTestImplementation(AndroidX.TestEspresso.espresso_remote.dependency)
+//                    androidTestImplementation(AndroidX.TestEspresso.espresso_contrib.dependency)
+//                    androidTestImplementation(AndroidX.TestEspresso.espresso_intents.dependency)
+//                    androidTestImplementation(AndroidX.TestEspresso.espresso_accessibility.dependency)
+//                    androidTestImplementation(AndroidX.TestEspresso.espresso_idling_resource.dependency)
+//
+//                    androidTestImplementation(AndroidX.TestEspressoIdling.idling_concurrent.dependency)
+//                    androidTestImplementation(AndroidX.TestEspressoIdling.idling_net.dependency)
+                }
+                testEspressoDevice(libs.versions.androidx.test.espresso.device.get()) {
+                    androidTestImplementation(AndroidX.TestEspressoDevice.espresso_device.dependency)
+                }
+                testExt {
+                    testExtJUnit(libs.versions.androidx.test.ext.junit.junit.get()) {
+                        testImplementation(AndroidX.TestExt.TestExtJUnit.junit.dependency)
+                        testImplementation(AndroidX.TestExt.TestExtJUnit.junit_ktx.dependency)
+                    }
+                    testExtJUnitGTest(libs.versions.androidx.test.ext.junit.gtest.get()) {
+                        testImplementation(AndroidX.TestExt.TestExtJUnitGTest.junit_gtest.dependency)
+                    }
+                    testExtJUnitTruth(libs.versions.androidx.test.ext.truth.get()) {
+                        testImplementation(AndroidX.TestExt.TestExtTruth.truth.dependency)
+                    }
                 }
             }
 

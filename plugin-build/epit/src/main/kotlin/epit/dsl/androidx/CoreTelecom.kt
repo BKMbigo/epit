@@ -6,19 +6,19 @@ import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
-class EpitAndroidXTestRunnerScope(
-    private val androidXTestCoreVersion: String
+class EpitAndroidXCoreTelecomScope(
+    private val androidXCoreTelecomVersion: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.Test.TestRunner.dependency
-        get(): String = "${this.moduleName}:${androidXTestCoreVersion}"
+    val AndroidX.Core.CoreTelecom.dependency
+        get(): String = "${this.moduleName}:${androidXCoreTelecomVersion}"
 
     @ExperimentalEpitApi
-    fun AndroidX.Test.TestRunner.dependency(version: String) = "${this.moduleName}:${version}"
+    fun AndroidX.Core.CoreTelecom.dependency(version: String) = "${this.moduleName}:${version}"
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(testRunner: AndroidX.Test.TestRunner) {
-        add("implementation", testRunner.dependency)
+    fun DependencyHandlerScope.implementation(coreTelecom: AndroidX.Core.CoreTelecom) {
+        add("implementation", coreTelecom.dependency)
     }
 
     @EpitInvalidApi

@@ -10,14 +10,14 @@ class EpitAndroidXCoreScope(
     private val androidXCoreVersion: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.Core.dependency
+    val AndroidX.Core.Core.dependency
         get(): String = "${this.moduleName}:${androidXCoreVersion}"
 
     @ExperimentalEpitApi
-    fun AndroidX.Core.dependency(version: String) = "${this.moduleName}:${version}"
+    fun AndroidX.Core.Core.dependency(version: String) = "${this.moduleName}:${version}"
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(core: AndroidX.Core) {
+    fun DependencyHandlerScope.implementation(core: AndroidX.Core.Core) {
         add("implementation", core.dependency)
     }
 

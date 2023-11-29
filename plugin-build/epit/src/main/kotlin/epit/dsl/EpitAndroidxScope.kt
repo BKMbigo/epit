@@ -49,6 +49,14 @@ object EpitAndroidxScope {
     }
 
     @ExperimentalEpitApi
+    fun EpitAndroidxScope.composeFoundationText(
+        composeFoundationTextVersion: String,
+        block: EpitAndroidXComposeFoundationTextScope.() -> Unit
+    ) {
+        block(EpitAndroidXComposeFoundationTextScope(composeFoundationTextVersion))
+    }
+
+    @ExperimentalEpitApi
     fun EpitAndroidxScope.composeMaterial(
         composeMaterialVersion: String,
         block: EpitAndroidXComposeMaterialScope.() -> Unit
@@ -65,11 +73,27 @@ object EpitAndroidxScope {
     }
 
     @ExperimentalEpitApi
+    fun EpitAndroidxScope.composeMaterial3Adaptive(
+        composeMaterial3AdaptiveVersion: String,
+        block: EpitAndroidXComposeMaterial3AdaptiveScope.() -> Unit
+    ) {
+        block(EpitAndroidXComposeMaterial3AdaptiveScope(composeMaterial3AdaptiveVersion))
+    }
+
+    @ExperimentalEpitApi
     fun EpitAndroidxScope.composeRuntime(
         composeRuntimeVersion: String,
         block: EpitAndroidXComposeRuntimeScope.() -> Unit
     ) {
         block(EpitAndroidXComposeRuntimeScope(composeRuntimeVersion))
+    }
+
+    @ExperimentalEpitApi
+    fun EpitAndroidxScope.composeRuntimeTracing(
+        composeRuntimeTracingVersion: String,
+        block: EpitAndroidXComposeRuntimeTracingScope.() -> Unit
+    ) {
+        block(EpitAndroidXComposeRuntimeTracingScope(composeRuntimeTracingVersion))
     }
 
     @ExperimentalEpitApi
@@ -125,6 +149,21 @@ object EpitAndroidxScope {
     @ExperimentalEpitApi
     fun EpitAndroidxScope.testEspresso(espressoVersion: String, block: EpitAndroidXTestEspressoScope.() -> Unit) {
         block(EpitAndroidXTestEspressoScope(espressoVersion))
+    }
+
+    @ExperimentalEpitApi
+    fun EpitAndroidxScope.testEspressoDevice(espressoDeviceVersion: String, block: EpitAndroidXTestEspressoDeviceScope.() -> Unit) {
+        block(EpitAndroidXTestEspressoDeviceScope(espressoDeviceVersion))
+    }
+
+    @ExperimentalEpitApi
+    fun EpitAndroidxScope.testEspressoIdling(espressoIdlingVersion: String, block: EpitAndroidXTestEspressoIdlingScope.() -> Unit) {
+        block(EpitAndroidXTestEspressoIdlingScope(espressoIdlingVersion))
+    }
+
+    @ExperimentalEpitApi
+    fun EpitAndroidxScope.testExt(block: EpitAndroidxGeneralTestExtScope.() -> Unit) {
+        block(EpitAndroidxGeneralTestExtScope)
     }
 
     @EpitInvalidApi

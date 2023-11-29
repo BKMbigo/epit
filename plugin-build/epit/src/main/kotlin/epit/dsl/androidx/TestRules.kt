@@ -10,14 +10,14 @@ class EpitAndroidXTestRulesScope(
     private val androidXTestRulesVersion: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.TestRules.dependency
+    val AndroidX.Test.TestRules.dependency
         get(): String = "${this.moduleName}:${androidXTestRulesVersion}"
 
     @ExperimentalEpitApi
-    fun AndroidX.TestRules.dependency(version: String) = "${this.moduleName}:${version}"
+    fun AndroidX.Test.TestRules.dependency(version: String) = "${this.moduleName}:${version}"
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(testRules: AndroidX.TestRules) {
+    fun DependencyHandlerScope.implementation(testRules: AndroidX.Test.TestRules) {
         add("implementation", testRules.dependency)
     }
 

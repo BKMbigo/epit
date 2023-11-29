@@ -3,22 +3,23 @@ package epit.dsl.androidx
 import epit.EpitDependency
 import epit.annotations.EpitInvalidApi
 import epit.annotations.ExperimentalEpitApi
+import epit.dsl.compose.Compose
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
-class EpitAndroidXTestRunnerScope(
-    private val androidXTestCoreVersion: String
+class EpitAndroidXComposeFoundationTextScope(
+    private val androidXComposeFoundationTextVersion: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.Test.TestRunner.dependency
-        get(): String = "${this.moduleName}:${androidXTestCoreVersion}"
+    val Compose.ComposeFoundationText.dependency
+        get(): String = "${this.moduleName}:${androidXComposeFoundationTextVersion}"
 
     @ExperimentalEpitApi
-    fun AndroidX.Test.TestRunner.dependency(version: String) = "${this.moduleName}:${version}"
+    fun Compose.ComposeFoundationText.dependency(version: String) = "${this.moduleName}:${version}"
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(testRunner: AndroidX.Test.TestRunner) {
-        add("implementation", testRunner.dependency)
+    fun DependencyHandlerScope.implementation(composeFoundationText: Compose.ComposeFoundationText) {
+        add("implementation", composeFoundationText.dependency)
     }
 
     @EpitInvalidApi

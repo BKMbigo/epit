@@ -10,14 +10,14 @@ class EpitAndroidXCoreSpashscreenScope(
     private val androidXCoreVersion: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.CoreSplashscreen.dependency
+    val AndroidX.Core.CoreSplashscreen.dependency
         get(): String = "${this.moduleName}:${androidXCoreVersion}"
 
     @ExperimentalEpitApi
-    fun AndroidX.CoreSplashscreen.dependency(version: String) = "${this.moduleName}:${version}"
+    fun AndroidX.Core.CoreSplashscreen.dependency(version: String) = "${this.moduleName}:${version}"
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(coreSplashscreen: AndroidX.CoreSplashscreen) {
+    fun DependencyHandlerScope.implementation(coreSplashscreen: AndroidX.Core.CoreSplashscreen) {
         add("implementation", coreSplashscreen.dependency)
     }
 

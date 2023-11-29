@@ -10,14 +10,14 @@ class EpitAndroidXTestCoreScope(
     private val androidXTestCoreVersion: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.TestCore.dependency
+    val AndroidX.Test.TestCore.dependency
         get(): String = "${this.moduleName}:${androidXTestCoreVersion}"
 
     @ExperimentalEpitApi
-    fun AndroidX.TestCore.dependency(version: String) = "${this.moduleName}:${version}"
+    fun AndroidX.Test.TestCore.dependency(version: String) = "${this.moduleName}:${version}"
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(testCore: AndroidX.TestCore) {
+    fun DependencyHandlerScope.implementation(testCore: AndroidX.Test.TestCore) {
         add("implementation", testCore.dependency)
     }
 

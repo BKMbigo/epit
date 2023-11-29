@@ -10,14 +10,14 @@ class EpitAndroidXConstraintLayoutScope(
     private val androidXConstraintLayoutVersion: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.ConstraintLayout.dependency
+    val AndroidX.ConstraintLayout.ConstraintLayout.dependency
         get(): String = "${this.moduleName}:${androidXConstraintLayoutVersion}"
 
     @ExperimentalEpitApi
-    fun AndroidX.ConstraintLayout.dependency(version: String) = "${this.moduleName}:${version}"
+    fun AndroidX.ConstraintLayout.ConstraintLayout.dependency(version: String) = "${this.moduleName}:${version}"
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(constraintLayout: AndroidX.ConstraintLayout) {
+    fun DependencyHandlerScope.implementation(constraintLayout: AndroidX.ConstraintLayout.ConstraintLayout) {
         add("implementation", constraintLayout.dependency)
     }
 

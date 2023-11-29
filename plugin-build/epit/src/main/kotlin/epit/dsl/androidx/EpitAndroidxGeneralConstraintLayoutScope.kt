@@ -23,6 +23,20 @@ object EpitAndroidxGeneralConstraintLayoutScope {
     ) {
         block(EpitAndroidXConstraintLayoutComposeScope(constraintLayoutComposeVersion))
     }
+    @ExperimentalEpitApi
+    fun EpitAndroidxGeneralConstraintLayoutScope.constraintlayoutCore(
+        constraintLayoutCoreVersion: String,
+        block: EpitAndroidXConstraintLayoutCoreScope.() -> Unit
+    ) {
+        block(EpitAndroidXConstraintLayoutCoreScope(constraintLayoutCoreVersion))
+    }
+    @ExperimentalEpitApi
+    fun EpitAndroidxGeneralConstraintLayoutScope.constraintlayoutSolver(
+        constraintLayoutSolverVersion: String,
+        block: EpitAndroidXConstraintLayoutSolverScope.() -> Unit
+    ) {
+        block(EpitAndroidXConstraintLayoutSolverScope(constraintLayoutSolverVersion))
+    }
 
     @EpitInvalidApi
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {

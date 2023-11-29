@@ -14,11 +14,23 @@ class EpitAndroidXTestEspressoScope(
         get(): String = "${this.moduleName}:${androidXTestEspressoVersion}"
 
     @ExperimentalEpitApi
+    val AndroidX.TestEspressoIdling.dependency
+        get(): String = "${this.moduleName}:${androidXTestEspressoVersion}"
+
+    @ExperimentalEpitApi
     fun AndroidX.TestEspresso.dependency(version: String) = "${this.moduleName}:${version}"
+
+    @ExperimentalEpitApi
+    fun AndroidX.TestEspressoIdling.dependency(version: String) = "${this.moduleName}:${version}"
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(testEspresso: AndroidX.TestEspresso) {
         add("implementation", testEspresso.dependency)
+    }
+
+    @ExperimentalEpitApi
+    fun DependencyHandlerScope.implementation(testEspressoIdling: AndroidX.TestEspressoIdling) {
+        add("implementation", testEspressoIdling.dependency)
     }
 
     @EpitInvalidApi

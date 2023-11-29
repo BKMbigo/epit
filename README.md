@@ -1,8 +1,10 @@
-# EPIT
+## ⚒️ epit
 
 epit introduces type-safe kotlin dependencies in your build.gradle.kts scripts. With epit, the IDE can help you define your dependencies as you create your project
 
-Please note that the plugin is currently experimental
+> **Note**  
+> Please note that the plugin is currently experimental and the API's may change in-between updates without warning 
+
 ###### Without epit
 ```Kotlin
 dependencies {
@@ -21,6 +23,25 @@ dependencies {
 ```
 
 ###### with epit
+
+Epit introduces type-safe dependencies inside your build.gradle.kts scripts.
+
+Go to your project level `build.gradle.kts` and import epit
+
+```kotlin
+plugins {
+    id("io.github.bkmbigo.epit") version "0.0.0-beta.1" apply false
+}
+```
+
+Now proceed to your module's `build.gradle.kts` and apply the plugin
+```kotlin
+plugins {
+    id("io.github.bkmbigo.epit")
+}
+```
+
+Sync your project and then head to the dependencies block of your module and use epit as shown below:
 ```Kotlin
 dependencies {
   @OptIn(ExperimentalEpitApi::class)
@@ -54,37 +75,4 @@ dependencies {
 ```
 
 ## Libraries supported
-
-- androidx
-  - activity
-  - appcompat
-  - camera
-  - composeAnimation
-  - composeCompiler
-  - composeFoundation
-  - composeMaterial
-  - composeMaterial3
-  - composeRuntime
-  - composeUI
-  - constraintlayout
-  - core
-  - fragment
-  - lifecycle
-  - navigation
-  - recyclerview
-  - room
-  - test
-  - espresso
-- kotlinx
-  - atomicfu
-  - coroutines
-  - collections-immutable
-  - datetime
-  - serialization
-- squareup
-  - leakcanary
-  - okhttp3
-  - picasso
-  - retrofit2
-- firebase
-- koin
+Libraries supported are listed [separately](docs/libraries_supported.md)
