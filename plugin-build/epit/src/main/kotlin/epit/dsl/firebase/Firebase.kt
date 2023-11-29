@@ -2,6 +2,7 @@ package epit.dsl.firebase
 
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
+import epit.utils.joinWithColon
 
 @ExperimentalEpitApi
 enum class Firebase(
@@ -137,9 +138,11 @@ enum class Firebase(
 
     //    firebase_storage_common(moduleName = "com.google.firebase:firebase-storage-common"),
 //    firebase_storage_common_license(moduleName = "com.google.firebase:firebase-storage-common-license"),
-    firebase_storage_ktx(moduleName = "com.google.firebase:firebase-storage-ktx"),
+    firebase_storage_ktx(moduleName = "com.google.firebase:firebase-storage-ktx");
 //    firebase_storage_license(moduleName = "com.google.firebase:firebase-storage-license"),
 //    perf_plugin(moduleName = "com.google.firebase:perf-plugin"),
 //    protolite_well_known_types(moduleName = "com.google.firebase:protolite-well-known-types"),
 //    testlab_instr_lib(moduleName = "com.google.firebase:testlab-instr-lib")
+
+    override fun withVersion(version: String): String = moduleName joinWithColon version
 }

@@ -3,6 +3,7 @@ package epit.dsl.androidx
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
+import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
@@ -12,10 +13,10 @@ class EpitAndroidXComposeAnimationScope(
 
     @ExperimentalEpitApi
     val AndroidX.Compose.Animation.dependency
-        get(): String = "${this.moduleName}:${androidXComposeAnimationVersion}"
+        get(): String = moduleName joinWithColon androidXComposeAnimationVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.Compose.Animation.dependency(version: String) = "${this.moduleName}:${version}"
+    fun AndroidX.Compose.Animation.dependency(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(composeAnimation: AndroidX.Compose.Animation) {

@@ -3,6 +3,7 @@ package epit.dsl.androidx
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
+import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
@@ -11,10 +12,10 @@ class EpitAndroidXPagingScope(
 ) {
     @ExperimentalEpitApi
     val AndroidX.Paging.dependency
-        get(): String = "${this.moduleName}:${androidXPagingVersion}"
+        get(): String = moduleName joinWithColon androidXPagingVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.Paging.dependency(version: String) = "${this.moduleName}:${version}"
+    fun AndroidX.Paging.dependency(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(paging: AndroidX.Paging) {

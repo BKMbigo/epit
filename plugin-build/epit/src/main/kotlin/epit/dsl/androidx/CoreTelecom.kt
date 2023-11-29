@@ -3,6 +3,7 @@ package epit.dsl.androidx
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
+import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
@@ -11,10 +12,10 @@ class EpitAndroidXCoreTelecomScope(
 ) {
     @ExperimentalEpitApi
     val AndroidX.Core.CoreTelecom.dependency
-        get(): String = "${this.moduleName}:${androidXCoreTelecomVersion}"
+        get(): String = moduleName joinWithColon androidXCoreTelecomVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.Core.CoreTelecom.dependency(version: String) = "${this.moduleName}:${version}"
+    fun AndroidX.Core.CoreTelecom.dependency(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(coreTelecom: AndroidX.Core.CoreTelecom) {

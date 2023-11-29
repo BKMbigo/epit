@@ -25,8 +25,8 @@ class EpitDependencyBlockTest {
                     androidx {
                         room("1.0.0") {
                             implementation(AndroidX.Room.room_runtime)
-                            kapt()
-                            ksp()
+                            kapt(AndroidX.Room.room_compiler)
+                            ksp(AndroidX.Room.room_compiler)
                             add("debugImplementation", AndroidX.Room.room_runtime.dependency)
                         }
                     }

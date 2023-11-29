@@ -3,6 +3,7 @@ package epit.dsl.androidx
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
+import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
@@ -11,10 +12,10 @@ class EpitAndroidXConstraintLayoutComposeScope(
 ) {
     @ExperimentalEpitApi
     val AndroidX.ConstraintLayout.ConstraintLayoutCompose.dependency
-        get(): String = "${this.moduleName}:${androidXConstraintLayoutComposeVersion}"
+        get(): String = moduleName joinWithColon androidXConstraintLayoutComposeVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.ConstraintLayout.ConstraintLayoutCompose.dependency(version: String) = "${this.moduleName}:${version}"
+    fun AndroidX.ConstraintLayout.ConstraintLayoutCompose.dependency(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(constraintLayoutCompose: AndroidX.ConstraintLayout.ConstraintLayoutCompose) {

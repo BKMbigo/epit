@@ -2,6 +2,7 @@ package epit.dsl.squareup
 
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
+import epit.utils.joinWithColon
 
 @ExperimentalEpitApi
 sealed interface SquareUp : EpitDependency {
@@ -31,7 +32,7 @@ sealed interface SquareUp : EpitDependency {
         leakcanary_android_release(moduleName = "com.squareup.leakcanary:leakcanary-android-release"),
         leakcanary_android_process(moduleName = "com.squareup.leakcanary:leakcanary-android-process"),
         leakcanary_android_instrumentation(moduleName = "com.squareup.leakcanary:leakcanary-android-instrumentation"),
-        leakcanary_android_core(moduleName = "com.squareup.leakcanary:leakcanary-android-core"),
+        leakcanary_android_core(moduleName = "com.squareup.leakcanary:leakcanary-android-core");
 //        leakcanary_watcher(moduleName = "com.squareup.leakcanary:leakcanary-watcher"),
 //        leakcanary_log(moduleName = "com.squareup.leakcanary:leakcanary-log"),
 //        leaksentry(moduleName = "com.squareup.leakcanary:leaksentry"),
@@ -42,6 +43,8 @@ sealed interface SquareUp : EpitDependency {
 //        leakcanary_analyzer_core(moduleName = "com.squareup.leakcanary:leakcanary-analyzer-core"),
 //        leakcanary_support_fragment(moduleName = "com.squareup.leakcanary:leakcanary-support-fragment"),
 //        leakcanary_android_no_op(moduleName = "com.squareup.leakcanary:leakcanary-android-no-op")
+
+        override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
     @ExperimentalEpitApi
@@ -71,13 +74,15 @@ sealed interface SquareUp : EpitDependency {
 
         //    okhttp_js(moduleName = "com.squareup.okhttp3:okhttp-js"),
         mockwebserver(moduleName = "com.squareup.okhttp3:mockwebserver"),
-        okhttp_bom(moduleName = "com.squareup.okhttp3:okhttp-bom"),
+        okhttp_bom(moduleName = "com.squareup.okhttp3:okhttp-bom");
 //        benchmarks(moduleName = "com.squareup.okhttp3:benchmarks"),
 //        okhttp_apache(moduleName = "com.squareup.okhttp3:okhttp-apache"),
 //        okhttp_android_support(moduleName = "com.squareup.okhttp3:okhttp-android-support"),
 //        okhttp_testing_support(moduleName = "com.squareup.okhttp3:okhttp-testing-support"),
 //        parent(moduleName = "com.squareup.okhttp3:parent"),
 //        okhttp_ws(moduleName = "com.squareup.okhttp3:okhttp-ws")
+
+        override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
     enum class Picasso(
@@ -87,7 +92,9 @@ sealed interface SquareUp : EpitDependency {
 
         //    picasso_sample(moduleName = "com.squareup.picasso:picasso-sample"),
         //    picasso_parent(moduleName = "com.squareup.picasso:picasso-parent"),
-        picasso_pollexor(moduleName = "com.squareup.picasso:picasso-pollexor")
+        picasso_pollexor(moduleName = "com.squareup.picasso:picasso-pollexor");
+
+        override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
     enum class Retrofit2(
@@ -110,9 +117,10 @@ sealed interface SquareUp : EpitDependency {
         adapter_java8(moduleName = "com.squareup.retrofit2:adapter-java8"),
         adapter_guava(moduleName = "com.squareup.retrofit2:adapter-guava"),
         retrofit_mock(moduleName = "com.squareup.retrofit2:retrofit-mock"),
-        retrofit(moduleName = "com.squareup.retrofit2:retrofit"),
+        retrofit(moduleName = "com.squareup.retrofit2:retrofit");
 //    retrofit_converters(moduleName = "com.squareup.retrofit2:retrofit-converters"),
 //    retrofit_adapters(moduleName = "com.squareup.retrofit2:retrofit-adapters"),
 //    parent(moduleName = "com.squareup.retrofit2:parent")
+override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 }

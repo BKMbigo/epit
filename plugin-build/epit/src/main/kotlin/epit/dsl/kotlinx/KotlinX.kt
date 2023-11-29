@@ -2,6 +2,7 @@ package epit.dsl.kotlinx
 
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
+import epit.utils.joinWithColon
 
 @ExperimentalEpitApi
 interface KotlinX : EpitDependency {
@@ -9,13 +10,17 @@ interface KotlinX : EpitDependency {
     enum class AtomicFU(
         internal val moduleName: String
     ) : KotlinX {
-        atomicfu(moduleName = "org.jetbrains.kotlinx:atomicfu")
+        atomicfu(moduleName = "org.jetbrains.kotlinx:atomicfu");
+
+        override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
     enum class CollectionsImmutable(
         internal val moduleName: String
     ) : KotlinX {
-        collections_immutable(moduleName = "org.jetbrains.kotlinx:kotlinx-collections-immutable")
+        collections_immutable(moduleName = "org.jetbrains.kotlinx:kotlinx-collections-immutable");
+
+        override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
     @ExperimentalEpitApi
@@ -34,19 +39,25 @@ interface KotlinX : EpitDependency {
         coroutines_rx3(moduleName = "org.jetbrains.kotlinx:kotlinx-coroutines-rx3"),
         coroutines_slf4j(moduleName = "org.jetbrains.kotlinx:kotlinx-coroutines-slf4j"),
         coroutines_swing(moduleName = "org.jetbrains.kotlinx:kotlinx-coroutines-swing"),
-        coroutines_test(moduleName = "org.jetbrains.kotlinx:kotlinx-coroutines-test")
+        coroutines_test(moduleName = "org.jetbrains.kotlinx:kotlinx-coroutines-test");
+
+        override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
     enum class Datetime(
         internal val moduleName: String
     ) : KotlinX {
-        datetime(moduleName = "org.jetbrains.kotlinx:kotlinx-datetime")
+        datetime(moduleName = "org.jetbrains.kotlinx:kotlinx-datetime");
+
+        override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
     enum class Serialization(
         internal val moduleName: String
     ) : KotlinX {
         serialization_core(moduleName = "org.jetbrains.kotlinx:kotlinx-serialization-core"),
-        serialization_json(moduleName = "org.jetbrains.kotlinx:kotlinx-serialization-json")
+        serialization_json(moduleName = "org.jetbrains.kotlinx:kotlinx-serialization-json");
+
+        override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 }

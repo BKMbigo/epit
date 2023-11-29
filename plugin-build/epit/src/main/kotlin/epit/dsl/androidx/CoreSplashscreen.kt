@@ -3,6 +3,7 @@ package epit.dsl.androidx
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
+import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
@@ -11,10 +12,10 @@ class EpitAndroidXCoreSpashscreenScope(
 ) {
     @ExperimentalEpitApi
     val AndroidX.Core.CoreSplashscreen.dependency
-        get(): String = "${this.moduleName}:${androidXCoreVersion}"
+        get(): String = moduleName joinWithColon androidXCoreVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.Core.CoreSplashscreen.dependency(version: String) = "${this.moduleName}:${version}"
+    fun AndroidX.Core.CoreSplashscreen.dependency(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(coreSplashscreen: AndroidX.Core.CoreSplashscreen) {

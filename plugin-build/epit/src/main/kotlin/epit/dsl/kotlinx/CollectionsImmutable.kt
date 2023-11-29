@@ -3,18 +3,19 @@ package epit.dsl.kotlinx
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
+import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 class EpitKotlinxImmutableCollectionsScope internal constructor(
-    private val kotinxCollectionsImmutableVersion: String
+    private val kotlinxCollectionsImmutableVersion: String
 ) {
     @ExperimentalEpitApi
     val KotlinX.CollectionsImmutable.dependency
-        get(): String = "${this.moduleName}:${kotinxCollectionsImmutableVersion}"
+        get(): String = moduleName joinWithColon kotlinxCollectionsImmutableVersion
 
     @ExperimentalEpitApi
-    fun KotlinX.CollectionsImmutable.dependency(version: String) = "${this.moduleName}:${version}"
+    fun KotlinX.CollectionsImmutable.dependency(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(collectionsImmutable: KotlinX.CollectionsImmutable) {

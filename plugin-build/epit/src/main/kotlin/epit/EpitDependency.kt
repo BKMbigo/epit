@@ -3,7 +3,10 @@ package epit
 import epit.annotations.InvalidScopeEpitDependency
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
-interface EpitDependency
+interface EpitDependency {
+    fun withVersion(version: String): String
+
+}
 
 @InvalidScopeEpitDependency
 fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {

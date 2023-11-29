@@ -3,6 +3,7 @@ package epit.dsl.androidx
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
+import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
@@ -11,10 +12,10 @@ class EpitAndroidXRoomScope(
 ) {
     @ExperimentalEpitApi
     val AndroidX.Room.dependency
-        get(): String = "${this.moduleName}:${androidXRoomVersion}"
+        get(): String = moduleName joinWithColon androidXRoomVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.Room.dependency(version: String) = "${this.moduleName}:${version}"
+    fun AndroidX.Room.dependency(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(room: AndroidX.Room) {
@@ -22,12 +23,12 @@ class EpitAndroidXRoomScope(
     }
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.kapt(room: AndroidX.Room = AndroidX.Room.room_compiler) {
+    fun DependencyHandlerScope.kapt(room: AndroidX.Room) {
         add("kapt", room.dependency)
     }
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.ksp(room: AndroidX.Room = AndroidX.Room.room_compiler) {
+    fun DependencyHandlerScope.ksp(room: AndroidX.Room) {
         add("ksp", room.dependency)
     }
 

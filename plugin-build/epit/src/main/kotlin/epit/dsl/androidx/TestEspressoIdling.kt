@@ -3,6 +3,7 @@ package epit.dsl.androidx
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
+import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
@@ -11,10 +12,10 @@ class EpitAndroidXTestEspressoIdlingScope(
 ) {
     @ExperimentalEpitApi
     val AndroidX.TestEspressoIdling.dependency
-        get(): String = "${this.moduleName}:${androidXTestEspressoIdlingVersion}"
+        get(): String = moduleName joinWithColon androidXTestEspressoIdlingVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.TestEspressoIdling.dependency(version: String) = "${this.moduleName}:${version}"
+    fun AndroidX.TestEspressoIdling.dependency(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(testEspressoIdling: AndroidX.TestEspressoIdling) {

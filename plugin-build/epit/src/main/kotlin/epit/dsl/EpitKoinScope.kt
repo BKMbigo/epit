@@ -4,6 +4,7 @@ import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
 import epit.dsl.koin.Koin
+import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
@@ -12,17 +13,17 @@ class EpitKoinScope(
 ) {
 
     @ExperimentalEpitApi
-    val bom = "${Koin.koin_bom.moduleName}:${koinBOMVersion}"
+    val bom = Koin.koin_bom.moduleName joinWithColon koinBOMVersion
 
     @ExperimentalEpitApi
-    fun bom(customVersion: String) = "${Koin.koin_bom.moduleName}:${customVersion}"
+    fun bom(customVersion: String) = Koin.koin_bom.moduleName joinWithColon customVersion
 
     @ExperimentalEpitApi
     val Koin.dependency
-        get() = this.moduleName
+        get() = moduleName
 
     @ExperimentalEpitApi
-    fun Koin.dependency(version: String) = "${this.moduleName}:${version}"
+    fun Koin.dependency(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(koin: Koin) {

@@ -3,6 +3,7 @@ package epit.dsl.androidx
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
+import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
@@ -11,10 +12,10 @@ class EpitAndroidXCameraScope(
 ) {
     @ExperimentalEpitApi
     val AndroidX.Camera.dependency
-        get(): String = "${this.moduleName}:${androidXCameraVersion}"
+        get(): String = moduleName joinWithColon androidXCameraVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.Camera.dependency(version: String) = "${this.moduleName}:${version}"
+    fun AndroidX.Camera.dependency(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(camera: AndroidX.Camera) {

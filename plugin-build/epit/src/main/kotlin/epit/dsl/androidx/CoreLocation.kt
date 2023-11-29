@@ -3,6 +3,7 @@ package epit.dsl.androidx
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
+import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
@@ -11,10 +12,10 @@ class EpitAndroidXCoreLocationScope(
 ) {
     @ExperimentalEpitApi
     val AndroidX.Core.CoreLocation.dependency
-        get(): String = "${this.moduleName}:${androidXCoreLocationVersion}"
+        get(): String = moduleName joinWithColon androidXCoreLocationVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.Core.CoreLocation.dependency(version: String) = "${this.moduleName}:${version}"
+    fun AndroidX.Core.CoreLocation.dependency(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(coreLocation: AndroidX.Core.CoreLocation) {

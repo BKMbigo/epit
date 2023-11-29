@@ -3,18 +3,19 @@ package epit.dsl.kotlinx
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
+import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 class EpitKotlinxSerializationScope internal constructor(
-    private val kotinxSerializationVersion: String
+    private val kotlinxSerializationVersion: String
 ) {
     @ExperimentalEpitApi
     val KotlinX.Serialization.dependency
-        get(): String = "${this.moduleName}:${kotinxSerializationVersion}"
+        get(): String = moduleName joinWithColon kotlinxSerializationVersion
 
     @ExperimentalEpitApi
-    fun KotlinX.Serialization.dependency(version: String) = "${this.moduleName}:${version}"
+    fun KotlinX.Serialization.dependency(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(serialization: KotlinX.Serialization) {

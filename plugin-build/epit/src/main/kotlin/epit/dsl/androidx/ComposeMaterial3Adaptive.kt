@@ -3,6 +3,7 @@ package epit.dsl.androidx
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
+import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
@@ -11,10 +12,10 @@ class EpitAndroidXComposeMaterial3AdaptiveScope(
 ) {
     @ExperimentalEpitApi
     val AndroidX.Compose.Material3.Material3Adaptive.dependency
-        get(): String = "${this.moduleName}:${androidXComposeMaterial3AdaptiveVersion}"
+        get(): String = moduleName joinWithColon androidXComposeMaterial3AdaptiveVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.Compose.Material3.Material3Adaptive.dependency(version: String) = "${this.moduleName}:${version}"
+    fun AndroidX.Compose.Material3.Material3Adaptive.dependency(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(composeMaterial3Adaptive: AndroidX.Compose.Material3.Material3Adaptive) {

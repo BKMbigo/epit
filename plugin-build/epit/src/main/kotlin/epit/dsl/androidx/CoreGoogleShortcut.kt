@@ -3,6 +3,7 @@ package epit.dsl.androidx
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
+import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
@@ -11,10 +12,10 @@ class EpitAndroidXCoreGoogleShortcutsScope(
 ) {
     @ExperimentalEpitApi
     val AndroidX.Core.CoreGoogleShortcuts.dependency
-        get(): String = "${this.moduleName}:${androidXCoreGoogleShortcutsVersion}"
+        get(): String = moduleName joinWithColon androidXCoreGoogleShortcutsVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.Core.CoreGoogleShortcuts.dependency(version: String) = "${this.moduleName}:${version}"
+    fun AndroidX.Core.CoreGoogleShortcuts.dependency(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(coreGoogleShortcuts: AndroidX.Core.CoreGoogleShortcuts) {

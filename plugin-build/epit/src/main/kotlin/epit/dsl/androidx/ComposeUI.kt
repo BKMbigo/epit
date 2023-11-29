@@ -3,6 +3,7 @@ package epit.dsl.androidx
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
+import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
@@ -12,10 +13,10 @@ class EpitAndroidXComposeUIScope(
 
     @ExperimentalEpitApi
     val AndroidX.Compose.UI.dependency
-        get(): String = "${this.moduleName}:${androidXComposeUIVersion}"
+        get(): String = moduleName joinWithColon androidXComposeUIVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.Compose.UI.dependency(version: String) = "${this.moduleName}:${version}"
+    fun AndroidX.Compose.UI.dependency(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(composeUI: AndroidX.Compose.UI) {

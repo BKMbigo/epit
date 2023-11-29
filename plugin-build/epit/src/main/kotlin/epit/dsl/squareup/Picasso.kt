@@ -3,6 +3,7 @@ package epit.dsl.squareup
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
+import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
@@ -11,10 +12,10 @@ class EpitSquarePicassoScope(
 ) {
     @ExperimentalEpitApi
     val SquareUp.Picasso.dependency
-        get(): String = "${this.moduleName}:${squarePicassoVersion}"
+        get(): String = moduleName joinWithColon squarePicassoVersion
 
     @ExperimentalEpitApi
-    fun SquareUp.Picasso.dependency(version: String) = "${this.moduleName}:${version}"
+    fun SquareUp.Picasso.dependency(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(picasso: SquareUp.Picasso) {

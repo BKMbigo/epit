@@ -3,6 +3,7 @@ package epit.dsl.kotlinx
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
+import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
@@ -11,10 +12,10 @@ class EpitKotlinxCoroutinesScope internal constructor(
 ) {
     @ExperimentalEpitApi
     val KotlinX.Coroutines.dependency
-        get(): String = "${this.moduleName}:${kotlinxCoroutinesVersion}"
+        get(): String = moduleName joinWithColon kotlinxCoroutinesVersion
 
     @ExperimentalEpitApi
-    fun KotlinX.Coroutines.dependency(version: String) = "${this.moduleName}:${version}"
+    fun KotlinX.Coroutines.dependency(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(coroutines: KotlinX.Coroutines) {

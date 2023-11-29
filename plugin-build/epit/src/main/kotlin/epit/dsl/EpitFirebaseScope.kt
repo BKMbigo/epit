@@ -4,6 +4,7 @@ import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
 import epit.dsl.firebase.Firebase
+import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
@@ -12,17 +13,17 @@ class EpitFirebaseScope(
 ) {
 
     @ExperimentalEpitApi
-    val bom = "${Firebase.firebase_bom.moduleName}:${firebaseBOMVersion}"
+    val bom = Firebase.firebase_bom.moduleName joinWithColon firebaseBOMVersion
 
     @ExperimentalEpitApi
-    fun bom(customVersion: String) = "${Firebase.firebase_bom.moduleName}:${customVersion}"
+    fun bom(customVersion: String) = Firebase.firebase_bom.moduleName joinWithColon customVersion
 
     @ExperimentalEpitApi
     val Firebase.dependency
-        get() = this.moduleName
+        get() = moduleName
 
     @ExperimentalEpitApi
-    fun Firebase.dependency(version: String) = "${this.moduleName}:${version}"
+    fun Firebase.dependency(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(firebase: Firebase) {

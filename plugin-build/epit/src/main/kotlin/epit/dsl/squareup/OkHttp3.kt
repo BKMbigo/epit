@@ -3,6 +3,7 @@ package epit.dsl.squareup
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
+import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
@@ -11,17 +12,17 @@ class EpitSquareOkHttp3BOMScope(
 ) {
 
     @ExperimentalEpitApi
-    val bom = "${SquareUp.OkHttp3.okhttp_bom.moduleName}:${squareOkHttp3BOMVersion}"
+    val bom = SquareUp.OkHttp3.okhttp_bom.moduleName joinWithColon squareOkHttp3BOMVersion
 
     @ExperimentalEpitApi
-    fun bom(customVersion: String) = "${SquareUp.OkHttp3.okhttp_bom.moduleName}:${customVersion}"
+    fun bom(customVersion: String) = SquareUp.OkHttp3.okhttp_bom.moduleName joinWithColon customVersion
 
     @ExperimentalEpitApi
     val SquareUp.OkHttp3.dependency
-        get(): String = "${this.moduleName}:${squareOkHttp3BOMVersion}"
+        get(): String = moduleName joinWithColon squareOkHttp3BOMVersion
 
     @ExperimentalEpitApi
-    fun SquareUp.OkHttp3.dependency(version: String) = "${this.moduleName}:${version}"
+    fun SquareUp.OkHttp3.dependency(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(okHttp3: SquareUp.OkHttp3) {

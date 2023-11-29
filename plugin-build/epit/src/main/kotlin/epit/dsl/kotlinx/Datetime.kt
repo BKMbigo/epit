@@ -3,19 +3,20 @@ package epit.dsl.kotlinx
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
+import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 class EpitKotlinxDatetimeScope internal constructor(
-    private val kotinxDatetimeVersion: String
+    private val kotlinxDatetimeVersion: String
 ) {
 
     @ExperimentalEpitApi
     val KotlinX.Datetime.dependency
-        get(): String = "${this.moduleName}:${kotinxDatetimeVersion}"
+        get(): String = moduleName joinWithColon kotlinxDatetimeVersion
 
     @ExperimentalEpitApi
-    fun KotlinX.Datetime.dependency(version: String) = "${this.moduleName}:${version}"
+    fun KotlinX.Datetime.dependency(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(datetime: KotlinX.Datetime) {

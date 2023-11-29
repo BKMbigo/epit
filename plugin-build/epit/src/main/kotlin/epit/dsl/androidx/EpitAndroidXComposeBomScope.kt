@@ -3,6 +3,7 @@ package epit.dsl.androidx
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
+import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
@@ -11,17 +12,17 @@ class EpitAndroidXComposeBomScope(
 ) {
 
     @ExperimentalEpitApi
-    val bom = "${AndroidX.Compose.Bom.compose_bom.moduleName}:${composeBOMVersion}"
+    val bom = AndroidX.Compose.Bom.compose_bom.moduleName joinWithColon composeBOMVersion
 
     @ExperimentalEpitApi
-    fun bom(customVersion: String) = "${AndroidX.Compose.Bom.compose_bom.moduleName}:${customVersion}"
+    fun bom(customVersion: String) = AndroidX.Compose.Bom.compose_bom.moduleName joinWithColon customVersion
 
     @ExperimentalEpitApi
     val AndroidX.Compose.ComposeBomDependency.dependency
         get() = this.moduleName
 
     @ExperimentalEpitApi
-    fun AndroidX.Compose.dependency(version: String) = "${this.moduleName}:${version}"
+    fun AndroidX.Compose.dependency(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(compose: AndroidX.Compose.ComposeBomDependency) {

@@ -23,7 +23,7 @@ class EpitPreviewScope(
         block(firebaseScope)
     }
 
-
+    @OptIn(ExperimentalEpitApi::class)
     fun koin(bomVersion: String, block: EpitKoinScope.() -> Unit) {
         val koinScope = EpitKoinScope(bomVersion)
         with(dependencyHandlerScope) {
@@ -42,6 +42,7 @@ class EpitPreviewScope(
         block(EpitSquareScope(dependencyHandlerScope))
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")
