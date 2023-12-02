@@ -3,6 +3,12 @@ package epit.dsl
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
+import epit.dsl.androidx.EpitAndroidxScope
+import epit.dsl.firebase.EpitFirebaseScope
+import epit.dsl.koin.EpitKoinScope
+import epit.dsl.kotlinx.EpitKotlinxScope
+import epit.dsl.squareup.EpitSquareScope
+import epit.dsl.voyager.EpitVoyagerScope
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 class EpitPreviewScope(

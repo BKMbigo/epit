@@ -1,9 +1,8 @@
-package epit.dsl
+package epit.dsl.androidx
 
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
-import epit.dsl.androidx.*
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi

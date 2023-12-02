@@ -1,33 +1,25 @@
-package epit.dsl
+package epit.dsl.voyager
 
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
-import epit.dsl.koin.Koin
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
-class EpitKoinScope(
-    internal val koinBOMVersion: String
+class EpitVoyagerScope(
+    internal val voyagerVersion: String
 ) {
+    @ExperimentalEpitApi
+    val Voyager.dependency
+        get() = moduleName joinWithColon voyagerVersion
 
     @ExperimentalEpitApi
-    val bom = Koin.koin_bom.moduleName joinWithColon koinBOMVersion
+    fun Voyager.dependency(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
-    fun bom(customVersion: String) = Koin.koin_bom.moduleName joinWithColon customVersion
-
-    @ExperimentalEpitApi
-    val Koin.dependency
-        get() = moduleName
-
-    @ExperimentalEpitApi
-    fun Koin.dependency(version: String) = moduleName joinWithColon version
-
-    @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(koin: Koin) {
-        add("implementation", koin.moduleName)
+    fun DependencyHandlerScope.implementation(voyager: Voyager) {
+        add("implementation", voyager.dependency)
     }
 
     @InvalidScopeEpitDependency

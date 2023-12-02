@@ -1,9 +1,8 @@
-package epit.dsl
+package epit.dsl.kotlinx
 
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
-import epit.dsl.kotlinx.*
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi

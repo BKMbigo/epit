@@ -1,9 +1,8 @@
-package epit.dsl
+package epit.dsl.firebase
 
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
-import epit.dsl.firebase.Firebase
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 

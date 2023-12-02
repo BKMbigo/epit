@@ -1,12 +1,8 @@
-package epit.dsl
+package epit.dsl.squareup
 
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
-import epit.dsl.squareup.EpitSquareLeakCanaryScope
-import epit.dsl.squareup.EpitSquareOkHttp3BOMScope
-import epit.dsl.squareup.EpitSquarePicassoScope
-import epit.dsl.squareup.EpitSquareRetrofit2Scope
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
