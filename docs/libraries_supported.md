@@ -4,8 +4,8 @@ epit aims to provide a rich library of kotlin and android dependencies in the lo
 ### Table of contents
 - [AndroidX libraries](#androidx-libraries)
 - [KotlinX libraries](#kotlinx-libraries)
-- Koin
-- Firebase
+- [Koin](#koin)
+- [Firebase](#firebase)
 - [Voyager](#voyager)
 
 ### AndroidX Libraries
@@ -588,14 +588,40 @@ dependencies {
 }
 ```
 
-### Voyager
+### Koin
 
 ```kotlin
 dependencies {
     epitPreview {
-        voyager(/* Enter the version of voyager you would like: "1.0.0-rc10" */) {
-            implementation(Voyager.voyager_navigator)
+      koin(/* Enter the version of koin bom you would like: "3.5.2-RC1" */) {
+        implementation(Koin.koin_core)
+        ..
         }
     }
+}
+```
+
+### Firebase
+
+```kotlin
+dependencies {
+  epitPreview {
+    firebase(/* Enter the version of firebase bom you would like: "32.6.0" */) {
+      implementation(Firebase.firebase_auth)
+    }
+  }
+}
+```
+
+### Voyager
+
+```kotlin
+dependencies {
+  epitPreview {
+    voyager(/* Enter the version of voyager you would like: "1.0.0-rc10" */) {
+      implementation(Voyager.voyager_navigator)
+      ..
+    }
+  }
 }
 ```
