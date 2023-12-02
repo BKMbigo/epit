@@ -650,7 +650,7 @@ sealed interface AndroidX : EpitDependency {
             internal val moduleName: String
         ) : AndroidX {
             junit(moduleName = "androidx.test.ext:junit"),
-            junit_ktx(moduleName = "androidx.test.ext:junit");
+            junit_ktx(moduleName = "androidx.test.ext:junit-ktx");
 
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
