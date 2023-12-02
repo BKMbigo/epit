@@ -1,7 +1,10 @@
 package epit.dsl.androidx
 
+import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
 
+@ExperimentalEpitApi
+@EpitDsl
 object EpitAndroidxGeneralComposeFoundationScope {
 
     @ExperimentalEpitApi

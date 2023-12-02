@@ -1,6 +1,7 @@
 package epit.dsl
 
 import epit.EpitDependency
+import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
 import epit.dsl.androidx.EpitAndroidxScope
@@ -12,6 +13,7 @@ import epit.dsl.squareup.EpitSquareScope
 import epit.dsl.voyager.EpitVoyagerScope
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
+@EpitDsl
 class EpitPreviewScope(
     internal val dependencyHandlerScope: DependencyHandlerScope
 ) {

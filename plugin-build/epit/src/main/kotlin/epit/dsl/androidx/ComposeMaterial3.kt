@@ -1,12 +1,14 @@
 package epit.dsl.androidx
 
 import epit.EpitDependency
+import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
+@EpitDsl
 class EpitAndroidXComposeMaterial3Scope(
     private val androidXComposeMaterial3Version: String
 ) {

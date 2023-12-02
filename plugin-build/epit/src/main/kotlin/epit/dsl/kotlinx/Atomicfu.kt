@@ -1,14 +1,16 @@
 package epit.dsl.kotlinx
 
 import epit.EpitDependency
+import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
+@EpitDsl
 class EpitKotlinxAtomicFUScope internal constructor(
-    private val kotlinxAtomicfuVersion: String
+    internal val kotlinxAtomicfuVersion: String
 ) {
     @ExperimentalEpitApi
     val KotlinX.AtomicFU.dependency

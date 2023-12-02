@@ -1,8 +1,10 @@
 package epit.dsl.androidx
 
+import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
+@EpitDsl
 class EpitAndroidxGeneralComposeScope(
     private val dependencyHandlerScope: DependencyHandlerScope
 ) {

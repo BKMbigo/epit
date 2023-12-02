@@ -1,13 +1,15 @@
 package epit.dsl.kotlinx
 
 import epit.EpitDependency
+import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
-class EpitKotlinxImmutableCollectionsScope internal constructor(
+@EpitDsl
+class EpitKotlinxImmutableCollectionsScope(
     private val kotlinxCollectionsImmutableVersion: String
 ) {
     @ExperimentalEpitApi

@@ -1,7 +1,9 @@
 package epit.dsl.androidx
 
+import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
 
+@EpitDsl
 object EpitAndroidxGeneralEspressoScope {
 
     @ExperimentalEpitApi

@@ -1,12 +1,14 @@
 package epit.dsl.squareup
 
 import epit.EpitDependency
+import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
+@EpitDsl
 class EpitSquareLeakCanaryScope(
     private val squareLeakCanaryVersion: String
 ) {
