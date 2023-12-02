@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitAndroidXCoreAnimationScope(
+class EpitAndroidXCoreAnimationScope internal constructor(
     private val androidXCoreAnimationVersion: String
 ) {
     @ExperimentalEpitApi

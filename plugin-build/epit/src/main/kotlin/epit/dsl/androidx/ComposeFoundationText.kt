@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitAndroidXComposeFoundationTextScope(
+class EpitAndroidXComposeFoundationTextScope internal constructor(
     private val androidXComposeFoundationTextVersion: String
 ) {
     @ExperimentalEpitApi

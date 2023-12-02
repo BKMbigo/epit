@@ -5,7 +5,7 @@ import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @EpitDsl
-class EpitAndroidxGeneralComposeScope(
+class EpitAndroidxGeneralComposeScope internal constructor(
     private val dependencyHandlerScope: DependencyHandlerScope
 ) {
 

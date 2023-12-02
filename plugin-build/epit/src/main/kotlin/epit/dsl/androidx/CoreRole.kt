@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitAndroidXCoreRoleScope(
+class EpitAndroidXCoreRoleScope internal constructor(
     private val androidXCoreRoleVersion: String
 ) {
     @ExperimentalEpitApi

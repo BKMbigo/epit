@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitAndroidXCoreLocationScope(
+class EpitAndroidXCoreLocationScope internal constructor(
     private val androidXCoreLocationVersion: String
 ) {
     @ExperimentalEpitApi

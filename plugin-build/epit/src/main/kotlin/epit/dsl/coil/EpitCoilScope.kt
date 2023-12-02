@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitCoilScope(
+class EpitCoilScope internal constructor(
     internal val coilBOMVersion: String
 ) {
 

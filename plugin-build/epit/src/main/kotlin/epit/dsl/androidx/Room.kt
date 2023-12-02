@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitAndroidXRoomScope(
+class EpitAndroidXRoomScope internal constructor(
     private val androidXRoomVersion: String
 ) {
     @ExperimentalEpitApi

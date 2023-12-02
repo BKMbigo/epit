@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitAndroidXNavigationScope(
+class EpitAndroidXNavigationScope internal constructor(
     private val androidXNavigationVersion: String
 ) {
     @ExperimentalEpitApi

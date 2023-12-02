@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitKotlinxImmutableCollectionsScope(
+class EpitKotlinxImmutableCollectionsScope internal constructor(
     private val kotlinxCollectionsImmutableVersion: String
 ) {
     @ExperimentalEpitApi

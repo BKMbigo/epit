@@ -14,7 +14,7 @@ import epit.dsl.voyager.EpitVoyagerScope
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @EpitDsl
-class EpitPreviewScope(
+class EpitPreviewScope internal constructor(
     internal val dependencyHandlerScope: DependencyHandlerScope
 ) {
 

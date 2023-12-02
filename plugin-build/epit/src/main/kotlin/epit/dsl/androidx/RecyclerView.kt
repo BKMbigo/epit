@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitAndroidXRecyclerViewScope(
+class EpitAndroidXRecyclerViewScope internal constructor(
     private val androidXRecyclerViewVersion: String
 ) {
     @ExperimentalEpitApi

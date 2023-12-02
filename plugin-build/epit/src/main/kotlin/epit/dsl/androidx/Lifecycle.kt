@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitAndroidXLifecycleScope(
+class EpitAndroidXLifecycleScope internal constructor(
     private val androidXLifecycleVersion: String
 ) {
     @ExperimentalEpitApi

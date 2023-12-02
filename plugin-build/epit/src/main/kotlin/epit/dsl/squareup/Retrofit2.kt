@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitSquareRetrofit2Scope(
+class EpitSquareRetrofit2Scope internal constructor(
     private val squareRetrofit2Version: String
 ) {
     @ExperimentalEpitApi

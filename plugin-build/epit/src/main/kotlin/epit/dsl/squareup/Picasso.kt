@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitSquarePicassoScope(
+class EpitSquarePicassoScope internal constructor(
     private val squarePicassoVersion: String
 ) {
     @ExperimentalEpitApi

@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitAndroidXCoreSpashscreenScope(
+class EpitAndroidXCoreSpashscreenScope internal constructor(
     private val androidXCoreVersion: String
 ) {
     @ExperimentalEpitApi

@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitAndroidXCoreGoogleShortcutsScope(
+class EpitAndroidXCoreGoogleShortcutsScope internal constructor(
     private val androidXCoreGoogleShortcutsVersion: String
 ) {
     @ExperimentalEpitApi

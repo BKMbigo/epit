@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitSquareOkHttp3BOMScope(
+class EpitSquareOkHttp3BOMScope internal constructor(
     private val squareOkHttp3BOMVersion: String
 ) {
 

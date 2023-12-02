@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitAndroidXTestEspressoScope(
+class EpitAndroidXTestEspressoScope internal constructor(
     private val androidXTestEspressoVersion: String
 ) {
     @ExperimentalEpitApi

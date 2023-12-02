@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitAndroidXCorePerformanceScope(
+class EpitAndroidXCorePerformanceScope internal constructor(
     private val androidXCorePerformanceVersion: String
 ) {
     @ExperimentalEpitApi

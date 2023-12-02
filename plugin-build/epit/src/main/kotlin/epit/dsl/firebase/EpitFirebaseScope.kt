@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitFirebaseScope(
+class EpitFirebaseScope internal constructor(
     internal val firebaseBOMVersion: String
 ) {
 

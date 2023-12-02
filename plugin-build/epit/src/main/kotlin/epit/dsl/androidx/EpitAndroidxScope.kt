@@ -8,7 +8,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitAndroidxScope(
+class EpitAndroidxScope internal constructor(
     internal val dependencyHandlerScope: DependencyHandlerScope
 ) {
 

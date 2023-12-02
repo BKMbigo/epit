@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitAndroidXCameraScope(
+class EpitAndroidXCameraScope internal constructor(
     private val androidXCameraVersion: String
 ) {
     @ExperimentalEpitApi

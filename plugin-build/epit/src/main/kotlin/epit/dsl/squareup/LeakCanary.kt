@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitSquareLeakCanaryScope(
+class EpitSquareLeakCanaryScope internal constructor(
     private val squareLeakCanaryVersion: String
 ) {
     @ExperimentalEpitApi

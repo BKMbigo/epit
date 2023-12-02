@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitAndroidXComposeBomScope(
+class EpitAndroidXComposeBomScope internal constructor(
     internal val composeBOMVersion: String
 ) {
 

@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitAndroidXComposeUIScope(
+class EpitAndroidXComposeUIScope internal constructor(
     private val androidXComposeUIVersion: String
 ) {
 

@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitAndroidXCoreRemoteViewsScope(
+class EpitAndroidXCoreRemoteViewsScope internal constructor(
     private val androidXCoreRemoteViewsVersion: String
 ) {
     @ExperimentalEpitApi

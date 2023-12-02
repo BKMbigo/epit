@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitKoinScope(
+class EpitKoinScope internal constructor(
     internal val koinBOMVersion: String
 ) {
 

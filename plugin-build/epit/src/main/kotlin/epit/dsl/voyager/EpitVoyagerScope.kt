@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitVoyagerScope(
+class EpitVoyagerScope internal constructor(
     internal val voyagerVersion: String
 ) {
     @ExperimentalEpitApi

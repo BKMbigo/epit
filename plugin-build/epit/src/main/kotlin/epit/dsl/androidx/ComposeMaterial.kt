@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitAndroidXComposeMaterialScope(
+class EpitAndroidXComposeMaterialScope internal constructor(
     private val androidXComposeMaterialVersion: String
 ) {
     @ExperimentalEpitApi

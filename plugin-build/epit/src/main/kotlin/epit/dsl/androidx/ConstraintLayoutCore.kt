@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
-class EpitAndroidXConstraintLayoutCoreScope(
+class EpitAndroidXConstraintLayoutCoreScope internal constructor(
     private val androidXConstraintLayoutCoreVersion: String
 ) {
     @ExperimentalEpitApi
