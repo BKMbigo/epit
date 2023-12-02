@@ -1,5 +1,4 @@
 import epit.dsl.epitPreview
-import epit.dsl.voyager.Voyager
 
 
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
@@ -263,11 +262,16 @@ android {
 //                    }
 //                }
 //            }
-            voyager(libs.versions.voyager.get()) {
-                Voyager.values().forEach {
-                    implementation(it)
-                }
-            }
+//            voyager(libs.versions.voyager.get()) {
+//                Voyager.values().forEach {
+//                    implementation(it)
+//                }
+//            }
+//            coil(libs.versions.coil.get()) {
+//                Coil.values().forEach {
+//                    implementation(it)
+//                }
+//            }
         }
     }
 }

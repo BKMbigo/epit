@@ -4,6 +4,7 @@ import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
 import epit.dsl.androidx.EpitAndroidxScope
+import epit.dsl.coil.EpitCoilScope
 import epit.dsl.firebase.EpitFirebaseScope
 import epit.dsl.koin.EpitKoinScope
 import epit.dsl.kotlinx.EpitKotlinxScope
@@ -27,6 +28,15 @@ class EpitPreviewScope(
             add("implementation", platform(firebaseScope.bom))
         }
         block(firebaseScope)
+    }
+
+    @ExperimentalEpitApi
+    fun coil(bomVersion: String, block: EpitCoilScope.() -> Unit) {
+        val coilScope = EpitCoilScope(bomVersion)
+        with(dependencyHandlerScope) {
+            add("implementation", platform(coilScope.bom))
+        }
+        block(coilScope)
     }
 
     @OptIn(ExperimentalEpitApi::class)
