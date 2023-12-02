@@ -40,14 +40,16 @@ class ComposeTest {
         project.dependencies {
             epitPreview {
                 androidx {
-                    compose("2023.10.01") {
-                        implementation(AndroidX.Compose.Runtime.Runtime.runtime)
+                    compose {
+                        compose("2023.10.01") {
+                            implementation(AndroidX.Compose.Runtime.Runtime.runtime)
 
-                        customImplementation(platform(bom))
-                        customImplementation(AndroidX.Compose.Runtime.Runtime.runtime.dependency)
+                            customImplementation(platform(bom))
+                            customImplementation(AndroidX.Compose.Runtime.Runtime.runtime.dependency)
 
-                        customVersionImplementation(platform(bom("2023.09.00")))
-                        customVersionImplementation(AndroidX.Compose.Runtime.Runtime.runtime.dependency("1.1.1"))
+                            customVersionImplementation(platform(bom("2023.09.00")))
+                            customVersionImplementation(AndroidX.Compose.Runtime.Runtime.runtime.dependency("1.1.1"))
+                        }
                     }
                 }
             }

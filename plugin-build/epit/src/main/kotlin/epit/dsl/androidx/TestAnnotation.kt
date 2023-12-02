@@ -11,15 +11,15 @@ class EpitAndroidXTestAnnotationScope(
     private val androidXTestAnnotationVersion: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.Test.TestAnnotation.dependency
+    val AndroidX.Test.Annotation.dependency
         get(): String = moduleName joinWithColon androidXTestAnnotationVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.Test.TestAnnotation.dependency(version: String) = moduleName joinWithColon version
+    fun AndroidX.Test.Annotation.dependency(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(testCore: AndroidX.Test.TestAnnotation) {
-        add("implementation", testCore.dependency)
+    fun DependencyHandlerScope.implementation(annotation: AndroidX.Test.Annotation) {
+        add("implementation", annotation.dependency)
     }
 
     @InvalidScopeEpitDependency

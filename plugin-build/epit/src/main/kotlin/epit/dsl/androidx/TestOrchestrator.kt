@@ -11,15 +11,15 @@ class EpitAndroidXTestOrchestratorScope(
     private val androidXTestOrchestratorVersion: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.Test.TestOrchestrator.dependency
+    val AndroidX.Test.Orchestrator.dependency
         get(): String = moduleName joinWithColon androidXTestOrchestratorVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.Test.TestOrchestrator.dependency(version: String) = moduleName joinWithColon version
+    fun AndroidX.Test.Orchestrator.dependency(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(testCore: AndroidX.Test.TestOrchestrator) {
-        add("implementation", testCore.dependency)
+    fun DependencyHandlerScope.implementation(orchestrator: AndroidX.Test.Orchestrator) {
+        add("implementation", orchestrator.dependency)
     }
 
     @InvalidScopeEpitDependency

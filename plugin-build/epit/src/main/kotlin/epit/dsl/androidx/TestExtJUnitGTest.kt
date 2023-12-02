@@ -11,15 +11,15 @@ class EpitAndroidXTestExtJUnitGTestScope(
     private val androidXTestExtJUnitGTestVersion: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.TestExt.TestExtJUnitGTest.dependency
+    val AndroidX.Test.Ext.JUnitGTest.dependency
         get(): String = moduleName joinWithColon androidXTestExtJUnitGTestVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.TestExt.TestExtJUnitGTest.dependency(version: String) = moduleName joinWithColon version
+    fun AndroidX.Test.Ext.JUnitGTest.dependency(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(testExtJUnitGTest: AndroidX.TestExt.TestExtJUnitGTest) {
-        add("implementation", testExtJUnitGTest.dependency)
+    fun DependencyHandlerScope.implementation(jUnitGTest: AndroidX.Test.Ext.JUnitGTest) {
+        add("implementation", jUnitGTest.dependency)
     }
 
     @InvalidScopeEpitDependency

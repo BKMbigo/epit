@@ -6,7 +6,7 @@ import epit.annotations.ExperimentalEpitApi
 object EpitAndroidxGeneralTestExtScope {
 
     @ExperimentalEpitApi
-    fun EpitAndroidxGeneralTestExtScope.testExtJUnit(
+    fun EpitAndroidxGeneralTestExtScope.jUnit(
         testExtJUnitVersion: String,
         block: EpitAndroidXTestExtJUnitScope.() -> Unit
     ) {
@@ -14,7 +14,7 @@ object EpitAndroidxGeneralTestExtScope {
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxGeneralTestExtScope.testExtJUnitGTest(
+    fun EpitAndroidxGeneralTestExtScope.jUnitGTest(
         testExtJUnitGTestVersion: String,
         block: EpitAndroidXTestExtJUnitGTestScope.() -> Unit
     ) {
@@ -22,7 +22,7 @@ object EpitAndroidxGeneralTestExtScope {
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxGeneralTestExtScope.testExtJUnitTruth(
+    fun EpitAndroidxGeneralTestExtScope.truth(
         testExtJUnitTruthVersion: String,
         block: EpitAndroidXTestExtTruthScope.() -> Unit
     ) {

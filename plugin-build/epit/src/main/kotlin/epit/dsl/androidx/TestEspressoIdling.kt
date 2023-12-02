@@ -11,15 +11,15 @@ class EpitAndroidXTestEspressoIdlingScope(
     private val androidXTestEspressoIdlingVersion: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.TestEspressoIdling.dependency
+    val AndroidX.Test.Espresso.Idling.dependency
         get(): String = moduleName joinWithColon androidXTestEspressoIdlingVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.TestEspressoIdling.dependency(version: String) = moduleName joinWithColon version
+    fun AndroidX.Test.Espresso.Idling.dependency(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(testEspressoIdling: AndroidX.TestEspressoIdling) {
-        add("implementation", testEspressoIdling.dependency)
+    fun DependencyHandlerScope.implementation(espressoIdling: AndroidX.Test.Espresso.Idling) {
+        add("implementation", espressoIdling.dependency)
     }
 
     @InvalidScopeEpitDependency

@@ -46,63 +46,71 @@ class AndroidxTest {
                         customImplementation(AndroidX.Camera.camera_camera2.dependency)
                         customVersionImplementation(AndroidX.Camera.camera_camera2.dependency("1.1.2"))
                     }
-                    composeAnimation("1.0.0") {
-                        implementation(AndroidX.Compose.Animation.animation)
-                        customImplementation(AndroidX.Compose.Animation.animation.dependency)
-                        customVersionImplementation(AndroidX.Compose.Animation.animation.dependency("1.1.2"))
-                    }
-                    composeCompiler("1.0.0") {
-                        implementation(AndroidX.Compose.Compiler.compiler)
-                        customImplementation(AndroidX.Compose.Compiler.compiler.dependency)
-                        customVersionImplementation(AndroidX.Compose.Compiler.compiler.dependency("1.1.2"))
-                    }
-                    composeFoundation("1.0.0") {
-                        implementation(AndroidX.Compose.Foundation.Foundation.foundation)
-                        customImplementation(AndroidX.Compose.Foundation.Foundation.foundation.dependency)
-                        customVersionImplementation(AndroidX.Compose.Foundation.Foundation.foundation.dependency("1.1.2"))
-                    }
-                    composeFoundationText("1.0.0") {
-                        implementation(AndroidX.Compose.Foundation.FoundationText.foundation_text)
-                        customImplementation(AndroidX.Compose.Foundation.FoundationText.foundation_text.dependency)
-                        customVersionImplementation(
-                            AndroidX.Compose.Foundation.FoundationText.foundation_text.dependency(
-                                "1.1.2"
-                            )
-                        )
-                    }
-                    composeMaterial("1.0.0") {
-                        implementation(AndroidX.Compose.Material.material)
-                        customImplementation(AndroidX.Compose.Material.material.dependency)
-                        customVersionImplementation(AndroidX.Compose.Material.material.dependency("1.1.2"))
-                    }
-                    composeMaterial3("1.0.0") {
-                        implementation(AndroidX.Compose.Material3.Material3.material3)
-                        customImplementation(AndroidX.Compose.Material3.Material3.material3.dependency)
-                        customVersionImplementation(AndroidX.Compose.Material3.Material3.material3.dependency("1.1.2"))
-                    }
-                    composeMaterial3Adaptive("1.0.0") {
-                        implementation(AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive)
-                        customImplementation(AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive.dependency)
-                        customVersionImplementation(
-                            AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive.dependency(
-                                "1.1.2"
-                            )
-                        )
-                    }
-                    composeRuntime("1.0.0") {
-                        implementation(AndroidX.Compose.Runtime.Runtime.runtime)
-                        customImplementation(AndroidX.Compose.Runtime.Runtime.runtime.dependency)
-                        customVersionImplementation(AndroidX.Compose.Runtime.Runtime.runtime.dependency("1.1.2"))
-                    }
-                    composeRuntimeTracing("1.0.0") {
-                        implementation(AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing)
-                        customImplementation(AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing.dependency)
-                        customVersionImplementation(AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing.dependency("1.1.2"))
-                    }
-                    composeUI("1.0.0") {
-                        implementation(AndroidX.Compose.UI.ui)
-                        customImplementation(AndroidX.Compose.UI.ui.dependency)
-                        customVersionImplementation(AndroidX.Compose.UI.ui.dependency("1.1.2"))
+                    compose {
+                        animation("1.0.0") {
+                            implementation(AndroidX.Compose.Animation.animation)
+                            customImplementation(AndroidX.Compose.Animation.animation.dependency)
+                            customVersionImplementation(AndroidX.Compose.Animation.animation.dependency("1.1.2"))
+                        }
+                        compiler("1.0.0") {
+                            implementation(AndroidX.Compose.Compiler.compiler)
+                            customImplementation(AndroidX.Compose.Compiler.compiler.dependency)
+                            customVersionImplementation(AndroidX.Compose.Compiler.compiler.dependency("1.1.2"))
+                        }
+                        foundation {
+                            foundation("1.0.0") {
+                                implementation(AndroidX.Compose.Foundation.Foundation.foundation)
+                                customImplementation(AndroidX.Compose.Foundation.Foundation.foundation.dependency)
+                                customVersionImplementation(
+                                    AndroidX.Compose.Foundation.Foundation.foundation.dependency("1.1.2")
+                                )
+                            }
+                            foundationText("1.0.0") {
+                                implementation(AndroidX.Compose.Foundation.FoundationText.foundation_text)
+                                customImplementation(AndroidX.Compose.Foundation.FoundationText.foundation_text.dependency)
+                                customVersionImplementation(
+                                    AndroidX.Compose.Foundation.FoundationText.foundation_text.dependency("1.1.2")
+                                )
+                            }
+                        }
+                        material("1.0.0") {
+                            implementation(AndroidX.Compose.Material.material)
+                            customImplementation(AndroidX.Compose.Material.material.dependency)
+                            customVersionImplementation(AndroidX.Compose.Material.material.dependency("1.1.2"))
+                        }
+                        material3 {
+                            material3("1.0.0") {
+                                implementation(AndroidX.Compose.Material3.Material3.material3)
+                                customImplementation(AndroidX.Compose.Material3.Material3.material3.dependency)
+                                customVersionImplementation(AndroidX.Compose.Material3.Material3.material3.dependency("1.1.2"))
+                            }
+                            material3Adaptive("1.0.0") {
+                                implementation(AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive)
+                                customImplementation(AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive.dependency)
+                                customVersionImplementation(
+                                    AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive.dependency("1.1.2")
+                                )
+                            }
+                        }
+                        runtime {
+                            runtime("1.0.0") {
+                                implementation(AndroidX.Compose.Runtime.Runtime.runtime)
+                                customImplementation(AndroidX.Compose.Runtime.Runtime.runtime.dependency)
+                                customVersionImplementation(AndroidX.Compose.Runtime.Runtime.runtime.dependency("1.1.2"))
+                            }
+                            runtimeTracing("1.0.0") {
+                                implementation(AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing)
+                                customImplementation(AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing.dependency)
+                                customVersionImplementation(
+                                    AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing.dependency("1.1.2")
+                                )
+                            }
+                        }
+                        ui("1.0.0") {
+                            implementation(AndroidX.Compose.UI.ui)
+                            customImplementation(AndroidX.Compose.UI.ui.dependency)
+                            customVersionImplementation(AndroidX.Compose.UI.ui.dependency("1.1.2"))
+                        }
                     }
                     constraintLayout {
                         constraintlayout("1.0.0") {
@@ -202,67 +210,73 @@ class AndroidxTest {
                         customVersionImplementation(AndroidX.Room.room_common.dependency("1.1.2"))
                     }
                     test {
-                        testAnnotation("1.0.0") {
-                            implementation(AndroidX.Test.TestAnnotation.test_annotation)
-                            customImplementation(AndroidX.Test.TestAnnotation.test_annotation.dependency)
-                            customVersionImplementation(AndroidX.Test.TestAnnotation.test_annotation.dependency("1.1.2"))
+                        annotation("1.0.0") {
+                            implementation(AndroidX.Test.Annotation.test_annotation)
+                            customImplementation(AndroidX.Test.Annotation.test_annotation.dependency)
+                            customVersionImplementation(AndroidX.Test.Annotation.test_annotation.dependency("1.1.2"))
                         }
-                        testCore("1.0.0") {
-                            implementation(AndroidX.Test.TestCore.core)
-                            customImplementation(AndroidX.Test.TestCore.core.dependency)
-                            customVersionImplementation(AndroidX.Test.TestCore.core.dependency("1.1.2"))
+                        core("1.0.0") {
+                            implementation(AndroidX.Test.Core.core)
+                            customImplementation(AndroidX.Test.Core.core.dependency)
+                            customVersionImplementation(AndroidX.Test.Core.core.dependency("1.1.2"))
                         }
-                        testMonitor("1.0.0") {
-                            implementation(AndroidX.Test.TestMonitor.monitor)
-                            customImplementation(AndroidX.Test.TestMonitor.monitor.dependency)
-                            customVersionImplementation(AndroidX.Test.TestMonitor.monitor.dependency("1.1.2"))
+                        monitor("1.0.0") {
+                            implementation(AndroidX.Test.Monitor.monitor)
+                            customImplementation(AndroidX.Test.Monitor.monitor.dependency)
+                            customVersionImplementation(AndroidX.Test.Monitor.monitor.dependency("1.1.2"))
                         }
-                        testOrchestrator("1.0.0") {
-                            implementation(AndroidX.Test.TestOrchestrator.orchestrator)
-                            customImplementation(AndroidX.Test.TestOrchestrator.orchestrator.dependency)
-                            customVersionImplementation(AndroidX.Test.TestOrchestrator.orchestrator.dependency("1.1.2"))
+                        orchestrator("1.0.0") {
+                            implementation(AndroidX.Test.Orchestrator.orchestrator)
+                            customImplementation(AndroidX.Test.Orchestrator.orchestrator.dependency)
+                            customVersionImplementation(AndroidX.Test.Orchestrator.orchestrator.dependency("1.1.2"))
                         }
-                        testRules("1.0.0") {
-                            implementation(AndroidX.Test.TestRules.rules)
-                            customImplementation(AndroidX.Test.TestRules.rules.dependency)
-                            customVersionImplementation(AndroidX.Test.TestRules.rules.dependency("1.1.2"))
+                        rules("1.0.0") {
+                            implementation(AndroidX.Test.Rules.rules)
+                            customImplementation(AndroidX.Test.Rules.rules.dependency)
+                            customVersionImplementation(AndroidX.Test.Rules.rules.dependency("1.1.2"))
                         }
-                        testRunner("1.0.0") {
-                            implementation(AndroidX.Test.TestRunner.runner)
-                            customImplementation(AndroidX.Test.TestRunner.runner.dependency)
-                            customVersionImplementation(AndroidX.Test.TestRunner.runner.dependency("1.1.2"))
+                        runner("1.0.0") {
+                            implementation(AndroidX.Test.Runner.runner)
+                            customImplementation(AndroidX.Test.Runner.runner.dependency)
+                            customVersionImplementation(AndroidX.Test.Runner.runner.dependency("1.1.2"))
                         }
-                    }
-                    testEspresso("1.0.0") {
-                        implementation(AndroidX.TestEspresso.espresso_core)
-                        customImplementation(AndroidX.TestEspresso.espresso_core.dependency)
-                        customVersionImplementation(AndroidX.TestEspresso.espresso_core.dependency("1.1.2"))
-                    }
-                    testEspressoDevice("1.0.0") {
-                        implementation(AndroidX.TestEspressoDevice.espresso_device)
-                        customImplementation(AndroidX.TestEspressoDevice.espresso_device.dependency)
-                        customVersionImplementation(AndroidX.TestEspressoDevice.espresso_device.dependency("1.1.2"))
-                    }
-                    testEspressoIdling("1.0.0") {
-                        implementation(AndroidX.TestEspressoIdling.idling_concurrent)
-                        customImplementation(AndroidX.TestEspressoIdling.idling_concurrent.dependency)
-                        customVersionImplementation(AndroidX.TestEspressoIdling.idling_concurrent.dependency("1.1.2"))
-                    }
-                    testExt {
-                        testExtJUnit("1.0.0") {
-                            implementation(AndroidX.TestExt.TestExtJUnit.junit)
-                            customImplementation(AndroidX.TestExt.TestExtJUnit.junit.dependency)
-                            customVersionImplementation(AndroidX.TestExt.TestExtJUnit.junit.dependency("1.1.2"))
+                        espresso {
+                            espresso("1.0.0") {
+                                implementation(AndroidX.Test.Espresso.Espresso.espresso_core)
+                                customImplementation(AndroidX.Test.Espresso.Espresso.espresso_core.dependency)
+                                customVersionImplementation(AndroidX.Test.Espresso.Espresso.espresso_core.dependency("1.1.2"))
+                            }
+                            espressoDevice("1.0.0") {
+                                implementation(AndroidX.Test.Espresso.EspressoDevice.espresso_device)
+                                customImplementation(AndroidX.Test.Espresso.EspressoDevice.espresso_device.dependency)
+                                customVersionImplementation(
+                                    AndroidX.Test.Espresso.EspressoDevice.espresso_device.dependency(
+                                        "1.1.2"
+                                    )
+                                )
+                            }
+                            espressoIdling("1.0.0") {
+                                implementation(AndroidX.Test.Espresso.Idling.idling_concurrent)
+                                customImplementation(AndroidX.Test.Espresso.Idling.idling_concurrent.dependency)
+                                customVersionImplementation(AndroidX.Test.Espresso.Idling.idling_concurrent.dependency("1.1.2"))
+                            }
                         }
-                        testExtJUnitGTest("1.0.0") {
-                            implementation(AndroidX.TestExt.TestExtJUnitGTest.junit_gtest)
-                            customImplementation(AndroidX.TestExt.TestExtJUnitGTest.junit_gtest.dependency)
-                            customVersionImplementation(AndroidX.TestExt.TestExtJUnitGTest.junit_gtest.dependency("1.1.2"))
-                        }
-                        testExtJUnitTruth("1.0.0") {
-                            implementation(AndroidX.TestExt.TestExtTruth.truth)
-                            customImplementation(AndroidX.TestExt.TestExtTruth.truth.dependency)
-                            customVersionImplementation(AndroidX.TestExt.TestExtTruth.truth.dependency("1.1.2"))
+                        ext {
+                            jUnit("1.0.0") {
+                                implementation(AndroidX.Test.Ext.JUnit.junit)
+                                customImplementation(AndroidX.Test.Ext.JUnit.junit.dependency)
+                                customVersionImplementation(AndroidX.Test.Ext.JUnit.junit.dependency("1.1.2"))
+                            }
+                            jUnitGTest("1.0.0") {
+                                implementation(AndroidX.Test.Ext.JUnitGTest.junit_gtest)
+                                customImplementation(AndroidX.Test.Ext.JUnitGTest.junit_gtest.dependency)
+                                customVersionImplementation(AndroidX.Test.Ext.JUnitGTest.junit_gtest.dependency("1.1.2"))
+                            }
+                            truth("1.0.0") {
+                                implementation(AndroidX.Test.Ext.Truth.truth)
+                                customImplementation(AndroidX.Test.Ext.Truth.truth.dependency)
+                                customVersionImplementation(AndroidX.Test.Ext.Truth.truth.dependency("1.1.2"))
+                            }
                         }
                     }
                 }
@@ -300,18 +314,18 @@ class AndroidxTest {
             AndroidX.Paging.paging_common.moduleName,
             AndroidX.RecyclerView.recyclerview.moduleName,
             AndroidX.Room.room_common.moduleName,
-            AndroidX.Test.TestAnnotation.test_annotation.moduleName,
-            AndroidX.Test.TestCore.core.moduleName,
-            AndroidX.Test.TestMonitor.monitor.moduleName,
-            AndroidX.Test.TestOrchestrator.orchestrator.moduleName,
-            AndroidX.Test.TestRules.rules.moduleName,
-            AndroidX.Test.TestRunner.runner.moduleName,
-            AndroidX.TestEspresso.espresso_core.moduleName,
-            AndroidX.TestEspressoDevice.espresso_device.moduleName,
-            AndroidX.TestEspressoIdling.idling_concurrent.moduleName,
-            AndroidX.TestExt.TestExtJUnit.junit.moduleName,
-            AndroidX.TestExt.TestExtJUnitGTest.junit_gtest.moduleName,
-            AndroidX.TestExt.TestExtTruth.truth.moduleName
+            AndroidX.Test.Annotation.test_annotation.moduleName,
+            AndroidX.Test.Core.core.moduleName,
+            AndroidX.Test.Monitor.monitor.moduleName,
+            AndroidX.Test.Orchestrator.orchestrator.moduleName,
+            AndroidX.Test.Rules.rules.moduleName,
+            AndroidX.Test.Runner.runner.moduleName,
+            AndroidX.Test.Espresso.Espresso.espresso_core.moduleName,
+            AndroidX.Test.Espresso.EspressoDevice.espresso_device.moduleName,
+            AndroidX.Test.Espresso.Idling.idling_concurrent.moduleName,
+            AndroidX.Test.Ext.JUnit.junit.moduleName,
+            AndroidX.Test.Ext.JUnitGTest.junit_gtest.moduleName,
+            AndroidX.Test.Ext.Truth.truth.moduleName
         )
 
         assertContentEquals(

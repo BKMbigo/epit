@@ -9,36 +9,55 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 object EpitAndroidxGeneralTestScope {
 
     @ExperimentalEpitApi
-    fun EpitAndroidxGeneralTestScope.testAnnotation(testAnnotationVersion: String, block: EpitAndroidXTestAnnotationScope.() -> Unit) {
+    fun EpitAndroidxGeneralTestScope.annotation(
+        testAnnotationVersion: String,
+        block: EpitAndroidXTestAnnotationScope.() -> Unit
+    ) {
         block(EpitAndroidXTestAnnotationScope(testAnnotationVersion))
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxGeneralTestScope.testCore(testCoreVersion: String, block: EpitAndroidXTestCoreScope.() -> Unit) {
+    fun EpitAndroidxGeneralTestScope.core(testCoreVersion: String, block: EpitAndroidXTestCoreScope.() -> Unit) {
         block(EpitAndroidXTestCoreScope(testCoreVersion))
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxGeneralTestScope.testMonitor(testMonitorVersion: String, block: EpitAndroidXTestMonitorScope.() -> Unit) {
+    fun EpitAndroidxGeneralTestScope.monitor(
+        testMonitorVersion: String,
+        block: EpitAndroidXTestMonitorScope.() -> Unit
+    ) {
         block(EpitAndroidXTestMonitorScope(testMonitorVersion))
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxGeneralTestScope.testOrchestrator(testOrchestratorVersion: String, block: EpitAndroidXTestOrchestratorScope.() -> Unit) {
+    fun EpitAndroidxGeneralTestScope.orchestrator(
+        testOrchestratorVersion: String,
+        block: EpitAndroidXTestOrchestratorScope.() -> Unit
+    ) {
         block(EpitAndroidXTestOrchestratorScope(testOrchestratorVersion))
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxGeneralTestScope.testRules(testRulesVersion: String, block: EpitAndroidXTestRulesScope.() -> Unit) {
+    fun EpitAndroidxGeneralTestScope.rules(testRulesVersion: String, block: EpitAndroidXTestRulesScope.() -> Unit) {
         block(EpitAndroidXTestRulesScope(testRulesVersion))
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxGeneralTestScope.testRunner(
+    fun EpitAndroidxGeneralTestScope.runner(
         testRunnerVersion: String,
         block: EpitAndroidXTestRunnerScope.() -> Unit
     ) {
         block(EpitAndroidXTestRunnerScope(testRunnerVersion))
+    }
+
+    @ExperimentalEpitApi
+    fun EpitAndroidxGeneralTestScope.espresso(block: EpitAndroidxGeneralEspressoScope.() -> Unit) {
+        block(EpitAndroidxGeneralEspressoScope)
+    }
+
+    @ExperimentalEpitApi
+    fun EpitAndroidxGeneralTestScope.ext(block: EpitAndroidxGeneralTestExtScope.() -> Unit) {
+        block(EpitAndroidxGeneralTestExtScope)
     }
 
     @InvalidScopeEpitDependency

@@ -92,9 +92,11 @@ If you choose to use the bom, add the libraries as follows:
 dependencies {
     epitPreview {
         androidx {
+          compose {
             compose(/* Enter the version of compose-bom: "2023.10.01" */) {
-                implementation(AndroidX.Compose.Animation.animation)
-                implementation(AndroidX.Compose.Runtime.Runtime.runtime)
+              implementation(AndroidX.Compose.Animation.animation)
+              implementation(AndroidX.Compose.Runtime.Runtime.runtime)
+            }
             }
         }
     }
@@ -116,11 +118,13 @@ If you want to use compose bill of materials, please refer to the compose [secti
 dependencies {
     epitPreview {
         androidx {
-            composeAnimation(/* Place the version of compose.animation library you want: "1.5.4" */) {
-                implementation(AndroidX.Compose.Animation.animation)
-                implementation(AndroidX.Compose.Animation.animation_core)
-                implementation(AndroidX.Compose.Animation.animation_graphics)
-                implementation(AndroidX.Compose.Animation.animation_tooling_internal)
+          compose {
+            animation(/* Place the version of compose.animation library you want: "1.5.4" */) {
+              implementation(AndroidX.Compose.Animation.animation)
+              implementation(AndroidX.Compose.Animation.animation_core)
+              implementation(AndroidX.Compose.Animation.animation_graphics)
+              implementation(AndroidX.Compose.Animation.animation_tooling_internal)
+            }
             }
         }
     }
@@ -135,10 +139,12 @@ If you want to use compose bill of materials, please refer to the compose [secti
 dependencies {
     epitPreview {
         androidx {
-            composeCompiler(/* Place the version of compose.compiler library you want: "1.5.4" */) {
-                implementation(AndroidX.Compose.Compiler.compiler)
-                implementation(AndroidX.Compose.Compiler.compiler_daemon)
-                implementation(AndroidX.Compose.Compiler.compiler_hosted)
+          compose {
+            compiler(/* Place the version of compose.compiler library you want: "1.5.4" */) {
+              implementation(AndroidX.Compose.Compiler.compiler)
+              implementation(AndroidX.Compose.Compiler.compiler_daemon)
+              implementation(AndroidX.Compose.Compiler.compiler_hosted)
+            }
             }
         }
     }
@@ -153,9 +159,13 @@ If you want to use compose bill of materials, please refer to the compose [secti
 dependencies {
     epitPreview {
         androidx {
-            composeFoundation(/* Place the version of compose.foundation library you want: "1.5.4" */) {
+          compose {
+            foundation {
+              foundation(/* Place the version of compose.foundation library you want: "1.5.4" */) {
                 implementation(AndroidX.Compose.Foundation.Foundation.foundation)
                 implementation(AndroidX.Compose.Foundation.Foundation.foundation_layout)
+              }
+            }
             }
         }
     }
@@ -169,8 +179,12 @@ dependencies {
 >   dependencies {
 >       epitPreview {
 >           androidx {
->               composeFoundationText(/* Place the version of compose.foundation_text library you want: "1.0.0-alpha07" */) {
->                   implementation(AndroidX.Compose.Foundation.FoundationText.foundation_text)
+>               compose {
+>                   foundation {
+>                       foundationText(/* Place the version of compose.foundation_text library you want: "1.0.0-alpha07" */) {
+>                           implementation(AndroidX.Compose.Foundation.FoundationText.foundation_text)
+>                       }
+>                   }
 >               }
 >           }
 >       }
@@ -186,12 +200,14 @@ If you want to use compose bill of materials, please refer to the compose [secti
 dependencies {
     epitPreview {
         androidx {
-            composeMaterial(/* Place the version of compose.material library you want: "1.5.4" */) {
-                implementation(AndroidX.Compose.Material.material)
-                implementation(AndroidX.Compose.Material.material_icons_core)
-                implementation(AndroidX.Compose.Material.material_icons_extended)
-                implementation(AndroidX.Compose.Material.material_ripple)
+          compose {
+            material(/* Place the version of compose.material library you want: "1.5.4" */) {
+              implementation(AndroidX.Compose.Material.material)
+              implementation(AndroidX.Compose.Material.material_icons_core)
+              implementation(AndroidX.Compose.Material.material_icons_extended)
+              implementation(AndroidX.Compose.Material.material_ripple)
             }
+          }
         }
     }
 }
@@ -205,9 +221,13 @@ If you want to use compose bill of materials, please refer to the compose [secti
 dependencies {
     epitPreview {
         androidx {
-            composeMaterial3(/* Place the version of compose.material3 library you want: "1.1.2" */) {
+          compose {
+            material3 {
+              material3(/* Place the version of compose.material3 library you want: "1.1.2" */) {
                 implementation(AndroidX.Compose.Material3.Material3.material3)
                 implementation(AndroidX.Compose.Material3.Material3.material3_window_size_class)
+              }
+            }
             }
         }
     }
@@ -223,10 +243,14 @@ dependencies {
 >   dependencies {
 >        epitPreview {
 >            androidx {
->                composeMaterial3Adaptive(/* Place the version of compose.material3 library you want: "1.0.0-alpha01" */) {
->                    implementation(AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive)
->                    implementation(AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive_navigation_suite)
->                }
+>                compose {
+>                   material3 {
+>                       material3Adaptive(/* Place the version of compose.material3 library you want: "1.0.0-alpha01" */) {
+>                           implementation(AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive)
+>                           implementation(AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive_navigation_suite)
+>                       }
+>                   }
+>               }
 >            }
 >        }
 >   }
@@ -240,12 +264,16 @@ If you want to use compose bill of materials, please refer to the compose [secti
 dependencies {
     epitPreview {
         androidx {
-            composeRuntime(/* Place the version of compose.runtime library you want: "1.5.4" */) {
+          compose {
+            runtime {
+              runtime(/* Place the version of compose.runtime library you want: "1.5.4" */) {
                 implementation(AndroidX.Compose.Runtime.Runtime.runtime)
                 implementation(AndroidX.Compose.Runtime.Runtime.runtime_livedata)
                 implementation(AndroidX.Compose.Runtime.Runtime.runtime_rxjava2)
                 implementation(AndroidX.Compose.Runtime.Runtime.runtime_rxjava3)
                 implementation(AndroidX.Compose.Runtime.Runtime.runtime_saveable)
+              }
+            }
             }
         }
     }
@@ -261,9 +289,13 @@ dependencies {
 >   dependencies {
 >        epitPreview {
 >            androidx {
->                composeRuntimeTracing(/* Place the version of compose.runtime_tracing library you want: "1.0.0-alpha05" */) {
->                    implementation(AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing)
->                }
+>               compose {
+>                   runtime {
+>                       runtimeTracing(/* Place the version of compose.runtime_tracing library you want: "1.0.0-alpha05" */) {
+>                           implementation(AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing)
+>                       }
+>                   }
+>               }
 >            }
 >        }
 >   }
@@ -278,12 +310,14 @@ If you want to use compose bill of materials, please refer to the compose [secti
 dependencies {
     epitPreview {
         androidx {
-            composeUI(/* Place the version of compose.ui library you want: "1.5.4" */) {
-                implementation(AndroidX.Compose.UI.ui)
-                implementation(AndroidX.Compose.UI.ui_android_stubs)
-                implementation(AndroidX.Compose.UI.ui_geometry)
-                implementation(AndroidX.Compose.UI.ui_graphics)
-                ...
+          compose {
+            ui(/* Place the version of compose.ui library you want: "1.5.4" */) {
+              implementation(AndroidX.Compose.UI.ui)
+              implementation(AndroidX.Compose.UI.ui_android_stubs)
+              implementation(AndroidX.Compose.UI.ui_geometry)
+              implementation(AndroidX.Compose.UI.ui_graphics)
+              ...
+            }
             }
         }
     }
@@ -468,23 +502,23 @@ dependencies {
         androidx {
             test {
                 annotation(/* Enter the version of androidx.test:annotation "1.0.1" */) {
-                    implementation(AndroidX.Test.TestAnnotation.test_annotation)
+                  implementation(AndroidX.Test.Annotation.test_annotation)
                 }
                 core(/* Enter the version of androidx.test:core "1.5.0" */) {
-                    implementation(AndroidX.Test.TestCore.core)
-                    implementation(AndroidX.Test.TestCore.core_ktx)
+                  implementation(AndroidX.Test.Core.core)
+                  implementation(AndroidX.Test.Core.core_ktx)
                 }
                 monitor(/* Enter the version of androidx.test:monitor "1.6.1" */) {
-                    implementation(AndroidX.Test.TestMonitor.monitor)
+                  implementation(AndroidX.Test.Monitor.monitor)
                 }
                 orchestrator(/* Enter the version of androidx.test:orchestrator "1.4.2" */) {
-                    implementation(AndroidX.Test.TestOrchestrator.orchestrator)
+                  implementation(AndroidX.Test.Orchestrator.orchestrator)
                 }
                 rules(/* Enter the version of androidx.test:rules "1.4.2" */) {
-                    implementation(AndroidX.Test.TestRules.rules)
+                  implementation(AndroidX.Test.Rules.rules)
                 }
                 runner(/* Enter the version of androidx.test:runner "1.5.2" */) {
-                    implementation(AndroidX.Test.TestRunner.runner)
+                  implementation(AndroidX.Test.Runner.runner)
                 }
             }
         }
@@ -498,24 +532,28 @@ dependencies {
 dependencies {
     epitPreview {
         androidx {
-            testEspresso(/* Enter the version of androidx.test.espresso: "3.5.1" */) {
-               implementation(AndroidX.TestEspresso.espresso_accessibility)
-               implementation(AndroidX.TestEspresso.espresso_contrib)
-               implementation(AndroidX.TestEspresso.espresso_core)
-               implementation(AndroidX.TestEspresso.espresso_idling_resource)
-               implementation(AndroidX.TestEspresso.espresso_intents)
-               implementation(AndroidX.TestEspresso.espresso_remote)
-               implementation(AndroidX.TestEspresso.espresso_web)
-               
-               /* You can also include libraries under the group androidx.test.espresso.idling */
-               implementation(AndroidX.TestEspressoIdling.idling_concurrent)
-               implementation(AndroidX.TestEspressoIdling.idling_net)
+          test {
+            espresso {
+              espresso(/* Enter the version of androidx.test.espresso: "3.5.1" */) {
+                implementation(AndroidX.Test.Espresso.Espresso.espresso_accessibility)
+                implementation(AndroidX.Test.Espresso.Espresso.espresso_contrib)
+                implementation(AndroidX.Test.Espresso.Espresso.espresso_core)
+                implementation(AndroidX.Test.Espresso.Espresso.espresso_idling_resource)
+                implementation(AndroidX.Test.Espresso.Espresso.espresso_intents)
+                implementation(AndroidX.Test.Espresso.Espresso.espresso_remote)
+                implementation(AndroidX.Test.Espresso.Espresso.espresso_web)
+
+                /* You can also include libraries under the group androidx.test.espresso.idling */
+                implementation(AndroidX.Test.Espresso.Idling.idling_concurrent)
+                implementation(AndroidX.Test.Espresso.Idling.idling_net)
+              }
+
+              /* Alternatively, you can declare them in a serparate block */
+              idling(/* Enter the version of androidx.test.espresso.idling: "3.5.1" */) {
+                implementation(AndroidX.Test.Espresso.Idling.idling_concurrent)
+                implementation(AndroidX.Test.Espresso.Idling.idling_net)
+              }
             }
-            
-            /* Alternatively, you can include them separately */
-            testEspressoIdling(/* Enter the version of androidx.test.espresso.idling: "3.5.1" */) {
-                implementation(AndroidX.TestEspressoIdling.idling_concurrent)
-                implementation(AndroidX.TestEspressoIdling.idling_net)
             }
         }
     }
@@ -528,8 +566,12 @@ dependencies {
 >dependencies {
 >    epitPreview {
 >        androidx {
->            testEspressoDevice(/* Enter the version of androidx.test.espresso:espresso-device: "1.0.0-alpha06" */) {
->                implementation(AndroidX.TestEspressoDevice.espresso_device)
+>            test {
+>               espresso{
+>                   espressoDevice(/* Enter the version of androidx.test.espresso:espresso-device: "1.0.0-alpha06" */) {
+>                     implementation(AndroidX.Test.Espresso.EspressoDevice.espresso_device)
+>                   }
+>               }
 >            }
 >        }
 >    }
@@ -543,17 +585,19 @@ Different libraries under `androidx.test.ext` have different versions, therefore
 dependencies {
     epitPreview {
         androidx {
-            testExt {
-                testExtJUnit(/* Enter the version of androidx.test.ext:junit "1.1.5"  */) {
-                    implementation(AndroidX.TextExt.TestExtJUnit.junit)
-                    implementation(AndroidX.TextExt.TestExtJUnit.junit_ktx)
-                }
-                testExtJUnitGTest(/* Enter the version of androidx.test.ext:junit-gtest "1.0.0-alpha02"  */) {
-                    implementation(AndroidX.TextExt.TestExtJUnitGTest.junit_gtest)
-                }
-                testExtTruth(/* Enter the version of androidx.test.ext:truth "1.5.0" */) {
-                    implementation(AndroidX.TextExt.TestExtTruth.truth)
-                }
+          test {
+            ext {
+              jUnit(/* Enter the version of androidx.test.ext:junit "1.1.5"  */) {
+                implementation(AndroidX.Text.Ext.JUnit.junit)
+                implementation(AndroidX.Text.Ext.JUnit.junit_ktx)
+              }
+              jUnitGTest(/* Enter the version of androidx.test.ext:junit-gtest "1.0.0-alpha02"  */) {
+                implementation(AndroidX.Text.Ext.JUnitGTest.junit_gtest)
+              }
+              truth(/* Enter the version of androidx.test.ext:truth "1.5.0" */) {
+                implementation(AndroidX.Text.Ext.Truth.truth)
+              }
+            }
             }
         }
     }

@@ -88,12 +88,13 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @ExperimentalEpitApi
         sealed interface Foundation : Compose {
 
             @ExperimentalEpitApi
             enum class Foundation(
                 internal val moduleName: String
-            ) : Compose, ComposeBomDependency {
+            ) : MainFoundation, ComposeBomDependency {
                 foundation(moduleName = "androidx.compose.foundation:foundation"),
 
                 //  foundation_android(moduleName = "androidx.compose.foundation:foundation-android"),
@@ -108,7 +109,7 @@ sealed interface AndroidX : EpitDependency {
             @ExperimentalEpitApi
             enum class FoundationText(
                 internal val moduleName: String
-            ) : Compose {
+            ) : MainFoundation {
                 foundation_text(moduleName = "androidx.compose.foundation:foundation-text");
 
                 override fun withVersion(version: String): String = moduleName joinWithColon version
@@ -139,11 +140,11 @@ sealed interface AndroidX : EpitDependency {
         }
 
         @ExperimentalEpitApi
-        sealed interface Material3 {
+        sealed interface Material3 : Compose {
             @ExperimentalEpitApi
             enum class Material3(
                 internal val moduleName: String
-            ) : Compose, ComposeBomDependency {
+            ) : MainMaterial3, ComposeBomDependency {
                 material3("androidx.compose.material3:material3"),
 
                 //  material3_android("androidx.compose.material3:material3-android"),
@@ -158,7 +159,7 @@ sealed interface AndroidX : EpitDependency {
             @ExperimentalEpitApi
             enum class Material3Adaptive(
                 internal val moduleName: String
-            ) : Compose {
+            ) : MainMaterial3 {
                 material3_adaptive("androidx.compose.material3:material3-adaptive"),
 
                 //  material3_adaptive_android("androidx.compose.material3:material3-adaptive-android"),
@@ -172,11 +173,11 @@ sealed interface AndroidX : EpitDependency {
         }
 
         @ExperimentalEpitApi
-        sealed interface Runtime {
+        sealed interface Runtime : Compose {
             @ExperimentalEpitApi
             enum class Runtime(
                 internal val moduleName: String
-            ) : Compose, ComposeBomDependency {
+            ) : MainRuntime, ComposeBomDependency {
                 runtime(moduleName = "androidx.compose.runtime:runtime"),
 
                 //  runtime_android(moduleName = "androidx.compose.runtime:runtime-android"),
@@ -195,7 +196,7 @@ sealed interface AndroidX : EpitDependency {
             @ExperimentalEpitApi
             enum class RuntimeSavedInstanceState(
                 internal val moduleName: String
-            ) : Compose {
+            ) : MainRuntime {
                 runtime_saved_instance_state(moduleName = "androidx.compose.runtime:runtime-saved-instance-state");
 
                 override fun withVersion(version: String): String = moduleName joinWithColon version
@@ -515,6 +516,7 @@ sealed interface AndroidX : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @ExperimentalEpitApi
     enum class RecyclerView(
         internal val moduleName: String
     ) : AndroidX {
@@ -552,10 +554,10 @@ sealed interface AndroidX : EpitDependency {
     }
 
     @ExperimentalEpitApi
-    sealed interface Test {
+    sealed interface Test : AndroidX {
 
         @ExperimentalEpitApi
-        enum class TestAnnotation(
+        enum class Annotation(
             internal val moduleName: String
         ) : AndroidX {
             test_annotation(moduleName = "androidx.test:annotation");
@@ -564,7 +566,7 @@ sealed interface AndroidX : EpitDependency {
         }
 
         @ExperimentalEpitApi
-        enum class TestCore(
+        enum class Core(
             internal val moduleName: String
         ) : AndroidX {
             core(moduleName = "androidx.test:core"),
@@ -574,7 +576,7 @@ sealed interface AndroidX : EpitDependency {
         }
 
         @ExperimentalEpitApi
-        enum class TestMonitor(
+        enum class Monitor(
             internal val moduleName: String
         ) : AndroidX {
             monitor(moduleName = "androidx.test:monitor");
@@ -583,7 +585,7 @@ sealed interface AndroidX : EpitDependency {
         }
 
         @ExperimentalEpitApi
-        enum class TestOrchestrator(
+        enum class Orchestrator(
             internal val moduleName: String
         ) : AndroidX {
             orchestrator(moduleName = "androidx.test:orchestrator");
@@ -592,7 +594,7 @@ sealed interface AndroidX : EpitDependency {
         }
 
         @ExperimentalEpitApi
-        enum class TestRules(
+        enum class Rules(
             internal val moduleName: String
         ) : AndroidX {
             rules(moduleName = "androidx.test:rules");
@@ -601,76 +603,85 @@ sealed interface AndroidX : EpitDependency {
         }
 
         @ExperimentalEpitApi
-        enum class TestRunner(
+        enum class Runner(
             internal val moduleName: String
         ) : AndroidX {
             runner("androidx.test:runner");
 
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
-    }
 
-    enum class TestEspresso(
-        internal val moduleName: String
-    ) : AndroidX {
-        espresso_accessibility(moduleName = "androidx.test.espresso:espresso-accessibility"),
-        espresso_contrib(moduleName = "androidx.test.espresso:espresso-contrib"),
-        espresso_core(moduleName = "androidx.test.espresso:espresso-core"),
-
-        //    espresso_device(moduleName = "androidx.test.espresso:espresso-device"),
-        espresso_idling_resource(moduleName = "androidx.test.espresso:espresso-idling-resource"),
-        espresso_intents(moduleName = "androidx.test.espresso:espresso-intents"),
-        espresso_remote(moduleName = "androidx.test.espresso:espresso-remote"),
-        espresso_web(moduleName = "androidx.test.espresso:espresso-web");
-
-        override fun withVersion(version: String): String = moduleName joinWithColon version
-    }
-
-    enum class TestEspressoDevice(
-        internal val moduleName: String
-    ) : AndroidX {
-        espresso_device(moduleName = "androidx.test.espresso:espresso-device");
-
-        override fun withVersion(version: String): String = moduleName joinWithColon version
-    }
-
-    enum class TestEspressoIdling(
-        internal val moduleName: String
-    ) : AndroidX {
-        idling_concurrent(moduleName = "androidx.test.espresso.idling:idling-concurrent"),
-        idling_net(moduleName = "androidx.test.espresso.idling:idling-net");
-
-        override fun withVersion(version: String): String = moduleName joinWithColon version
-    }
-
-    @ExperimentalEpitApi
-    sealed interface TestExt {
         @ExperimentalEpitApi
-        enum class TestExtJUnit(
-            internal val moduleName: String
-        ) : AndroidX {
-            junit(moduleName = "androidx.test.ext:junit"),
-            junit_ktx(moduleName = "androidx.test.ext:junit-ktx");
+        sealed interface Espresso : Test {
+            enum class Espresso(
+                internal val moduleName: String
+            ) : MainEspresso {
+                espresso_accessibility(moduleName = "androidx.test.espresso:espresso-accessibility"),
+                espresso_contrib(moduleName = "androidx.test.espresso:espresso-contrib"),
+                espresso_core(moduleName = "androidx.test.espresso:espresso-core"),
 
-            override fun withVersion(version: String): String = moduleName joinWithColon version
+                //    espresso_device(moduleName = "androidx.test.espresso:espresso-device"),
+                espresso_idling_resource(moduleName = "androidx.test.espresso:espresso-idling-resource"),
+                espresso_intents(moduleName = "androidx.test.espresso:espresso-intents"),
+                espresso_remote(moduleName = "androidx.test.espresso:espresso-remote"),
+                espresso_web(moduleName = "androidx.test.espresso:espresso-web");
+
+                override fun withVersion(version: String): String = moduleName joinWithColon version
+            }
+
+            enum class EspressoDevice(
+                internal val moduleName: String
+            ) : MainEspresso {
+                espresso_device(moduleName = "androidx.test.espresso:espresso-device");
+
+                override fun withVersion(version: String): String = moduleName joinWithColon version
+            }
+
+            enum class Idling(
+                internal val moduleName: String
+            ) : MainEspresso {
+                idling_concurrent(moduleName = "androidx.test.espresso.idling:idling-concurrent"),
+                idling_net(moduleName = "androidx.test.espresso.idling:idling-net");
+
+                override fun withVersion(version: String): String = moduleName joinWithColon version
+            }
         }
 
         @ExperimentalEpitApi
-        enum class TestExtJUnitGTest(
-            internal val moduleName: String
-        ) : AndroidX {
-            junit_gtest(moduleName = "androidx.test.ext:junit-gtest");
+        sealed interface Ext {
+            @ExperimentalEpitApi
+            enum class JUnit(
+                internal val moduleName: String
+            ) : AndroidX {
+                junit(moduleName = "androidx.test.ext:junit"),
+                junit_ktx(moduleName = "androidx.test.ext:junit-ktx");
 
-            override fun withVersion(version: String): String = moduleName joinWithColon version
-        }
+                override fun withVersion(version: String): String = moduleName joinWithColon version
+            }
 
-        @ExperimentalEpitApi
-        enum class TestExtTruth(
-            internal val moduleName: String
-        ) : AndroidX {
-            truth(moduleName = "androidx.test.ext:truth");
+            @ExperimentalEpitApi
+            enum class JUnitGTest(
+                internal val moduleName: String
+            ) : AndroidX {
+                junit_gtest(moduleName = "androidx.test.ext:junit-gtest");
 
-            override fun withVersion(version: String): String = moduleName joinWithColon version
+                override fun withVersion(version: String): String = moduleName joinWithColon version
+            }
+
+            @ExperimentalEpitApi
+            enum class Truth(
+                internal val moduleName: String
+            ) : AndroidX {
+                truth(moduleName = "androidx.test.ext:truth");
+
+                override fun withVersion(version: String): String = moduleName joinWithColon version
+            }
         }
     }
 }
+
+@OptIn(ExperimentalEpitApi::class)
+private typealias MainEspresso = AndroidX.Test.Espresso
+private typealias MainFoundation = AndroidX.Compose.Foundation
+private typealias MainRuntime = AndroidX.Compose.Runtime
+private typealias MainMaterial3 = AndroidX.Compose.Material3
