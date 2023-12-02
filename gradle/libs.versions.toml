@@ -68,6 +68,8 @@ voyager = "1.0.0-rc10"
 
 coil = "2.5.0"
 
+google-accompanist = "0.33.2-alpha"
+
 [plugins]
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin"}
 androidLibrary = { id = "com.android.library", version.ref = "agp" }

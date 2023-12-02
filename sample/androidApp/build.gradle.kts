@@ -272,6 +272,13 @@ android {
 //                    implementation(it)
 //                }
 //            }
+//            google {
+//                accompanist(libs.versions.google.accompanist.get()) {
+//                    Google.Accompanist.values().forEach {
+//                        implementation(it)
+//                    }
+//                }
+//            }
         }
     }
 }

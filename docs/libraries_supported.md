@@ -8,6 +8,8 @@ epit aims to provide a rich library of kotlin and android dependencies in the lo
 - [Firebase](#firebase)
 - [Voyager](#voyager)
 - [Coil](#coil)
+- [Google](#google)
+  - [Accompanist](#accompanist)
 
 ### AndroidX Libraries
 This are android-specific libraries 
@@ -679,6 +681,23 @@ dependencies {
     coil(/* Enter the version of coil bom you would like: "1.0.0-rc10" */) {
       implementation(Coil.coil)
       ..
+    }
+  }
+}
+```
+
+### Google
+
+#### Accompanist
+
+```kotlin
+dependencies {
+  epitPreview {
+    google {
+      accompanist(/* Enter the version of accompanist you want: "0.33.2-alpha" */) {
+        implementation(Google.Accompanist.accompanist_permissions)
+        ...
+      }
     }
   }
 }

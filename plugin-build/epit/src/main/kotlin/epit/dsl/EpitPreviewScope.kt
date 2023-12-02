@@ -7,6 +7,7 @@ import epit.annotations.InvalidScopeEpitDependency
 import epit.dsl.androidx.EpitAndroidxScope
 import epit.dsl.coil.EpitCoilScope
 import epit.dsl.firebase.EpitFirebaseScope
+import epit.dsl.google.EpitGoogleScope
 import epit.dsl.koin.EpitKoinScope
 import epit.dsl.kotlinx.EpitKotlinxScope
 import epit.dsl.squareup.EpitSquareScope
@@ -15,12 +16,17 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @EpitDsl
 class EpitPreviewScope internal constructor(
-    internal val dependencyHandlerScope: DependencyHandlerScope
+    private val dependencyHandlerScope: DependencyHandlerScope
 ) {
 
     @OptIn(ExperimentalEpitApi::class)
     fun androidx(block: EpitAndroidxScope.() -> Unit) {
         block(EpitAndroidxScope(dependencyHandlerScope))
+    }
+
+    @ExperimentalEpitApi
+    fun google(block: EpitGoogleScope.() -> Unit) {
+        block(EpitGoogleScope(dependencyHandlerScope))
     }
 
     @ExperimentalEpitApi
