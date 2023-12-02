@@ -2,6 +2,7 @@ import epit.annotations.ExperimentalEpitApi
 import epit.dsl.androidx.AndroidX
 import epit.dsl.epitPreview
 import epit.dsl.squareup.SquareUp
+import epit.dsl.voyager.Voyager
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.testfixtures.ProjectBuilder
 import org.junit.jupiter.api.Test
@@ -41,6 +42,9 @@ class EpitDependencyBlockTest {
                         retrofit2("1.0.0") {
                             implementation(SquareUp.Retrofit2.retrofit)
                         }
+                    }
+                    voyager("1.0.0") {
+                        implementation(Voyager.voyager_navigator)
                     }
                 }
             }

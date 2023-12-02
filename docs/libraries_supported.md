@@ -6,6 +6,7 @@ epit aims to provide a rich library of kotlin and android dependencies in the lo
 - [KotlinX libraries](#kotlinx-libraries)
 - Koin
 - Firebase
+- [Voyager](#voyager)
 
 ### AndroidX Libraries
 This are android-specific libraries 
@@ -13,13 +14,14 @@ This are android-specific libraries
   - [activity](#androidx-activity)
   - [appcompat](#androidx-appcompat)
   - [camera](#androidx-camera)
-- [composeAnimation](#androidx-compose-animation)
-  - [composeCompiler](#androidx-compose-compiler)
-  - [composeFoundation](#androidx-compose-foundation)
-  - [composeMaterial](#androidx-compose-material)
-  - [composeMaterial3](#androidx-compose-material-3)
-  - [composeRuntime](#androidx-compose-runtime)
-  - [composeUI](#androidx-compose-ui)
+- [compose](#androidx-compose)
+    - [composeAnimation](#androidx-compose-animation)
+    - [composeCompiler](#androidx-compose-compiler)
+    - [composeFoundation](#androidx-compose-foundation)
+    - [composeMaterial](#androidx-compose-material)
+    - [composeMaterial3](#androidx-compose-material-3)
+    - [composeRuntime](#androidx-compose-runtime)
+    - [composeUI](#androidx-compose-ui)
   - [constraintlayout](#androidx-constraintlayout)
   - [core](#androidx-core)
   - [fragment](#androidx-fragment)
@@ -586,3 +588,14 @@ dependencies {
 }
 ```
 
+### Voyager
+
+```kotlin
+dependencies {
+    epitPreview {
+        voyager(/* Enter the version of voyager you would like: "1.0.0-rc10" */) {
+            implementation(Voyager.voyager_navigator)
+        }
+    }
+}
+```

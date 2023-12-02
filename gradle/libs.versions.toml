@@ -64,6 +64,8 @@ squareup-leakcanary = "2.12"
 squareup-okhttp3-bom = "5.0.0-alpha.11"
 squareup-picasso = "2.8"
 
+voyager = "1.0.0-rc10"
+
 [plugins]
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin"}
 androidLibrary = { id = "com.android.library", version.ref = "agp" }

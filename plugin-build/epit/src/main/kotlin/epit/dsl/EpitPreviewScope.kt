@@ -42,6 +42,11 @@ class EpitPreviewScope(
         block(EpitSquareScope(dependencyHandlerScope))
     }
 
+    @ExperimentalEpitApi
+    fun voyager(voyagerVersion: String, block: EpitVoyagerScope.() -> Unit) {
+        block(EpitVoyagerScope(voyagerVersion))
+    }
+
     @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
