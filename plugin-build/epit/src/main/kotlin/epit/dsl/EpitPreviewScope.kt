@@ -7,6 +7,7 @@ import epit.annotations.InvalidScopeEpitDependency
 import epit.dsl.androidx.EpitAndroidxScope
 import epit.dsl.coil.EpitCoilScope
 import epit.dsl.firebase.EpitFirebaseScope
+import epit.dsl.glide.EpitGlideGeneralScope
 import epit.dsl.google.EpitGoogleScope
 import epit.dsl.koin.EpitKoinScope
 import epit.dsl.kotlinx.EpitKotlinxScope
@@ -27,6 +28,11 @@ class EpitPreviewScope internal constructor(
     @ExperimentalEpitApi
     fun google(block: EpitGoogleScope.() -> Unit) {
         block(EpitGoogleScope(dependencyHandlerScope))
+    }
+
+    @ExperimentalEpitApi
+    fun glide(block: EpitGlideGeneralScope.() -> Unit) {
+        block(EpitGlideGeneralScope)
     }
 
     @ExperimentalEpitApi

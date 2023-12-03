@@ -279,6 +279,18 @@ android {
 //                    }
 //                }
 //            }
+//            glide {
+//                glide(libs.versions.glide.toString()) {
+//                    Glide.Glide.values().forEach {
+//                        implementation(it)
+//                    }
+//                }
+//                glideKtx(libs.versions.glide.ktx.get()) {
+//                    Glide.GlideKtx.values().forEach {
+//                        implementation(it)
+//                    }
+//                }
+//            }
         }
     }
 }
