@@ -14,17 +14,18 @@ class EpitKotlinxDatetimeScope internal constructor(
 ) {
 
     @ExperimentalEpitApi
-    val KotlinX.Datetime.dependency
+    val KotlinX.Datetime.dependencyAsString
         get(): String = moduleName joinWithColon kotlinxDatetimeVersion
 
     @ExperimentalEpitApi
-    fun KotlinX.Datetime.dependency(version: String) = moduleName joinWithColon version
+    fun KotlinX.Datetime.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(datetime: KotlinX.Datetime) {
-        add("implementation", datetime.dependency)
+        add("implementation", datetime.dependencyAsString)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

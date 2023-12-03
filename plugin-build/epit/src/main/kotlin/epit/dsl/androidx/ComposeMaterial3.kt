@@ -13,17 +13,18 @@ class EpitAndroidXComposeMaterial3Scope internal constructor(
     private val androidXComposeMaterial3Version: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.Compose.Material3.Material3.dependency
+    val AndroidX.Compose.Material3.Material3.dependencyAsString
         get(): String = moduleName joinWithColon androidXComposeMaterial3Version
 
     @ExperimentalEpitApi
-    fun AndroidX.Compose.Material3.Material3.dependency(version: String) = moduleName joinWithColon version
+    fun AndroidX.Compose.Material3.Material3.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(composeMaterial3: AndroidX.Compose.Material3.Material3) {
-        add("implementation", composeMaterial3.dependency)
+        add("implementation", composeMaterial3.dependencyAsString)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

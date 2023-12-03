@@ -15,29 +15,30 @@ class EpitCoilScope internal constructor(
 
     @ExperimentalEpitApi
     val DependencyHandlerScope.bom
-        get() = platform(bomAsDependency)
+        get() = platform(bomAsString)
 
     @ExperimentalEpitApi
-    val bomAsDependency = Coil.coil_bom.moduleName joinWithColon coilBOMVersion
+    val bomAsString = Coil.coil_bom.moduleName joinWithColon coilBOMVersion
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.bom(customVersion: String) = platform(bomAsDependency(customVersion))
+    fun DependencyHandlerScope.bom(customVersion: String) = platform(bomAsString(customVersion))
 
     @ExperimentalEpitApi
-    fun bomAsDependency(customVersion: String) = Coil.coil_bom.moduleName joinWithColon customVersion
+    fun bomAsString(customVersion: String) = Coil.coil_bom.moduleName joinWithColon customVersion
 
     @ExperimentalEpitApi
-    val Coil.dependency
+    val Coil.dependencyAsString
         get() = moduleName
 
     @ExperimentalEpitApi
-    fun Coil.dependency(version: String) = moduleName joinWithColon version
+    fun Coil.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(coil: Coil) {
         add("implementation", coil.moduleName)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

@@ -77,7 +77,7 @@ class ComposeDestinationsTests {
         var actualDependency: String
 
         EpitComposeDestinationsScope("1.0.0").apply {
-            actualDependency = Raamcosta.ComposeDestinations.core.dependency
+            actualDependency = Raamcosta.ComposeDestinations.core.dependencyAsString
         }
 
         assertEquals(
@@ -92,7 +92,7 @@ class ComposeDestinationsTests {
         var actualDependency: String
 
         EpitComposeDestinationsScope("1.0.0").apply {
-            actualDependency = Raamcosta.ComposeDestinations.core.dependency("1.1.2")
+            actualDependency = Raamcosta.ComposeDestinations.core.dependencyAsString("1.1.2")
         }
 
         assertEquals(

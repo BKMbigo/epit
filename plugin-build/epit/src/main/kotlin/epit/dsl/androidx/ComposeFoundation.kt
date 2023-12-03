@@ -13,17 +13,18 @@ class EpitAndroidXComposeFoundationScope internal constructor(
     private val androidXComposeFoundationVersion: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.Compose.Foundation.Foundation.dependency
+    val AndroidX.Compose.Foundation.Foundation.dependencyAsString
         get(): String = moduleName joinWithColon androidXComposeFoundationVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.Compose.Foundation.Foundation.dependency(version: String) = moduleName joinWithColon version
+    fun AndroidX.Compose.Foundation.Foundation.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(composeFoundation: AndroidX.Compose.Foundation.Foundation) {
-        add("implementation", composeFoundation.dependency)
+        add("implementation", composeFoundation.dependencyAsString)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

@@ -13,17 +13,18 @@ class EpitAndroidXCoreLocationScope internal constructor(
     private val androidXCoreLocationVersion: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.Core.CoreLocation.dependency
+    val AndroidX.Core.CoreLocation.dependencyAsString
         get(): String = moduleName joinWithColon androidXCoreLocationVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.Core.CoreLocation.dependency(version: String) = moduleName joinWithColon version
+    fun AndroidX.Core.CoreLocation.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(coreLocation: AndroidX.Core.CoreLocation) {
-        add("implementation", coreLocation.dependency)
+        add("implementation", coreLocation.dependencyAsString)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

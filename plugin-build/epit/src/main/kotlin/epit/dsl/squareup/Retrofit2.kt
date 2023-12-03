@@ -13,17 +13,18 @@ class EpitSquareRetrofit2Scope internal constructor(
     private val squareRetrofit2Version: String
 ) {
     @ExperimentalEpitApi
-    val SquareUp.Retrofit2.dependency
+    val SquareUp.Retrofit2.dependencyAsString
         get(): String = moduleName joinWithColon squareRetrofit2Version
 
     @ExperimentalEpitApi
-    fun SquareUp.Retrofit2.dependency(version: String) = moduleName joinWithColon version
+    fun SquareUp.Retrofit2.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(retrofit2: SquareUp.Retrofit2) {
-        add("implementation", retrofit2.dependency)
+        add("implementation", retrofit2.dependencyAsString)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

@@ -14,17 +14,18 @@ class EpitGoogleAccompanistScope internal constructor(
 ) {
 
     @ExperimentalEpitApi
-    val Google.Accompanist.dependency
+    val Google.Accompanist.dependencyAsString
         get(): String = moduleName joinWithColon accompanistVersion
 
     @ExperimentalEpitApi
-    fun Google.Accompanist.dependency(version: String) = moduleName joinWithColon version
+    fun Google.Accompanist.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(accompanist: Google.Accompanist) {
-        add("implementation", accompanist.dependency)
+        add("implementation", accompanist.dependencyAsString)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

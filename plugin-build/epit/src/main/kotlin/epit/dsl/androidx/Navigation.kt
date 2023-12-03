@@ -13,17 +13,18 @@ class EpitAndroidXNavigationScope internal constructor(
     private val androidXNavigationVersion: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.Navigation.dependency
+    val AndroidX.Navigation.dependencyAsString
         get(): String = moduleName joinWithColon androidXNavigationVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.Navigation.dependency(version: String) = moduleName joinWithColon version
+    fun AndroidX.Navigation.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(navigation: AndroidX.Navigation) {
-        add("implementation", navigation.dependency)
+        add("implementation", navigation.dependencyAsString)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

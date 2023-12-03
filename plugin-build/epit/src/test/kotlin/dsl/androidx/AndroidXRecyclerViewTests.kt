@@ -84,7 +84,7 @@ class AndroidXRecyclerViewTests {
             epitPreview {
                 androidx {
                     recyclerview("1.0.0") {
-                        customImplementation(AndroidX.RecyclerView.recyclerview.dependency)
+                        customImplementation(AndroidX.RecyclerView.recyclerview.dependencyAsString)
                     }
                 }
             }
@@ -117,7 +117,7 @@ class AndroidXRecyclerViewTests {
             epitPreview {
                 androidx {
                     recyclerview("1.0.0") {
-                        customImplementation(AndroidX.RecyclerView.recyclerview.dependency)
+                        customImplementation(AndroidX.RecyclerView.recyclerview.dependencyAsString)
                     }
                 }
             }
@@ -150,7 +150,7 @@ class AndroidXRecyclerViewTests {
             epitPreview {
                 androidx {
                     recyclerview("1.0.0") {
-                        customImplementation(AndroidX.RecyclerView.recyclerview.dependency("1.1.2"))
+                        customImplementation(AndroidX.RecyclerView.recyclerview.dependencyAsString("1.1.2"))
                     }
                 }
             }
@@ -183,7 +183,7 @@ class AndroidXRecyclerViewTests {
             epitPreview {
                 androidx {
                     recyclerview("1.0.0") {
-                        customVersionImplementation(AndroidX.RecyclerView.recyclerview.dependency("1.1.2"))
+                        customVersionImplementation(AndroidX.RecyclerView.recyclerview.dependencyAsString("1.1.2"))
                     }
                 }
             }

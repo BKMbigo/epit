@@ -13,17 +13,18 @@ class EpitAndroidXPagingScope internal constructor(
     private val androidXPagingVersion: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.Paging.dependency
+    val AndroidX.Paging.dependencyAsString
         get(): String = moduleName joinWithColon androidXPagingVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.Paging.dependency(version: String) = moduleName joinWithColon version
+    fun AndroidX.Paging.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(paging: AndroidX.Paging) {
-        add("implementation", paging.dependency)
+        add("implementation", paging.dependencyAsString)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

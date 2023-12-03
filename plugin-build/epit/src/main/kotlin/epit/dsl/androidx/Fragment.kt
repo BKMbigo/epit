@@ -13,17 +13,18 @@ class EpitAndroidXFragmentScope internal constructor(
     private val androidXFragmentVersion: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.Fragment.dependency
+    val AndroidX.Fragment.dependencyAsString
         get(): String = this.moduleName joinWithColon androidXFragmentVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.Fragment.dependency(version: String) = moduleName joinWithColon version
+    fun AndroidX.Fragment.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(fragment: AndroidX.Fragment) {
-        add("implementation", fragment.dependency)
+        add("implementation", fragment.dependencyAsString)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

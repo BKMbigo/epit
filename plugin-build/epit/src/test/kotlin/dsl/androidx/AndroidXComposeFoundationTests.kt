@@ -87,7 +87,7 @@ class AndroidXComposeFoundationTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose foundation block dependency adds the correct dependency on custom configuration`() {
+    fun `verify that androidx compose foundation block dependencyAsString adds the correct dependency on custom configuration`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -103,10 +103,10 @@ class AndroidXComposeFoundationTests {
                     compose {
                         foundation {
                             foundation("1.0.0") {
-                                customImplementation(AndroidX.Compose.Foundation.Foundation.foundation.dependency)
+                                customImplementation(AndroidX.Compose.Foundation.Foundation.foundation.dependencyAsString)
                             }
                             foundationText("1.0.0") {
-                                customImplementation(AndroidX.Compose.Foundation.FoundationText.foundation_text.dependency)
+                                customImplementation(AndroidX.Compose.Foundation.FoundationText.foundation_text.dependencyAsString)
                             }
                         }
                     }
@@ -122,13 +122,13 @@ class AndroidXComposeFoundationTests {
         assertContentEquals(
             expectedDependencies,
             customConfig.dependencies.map { "${it.group}:${it.name}" },
-            "androidx compose foundation val dependency does not add dependencies in the correct version"
+            "androidx compose foundation val dependencyAsString does not add dependencies in the correct version"
         )
     }
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose foundation block dependency adds dependencies in correct version`() {
+    fun `verify that androidx compose foundation block dependencyAsString adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -144,10 +144,10 @@ class AndroidXComposeFoundationTests {
                     compose {
                         foundation {
                             foundation("1.0.0") {
-                                customImplementation(AndroidX.Compose.Foundation.Foundation.foundation.dependency)
+                                customImplementation(AndroidX.Compose.Foundation.Foundation.foundation.dependencyAsString)
                             }
                             foundationText("1.0.0") {
-                                customImplementation(AndroidX.Compose.Foundation.FoundationText.foundation_text.dependency)
+                                customImplementation(AndroidX.Compose.Foundation.FoundationText.foundation_text.dependencyAsString)
                             }
                         }
                     }
@@ -163,13 +163,13 @@ class AndroidXComposeFoundationTests {
         assertContentEquals(
             List(expectedDependencies.size) { "1.0.0" },
             customConfig.dependencies.map { it.version },
-            "androidx compose foundation val dependency does not add dependencies in the correct version"
+            "androidx compose foundation val dependencyAsString does not add dependencies in the correct version"
         )
     }
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose foundation block fun dependency adds the correct dependency on custom configuration`() {
+    fun `verify that androidx compose foundation block fun dependencyAsString() adds the correct dependency on custom configuration`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -185,11 +185,15 @@ class AndroidXComposeFoundationTests {
                     compose {
                         foundation {
                             foundation("1.0.0") {
-                                customImplementation(AndroidX.Compose.Foundation.Foundation.foundation.dependency("1.1.2"))
+                                customImplementation(
+                                    AndroidX.Compose.Foundation.Foundation.foundation.dependencyAsString(
+                                        "1.1.2"
+                                    )
+                                )
                             }
                             foundationText("1.0.0") {
                                 customImplementation(
-                                    AndroidX.Compose.Foundation.FoundationText.foundation_text.dependency(
+                                    AndroidX.Compose.Foundation.FoundationText.foundation_text.dependencyAsString(
                                         "1.1.2"
                                     )
                                 )
@@ -208,13 +212,13 @@ class AndroidXComposeFoundationTests {
         assertContentEquals(
             expectedDependencies,
             customConfig.dependencies.map { "${it.group}:${it.name}" },
-            "androidx compose foundation val dependency does not add dependencies in the correct version"
+            "androidx compose foundation val dependencyAsString() does not add dependencies in the correct version"
         )
     }
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose foundation block fun dependency adds dependencies in correct version`() {
+    fun `verify that androidx compose foundation block fun dependencyAsString() adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -231,14 +235,14 @@ class AndroidXComposeFoundationTests {
                         foundation {
                             foundation("1.0.0") {
                                 customVersionImplementation(
-                                    AndroidX.Compose.Foundation.Foundation.foundation.dependency(
+                                    AndroidX.Compose.Foundation.Foundation.foundation.dependencyAsString(
                                         "1.1.2"
                                     )
                                 )
                             }
                             foundationText("1.0.0") {
                                 customVersionImplementation(
-                                    AndroidX.Compose.Foundation.FoundationText.foundation_text.dependency(
+                                    AndroidX.Compose.Foundation.FoundationText.foundation_text.dependencyAsString(
                                         "1.1.2"
                                     )
                                 )

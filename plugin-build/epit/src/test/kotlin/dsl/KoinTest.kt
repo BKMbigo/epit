@@ -44,10 +44,10 @@ class KoinTest {
                     implementation(Koin.koin_android)
 
                     customImplementation(bom)
-                    customImplementation(Koin.koin_android.dependency)
+                    customImplementation(Koin.koin_android.dependencyAsString)
 
                     customVersionImplementation(bom("1.1.1"))
-                    customVersionImplementation(Koin.koin_android.dependency)
+                    customVersionImplementation(Koin.koin_android.dependencyAsString)
                 }
             }
         }

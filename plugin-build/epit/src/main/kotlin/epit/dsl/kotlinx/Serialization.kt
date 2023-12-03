@@ -13,17 +13,18 @@ class EpitKotlinxSerializationScope internal constructor(
     internal val kotlinxSerializationVersion: String
 ) {
     @ExperimentalEpitApi
-    val KotlinX.Serialization.dependency
+    val KotlinX.Serialization.dependencyAsString
         get(): String = moduleName joinWithColon kotlinxSerializationVersion
 
     @ExperimentalEpitApi
-    fun KotlinX.Serialization.dependency(version: String) = moduleName joinWithColon version
+    fun KotlinX.Serialization.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(serialization: KotlinX.Serialization) {
-        add("implementation", serialization.dependency)
+        add("implementation", serialization.dependencyAsString)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

@@ -13,17 +13,18 @@ class EpitAndroidXCoreGoogleShortcutsScope internal constructor(
     private val androidXCoreGoogleShortcutsVersion: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.Core.CoreGoogleShortcuts.dependency
+    val AndroidX.Core.CoreGoogleShortcuts.dependencyAsString
         get(): String = moduleName joinWithColon androidXCoreGoogleShortcutsVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.Core.CoreGoogleShortcuts.dependency(version: String) = moduleName joinWithColon version
+    fun AndroidX.Core.CoreGoogleShortcuts.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(coreGoogleShortcuts: AndroidX.Core.CoreGoogleShortcuts) {
-        add("implementation", coreGoogleShortcuts.dependency)
+        add("implementation", coreGoogleShortcuts.dependencyAsString)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

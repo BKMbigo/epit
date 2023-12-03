@@ -84,7 +84,7 @@ class AndroidXPaging {
             epitPreview {
                 androidx {
                     paging("1.0.0") {
-                        customImplementation(AndroidX.Paging.paging_compose.dependency)
+                        customImplementation(AndroidX.Paging.paging_compose.dependencyAsString)
                     }
                 }
             }
@@ -117,7 +117,7 @@ class AndroidXPaging {
             epitPreview {
                 androidx {
                     paging("1.0.0") {
-                        customImplementation(AndroidX.Paging.paging_compose.dependency)
+                        customImplementation(AndroidX.Paging.paging_compose.dependencyAsString)
                     }
                 }
             }
@@ -150,7 +150,7 @@ class AndroidXPaging {
             epitPreview {
                 androidx {
                     paging("1.0.0") {
-                        customImplementation(AndroidX.Paging.paging_compose.dependency("1.1.2"))
+                        customImplementation(AndroidX.Paging.paging_compose.dependencyAsString("1.1.2"))
                     }
                 }
             }
@@ -183,7 +183,7 @@ class AndroidXPaging {
             epitPreview {
                 androidx {
                     paging("1.0.0") {
-                        customVersionImplementation(AndroidX.Paging.paging_compose.dependency("1.1.2"))
+                        customVersionImplementation(AndroidX.Paging.paging_compose.dependencyAsString("1.1.2"))
                     }
                 }
             }

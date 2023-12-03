@@ -70,7 +70,7 @@ class AndroidXActivityTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx activity block dependency adds the correct dependency on custom configuration`() {
+    fun `verify that androidx activity block dependencyAsString adds the correct dependency on custom configuration`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -84,7 +84,7 @@ class AndroidXActivityTests {
             epitPreview {
                 androidx {
                     activity("1.0.0") {
-                        customImplementation(AndroidX.Activity.activity.dependency)
+                        customImplementation(AndroidX.Activity.activity.dependencyAsString)
                     }
                 }
             }
@@ -103,7 +103,7 @@ class AndroidXActivityTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx activity block dependency adds dependencies in correct version`() {
+    fun `verify that androidx activity block dependencyAsString adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -117,7 +117,7 @@ class AndroidXActivityTests {
             epitPreview {
                 androidx {
                     activity("1.0.0") {
-                        customImplementation(AndroidX.Activity.activity.dependency)
+                        customImplementation(AndroidX.Activity.activity.dependencyAsString)
                     }
                 }
             }
@@ -136,7 +136,7 @@ class AndroidXActivityTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx activity block fun dependency adds the correct dependency on custom configuration`() {
+    fun `verify that androidx activity block fun dependencyAsString() adds the correct dependency on custom configuration`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -150,7 +150,7 @@ class AndroidXActivityTests {
             epitPreview {
                 androidx {
                     activity("1.0.0") {
-                        customImplementation(AndroidX.Activity.activity.dependency("1.1.2"))
+                        customImplementation(AndroidX.Activity.activity.dependencyAsString("1.1.2"))
                     }
                 }
             }
@@ -169,7 +169,7 @@ class AndroidXActivityTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx activity block fun dependency adds dependencies in correct version`() {
+    fun `verify that androidx activity block fun dependencyAsString() adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -183,7 +183,7 @@ class AndroidXActivityTests {
             epitPreview {
                 androidx {
                     activity("1.0.0") {
-                        customVersionImplementation(AndroidX.Activity.activity.dependency("1.1.2"))
+                        customVersionImplementation(AndroidX.Activity.activity.dependencyAsString("1.1.2"))
                     }
                 }
             }

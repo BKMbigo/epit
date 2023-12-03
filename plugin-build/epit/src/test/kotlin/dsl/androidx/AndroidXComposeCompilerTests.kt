@@ -75,7 +75,7 @@ class AndroidXComposeCompilerTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose compiler block dependency adds the correct dependency on custom configuration`() {
+    fun `verify that androidx compose compiler block dependencyAsString adds the correct dependency on custom configuration`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -90,7 +90,7 @@ class AndroidXComposeCompilerTests {
                 androidx {
                     compose {
                         compiler("1.0.0") {
-                            customImplementation(AndroidX.Compose.Compiler.compiler.dependency)
+                            customImplementation(AndroidX.Compose.Compiler.compiler.dependencyAsString)
                         }
                     }
                 }
@@ -110,7 +110,7 @@ class AndroidXComposeCompilerTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose compiler block dependency adds dependencies in correct version`() {
+    fun `verify that androidx compose compiler block dependencyAsString adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -125,7 +125,7 @@ class AndroidXComposeCompilerTests {
                 androidx {
                     compose {
                         compiler("1.0.0") {
-                            customImplementation(AndroidX.Compose.Compiler.compiler.dependency)
+                            customImplementation(AndroidX.Compose.Compiler.compiler.dependencyAsString)
                         }
                     }
                 }
@@ -145,7 +145,7 @@ class AndroidXComposeCompilerTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose compiler block fun dependency adds the correct dependency on custom configuration`() {
+    fun `verify that androidx compose compiler block fun dependencyAsString() adds the correct dependency on custom configuration`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -160,7 +160,7 @@ class AndroidXComposeCompilerTests {
                 androidx {
                     compose {
                         compiler("1.0.0") {
-                            customImplementation(AndroidX.Compose.Compiler.compiler.dependency("1.1.2"))
+                            customImplementation(AndroidX.Compose.Compiler.compiler.dependencyAsString("1.1.2"))
                         }
                     }
                 }
@@ -180,7 +180,7 @@ class AndroidXComposeCompilerTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose compiler block fun dependency adds dependencies in correct version`() {
+    fun `verify that androidx compose compiler block fun dependencyAsString() adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -195,7 +195,7 @@ class AndroidXComposeCompilerTests {
                 androidx {
                     compose {
                         compiler("1.0.0") {
-                            customVersionImplementation(AndroidX.Compose.Compiler.compiler.dependency("1.1.2"))
+                            customVersionImplementation(AndroidX.Compose.Compiler.compiler.dependencyAsString("1.1.2"))
                         }
                     }
                 }

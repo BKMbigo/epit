@@ -75,7 +75,7 @@ class AndroidXComposeMaterialTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose material block dependency adds the correct dependency on custom configuration`() {
+    fun `verify that androidx compose material block dependencyAsString adds the correct dependency on custom configuration`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -90,7 +90,7 @@ class AndroidXComposeMaterialTests {
                 androidx {
                     compose {
                         material("1.0.0") {
-                            customImplementation(AndroidX.Compose.Material.material.dependency)
+                            customImplementation(AndroidX.Compose.Material.material.dependencyAsString)
                         }
                     }
                 }
@@ -110,7 +110,7 @@ class AndroidXComposeMaterialTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose material block dependency adds dependencies in correct version`() {
+    fun `verify that androidx compose material block dependencyAsString adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -125,7 +125,7 @@ class AndroidXComposeMaterialTests {
                 androidx {
                     compose {
                         material("1.0.0") {
-                            customImplementation(AndroidX.Compose.Material.material.dependency)
+                            customImplementation(AndroidX.Compose.Material.material.dependencyAsString)
                         }
                     }
                 }
@@ -145,7 +145,7 @@ class AndroidXComposeMaterialTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose material block fun dependency adds the correct dependency on custom configuration`() {
+    fun `verify that androidx compose material block fun dependencyAsString() adds the correct dependency on custom configuration`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -160,7 +160,7 @@ class AndroidXComposeMaterialTests {
                 androidx {
                     compose {
                         material("1.0.0") {
-                            customImplementation(AndroidX.Compose.Material.material.dependency("1.1.2"))
+                            customImplementation(AndroidX.Compose.Material.material.dependencyAsString("1.1.2"))
                         }
                     }
                 }
@@ -180,7 +180,7 @@ class AndroidXComposeMaterialTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose material block fun dependency adds dependencies in correct version`() {
+    fun `verify that androidx compose material block fun dependencyAsString() adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -195,7 +195,7 @@ class AndroidXComposeMaterialTests {
                 androidx {
                     compose {
                         material("1.0.0") {
-                            customVersionImplementation(AndroidX.Compose.Material.material.dependency("1.1.2"))
+                            customVersionImplementation(AndroidX.Compose.Material.material.dependencyAsString("1.1.2"))
                         }
                     }
                 }

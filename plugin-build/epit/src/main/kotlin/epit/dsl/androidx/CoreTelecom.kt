@@ -13,17 +13,18 @@ class EpitAndroidXCoreTelecomScope internal constructor(
     private val androidXCoreTelecomVersion: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.Core.CoreTelecom.dependency
+    val AndroidX.Core.CoreTelecom.dependencyAsString
         get(): String = moduleName joinWithColon androidXCoreTelecomVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.Core.CoreTelecom.dependency(version: String) = moduleName joinWithColon version
+    fun AndroidX.Core.CoreTelecom.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(coreTelecom: AndroidX.Core.CoreTelecom) {
-        add("implementation", coreTelecom.dependency)
+        add("implementation", coreTelecom.dependencyAsString)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

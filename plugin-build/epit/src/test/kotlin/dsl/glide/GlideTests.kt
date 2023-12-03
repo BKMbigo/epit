@@ -93,10 +93,10 @@ class GlideTests {
             epitPreview {
                 glide {
                     glide("1.0.0") {
-                        customImplementation(Glide.Glide.glide.dependency)
+                        customImplementation(Glide.Glide.glide.dependencyAsString)
                     }
                     glideKtx("1.0.0") {
-                        customImplementation(Glide.GlideKtx.compose.dependency)
+                        customImplementation(Glide.GlideKtx.compose.dependencyAsString)
                     }
                 }
             }
@@ -130,10 +130,10 @@ class GlideTests {
             epitPreview {
                 glide {
                     glide("1.0.0") {
-                        customImplementation(Glide.Glide.glide.dependency)
+                        customImplementation(Glide.Glide.glide.dependencyAsString)
                     }
                     glideKtx("1.0.0") {
-                        customImplementation(Glide.GlideKtx.compose.dependency)
+                        customImplementation(Glide.GlideKtx.compose.dependencyAsString)
                     }
                 }
             }
@@ -167,10 +167,10 @@ class GlideTests {
             epitPreview {
                 glide {
                     glide("1.0.0") {
-                        customImplementation(Glide.Glide.glide.dependency("1.1.2"))
+                        customImplementation(Glide.Glide.glide.dependencyAsString("1.1.2"))
                     }
                     glideKtx("1.0.0") {
-                        customImplementation(Glide.GlideKtx.compose.dependency("1.1.2"))
+                        customImplementation(Glide.GlideKtx.compose.dependencyAsString("1.1.2"))
                     }
                 }
             }
@@ -204,10 +204,10 @@ class GlideTests {
             epitPreview {
                 glide {
                     glide("1.0.0") {
-                        customVersionImplementation(Glide.Glide.glide.dependency("1.1.2"))
+                        customVersionImplementation(Glide.Glide.glide.dependencyAsString("1.1.2"))
                     }
                     glideKtx("1.0.0") {
-                        customVersionImplementation(Glide.GlideKtx.compose.dependency("1.1.2"))
+                        customVersionImplementation(Glide.GlideKtx.compose.dependencyAsString("1.1.2"))
                     }
                 }
             }

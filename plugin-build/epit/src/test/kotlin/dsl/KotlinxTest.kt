@@ -34,28 +34,32 @@ class KotlinxTest {
                 kotlinx {
                     atomicfu("1.0.0") {
                         implementation(KotlinX.AtomicFU.atomicfu)
-                        customImplementation(KotlinX.AtomicFU.atomicfu.dependency)
-                        customVersionImplementation(KotlinX.AtomicFU.atomicfu.dependency("1.1.1"))
+                        customImplementation(KotlinX.AtomicFU.atomicfu.dependencyAsString)
+                        customVersionImplementation(KotlinX.AtomicFU.atomicfu.dependencyAsString("1.1.1"))
                     }
                     collectionsImmutable("1.0.0") {
                         implementation(KotlinX.CollectionsImmutable.collections_immutable)
-                        customImplementation(KotlinX.CollectionsImmutable.collections_immutable.dependency)
-                        customVersionImplementation(KotlinX.CollectionsImmutable.collections_immutable.dependency("1.1.1"))
+                        customImplementation(KotlinX.CollectionsImmutable.collections_immutable.dependencyAsString)
+                        customVersionImplementation(
+                            KotlinX.CollectionsImmutable.collections_immutable.dependencyAsString(
+                                "1.1.1"
+                            )
+                        )
                     }
                     coroutines("1.0.0") {
                         implementation(KotlinX.Coroutines.coroutines_core)
-                        customImplementation(KotlinX.Coroutines.coroutines_core.dependency)
-                        customVersionImplementation(KotlinX.Coroutines.coroutines_core.dependency("1.1.1"))
+                        customImplementation(KotlinX.Coroutines.coroutines_core.dependencyAsString)
+                        customVersionImplementation(KotlinX.Coroutines.coroutines_core.dependencyAsString("1.1.1"))
                     }
                     datetime("1.0.0") {
                         implementation(KotlinX.Datetime.datetime)
-                        customImplementation(KotlinX.Datetime.datetime.dependency)
-                        customVersionImplementation(KotlinX.Datetime.datetime.dependency("1.1.1"))
+                        customImplementation(KotlinX.Datetime.datetime.dependencyAsString)
+                        customVersionImplementation(KotlinX.Datetime.datetime.dependencyAsString("1.1.1"))
                     }
                     serialization("1.0.0") {
                         implementation(KotlinX.Serialization.serialization_core)
-                        customImplementation(KotlinX.Serialization.serialization_core.dependency)
-                        customVersionImplementation(KotlinX.Serialization.serialization_core.dependency("1.1.1"))
+                        customImplementation(KotlinX.Serialization.serialization_core.dependencyAsString)
+                        customVersionImplementation(KotlinX.Serialization.serialization_core.dependencyAsString("1.1.1"))
                     }
                 }
             }

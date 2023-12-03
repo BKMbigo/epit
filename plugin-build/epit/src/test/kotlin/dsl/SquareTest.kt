@@ -42,27 +42,27 @@ class SquareTest {
                 squareup {
                     leakcanary("1.0.0") {
                         implementation(SquareUp.LeakCanary.leakcanary_android)
-                        customImplementation(SquareUp.LeakCanary.leakcanary_android.dependency)
-                        customVersionImplementation(SquareUp.LeakCanary.leakcanary_android.dependency("1.1.1"))
+                        customImplementation(SquareUp.LeakCanary.leakcanary_android.dependencyAsString)
+                        customVersionImplementation(SquareUp.LeakCanary.leakcanary_android.dependencyAsString("1.1.1"))
                     }
                     okhttp3("1.0.0") {
                         implementation(SquareUp.OkHttp3.okhttp)
 
                         customImplementation(bom)
-                        customImplementation(SquareUp.OkHttp3.okhttp.dependency)
+                        customImplementation(SquareUp.OkHttp3.okhttp.dependencyAsString)
 
                         customVersionImplementation(bom("1.1.1"))
-                        customVersionImplementation(SquareUp.OkHttp3.okhttp.dependency("1.1.1"))
+                        customVersionImplementation(SquareUp.OkHttp3.okhttp.dependencyAsString("1.1.1"))
                     }
                     picasso("1.0.0") {
                         implementation(SquareUp.Picasso.picasso)
-                        customImplementation(SquareUp.Picasso.picasso.dependency)
-                        customVersionImplementation(SquareUp.Picasso.picasso.dependency("1.1.1"))
+                        customImplementation(SquareUp.Picasso.picasso.dependencyAsString)
+                        customVersionImplementation(SquareUp.Picasso.picasso.dependencyAsString("1.1.1"))
                     }
                     retrofit2("1.0.0") {
                         implementation(SquareUp.Retrofit2.retrofit)
-                        customImplementation(SquareUp.Retrofit2.retrofit.dependency)
-                        customVersionImplementation(SquareUp.Retrofit2.retrofit.dependency("1.1.1"))
+                        customImplementation(SquareUp.Retrofit2.retrofit.dependencyAsString)
+                        customVersionImplementation(SquareUp.Retrofit2.retrofit.dependencyAsString("1.1.1"))
                     }
                 }
             }

@@ -13,17 +13,18 @@ class EpitSquareLeakCanaryScope internal constructor(
     private val squareLeakCanaryVersion: String
 ) {
     @ExperimentalEpitApi
-    val SquareUp.LeakCanary.dependency
+    val SquareUp.LeakCanary.dependencyAsString
         get(): String = moduleName joinWithColon squareLeakCanaryVersion
 
     @ExperimentalEpitApi
-    fun SquareUp.LeakCanary.dependency(version: String) = moduleName joinWithColon version
+    fun SquareUp.LeakCanary.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(leakCanary: SquareUp.LeakCanary) {
-        add("implementation", leakCanary.dependency)
+        add("implementation", leakCanary.dependencyAsString)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

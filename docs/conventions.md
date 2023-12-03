@@ -240,8 +240,8 @@ dependencies {
             coroutines("1.7.3") {
                 implementation(KotlinX.Coroutines.coroutines_core)
                 implementation(KotlinX.Coroutines.coroutines_rxjava2)
-                testImplementation(KotlinX.Coroutines.coroutines_test.dependency)
-                androidTestImplementation(KotlinX.Coroutines.coroutines_test.dependency("1.5.1"))
+              testImplementation(KotlinX.Coroutines.coroutines_test.dependencyAsString)
+              androidTestImplementation(KotlinX.Coroutines.coroutines_test.dependencyAsString("1.5.1"))
             }
         }
     }
@@ -295,7 +295,8 @@ dependencies {
 > **Note**  
 > The plugin cannot guarantee the configurations present in your module, therefore, only `implementation` is implemented
 > in the plugin  
-> When declaring dependencies in the `implementation` configuration, you don't have to use  `.dependency` at the end of
+> When declaring dependencies in the `implementation` configuration, you don't have to use  `.dependencyAsString` at the
+> end of
 > your declaration:
 > ```kotlin
 > ...
@@ -304,27 +305,28 @@ dependencies {
 > }
 > ...
 >```   
-> However, in all other configurations, you have to explicitly call `.dependency` at the end of your dependency
+> However, in all other configurations, you have to explicitly call `.dependencyAsString` at the end of your dependency
 > declaration
 > ```kotlin
 > ...
 > coroutines("1.7.3") {
->   debugImplementation(KotlinX.Coroutines.coroutines_rxjava2.dependency)
->   releaseImplementation(KotlinX.Coroutines.coroutines_rxjava3.dependency)
+>   debugImplementation(KotlinX.Coroutines.coroutines_rxjava2.dependencyAsString)
+>   releaseImplementation(KotlinX.Coroutines.coroutines_rxjava3.dependencyAsString)
 > }
 > ...
 > androidx {
 >   room("2.6.2") {
->       ksp(AndroidX.Room.room_compiler.dependency)
+>       ksp(AndroidX.Room.room_compiler.dependencyAsString)
 >   }
 > }
 > ...
 >```
-> You can also call a different version of a dependency by calling `.dependency(/* version */)` on the dependency
+> You can also call a different version of a dependency by calling `.dependencyAsString(/* version */)` on the
+> dependency
 > ```kotlin
 > coroutines("1.7.3") {
 >   implementation(KotlinX.Coroutines.coroutines_core)
->   implementation(KotlinX.Coroutines.coroutines_rxjava2.dependency("1.6.4")) /* This will pull in version "1.6.4" of this library */
+>   implementation(KotlinX.Coroutines.coroutines_rxjava2.dependencyAsString("1.6.4")) /* This will pull in version "1.6.4" of this library */
 > }
 >```
 > If your dependencies block is based on a BOM(bill of materials), you can call `bom` to get the bom and use it as

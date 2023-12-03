@@ -13,17 +13,18 @@ class EpitAndroidXCoreAnimationScope internal constructor(
     private val androidXCoreAnimationVersion: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.Core.CoreAnimation.dependency
+    val AndroidX.Core.CoreAnimation.dependencyAsString
         get(): String = moduleName joinWithColon androidXCoreAnimationVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.Core.CoreAnimation.dependency(version: String) = moduleName joinWithColon version
+    fun AndroidX.Core.CoreAnimation.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(coreAnimation: AndroidX.Core.CoreAnimation) {
-        add("implementation", coreAnimation.dependency)
+        add("implementation", coreAnimation.dependencyAsString)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

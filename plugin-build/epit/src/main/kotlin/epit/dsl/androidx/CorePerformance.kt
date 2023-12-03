@@ -13,17 +13,18 @@ class EpitAndroidXCorePerformanceScope internal constructor(
     private val androidXCorePerformanceVersion: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.Core.CorePerformance.dependency
+    val AndroidX.Core.CorePerformance.dependencyAsString
         get(): String = moduleName joinWithColon androidXCorePerformanceVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.Core.CorePerformance.dependency(version: String) = moduleName joinWithColon version
+    fun AndroidX.Core.CorePerformance.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(corePerformance: AndroidX.Core.CorePerformance) {
-        add("implementation", corePerformance.dependency)
+        add("implementation", corePerformance.dependencyAsString)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

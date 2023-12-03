@@ -84,7 +84,7 @@ class AndroidXNavigationTests {
             epitPreview {
                 androidx {
                     navigation("1.0.0") {
-                        customImplementation(AndroidX.Navigation.navigation_common.dependency)
+                        customImplementation(AndroidX.Navigation.navigation_common.dependencyAsString)
                     }
                 }
             }
@@ -117,7 +117,7 @@ class AndroidXNavigationTests {
             epitPreview {
                 androidx {
                     navigation("1.0.0") {
-                        customImplementation(AndroidX.Navigation.navigation_common.dependency)
+                        customImplementation(AndroidX.Navigation.navigation_common.dependencyAsString)
                     }
                 }
             }
@@ -150,7 +150,7 @@ class AndroidXNavigationTests {
             epitPreview {
                 androidx {
                     navigation("1.0.0") {
-                        customImplementation(AndroidX.Navigation.navigation_common.dependency("1.1.2"))
+                        customImplementation(AndroidX.Navigation.navigation_common.dependencyAsString("1.1.2"))
                     }
                 }
             }
@@ -183,7 +183,7 @@ class AndroidXNavigationTests {
             epitPreview {
                 androidx {
                     navigation("1.0.0") {
-                        customVersionImplementation(AndroidX.Navigation.navigation_common.dependency("1.1.2"))
+                        customVersionImplementation(AndroidX.Navigation.navigation_common.dependencyAsString("1.1.2"))
                     }
                 }
             }

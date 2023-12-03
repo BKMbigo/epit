@@ -80,7 +80,7 @@ class VoyagerTests {
         project.dependencies {
             epitPreview {
                 voyager("1.0.0") {
-                    customImplementation(Voyager.voyager_navigator.dependency)
+                    customImplementation(Voyager.voyager_navigator.dependencyAsString)
                 }
             }
         }
@@ -111,7 +111,7 @@ class VoyagerTests {
         project.dependencies {
             epitPreview {
                 voyager("1.0.0") {
-                    customImplementation(Voyager.voyager_navigator.dependency)
+                    customImplementation(Voyager.voyager_navigator.dependencyAsString)
                 }
             }
         }
@@ -142,7 +142,7 @@ class VoyagerTests {
         project.dependencies {
             epitPreview {
                 voyager("1.0.0") {
-                    customImplementation(Voyager.voyager_navigator.dependency("1.1.2"))
+                    customImplementation(Voyager.voyager_navigator.dependencyAsString("1.1.2"))
                 }
             }
         }
@@ -173,7 +173,7 @@ class VoyagerTests {
         project.dependencies {
             epitPreview {
                 voyager("1.0.0") {
-                    customVersionImplementation(Voyager.voyager_navigator.dependency("1.1.2"))
+                    customVersionImplementation(Voyager.voyager_navigator.dependencyAsString("1.1.2"))
                 }
             }
         }

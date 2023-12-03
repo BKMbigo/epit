@@ -13,17 +13,18 @@ class EpitAndroidXCoreSpashscreenScope internal constructor(
     private val androidXCoreVersion: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.Core.CoreSplashscreen.dependency
+    val AndroidX.Core.CoreSplashscreen.dependencyAsString
         get(): String = moduleName joinWithColon androidXCoreVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.Core.CoreSplashscreen.dependency(version: String) = moduleName joinWithColon version
+    fun AndroidX.Core.CoreSplashscreen.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(coreSplashscreen: AndroidX.Core.CoreSplashscreen) {
-        add("implementation", coreSplashscreen.dependency)
+        add("implementation", coreSplashscreen.dependencyAsString)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

@@ -98,7 +98,7 @@ class CoilTests {
         var dependency = ""
 
         EpitCoilScope("1.0.0").apply {
-            dependency = Coil.coil.dependency
+            dependency = Coil.coil.dependencyAsString
         }
 
         assertEquals(
@@ -113,7 +113,7 @@ class CoilTests {
         var dependency = ""
 
         EpitCoilScope("1.0.0").apply {
-            dependency = Coil.coil.dependency("1.1.2")
+            dependency = Coil.coil.dependencyAsString("1.1.2")
         }
 
         assertEquals(
@@ -127,7 +127,7 @@ class CoilTests {
         var bomName = ""
 
         EpitCoilScope("1.0.0").apply {
-            bomName = bomAsDependency
+            bomName = bomAsString
         }
 
         assertEquals(
@@ -141,7 +141,7 @@ class CoilTests {
         var bomName = ""
 
         EpitCoilScope("1.0.0").apply {
-            bomName = bomAsDependency("1.1.2")
+            bomName = bomAsString("1.1.2")
         }
 
         assertEquals(

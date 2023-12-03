@@ -13,17 +13,19 @@ class EpitAndroidXConstraintLayoutSolverScope internal constructor(
     private val androidXConstraintLayoutSolverVersion: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.ConstraintLayout.ConstraintLayoutSolver.dependency
+    val AndroidX.ConstraintLayout.ConstraintLayoutSolver.dependencyAsString
         get(): String = moduleName joinWithColon androidXConstraintLayoutSolverVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.ConstraintLayout.ConstraintLayoutSolver.dependency(version: String) = moduleName joinWithColon version
+    fun AndroidX.ConstraintLayout.ConstraintLayoutSolver.dependencyAsString(version: String) =
+        moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(constraintLayoutSolver: AndroidX.ConstraintLayout.ConstraintLayoutSolver) {
-        add("implementation", constraintLayoutSolver.dependency)
+        add("implementation", constraintLayoutSolver.dependencyAsString)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

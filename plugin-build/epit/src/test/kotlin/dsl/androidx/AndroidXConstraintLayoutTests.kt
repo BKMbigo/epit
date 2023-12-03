@@ -99,7 +99,7 @@ class AndroidXConstraintLayoutTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx activity block dependency adds the correct dependency on custom configuration`() {
+    fun `verify that androidx activity block dependencyAsString adds the correct dependency on custom configuration`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -114,16 +114,16 @@ class AndroidXConstraintLayoutTests {
                 androidx {
                     constraintLayout {
                         constraintlayout("1.0.0") {
-                            customImplementation(AndroidX.ConstraintLayout.ConstraintLayout.constraintlayout.dependency)
+                            customImplementation(AndroidX.ConstraintLayout.ConstraintLayout.constraintlayout.dependencyAsString)
                         }
                         constraintlayoutCompose("1.0.0") {
-                            customImplementation(AndroidX.ConstraintLayout.ConstraintLayoutCompose.constraintlayout_compose.dependency)
+                            customImplementation(AndroidX.ConstraintLayout.ConstraintLayoutCompose.constraintlayout_compose.dependencyAsString)
                         }
                         constraintlayoutCore("1.0.0") {
-                            customImplementation(AndroidX.ConstraintLayout.ConstraintLayoutCore.constraintlayout_core.dependency)
+                            customImplementation(AndroidX.ConstraintLayout.ConstraintLayoutCore.constraintlayout_core.dependencyAsString)
                         }
                         constraintlayoutSolver("1.0.0") {
-                            customImplementation(AndroidX.ConstraintLayout.ConstraintLayoutSolver.constraintlayout_solver.dependency)
+                            customImplementation(AndroidX.ConstraintLayout.ConstraintLayoutSolver.constraintlayout_solver.dependencyAsString)
                         }
                     }
                 }
@@ -140,13 +140,13 @@ class AndroidXConstraintLayoutTests {
         assertContentEquals(
             expectedDependencies,
             customConfig.dependencies.map { "${it.group}:${it.name}" },
-            "androidx activity val dependency does not add dependencies in the correct version"
+            "androidx activity val dependencyAsString does not add dependencies in the correct version"
         )
     }
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx activity block dependency adds dependencies in correct version`() {
+    fun `verify that androidx activity block dependencyAsString adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -161,16 +161,16 @@ class AndroidXConstraintLayoutTests {
                 androidx {
                     constraintLayout {
                         constraintlayout("1.0.0") {
-                            customImplementation(AndroidX.ConstraintLayout.ConstraintLayout.constraintlayout.dependency)
+                            customImplementation(AndroidX.ConstraintLayout.ConstraintLayout.constraintlayout.dependencyAsString)
                         }
                         constraintlayoutCompose("1.0.0") {
-                            customImplementation(AndroidX.ConstraintLayout.ConstraintLayoutCompose.constraintlayout_compose.dependency)
+                            customImplementation(AndroidX.ConstraintLayout.ConstraintLayoutCompose.constraintlayout_compose.dependencyAsString)
                         }
                         constraintlayoutCore("1.0.0") {
-                            customImplementation(AndroidX.ConstraintLayout.ConstraintLayoutCore.constraintlayout_core.dependency)
+                            customImplementation(AndroidX.ConstraintLayout.ConstraintLayoutCore.constraintlayout_core.dependencyAsString)
                         }
                         constraintlayoutSolver("1.0.0") {
-                            customImplementation(AndroidX.ConstraintLayout.ConstraintLayoutSolver.constraintlayout_solver.dependency)
+                            customImplementation(AndroidX.ConstraintLayout.ConstraintLayoutSolver.constraintlayout_solver.dependencyAsString)
                         }
                     }
                 }
@@ -187,13 +187,13 @@ class AndroidXConstraintLayoutTests {
         assertContentEquals(
             List(expectedDependencies.size) { "1.0.0" },
             customConfig.dependencies.map { it.version },
-            "androidx activity val dependency does not add dependencies in the correct version"
+            "androidx activity val dependencyAsString does not add dependencies in the correct version"
         )
     }
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx activity block fun dependency adds the correct dependency on custom configuration`() {
+    fun `verify that androidx activity block fun dependencyAsString() adds the correct dependency on custom configuration`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -209,28 +209,28 @@ class AndroidXConstraintLayoutTests {
                     constraintLayout {
                         constraintlayout("1.0.0") {
                             customImplementation(
-                                AndroidX.ConstraintLayout.ConstraintLayout.constraintlayout.dependency(
+                                AndroidX.ConstraintLayout.ConstraintLayout.constraintlayout.dependencyAsString(
                                     "1.1.2"
                                 )
                             )
                         }
                         constraintlayoutCompose("1.0.0") {
                             customImplementation(
-                                AndroidX.ConstraintLayout.ConstraintLayoutCompose.constraintlayout_compose.dependency(
+                                AndroidX.ConstraintLayout.ConstraintLayoutCompose.constraintlayout_compose.dependencyAsString(
                                     "1.1.2"
                                 )
                             )
                         }
                         constraintlayoutCore("1.0.0") {
                             customImplementation(
-                                AndroidX.ConstraintLayout.ConstraintLayoutCore.constraintlayout_core.dependency(
+                                AndroidX.ConstraintLayout.ConstraintLayoutCore.constraintlayout_core.dependencyAsString(
                                     "1.1.2"
                                 )
                             )
                         }
                         constraintlayoutSolver("1.0.0") {
                             customImplementation(
-                                AndroidX.ConstraintLayout.ConstraintLayoutSolver.constraintlayout_solver.dependency(
+                                AndroidX.ConstraintLayout.ConstraintLayoutSolver.constraintlayout_solver.dependencyAsString(
                                     "1.1.2"
                                 )
                             )
@@ -256,7 +256,7 @@ class AndroidXConstraintLayoutTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx activity block fun dependency adds dependencies in correct version`() {
+    fun `verify that androidx activity block fun dependencyAsString() adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -272,28 +272,28 @@ class AndroidXConstraintLayoutTests {
                     constraintLayout {
                         constraintlayout("1.0.0") {
                             customVersionImplementation(
-                                AndroidX.ConstraintLayout.ConstraintLayout.constraintlayout.dependency(
+                                AndroidX.ConstraintLayout.ConstraintLayout.constraintlayout.dependencyAsString(
                                     "1.1.2"
                                 )
                             )
                         }
                         constraintlayoutCompose("1.0.0") {
                             customVersionImplementation(
-                                AndroidX.ConstraintLayout.ConstraintLayoutCompose.constraintlayout_compose.dependency(
+                                AndroidX.ConstraintLayout.ConstraintLayoutCompose.constraintlayout_compose.dependencyAsString(
                                     "1.1.2"
                                 )
                             )
                         }
                         constraintlayoutCore("1.0.0") {
                             customVersionImplementation(
-                                AndroidX.ConstraintLayout.ConstraintLayoutCore.constraintlayout_core.dependency(
+                                AndroidX.ConstraintLayout.ConstraintLayoutCore.constraintlayout_core.dependencyAsString(
                                     "1.1.2"
                                 )
                             )
                         }
                         constraintlayoutSolver("1.0.0") {
                             customVersionImplementation(
-                                AndroidX.ConstraintLayout.ConstraintLayoutSolver.constraintlayout_solver.dependency(
+                                AndroidX.ConstraintLayout.ConstraintLayoutSolver.constraintlayout_solver.dependencyAsString(
                                     "1.1.2"
                                 )
                             )

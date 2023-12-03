@@ -12,17 +12,18 @@ class EpitGlideKtxScope internal constructor(
     private val glideKtxVersion: String
 ) {
     @ExperimentalEpitApi
-    val Glide.GlideKtx.dependency
+    val Glide.GlideKtx.dependencyAsString
         get(): String = moduleName joinWithColon glideKtxVersion
 
     @ExperimentalEpitApi
-    fun Glide.GlideKtx.dependency(version: String) = moduleName joinWithColon version
+    fun Glide.GlideKtx.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(glideKtx: Glide.GlideKtx) {
-        add("implementation", glideKtx.dependency)
+        add("implementation", glideKtx.dependencyAsString)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

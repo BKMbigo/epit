@@ -87,7 +87,7 @@ class AndroidXComposeRuntimeTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose runtime block dependency adds the correct dependency on custom configuration`() {
+    fun `verify that androidx compose runtime block dependencyAsString adds the correct dependency on custom configuration`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -103,10 +103,10 @@ class AndroidXComposeRuntimeTests {
                     compose {
                         runtime {
                             runtime("1.0.0") {
-                                customImplementation(AndroidX.Compose.Runtime.Runtime.runtime.dependency)
+                                customImplementation(AndroidX.Compose.Runtime.Runtime.runtime.dependencyAsString)
                             }
                             runtimeTracing("1.0.0") {
-                                customImplementation(AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing.dependency)
+                                customImplementation(AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing.dependencyAsString)
                             }
                         }
                     }
@@ -128,7 +128,7 @@ class AndroidXComposeRuntimeTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose runtime block dependency adds dependencies in correct version`() {
+    fun `verify that androidx compose runtime block dependencyAsString adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -144,10 +144,10 @@ class AndroidXComposeRuntimeTests {
                     compose {
                         runtime {
                             runtime("1.0.0") {
-                                customImplementation(AndroidX.Compose.Runtime.Runtime.runtime.dependency)
+                                customImplementation(AndroidX.Compose.Runtime.Runtime.runtime.dependencyAsString)
                             }
                             runtimeTracing("1.0.0") {
-                                customImplementation(AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing.dependency)
+                                customImplementation(AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing.dependencyAsString)
                             }
                         }
                     }
@@ -169,7 +169,7 @@ class AndroidXComposeRuntimeTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose runtime block fun dependency adds the correct dependency on custom configuration`() {
+    fun `verify that androidx compose runtime block fun dependencyAsString() adds the correct dependency on custom configuration`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -185,11 +185,11 @@ class AndroidXComposeRuntimeTests {
                     compose {
                         runtime {
                             runtime("1.0.0") {
-                                customImplementation(AndroidX.Compose.Runtime.Runtime.runtime.dependency("1.1.2"))
+                                customImplementation(AndroidX.Compose.Runtime.Runtime.runtime.dependencyAsString("1.1.2"))
                             }
                             runtimeTracing("1.0.0") {
                                 customImplementation(
-                                    AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing.dependency("1.1.2")
+                                    AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing.dependencyAsString("1.1.2")
                                 )
                             }
                         }
@@ -212,7 +212,7 @@ class AndroidXComposeRuntimeTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose runtime block fun dependency adds dependencies in correct version`() {
+    fun `verify that androidx compose runtime block fun dependencyAsString() adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -228,11 +228,15 @@ class AndroidXComposeRuntimeTests {
                     compose {
                         runtime {
                             runtime("1.0.0") {
-                                customVersionImplementation(AndroidX.Compose.Runtime.Runtime.runtime.dependency("1.1.2"))
+                                customVersionImplementation(
+                                    AndroidX.Compose.Runtime.Runtime.runtime.dependencyAsString(
+                                        "1.1.2"
+                                    )
+                                )
                             }
                             runtimeTracing("1.0.0") {
                                 customVersionImplementation(
-                                    AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing.dependency("1.1.2")
+                                    AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing.dependencyAsString("1.1.2")
                                 )
                             }
                         }

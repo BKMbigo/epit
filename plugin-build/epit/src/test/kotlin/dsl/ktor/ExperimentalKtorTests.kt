@@ -98,7 +98,7 @@ class ExperimentalKtorTests {
         var dependency = ""
 
         EpitExperimentalKtorScope("1.0.0").apply {
-            dependency = Ktor.Ktor.ktor_io.dependency
+            dependency = Ktor.Ktor.ktor_io.dependencyAsString
         }
 
         assertEquals(
@@ -113,7 +113,7 @@ class ExperimentalKtorTests {
         var dependency: String
 
         EpitExperimentalKtorScope("1.0.0").apply {
-            dependency = Ktor.Ktor.ktor_io.dependency("1.1.2")
+            dependency = Ktor.Ktor.ktor_io.dependencyAsString("1.1.2")
         }
 
         assertEquals(
@@ -127,7 +127,7 @@ class ExperimentalKtorTests {
         var bomName: String
 
         EpitExperimentalKtorScope("1.0.0").apply {
-            bomName = bom
+            bomName = bomAsString
         }
 
         assertEquals(
@@ -141,7 +141,7 @@ class ExperimentalKtorTests {
         var bomName: String
 
         EpitExperimentalKtorScope("1.0.0").apply {
-            bomName = bom("1.1.2")
+            bomName = bomAsString("1.1.2")
         }
 
         assertEquals(

@@ -13,17 +13,18 @@ class EpitAndroidXTestOrchestratorScope internal constructor(
     private val androidXTestOrchestratorVersion: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.Test.Orchestrator.dependency
+    val AndroidX.Test.Orchestrator.dependencyAsString
         get(): String = moduleName joinWithColon androidXTestOrchestratorVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.Test.Orchestrator.dependency(version: String) = moduleName joinWithColon version
+    fun AndroidX.Test.Orchestrator.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(orchestrator: AndroidX.Test.Orchestrator) {
-        add("implementation", orchestrator.dependency)
+        add("implementation", orchestrator.dependencyAsString)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

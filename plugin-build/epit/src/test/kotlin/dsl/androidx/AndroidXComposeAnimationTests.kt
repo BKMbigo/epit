@@ -90,7 +90,7 @@ class AndroidXComposeAnimationTests {
                 androidx {
                     compose {
                         animation("1.0.0") {
-                            customImplementation(AndroidX.Compose.Animation.animation.dependency)
+                            customImplementation(AndroidX.Compose.Animation.animation.dependencyAsString)
                         }
                     }
                 }
@@ -125,7 +125,7 @@ class AndroidXComposeAnimationTests {
                 androidx {
                     compose {
                         animation("1.0.0") {
-                            customImplementation(AndroidX.Compose.Animation.animation.dependency)
+                            customImplementation(AndroidX.Compose.Animation.animation.dependencyAsString)
                         }
                     }
                 }
@@ -160,7 +160,7 @@ class AndroidXComposeAnimationTests {
                 androidx {
                     compose {
                         animation("1.0.0") {
-                            customImplementation(AndroidX.Compose.Animation.animation.dependency("1.1.2"))
+                            customImplementation(AndroidX.Compose.Animation.animation.dependencyAsString("1.1.2"))
                         }
                     }
                 }
@@ -195,7 +195,7 @@ class AndroidXComposeAnimationTests {
                 androidx {
                     compose {
                         animation("1.0.0") {
-                            customVersionImplementation(AndroidX.Compose.Animation.animation.dependency("1.1.2"))
+                            customVersionImplementation(AndroidX.Compose.Animation.animation.dependencyAsString("1.1.2"))
                         }
                     }
                 }

@@ -9,6 +9,7 @@ import org.gradle.testfixtures.ProjectBuilder
 import org.junit.jupiter.api.Test
 import kotlin.test.assertContentEquals
 
+@OptIn(ExperimentalEpitApi::class)
 class AndroidXCameraTests {
 
     @Test
@@ -70,7 +71,7 @@ class AndroidXCameraTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx camera block dependency adds the correct dependency on custom configuration`() {
+    fun `verify that androidx camera block dependencyAsString adds the correct dependency on custom configuration`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -84,7 +85,7 @@ class AndroidXCameraTests {
             epitPreview {
                 androidx {
                     camera("1.0.0") {
-                        customImplementation(AndroidX.Camera.camera_camera2.dependency)
+                        customImplementation(AndroidX.Camera.camera_camera2.dependencyAsString)
                     }
                 }
             }
@@ -103,7 +104,7 @@ class AndroidXCameraTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx camera block dependency adds dependencies in correct version`() {
+    fun `verify that androidx camera block dependencyAsString adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -117,7 +118,7 @@ class AndroidXCameraTests {
             epitPreview {
                 androidx {
                     camera("1.0.0") {
-                        customImplementation(AndroidX.Camera.camera_camera2.dependency)
+                        customImplementation(AndroidX.Camera.camera_camera2.dependencyAsString)
                     }
                 }
             }
@@ -136,7 +137,7 @@ class AndroidXCameraTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx camera block fun dependency adds the correct dependency on custom configuration`() {
+    fun `verify that androidx camera block fun dependencyAsString() adds the correct dependency on custom configuration`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -150,7 +151,7 @@ class AndroidXCameraTests {
             epitPreview {
                 androidx {
                     camera("1.0.0") {
-                        customImplementation(AndroidX.Camera.camera_camera2.dependency("1.1.2"))
+                        customImplementation(AndroidX.Camera.camera_camera2.dependencyAsString("1.1.2"))
                     }
                 }
             }
@@ -169,7 +170,7 @@ class AndroidXCameraTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx camera block fun dependency adds dependencies in correct version`() {
+    fun `verify that androidx camera block fun dependencyAsString() adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -183,7 +184,7 @@ class AndroidXCameraTests {
             epitPreview {
                 androidx {
                     camera("1.0.0") {
-                        customVersionImplementation(AndroidX.Camera.camera_camera2.dependency("1.1.2"))
+                        customVersionImplementation(AndroidX.Camera.camera_camera2.dependencyAsString("1.1.2"))
                     }
                 }
             }

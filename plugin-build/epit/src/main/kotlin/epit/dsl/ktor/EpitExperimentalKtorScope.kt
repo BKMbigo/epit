@@ -14,24 +14,31 @@ class EpitExperimentalKtorScope internal constructor(
 ) {
 
     @ExperimentalEpitApi
-    val bom
-        get() = ktor_bom_module_name joinWithColon ktorBOMVersion
+    val DependencyHandlerScope.bom
+        get() = platform(bomAsString)
 
     @ExperimentalEpitApi
-    fun bom(customVersion: String) = ktor_bom_module_name joinWithColon customVersion
+    val bomAsString = ktor_bom_module_name joinWithColon ktorBOMVersion
 
     @ExperimentalEpitApi
-    val Ktor.Ktor.dependency
+    fun DependencyHandlerScope.bom(customVersion: String) = platform(bomAsString(customVersion))
+
+    @ExperimentalEpitApi
+    fun bomAsString(customVersion: String) = ktor_bom_module_name joinWithColon customVersion
+
+    @ExperimentalEpitApi
+    val Ktor.Ktor.dependencyAsString
         get() = moduleName
 
     @ExperimentalEpitApi
-    fun Ktor.Ktor.dependency(version: String) = moduleName joinWithColon version
+    fun Ktor.Ktor.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(ktor: Ktor.Ktor) {
         add("implementation", ktor.moduleName)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

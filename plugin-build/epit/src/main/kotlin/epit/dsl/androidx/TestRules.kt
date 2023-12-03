@@ -13,17 +13,18 @@ class EpitAndroidXTestRulesScope internal constructor(
     private val androidXTestRulesVersion: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.Test.Rules.dependency
+    val AndroidX.Test.Rules.dependencyAsString
         get(): String = moduleName joinWithColon androidXTestRulesVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.Test.Rules.dependency(version: String) = moduleName joinWithColon version
+    fun AndroidX.Test.Rules.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(rules: AndroidX.Test.Rules) {
-        add("implementation", rules.dependency)
+        add("implementation", rules.dependencyAsString)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

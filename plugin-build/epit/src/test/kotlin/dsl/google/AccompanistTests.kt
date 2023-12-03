@@ -85,7 +85,7 @@ class AccompanistTests {
             epitPreview {
                 google {
                     accompanist("1.0.0") {
-                        customImplementation(Google.Accompanist.accompanist_permissions.dependency)
+                        customImplementation(Google.Accompanist.accompanist_permissions.dependencyAsString)
                     }
                 }
             }
@@ -118,7 +118,7 @@ class AccompanistTests {
             epitPreview {
                 google {
                     accompanist("1.0.0") {
-                        customImplementation(Google.Accompanist.accompanist_permissions.dependency)
+                        customImplementation(Google.Accompanist.accompanist_permissions.dependencyAsString)
                     }
                 }
             }
@@ -151,7 +151,7 @@ class AccompanistTests {
             epitPreview {
                 google {
                     accompanist("1.0.0") {
-                        customImplementation(Google.Accompanist.accompanist_permissions.dependency("1.1.2"))
+                        customImplementation(Google.Accompanist.accompanist_permissions.dependencyAsString("1.1.2"))
                     }
                 }
             }
@@ -184,7 +184,7 @@ class AccompanistTests {
             epitPreview {
                 google {
                     accompanist("1.0.0") {
-                        customVersionImplementation(Google.Accompanist.accompanist_permissions.dependency("1.1.2"))
+                        customVersionImplementation(Google.Accompanist.accompanist_permissions.dependencyAsString("1.1.2"))
                     }
                 }
             }

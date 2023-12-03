@@ -87,7 +87,7 @@ class AndroidXComposeMaterial3Tests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose material3 block dependency adds the correct dependency on custom configuration`() {
+    fun `verify that androidx compose material3 block dependencyAsString adds the correct dependency on custom configuration`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -103,10 +103,10 @@ class AndroidXComposeMaterial3Tests {
                     compose {
                         material3 {
                             material3("1.0.0") {
-                                customImplementation(AndroidX.Compose.Material3.Material3.material3.dependency)
+                                customImplementation(AndroidX.Compose.Material3.Material3.material3.dependencyAsString)
                             }
                             material3Adaptive("1.0.0") {
-                                customImplementation(AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive.dependency)
+                                customImplementation(AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive.dependencyAsString)
                             }
                         }
                     }
@@ -122,13 +122,13 @@ class AndroidXComposeMaterial3Tests {
         assertContentEquals(
             expectedDependencies,
             customConfig.dependencies.map { "${it.group}:${it.name}" },
-            "androidx compose material3 val dependency does not add dependencies in the correct version"
+            "androidx compose material3 val dependencyAsString does not add dependencies in the correct version"
         )
     }
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose material3 block dependency adds dependencies in correct version`() {
+    fun `verify that androidx compose material3 block dependencyAsString adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -144,10 +144,10 @@ class AndroidXComposeMaterial3Tests {
                     compose {
                         material3 {
                             material3("1.0.0") {
-                                customImplementation(AndroidX.Compose.Material3.Material3.material3.dependency)
+                                customImplementation(AndroidX.Compose.Material3.Material3.material3.dependencyAsString)
                             }
                             material3Adaptive("1.0.0") {
-                                customImplementation(AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive.dependency)
+                                customImplementation(AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive.dependencyAsString)
                             }
                         }
                     }
@@ -163,13 +163,13 @@ class AndroidXComposeMaterial3Tests {
         assertContentEquals(
             List(expectedDependencies.size) { "1.0.0" },
             customConfig.dependencies.map { it.version },
-            "androidx compose material3 val dependency does not add dependencies in the correct version"
+            "androidx compose material3 val dependencyAsString does not add dependencies in the correct version"
         )
     }
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose material3 block fun dependency adds the correct dependency on custom configuration`() {
+    fun `verify that androidx compose material3 block fun dependencyAsString() adds the correct dependency on custom configuration`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -185,11 +185,11 @@ class AndroidXComposeMaterial3Tests {
                     compose {
                         material3 {
                             material3("1.0.0") {
-                                customImplementation(AndroidX.Compose.Material3.Material3.material3.dependency("1.1.2"))
+                                customImplementation(AndroidX.Compose.Material3.Material3.material3.dependencyAsString("1.1.2"))
                             }
                             material3Adaptive("1.0.0") {
                                 customImplementation(
-                                    AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive.dependency(
+                                    AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive.dependencyAsString(
                                         "1.1.2"
                                     )
                                 )
@@ -208,13 +208,13 @@ class AndroidXComposeMaterial3Tests {
         assertContentEquals(
             expectedDependencies,
             customConfig.dependencies.map { "${it.group}:${it.name}" },
-            "androidx compose material3 val dependency does not add dependencies in the correct version"
+            "androidx compose material3 val dependencyAsString() does not add dependencies in the correct version"
         )
     }
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose material3 block fun dependency adds dependencies in correct version`() {
+    fun `verify that androidx compose material3 block fun dependencyAsString() adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -230,11 +230,15 @@ class AndroidXComposeMaterial3Tests {
                     compose {
                         material3 {
                             material3("1.0.0") {
-                                customVersionImplementation(AndroidX.Compose.Material3.Material3.material3.dependency("1.1.2"))
+                                customVersionImplementation(
+                                    AndroidX.Compose.Material3.Material3.material3.dependencyAsString(
+                                        "1.1.2"
+                                    )
+                                )
                             }
                             material3Adaptive("1.0.0") {
                                 customVersionImplementation(
-                                    AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive.dependency(
+                                    AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive.dependencyAsString(
                                         "1.1.2"
                                     )
                                 )
@@ -253,7 +257,7 @@ class AndroidXComposeMaterial3Tests {
         assertContentEquals(
             List(expectedDependencies.size) { "1.1.2" },
             customVersionConfig.dependencies.map { it.version },
-            "androidx compose material3 val dependency does not add dependencies in the correct version"
+            "androidx compose material3 val dependencyAsString() does not add dependencies in the correct version"
         )
     }
 

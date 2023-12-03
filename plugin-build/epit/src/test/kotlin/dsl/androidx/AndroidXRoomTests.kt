@@ -84,7 +84,7 @@ class AndroidXRoomTests {
             epitPreview {
                 androidx {
                     room("1.0.0") {
-                        customImplementation(AndroidX.Room.room_common.dependency)
+                        customImplementation(AndroidX.Room.room_common.dependencyAsString)
                     }
                 }
             }
@@ -117,7 +117,7 @@ class AndroidXRoomTests {
             epitPreview {
                 androidx {
                     room("1.0.0") {
-                        customImplementation(AndroidX.Room.room_common.dependency)
+                        customImplementation(AndroidX.Room.room_common.dependencyAsString)
                     }
                 }
             }
@@ -150,7 +150,7 @@ class AndroidXRoomTests {
             epitPreview {
                 androidx {
                     room("1.0.0") {
-                        customImplementation(AndroidX.Room.room_common.dependency("1.1.2"))
+                        customImplementation(AndroidX.Room.room_common.dependencyAsString("1.1.2"))
                     }
                 }
             }
@@ -183,7 +183,7 @@ class AndroidXRoomTests {
             epitPreview {
                 androidx {
                     room("1.0.0") {
-                        customVersionImplementation(AndroidX.Room.room_common.dependency("1.1.2"))
+                        customVersionImplementation(AndroidX.Room.room_common.dependencyAsString("1.1.2"))
                     }
                 }
             }

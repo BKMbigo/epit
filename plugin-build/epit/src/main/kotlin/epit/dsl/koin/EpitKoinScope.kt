@@ -15,29 +15,30 @@ class EpitKoinScope internal constructor(
 
     @ExperimentalEpitApi
     val DependencyHandlerScope.bom
-        get() = platform(bomAsDependency)
+        get() = platform(bomAsString)
 
     @ExperimentalEpitApi
-    val bomAsDependency = Koin.koin_bom.moduleName joinWithColon koinBOMVersion
+    val bomAsString = Koin.koin_bom.moduleName joinWithColon koinBOMVersion
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.bom(customVersion: String) = platform(bomAsDependency(customVersion))
+    fun DependencyHandlerScope.bom(customVersion: String) = platform(bomAsString(customVersion))
 
     @ExperimentalEpitApi
-    fun bomAsDependency(customVersion: String) = Koin.koin_bom.moduleName joinWithColon customVersion
+    fun bomAsString(customVersion: String) = Koin.koin_bom.moduleName joinWithColon customVersion
 
     @ExperimentalEpitApi
-    val Koin.dependency
+    val Koin.dependencyAsString
         get() = moduleName
 
     @ExperimentalEpitApi
-    fun Koin.dependency(version: String) = moduleName joinWithColon version
+    fun Koin.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(koin: Koin) {
         add("implementation", koin.moduleName)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

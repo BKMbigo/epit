@@ -43,10 +43,10 @@ class FirebaseTest {
                     implementation(Firebase.firebase_firestore)
 
                     customImplementation(bom)
-                    customImplementation(Firebase.firebase_firestore.dependency)
+                    customImplementation(Firebase.firebase_firestore.dependencyAsString)
 
                     customVersionImplementation(bom("1.1.1"))
-                    customVersionImplementation(Firebase.firebase_firestore.dependency("1.1.1"))
+                    customVersionImplementation(Firebase.firebase_firestore.dependencyAsString("1.1.1"))
                 }
             }
         }

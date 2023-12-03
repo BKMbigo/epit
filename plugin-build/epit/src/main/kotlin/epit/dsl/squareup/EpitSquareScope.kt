@@ -21,7 +21,7 @@ class EpitSquareScope internal constructor(
     fun okhttp3(okhttpBOMVersion: String, block: EpitSquareOkHttp3BOMScope.() -> Unit) {
         val okHttp3BOMScope = EpitSquareOkHttp3BOMScope(okhttpBOMVersion)
         with(dependencyHandlerScope) {
-            add("implementation", platform(okHttp3BOMScope.bomAsDependency))
+            add("implementation", platform(okHttp3BOMScope.bomAsString))
         }
         block(okHttp3BOMScope)
     }
@@ -36,6 +36,7 @@ class EpitSquareScope internal constructor(
         block(EpitSquareRetrofit2Scope(retrofit2Version))
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

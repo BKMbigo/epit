@@ -13,17 +13,18 @@ class EpitAndroidXCoreRemoteViewsScope internal constructor(
     private val androidXCoreRemoteViewsVersion: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.Core.CoreRemoteViews.dependency
+    val AndroidX.Core.CoreRemoteViews.dependencyAsString
         get(): String = moduleName joinWithColon androidXCoreRemoteViewsVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.Core.CoreRemoteViews.dependency(version: String) = moduleName joinWithColon version
+    fun AndroidX.Core.CoreRemoteViews.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(coreRemoteViews: AndroidX.Core.CoreRemoteViews) {
-        add("implementation", coreRemoteViews.dependency)
+        add("implementation", coreRemoteViews.dependencyAsString)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

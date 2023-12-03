@@ -13,17 +13,18 @@ class EpitAndroidXRecyclerViewScope internal constructor(
     private val androidXRecyclerViewVersion: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.RecyclerView.dependency
+    val AndroidX.RecyclerView.dependencyAsString
         get(): String = moduleName joinWithColon androidXRecyclerViewVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.RecyclerView.dependency(version: String) = moduleName joinWithColon version
+    fun AndroidX.RecyclerView.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(recyclerView: AndroidX.RecyclerView) {
-        add("implementation", recyclerView.dependency)
+        add("implementation", recyclerView.dependencyAsString)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

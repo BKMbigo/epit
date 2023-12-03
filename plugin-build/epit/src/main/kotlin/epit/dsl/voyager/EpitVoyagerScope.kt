@@ -13,17 +13,18 @@ class EpitVoyagerScope internal constructor(
     internal val voyagerVersion: String
 ) {
     @ExperimentalEpitApi
-    val Voyager.dependency
+    val Voyager.dependencyAsString
         get() = moduleName joinWithColon voyagerVersion
 
     @ExperimentalEpitApi
-    fun Voyager.dependency(version: String) = moduleName joinWithColon version
+    fun Voyager.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(voyager: Voyager) {
-        add("implementation", voyager.dependency)
+        add("implementation", voyager.dependencyAsString)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

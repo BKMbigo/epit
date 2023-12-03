@@ -15,29 +15,30 @@ class EpitFirebaseScope internal constructor(
 
     @ExperimentalEpitApi
     val DependencyHandlerScope.bom
-        get() = platform(bomAsDependency)
+        get() = platform(bomAsString)
 
     @ExperimentalEpitApi
-    val bomAsDependency = Firebase.firebase_bom.moduleName joinWithColon firebaseBOMVersion
+    val bomAsString = Firebase.firebase_bom.moduleName joinWithColon firebaseBOMVersion
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.bom(customVersion: String) = platform(bomAsDependency(customVersion))
+    fun DependencyHandlerScope.bom(customVersion: String) = platform(bomAsString(customVersion))
 
     @ExperimentalEpitApi
-    fun bomAsDependency(customVersion: String) = Firebase.firebase_bom.moduleName joinWithColon customVersion
+    fun bomAsString(customVersion: String) = Firebase.firebase_bom.moduleName joinWithColon customVersion
 
     @ExperimentalEpitApi
-    val Firebase.dependency
+    val Firebase.dependencyAsString
         get() = moduleName
 
     @ExperimentalEpitApi
-    fun Firebase.dependency(version: String) = moduleName joinWithColon version
+    fun Firebase.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(firebase: Firebase) {
         add("implementation", firebase.moduleName)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

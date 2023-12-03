@@ -13,17 +13,18 @@ class EpitSquarePicassoScope internal constructor(
     private val squarePicassoVersion: String
 ) {
     @ExperimentalEpitApi
-    val SquareUp.Picasso.dependency
+    val SquareUp.Picasso.dependencyAsString
         get(): String = moduleName joinWithColon squarePicassoVersion
 
     @ExperimentalEpitApi
-    fun SquareUp.Picasso.dependency(version: String) = moduleName joinWithColon version
+    fun SquareUp.Picasso.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(picasso: SquareUp.Picasso) {
-        add("implementation", picasso.dependency)
+        add("implementation", picasso.dependencyAsString)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

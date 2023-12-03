@@ -13,17 +13,18 @@ class EpitKotlinxImmutableCollectionsScope internal constructor(
     private val kotlinxCollectionsImmutableVersion: String
 ) {
     @ExperimentalEpitApi
-    val KotlinX.CollectionsImmutable.dependency
+    val KotlinX.CollectionsImmutable.dependencyAsString
         get(): String = moduleName joinWithColon kotlinxCollectionsImmutableVersion
 
     @ExperimentalEpitApi
-    fun KotlinX.CollectionsImmutable.dependency(version: String) = moduleName joinWithColon version
+    fun KotlinX.CollectionsImmutable.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(collectionsImmutable: KotlinX.CollectionsImmutable) {
-        add("implementation", collectionsImmutable.dependency)
+        add("implementation", collectionsImmutable.dependencyAsString)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

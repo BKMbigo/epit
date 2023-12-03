@@ -13,17 +13,18 @@ class EpitAndroidXComposeRuntimeScope internal constructor(
     private val androidXComposeRuntimeVersion: String
 ) {
     @ExperimentalEpitApi
-    val AndroidX.Compose.Runtime.Runtime.dependency
+    val AndroidX.Compose.Runtime.Runtime.dependencyAsString
         get(): String = moduleName joinWithColon androidXComposeRuntimeVersion
 
     @ExperimentalEpitApi
-    fun AndroidX.Compose.Runtime.Runtime.dependency(version: String) = moduleName joinWithColon version
+    fun AndroidX.Compose.Runtime.Runtime.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(composeRuntimeTracing: AndroidX.Compose.Runtime.Runtime) {
-        add("implementation", composeRuntimeTracing.dependency)
+        add("implementation", composeRuntimeTracing.dependencyAsString)
     }
 
+    @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
         throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")

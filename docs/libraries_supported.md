@@ -719,7 +719,7 @@ dependencies {
         raamcosta {
             composeDestinations(/* Enter the version of compose destinations you want: "" */) {
                 implementation(Raamcosta.ComposeDestinations.core)
-                ksp(Raamcosta.ComposeDestinations.ksp.dependency)
+              ksp(Raamcosta.ComposeDestinations.ksp.dependencyAsString)
                 ...
             }
         }

@@ -16,24 +16,24 @@ class EpitAndroidXComposeBomScope internal constructor(
     /** Returns platform(bom) */
     @ExperimentalEpitApi
     val DependencyHandlerScope.bom
-        get() = platform(bomAsDependency)
+        get() = platform(bomAsString)
 
     /* Returns bom as a string */
     @ExperimentalEpitApi
-    val bomAsDependency = AndroidX.Compose.Bom.compose_bom.moduleName joinWithColon composeBOMVersion
+    val bomAsString = AndroidX.Compose.Bom.compose_bom.moduleName joinWithColon composeBOMVersion
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.bom(customVersion: String) = platform(bomAsDependency(customVersion))
+    fun DependencyHandlerScope.bom(customVersion: String) = platform(bomAsString(customVersion))
 
     @ExperimentalEpitApi
-    fun bomAsDependency(customVersion: String) = AndroidX.Compose.Bom.compose_bom.moduleName joinWithColon customVersion
+    fun bomAsString(customVersion: String) = AndroidX.Compose.Bom.compose_bom.moduleName joinWithColon customVersion
 
     @ExperimentalEpitApi
-    val AndroidX.Compose.ComposeBomDependency.dependency
+    val AndroidX.Compose.ComposeBomDependency.dependencyAsString
         get() = this.moduleName
 
     @ExperimentalEpitApi
-    fun AndroidX.Compose.dependency(version: String) = moduleName joinWithColon version
+    fun AndroidX.Compose.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(compose: AndroidX.Compose.ComposeBomDependency) {

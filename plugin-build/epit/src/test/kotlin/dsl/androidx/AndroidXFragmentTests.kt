@@ -70,7 +70,7 @@ class AndroidXFragmentTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx fragment block dependency adds the correct dependency on custom configuration`() {
+    fun `verify that androidx fragment block dependencyAsString adds the correct dependency on custom configuration`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -84,7 +84,7 @@ class AndroidXFragmentTests {
             epitPreview {
                 androidx {
                     fragment("1.0.0") {
-                        customImplementation(AndroidX.Fragment.fragment.dependency)
+                        customImplementation(AndroidX.Fragment.fragment.dependencyAsString)
                     }
                 }
             }
@@ -97,13 +97,13 @@ class AndroidXFragmentTests {
         assertContentEquals(
             expectedDependencies,
             customConfig.dependencies.map { "${it.group}:${it.name}" },
-            "androidx fragment val dependency does not add dependencies in the correct version"
+            "androidx fragment val dependencyAsString does not add dependencies in the correct version"
         )
     }
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx fragment block dependency adds dependencies in correct version`() {
+    fun `verify that androidx fragment block dependencyAsString adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -117,7 +117,7 @@ class AndroidXFragmentTests {
             epitPreview {
                 androidx {
                     fragment("1.0.0") {
-                        customImplementation(AndroidX.Fragment.fragment.dependency)
+                        customImplementation(AndroidX.Fragment.fragment.dependencyAsString)
                     }
                 }
             }
@@ -130,13 +130,13 @@ class AndroidXFragmentTests {
         assertContentEquals(
             List(expectedDependencies.size) { "1.0.0" },
             customConfig.dependencies.map { it.version },
-            "androidx fragment val dependency does not add dependencies in the correct version"
+            "androidx fragment val dependencyAsString does not add dependencies in the correct version"
         )
     }
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx fragment block fun dependency adds the correct dependency on custom configuration`() {
+    fun `verify that androidx fragment block fun dependencyAsString() adds the correct dependency on custom configuration`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -150,7 +150,7 @@ class AndroidXFragmentTests {
             epitPreview {
                 androidx {
                     fragment("1.0.0") {
-                        customImplementation(AndroidX.Fragment.fragment.dependency("1.1.2"))
+                        customImplementation(AndroidX.Fragment.fragment.dependencyAsString("1.1.2"))
                     }
                 }
             }
@@ -163,13 +163,13 @@ class AndroidXFragmentTests {
         assertContentEquals(
             expectedDependencies,
             customConfig.dependencies.map { "${it.group}:${it.name}" },
-            "androidx fragment val dependency does not add dependencies in the correct version"
+            "androidx fragment val dependencyAsString() does not add dependencies in the correct version"
         )
     }
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx fragment block fun dependency adds dependencies in correct version`() {
+    fun `verify that androidx fragment block fun dependencyAsString() adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -183,7 +183,7 @@ class AndroidXFragmentTests {
             epitPreview {
                 androidx {
                     fragment("1.0.0") {
-                        customVersionImplementation(AndroidX.Fragment.fragment.dependency("1.1.2"))
+                        customVersionImplementation(AndroidX.Fragment.fragment.dependencyAsString("1.1.2"))
                     }
                 }
             }
@@ -196,7 +196,7 @@ class AndroidXFragmentTests {
         assertContentEquals(
             List(expectedDependencies.size) { "1.1.2" },
             customVersionConfig.dependencies.map { it.version },
-            "androidx fragment val dependency does not add dependencies in the correct version"
+            "androidx fragment val dependencyAsString() does not add dependencies in the correct version"
         )
     }
 }
