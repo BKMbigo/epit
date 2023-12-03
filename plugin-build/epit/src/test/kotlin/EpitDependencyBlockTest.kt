@@ -29,8 +29,11 @@ class EpitDependencyBlockTest {
                             add("debugImplementation", AndroidX.Room.room_runtime.dependencyAsString)
                         }
                     }
-                    koin("3.5.1") { }
-                    firebase("32.6.0") { }
+                    koinBom("3.5.1") { }
+                    coilBom("1.9.9") { }
+                    google {
+                        firebaseBom("32.6.0") { }
+                    }
                     kotlinx {
                         coroutines("1.0.0") {
 

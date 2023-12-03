@@ -40,7 +40,7 @@ class KoinTest {
 
         project.dependencies {
             epitPreview {
-                koin("3.5.1") {
+                koinBom("3.5.1") {
                     implementation(Koin.koin_android)
 
                     customImplementation(bom)

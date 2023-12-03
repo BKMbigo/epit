@@ -24,7 +24,7 @@ class CoilTests {
 
         project.dependencies {
             epitPreview {
-                coil("1.0.0") { /* Dependencies */ }
+                coilBom("1.0.0") { /* Dependencies */ }
             }
         }
 
@@ -57,7 +57,7 @@ class CoilTests {
 
         project.dependencies {
             epitPreview {
-                coil("1.0.0") {
+                coilBom("1.0.0") {
                     implementation(Coil.coil)
                 }
             }
@@ -80,7 +80,7 @@ class CoilTests {
 
         project.dependencies {
             epitPreview {
-                coil("1.0.0") {
+                coilBom("1.0.0") {
                     implementation(Coil.coil)
                 }
             }

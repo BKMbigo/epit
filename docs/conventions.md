@@ -338,12 +338,12 @@ dependencies {
 > 
 >       androidTestImplementation(bom)
 >       /* You can also use */
->       androidTestImplementation(platform(bomAsDependency))
+>       androidTestImplementation(platform(bomAsString))
 >       androidTestImplementation(AndroidX.Compose.UI.ui_test_junit4)
 >
 >       testImplementation(bom("2023.09.00")) /* Loads a different BOM version */
 >       /* You can also use */
->       testImplementation(platform(bomAsDependency("2023.09.00"))) /* Loads a different BOM version */
+>       testImplementation(platform(bomAsString("2023.09.00"))) /* Loads a different BOM version */
 >       testImplementation(AndroidX.Compose.UI.ui_test_junit4)
 >   }
 > }

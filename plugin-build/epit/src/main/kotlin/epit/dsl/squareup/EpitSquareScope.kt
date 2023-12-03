@@ -18,7 +18,7 @@ class EpitSquareScope internal constructor(
     }
 
     @ExperimentalEpitApi
-    fun okhttp3(okhttpBOMVersion: String, block: EpitSquareOkHttp3BOMScope.() -> Unit) {
+    fun okhttp3Bom(okhttpBOMVersion: String, block: EpitSquareOkHttp3BOMScope.() -> Unit) {
         val okHttp3BOMScope = EpitSquareOkHttp3BOMScope(okhttpBOMVersion)
         with(dependencyHandlerScope) {
             add("implementation", platform(okHttp3BOMScope.bomAsString))

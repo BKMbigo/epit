@@ -41,7 +41,7 @@ class ComposeTest {
             epitPreview {
                 androidx {
                     compose {
-                        compose("2023.10.01") {
+                        composeBom("2023.10.01") {
                             implementation(AndroidX.Compose.Runtime.Runtime.runtime)
 
                             customImplementation(bom)

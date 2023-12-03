@@ -1,4 +1,4 @@
-package epit.dsl.firebase
+package epit.dsl.google
 
 import epit.EpitDependency
 import epit.annotations.EpitDsl
@@ -18,23 +18,23 @@ class EpitFirebaseScope internal constructor(
         get() = platform(bomAsString)
 
     @ExperimentalEpitApi
-    val bomAsString = Firebase.firebase_bom.moduleName joinWithColon firebaseBOMVersion
+    val bomAsString = Google.Firebase.firebase_bom.moduleName joinWithColon firebaseBOMVersion
 
     @ExperimentalEpitApi
     fun DependencyHandlerScope.bom(customVersion: String) = platform(bomAsString(customVersion))
 
     @ExperimentalEpitApi
-    fun bomAsString(customVersion: String) = Firebase.firebase_bom.moduleName joinWithColon customVersion
+    fun bomAsString(customVersion: String) = Google.Firebase.firebase_bom.moduleName joinWithColon customVersion
 
     @ExperimentalEpitApi
-    val Firebase.dependencyAsString
+    val Google.Firebase.dependencyAsString
         get() = moduleName
 
     @ExperimentalEpitApi
-    fun Firebase.dependencyAsString(version: String) = moduleName joinWithColon version
+    fun Google.Firebase.dependencyAsString(version: String) = moduleName joinWithColon version
 
     @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(firebase: Firebase) {
+    fun DependencyHandlerScope.implementation(firebase: Google.Firebase) {
         add("implementation", firebase.moduleName)
     }
 

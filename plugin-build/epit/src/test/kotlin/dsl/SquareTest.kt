@@ -45,7 +45,7 @@ class SquareTest {
                         customImplementation(SquareUp.LeakCanary.leakcanary_android.dependencyAsString)
                         customVersionImplementation(SquareUp.LeakCanary.leakcanary_android.dependencyAsString("1.1.1"))
                     }
-                    okhttp3("1.0.0") {
+                    okhttp3Bom("1.0.0") {
                         implementation(SquareUp.OkHttp3.okhttp)
 
                         customImplementation(bom)

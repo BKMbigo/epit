@@ -5,7 +5,6 @@ epit aims to provide a rich library of kotlin and android dependencies in the lo
 - [AndroidX libraries](#androidx-libraries)
 - [KotlinX libraries](#kotlinx-libraries)
 - [Koin](#koin)
-- [Firebase](#firebase)
 - [Voyager](#voyager)
 - [Coil](#coil)
 - [Glide](#glide)
@@ -13,7 +12,8 @@ epit aims to provide a rich library of kotlin and android dependencies in the lo
     - [Compose Destinations](#compose-destinations)
 - [Google](#google)
   - [Accompanist](#accompanist)
-- [Ktor]()
+  - [Firebase](#firebase)
+- [Ktor](#ktor)
 
 ### AndroidX Libraries
 This are android-specific libraries 
@@ -100,7 +100,7 @@ dependencies {
     epitPreview {
         androidx {
             compose {
-                compose(/* Enter the version of compose-bom: "2023.10.01" */) {
+              composeBom(/* Enter the version of compose-bom: "2023.10.01" */) {
                     implementation(AndroidX.Compose.Animation.animation)
                     implementation(AndroidX.Compose.Runtime.Runtime.runtime)
                 }
@@ -644,21 +644,9 @@ dependencies {
 ```kotlin
 dependencies {
     epitPreview {
-        koin(/* Enter the version of koin bom you would like: "3.5.2-RC1" */) {
+      koinBom(/* Enter the version of koin bom you would like: "3.5.2-RC1" */) {
             implementation(Koin.koin_core)
             ..
-        }
-    }
-}
-```
-
-### Firebase
-
-```kotlin
-dependencies {
-    epitPreview {
-        firebase(/* Enter the version of firebase bom you would like: "32.6.0" */) {
-            implementation(Firebase.firebase_auth)
         }
     }
 }
@@ -682,7 +670,7 @@ dependencies {
 ```kotlin
 dependencies {
     epitPreview {
-        coil(/* Enter the version of coil bom you would like: "1.0.0-rc10" */) {
+      coilBom(/* Enter the version of coil bom you would like: "1.0.0-rc10" */) {
             implementation(Coil.coil)
             ..
         }
@@ -752,6 +740,20 @@ dependencies {
 >   - `com.google.accompanist:accompanist-coil`
 >   - `com.google.accompanist:accompanist-picasso`
 
+#### Firebase
+
+```kotlin
+dependencies {
+  epitPreview {
+    google {
+      firebase(/* Enter the version of firebase bom you would like: "32.6.0" */) {
+        implementation(Google.Firebase.firebase_auth)
+      }
+    }
+  }
+}
+```
+
 ### Ktor
 
 Unfortunately, the API for ktor is currently extremely experimental and is bound to change.
@@ -759,7 +761,7 @@ Unfortunately, the API for ktor is currently extremely experimental and is bound
 ```kotlin
 dependencies {
   epitPreview {
-    ktor(/* Enter ktor bom version: "2.6.2" */) {
+    ktorBom(/* Enter ktor bom version: "2.6.2" */) {
       implementation(Ktor.Ktor.ktor_client_core)
     }
   }

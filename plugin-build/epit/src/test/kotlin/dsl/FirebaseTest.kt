@@ -2,7 +2,7 @@ package dsl
 
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.epitPreview
-import epit.dsl.firebase.Firebase
+import epit.dsl.google.Google
 import org.gradle.api.artifacts.Dependency
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.dependencies
@@ -39,21 +39,23 @@ class FirebaseTest {
 
         project.dependencies {
             epitPreview {
-                firebase("32.6.0") {
-                    implementation(Firebase.firebase_firestore)
+                google {
+                    firebaseBom("32.6.0") {
+                        implementation(Google.Firebase.firebase_firestore)
 
-                    customImplementation(bom)
-                    customImplementation(Firebase.firebase_firestore.dependencyAsString)
+                        customImplementation(bom)
+                        customImplementation(Google.Firebase.firebase_firestore.dependencyAsString)
 
-                    customVersionImplementation(bom("1.1.1"))
-                    customVersionImplementation(Firebase.firebase_firestore.dependencyAsString("1.1.1"))
+                        customVersionImplementation(bom("1.1.1"))
+                        customVersionImplementation(Google.Firebase.firebase_firestore.dependencyAsString("1.1.1"))
+                    }
                 }
             }
         }
 
         val expectedDependencies = listOf(
-            Firebase.firebase_bom.moduleName,
-            Firebase.firebase_firestore.moduleName
+            Google.Firebase.firebase_bom.moduleName,
+            Google.Firebase.firebase_firestore.moduleName
         )
 
 

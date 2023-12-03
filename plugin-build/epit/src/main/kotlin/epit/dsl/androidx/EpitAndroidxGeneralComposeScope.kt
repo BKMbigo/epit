@@ -28,7 +28,7 @@ class EpitAndroidxGeneralComposeScope internal constructor(
     }
 
     @ExperimentalEpitApi
-    fun EpitAndroidxGeneralComposeScope.compose(
+    fun EpitAndroidxGeneralComposeScope.composeBom(
         bomVersion: String,
         block: EpitAndroidXComposeBomScope.() -> Unit
     ) {

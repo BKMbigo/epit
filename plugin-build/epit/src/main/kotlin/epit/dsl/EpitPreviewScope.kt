@@ -6,7 +6,6 @@ import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
 import epit.dsl.androidx.EpitAndroidxScope
 import epit.dsl.coil.EpitCoilScope
-import epit.dsl.firebase.EpitFirebaseScope
 import epit.dsl.glide.EpitGlideGeneralScope
 import epit.dsl.google.EpitGoogleScope
 import epit.dsl.koin.EpitKoinScope
@@ -38,16 +37,7 @@ class EpitPreviewScope internal constructor(
     }
 
     @ExperimentalEpitApi
-    fun firebase(bomVersion: String, block: EpitFirebaseScope.() -> Unit) {
-        val firebaseScope = EpitFirebaseScope(bomVersion)
-        with(dependencyHandlerScope) {
-            add("implementation", firebaseScope.bomAsString)
-        }
-        block(firebaseScope)
-    }
-
-    @ExperimentalEpitApi
-    fun coil(bomVersion: String, block: EpitCoilScope.() -> Unit) {
+    fun coilBom(bomVersion: String, block: EpitCoilScope.() -> Unit) {
         val coilScope = EpitCoilScope(bomVersion)
         with(dependencyHandlerScope) {
             add("implementation", platform(coilScope.bomAsString))
@@ -56,7 +46,7 @@ class EpitPreviewScope internal constructor(
     }
 
     @OptIn(ExperimentalEpitApi::class)
-    fun koin(bomVersion: String, block: EpitKoinScope.() -> Unit) {
+    fun koinBom(bomVersion: String, block: EpitKoinScope.() -> Unit) {
         val koinScope = EpitKoinScope(bomVersion)
         with(dependencyHandlerScope) {
             add("implementation", platform(koinScope.bomAsString))
@@ -75,7 +65,7 @@ class EpitPreviewScope internal constructor(
     }
 
     @ExperimentalEpitApi
-    fun ktor(
+    fun ktorBom(
         ktorBOMVersion: String,
         block: EpitExperimentalKtorScope.() -> Unit
     ) {

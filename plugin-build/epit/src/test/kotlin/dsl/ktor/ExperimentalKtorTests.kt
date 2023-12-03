@@ -24,7 +24,7 @@ class ExperimentalKtorTests {
 
         project.dependencies {
             epitPreview {
-                ktor("1.0.0") { /* Dependencies */ }
+                ktorBom("1.0.0") { /* Dependencies */ }
             }
         }
 
@@ -57,7 +57,7 @@ class ExperimentalKtorTests {
 
         project.dependencies {
             epitPreview {
-                ktor("1.0.0") {
+                ktorBom("1.0.0") {
                     implementation(Ktor.Ktor.ktor_io)
                 }
             }
@@ -80,7 +80,7 @@ class ExperimentalKtorTests {
 
         project.dependencies {
             epitPreview {
-                ktor("1.0.0") {
+                ktorBom("1.0.0") {
                     implementation(Ktor.Ktor.ktor_client_android)
                 }
             }

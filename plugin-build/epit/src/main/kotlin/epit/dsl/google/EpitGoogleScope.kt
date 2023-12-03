@@ -20,6 +20,15 @@ class EpitGoogleScope internal constructor(
         block(EpitGoogleAccompanistScope(accompanistVersion))
     }
 
+    @ExperimentalEpitApi
+    fun firebaseBom(bomVersion: String, block: EpitFirebaseScope.() -> Unit) {
+        val firebaseScope = EpitFirebaseScope(bomVersion)
+        with(dependencyHandlerScope) {
+            add("implementation", firebaseScope.bomAsString)
+        }
+        block(firebaseScope)
+    }
+
     @Suppress("UNUSED_PARAMETER")
     @InvalidScopeEpitDependency
     fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
