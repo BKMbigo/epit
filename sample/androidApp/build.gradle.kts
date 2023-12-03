@@ -291,6 +291,13 @@ android {
 //                    }
 //                }
 //            }
+//            raamcosta {
+//                composeDestinations(libs.versions.raamcosta.composeDestinations.get()) {
+//                    Raamcosta.ComposeDestinations.values().forEach {
+//                        implementation(it)
+//                    }
+//                }
+//            }
         }
     }
 }

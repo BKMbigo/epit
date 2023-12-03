@@ -11,6 +11,7 @@ import epit.dsl.glide.EpitGlideGeneralScope
 import epit.dsl.google.EpitGoogleScope
 import epit.dsl.koin.EpitKoinScope
 import epit.dsl.kotlinx.EpitKotlinxScope
+import epit.dsl.raamcosta.EpitRaamcostaScope
 import epit.dsl.squareup.EpitSquareScope
 import epit.dsl.voyager.EpitVoyagerScope
 import org.gradle.kotlin.dsl.DependencyHandlerScope
@@ -62,12 +63,17 @@ class EpitPreviewScope internal constructor(
         block(koinScope)
     }
 
+    @ExperimentalEpitApi
     fun kotlinx(block: EpitKotlinxScope.() -> Unit) {
         block(EpitKotlinxScope)
     }
 
+    @ExperimentalEpitApi
+    fun raamcosta(block: EpitRaamcostaScope.() -> Unit) {
+        block(EpitRaamcostaScope)
+    }
 
-    @OptIn(ExperimentalEpitApi::class)
+    @ExperimentalEpitApi
     fun squareup(block: EpitSquareScope.() -> Unit) {
         block(EpitSquareScope(dependencyHandlerScope))
     }

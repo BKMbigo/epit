@@ -9,6 +9,8 @@ epit aims to provide a rich library of kotlin and android dependencies in the lo
 - [Voyager](#voyager)
 - [Coil](#coil)
 - [Glide](#glide)
+- [Raamcosta](#raamcosta)
+    - [Compose Destinations](#compose-destinations)
 - [Google](#google)
   - [Accompanist](#accompanist)
 
@@ -700,6 +702,24 @@ dependencies {
             glideKtx(/* Enter the version of glide compose/ktx you want: "1.0.0-beta01" */) {
                 implementation(Glide.GlideKtx.glide_ktx)
                 implementation(Glide.GlideKtx.glide_compose)
+            }
+        }
+    }
+}
+```
+
+### Raamcosta
+
+#### Compose Destinations
+
+```kotlin
+dependencies {
+    epitPreview {
+        raamcosta {
+            composeDestinations(/* Enter the version of compose destinations you want: "" */) {
+                implementation(Raamcosta.ComposeDestinations.core)
+                ksp(Raamcosta.ComposeDestinations.ksp.dependency)
+                ...
             }
         }
     }
