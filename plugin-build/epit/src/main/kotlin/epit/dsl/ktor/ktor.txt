@@ -1,0 +1,520 @@
+[
+  "ktor-client-jvm",
+  "ktor-client",
+
+  "ktor-http-js",
+  "ktor-http-jvm",
+  "ktor-http",
+  "ktor-http-linuxarm64",
+  "ktor-http-linuxx64",
+  "ktor-http-mingwx64",
+
+  "ktor-io-js",
+  "ktor-io-jvm",
+  "ktor-io",
+  "ktor-io-linuxarm64",
+  "ktor-io-linuxx64",
+  "ktor-io-mingwx64",
+
+  "ktor-network-jvm",
+  "ktor-network",
+  "ktor-network-linuxarm64",
+  "ktor-network-linuxx64",
+
+  "ktor-server-jvm",
+  "ktor-server",
+  "ktor-server-linuxarm64",
+  "ktor-server-linuxx64",
+
+  "ktor-shared-jvm",
+  "ktor-shared",
+
+  "ktor-test-dispatcher-js",
+  "ktor-test-dispatcher-jvm",
+  "ktor-test-dispatcher",
+  "ktor-test-dispatcher-linuxarm64",
+  "ktor-test-dispatcher-linuxx64",
+  "ktor-test-dispatcher-mingwx64",
+
+  "ktor-utils-js",
+  "ktor-utils-jvm",
+  "ktor-utils",
+  "ktor-utils-linuxarm64",
+  "ktor-utils-linuxx64",
+  "ktor-utils-mingwx64",
+
+  "ktor-client-android-jvm",
+  "ktor-client-android",
+
+  "ktor-client-apache-jvm",
+  "ktor-client-apache",
+
+  "ktor-client-apache5-jvm",
+  "ktor-client-apache5",
+
+  "ktor-client-cio-jvm",
+  "ktor-client-cio",
+  "ktor-client-cio-linuxarm64",
+  "ktor-client-cio-linuxx64",
+
+  "ktor-client-core-js",
+  "ktor-client-core-jvm",
+  "ktor-client-core",
+  "ktor-client-core-linuxarm64",
+  "ktor-client-core-linuxx64",
+  "ktor-client-core-mingwx64",
+
+  "ktor-client-curl",
+  "ktor-client-curl-linuxx64",
+  "ktor-client-curl-mingwx64",
+
+  "ktor-client-darwin",
+  "ktor-client-darwin-legacy",
+
+  "ktor-client-ios",
+
+  "ktor-client-java-jvm",
+  "ktor-client-java",
+
+  "ktor-client-jetty-jvm",
+  "ktor-client-jetty",
+  "ktor-client-jetty-jakarta-jvm",
+  "ktor-client-jetty-jakarta",
+
+  "ktor-client-js-js",
+  "ktor-client-js",
+
+  "ktor-client-mock-js",
+  "ktor-client-mock-jvm",
+  "ktor-client-mock",
+  "ktor-client-mock-linuxarm64",
+  "ktor-client-mock-linuxx64",
+  "ktor-client-mock-mingwx64",
+
+  "ktor-client-okhttp-jvm",
+  "ktor-client-okhttp",
+
+  "ktor-client-plugins-jvm",
+  "ktor-client-plugins",
+
+  "ktor-client-tests-js",
+  "ktor-client-tests-jvm",
+  "ktor-client-tests",
+  "ktor-client-tests-linuxarm64",
+  "ktor-client-tests-linuxx64",
+  "ktor-client-tests-mingwx64",
+
+  "ktor-client-winhttp",
+  "ktor-client-winhttp-mingwx64",
+
+  "ktor-http-cio-js",
+  "ktor-http-cio-jvm",
+  "ktor-http-cio",
+  "ktor-http-cio-linuxarm64",
+  "ktor-http-cio-linuxx64",
+  "ktor-http-cio-mingwx64",
+
+  "ktor-network-tls-jvm",
+  "ktor-network-tls",
+  "ktor-network-tls-linuxarm64",
+  "ktor-network-tls-linuxx64",
+
+  "ktor-server-cio-jvm",
+  "ktor-server-cio",
+  "ktor-server-cio-linuxarm64",
+  "ktor-server-cio-linuxx64",
+
+  "ktor-server-config-yaml-jvm",
+  "ktor-server-config-yaml",
+  "ktor-server-config-yaml-linuxarm64",
+  "ktor-server-config-yaml-linuxx64",
+
+  "ktor-server-core-jvm",
+  "ktor-server-core",
+  "ktor-server-core-linuxarm64",
+  "ktor-server-core-linuxx64",
+
+  "ktor-server-host-common-jvm",
+  "ktor-server-host-common",
+  "ktor-server-host-common-linuxarm64",
+  "ktor-server-host-common-linuxx64",
+
+  "ktor-server-jetty-jvm",
+  "ktor-server-jetty",
+  "ktor-server-jetty-jakarta-jvm",
+  "ktor-server-jetty-jakarta",
+
+  "ktor-server-netty-jvm",
+  "ktor-server-netty",
+
+  "ktor-server-plugins-jvm",
+  "ktor-server-plugins",
+
+  "ktor-server-servlet-jvm",
+  "ktor-server-servlet",
+  "ktor-server-servlet-jakarta-jvm",
+  "ktor-server-servlet-jakarta",
+
+  "ktor-server-test-host-jvm",
+  "ktor-server-test-host",
+  "ktor-server-test-host-linuxarm64",
+  "ktor-server-test-host-linuxx64",
+
+  "ktor-server-test-suites-jvm",
+  "ktor-server-test-suites",
+  "ktor-server-test-suites-linuxarm64",
+  "ktor-server-test-suites-linuxx64",
+
+  "ktor-server-tests-jvm",
+  "ktor-server-tests",
+  "ktor-server-tests-linuxarm64",
+  "ktor-server-tests-linuxx64",
+
+  "ktor-server-tomcat-jvm",
+  "ktor-server-tomcat",
+  "ktor-server-tomcat-jakarta-jvm",
+  "ktor-server-tomcat-jakarta",
+
+  "ktor-call-id-js",
+  "ktor-call-id-jvm",
+  "ktor-call-id",
+  "ktor-call-id-linuxarm64",
+  "ktor-call-id-linuxx64",
+  "ktor-call-id-mingwx64",
+
+  "ktor-events-js",
+  "ktor-events-jvm",
+  "ktor-events",
+  "ktor-events-linuxarm64",
+  "ktor-events-linuxx64",
+  "ktor-events-mingwx64",
+
+  "ktor-resources-js",
+  "ktor-resources-jvm",
+  "ktor-resources",
+  "ktor-resources-linuxarm64",
+  "ktor-resources-linuxx64",
+  "ktor-resources-mingwx64",
+
+  "ktor-serialization-js",
+  "ktor-serialization-jvm",
+  "ktor-serialization",
+  "ktor-serialization-linuxarm64",
+  "ktor-serialization-linuxx64",
+  "ktor-serialization-mingwx64",
+
+  "ktor-sse-js",
+  "ktor-sse-jvm",
+  "ktor-sse",
+  "ktor-sse-linuxarm64",
+  "ktor-sse-linuxx64",
+  "ktor-sse-mingwx64",
+
+  "ktor-websocket-serialization-js",
+  "ktor-websocket-serialization-jvm",
+  "ktor-websocket-serialization",
+  "ktor-websocket-serialization-linuxarm64",
+  "ktor-websocket-serialization-linuxx64",
+  "ktor-websocket-serialization-mingwx64",
+
+  "ktor-websockets-js",
+  "ktor-websockets-jvm",
+  "ktor-websockets",
+  "ktor-websockets-linuxarm64",
+  "ktor-websockets-linuxx64",
+  "ktor-websockets-mingwx64",
+
+  "ktor-client-auth-js",
+  "ktor-client-auth-jvm",
+  "ktor-client-auth",
+  "ktor-client-auth-linuxarm64",
+  "ktor-client-auth-linuxx64",
+  "ktor-client-auth-mingwx64",
+
+  "ktor-client-bom-remover-js",
+  "ktor-client-bom-remover-jvm",
+  "ktor-client-bom-remover",
+  "ktor-client-bom-remover-linuxarm64",
+  "ktor-client-bom-remover-linuxx64",
+  "ktor-client-bom-remover-mingwx64",
+
+  "ktor-client-call-id-js",
+  "ktor-client-call-id-jvm",
+  "ktor-client-call-id",
+  "ktor-client-call-id-linuxarm64",
+  "ktor-client-call-id-linuxx64",
+  "ktor-client-call-id-mingwx64",
+
+  "ktor-client-content-negotiation-js",
+  "ktor-client-content-negotiation-jvm",
+  "ktor-client-content-negotiation",
+  "ktor-client-content-negotiation-linuxarm64",
+  "ktor-client-content-negotiation-linuxx64",
+  "ktor-client-content-negotiation-mingwx64",
+
+  "ktor-client-encoding-js",
+  "ktor-client-encoding-jvm",
+  "ktor-client-encoding",
+  "ktor-client-encoding-linuxarm64",
+  "ktor-client-encoding-linuxx64",
+  "ktor-client-encoding-mingwx64",
+
+  "ktor-client-json-js",
+  "ktor-client-json-jvm",
+  "ktor-client-json",
+  "ktor-client-json-linuxarm64",
+  "ktor-client-json-linuxx64",
+  "ktor-client-json-mingwx64",
+
+  "ktor-client-logging-js",
+  "ktor-client-logging-jvm",
+  "ktor-client-logging",
+  "ktor-client-logging-linuxarm64",
+  "ktor-client-logging-linuxx64",
+  "ktor-client-logging-mingwx64",
+
+  "ktor-client-resources-js",
+  "ktor-client-resources-jvm",
+  "ktor-client-resources",
+  "ktor-client-resources-linuxarm64",
+  "ktor-client-resources-linuxx64",
+  "ktor-client-resources-mingwx64",
+
+  "ktor-client-websockets-js",
+  "ktor-client-websockets-jvm",
+  "ktor-client-websockets",
+  "ktor-client-websockets-linuxarm64",
+  "ktor-client-websockets-linuxx64",
+  "ktor-client-websockets-mingwx64",
+
+  "ktor-network-tls-certificates-jvm",
+  "ktor-network-tls-certificates",
+
+  "ktor-server-jetty-test-http2-jvm",
+  "ktor-server-jetty-test-http2",
+  "ktor-server-jetty-test-http2-jakarta-jvm",
+  "ktor-server-jetty-test-http2-jakarta",
+
+  "ktor-server-auth-jvm",
+  "ktor-server-auth",
+  "ktor-server-auth-linuxarm64",
+  "ktor-server-auth-linuxx64",
+  "ktor-server-auth-jwt-jvm",
+  "ktor-server-auth-jwt",
+  "ktor-server-auth-ldap-jvm",
+  "ktor-server-auth-ldap",
+
+  "ktor-server-auto-head-response-jvm",
+  "ktor-server-auto-head-response",
+  "ktor-server-auto-head-response-linuxarm64",
+  "ktor-server-auto-head-response-linuxx64",
+
+  "ktor-server-body-limit-jvm",
+  "ktor-server-body-limit",
+  "ktor-server-body-limit-linuxarm64",
+  "ktor-server-body-limit-linuxx64",
+
+  "ktor-server-caching-headers-jvm",
+  "ktor-server-caching-headers",
+  "ktor-server-caching-headers-linuxarm64",
+  "ktor-server-caching-headers-linuxx64",
+
+  "ktor-server-call-id-jvm",
+  "ktor-server-call-id",
+  "ktor-server-call-id-linuxarm64",
+  "ktor-server-call-id-linuxx64",
+
+  "ktor-server-call-logging-jvm",
+  "ktor-server-call-logging",
+
+  "ktor-server-compression-jvm",
+  "ktor-server-compression",
+  "ktor-server-conditional-headers-jvm",
+  "ktor-server-conditional-headers",
+  "ktor-server-conditional-headers-linuxarm64",
+  "ktor-server-conditional-headers-linuxx64",
+
+  "ktor-server-content-negotiation-jvm",
+  "ktor-server-content-negotiation",
+  "ktor-server-content-negotiation-linuxarm64",
+  "ktor-server-content-negotiation-linuxx64",
+
+  "ktor-server-cors-jvm",
+  "ktor-server-cors",
+  "ktor-server-cors-linuxarm64",
+  "ktor-server-cors-linuxx64",
+
+  "ktor-server-data-conversion-jvm",
+  "ktor-server-data-conversion",
+  "ktor-server-data-conversion-linuxarm64",
+  "ktor-server-data-conversion-linuxx64",
+
+  "ktor-server-default-headers-jvm",
+  "ktor-server-default-headers",
+  "ktor-server-default-headers-linuxarm64",
+  "ktor-server-default-headers-linuxx64",
+
+  "ktor-server-double-receive-jvm",
+  "ktor-server-double-receive",
+  "ktor-server-double-receive-linuxarm64",
+  "ktor-server-double-receive-linuxx64",
+
+  "ktor-server-forwarded-header-jvm",
+  "ktor-server-forwarded-header",
+  "ktor-server-forwarded-header-linuxarm64",
+  "ktor-server-forwarded-header-linuxx64",
+  "ktor-server-freemarker-jvm",
+  "ktor-server-freemarker",
+
+  "ktor-server-hsts-jvm",
+  "ktor-server-hsts",
+  "ktor-server-hsts-linuxarm64",
+  "ktor-server-hsts-linuxx64",
+
+  "ktor-server-html-builder-jvm",
+  "ktor-server-html-builder",
+  "ktor-server-html-builder-linuxarm64",
+  "ktor-server-html-builder-linuxx64",
+
+  "ktor-server-http-redirect-jvm",
+  "ktor-server-http-redirect",
+  "ktor-server-http-redirect-linuxarm64",
+  "ktor-server-http-redirect-linuxx64",
+
+  "ktor-server-jte-jvm",
+  "ktor-server-jte",
+
+  "ktor-server-method-override-jvm",
+  "ktor-server-method-override",
+  "ktor-server-method-override-linuxarm64",
+  "ktor-server-method-override-linuxx64",
+
+  "ktor-server-metrics-jvm",
+  "ktor-server-metrics",
+  "ktor-server-metrics-micrometer-jvm",
+  "ktor-server-metrics-micrometer",
+
+  "ktor-server-mustache-jvm",
+  "ktor-server-mustache",
+
+  "ktor-server-openapi-jvm",
+  "ktor-server-openapi",
+
+  "ktor-server-partial-content-jvm",
+  "ktor-server-partial-content",
+  "ktor-server-partial-content-linuxarm64",
+  "ktor-server-partial-content-linuxx64",
+
+  "ktor-server-pebble-jvm",
+  "ktor-server-pebble",
+
+  "ktor-server-rate-limit-jvm",
+  "ktor-server-rate-limit",
+  "ktor-server-rate-limit-linuxarm64",
+  "ktor-server-rate-limit-linuxx64",
+
+  "ktor-server-request-validation-jvm",
+  "ktor-server-request-validation",
+  "ktor-server-request-validation-linuxarm64",
+  "ktor-server-request-validation-linuxx64",
+
+  "ktor-server-resources-jvm",
+  "ktor-server-resources",
+  "ktor-server-resources-linuxarm64",
+  "ktor-server-resources-linuxx64",
+
+  "ktor-server-sessions-jvm",
+  "ktor-server-sessions",
+  "ktor-server-sessions-linuxarm64",
+  "ktor-server-sessions-linuxx64",
+
+  "ktor-server-sse-jvm",
+  "ktor-server-sse",
+  "ktor-server-sse-linuxarm64",
+  "ktor-server-sse-linuxx64",
+
+  "ktor-server-status-pages-jvm",
+  "ktor-server-status-pages",
+  "ktor-server-status-pages-linuxarm64",
+  "ktor-server-status-pages-linuxx64",
+
+  "ktor-server-swagger-jvm",
+  "ktor-server-swagger",
+
+  "ktor-server-thymeleaf-jvm",
+  "ktor-server-thymeleaf",
+
+  "ktor-server-velocity-jvm",
+  "ktor-server-velocity",
+
+  "ktor-server-webjars-jvm",
+  "ktor-server-webjars",
+
+  "ktor-server-websockets-jvm",
+  "ktor-server-websockets",
+  "ktor-server-websockets-linuxarm64",
+  "ktor-server-websockets-linuxx64",
+
+  "ktor-serialization-gson-jvm",
+  "ktor-serialization-gson",
+
+  "ktor-serialization-jackson-jvm",
+  "ktor-serialization-jackson",
+
+  "ktor-serialization-kotlinx-js",
+  "ktor-serialization-kotlinx-jvm",
+  "ktor-serialization-kotlinx",
+  "ktor-serialization-kotlinx-linuxarm64",
+  "ktor-serialization-kotlinx-linuxx64",
+  "ktor-serialization-kotlinx-mingwx64",
+
+  "ktor-serialization-tests-jvm",
+  "ktor-serialization-tests",
+
+  "ktor-client-content-negotiation-tests-jvm",
+  "ktor-client-content-negotiation-tests",
+
+  "ktor-client-gson-jvm",
+  "ktor-client-gson",
+
+  "ktor-client-jackson-jvm",
+  "ktor-client-jackson",
+
+  "ktor-client-serialization-js",
+  "ktor-client-serialization-jvm",
+  "ktor-client-serialization",
+  "ktor-client-serialization-linuxarm64",
+  "ktor-client-serialization-linuxx64",
+  "ktor-client-serialization-mingwx64",
+
+  "ktor-serialization-kotlinx-cbor-js",
+  "ktor-serialization-kotlinx-cbor-jvm",
+  "ktor-serialization-kotlinx-cbor",
+  "ktor-serialization-kotlinx-cbor-linuxarm64",
+  "ktor-serialization-kotlinx-cbor-linuxx64",
+  "ktor-serialization-kotlinx-cbor-mingwx64",
+
+  "ktor-serialization-kotlinx-json-js",
+  "ktor-serialization-kotlinx-json-jvm",
+  "ktor-serialization-kotlinx-json",
+  "ktor-serialization-kotlinx-json-linuxarm64",
+  "ktor-serialization-kotlinx-json-linuxx64",
+  "ktor-serialization-kotlinx-json-mingwx64",
+
+  "ktor-serialization-kotlinx-protobuf-js",
+  "ktor-serialization-kotlinx-protobuf-jvm",
+  "ktor-serialization-kotlinx-protobuf",
+  "ktor-serialization-kotlinx-protobuf-linuxarm64",
+  "ktor-serialization-kotlinx-protobuf-linuxx64",
+  "ktor-serialization-kotlinx-protobuf-mingwx64",
+
+  "ktor-serialization-kotlinx-tests-js",
+  "ktor-serialization-kotlinx-tests-jvm",
+  "ktor-serialization-kotlinx-tests",
+  "ktor-serialization-kotlinx-tests-linuxarm64",
+  "ktor-serialization-kotlinx-tests-linuxx64",
+  "ktor-serialization-kotlinx-tests-mingwx64",
+
+  "ktor-serialization-kotlinx-xml-jvm",
+  "ktor-serialization-kotlinx-xml"
+]

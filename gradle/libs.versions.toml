@@ -73,6 +73,8 @@ glide-ktx = "1.0.0-beta01"
 
 raamcosta-composeDestinations = "1.9.55"
 
+ktor = "2.3.6"
+
 google-accompanist = "0.33.2-alpha"
 
 [plugins]

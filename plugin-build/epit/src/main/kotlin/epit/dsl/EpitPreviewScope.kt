@@ -11,6 +11,7 @@ import epit.dsl.glide.EpitGlideGeneralScope
 import epit.dsl.google.EpitGoogleScope
 import epit.dsl.koin.EpitKoinScope
 import epit.dsl.kotlinx.EpitKotlinxScope
+import epit.dsl.ktor.EpitExperimentalKtorScope
 import epit.dsl.raamcosta.EpitRaamcostaScope
 import epit.dsl.squareup.EpitSquareScope
 import epit.dsl.voyager.EpitVoyagerScope
@@ -71,6 +72,18 @@ class EpitPreviewScope internal constructor(
     @ExperimentalEpitApi
     fun raamcosta(block: EpitRaamcostaScope.() -> Unit) {
         block(EpitRaamcostaScope)
+    }
+
+    @ExperimentalEpitApi
+    fun ktor(
+        ktorBOMVersion: String,
+        block: EpitExperimentalKtorScope.() -> Unit
+    ) {
+        val ktorScope = EpitExperimentalKtorScope(ktorBOMVersion)
+        with(dependencyHandlerScope) {
+            add("implementation", platform(ktorScope.bom))
+        }
+        block(ktorScope)
     }
 
     @ExperimentalEpitApi

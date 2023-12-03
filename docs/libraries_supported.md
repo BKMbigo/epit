@@ -13,6 +13,7 @@ epit aims to provide a rich library of kotlin and android dependencies in the lo
     - [Compose Destinations](#compose-destinations)
 - [Google](#google)
   - [Accompanist](#accompanist)
+- [Ktor]()
 
 ### AndroidX Libraries
 This are android-specific libraries 
@@ -750,3 +751,17 @@ dependencies {
 >   - `com.google.accompanist:accompanist-glide`
 >   - `com.google.accompanist:accompanist-coil`
 >   - `com.google.accompanist:accompanist-picasso`
+
+### Ktor
+
+Unfortunately, the API for ktor is currently extremely experimental and is bound to change.
+
+```kotlin
+dependencies {
+  epitPreview {
+    ktor(/* Enter ktor bom version: "2.6.2" */) {
+      implementation(Ktor.Ktor.ktor_client_core)
+    }
+  }
+}
+```

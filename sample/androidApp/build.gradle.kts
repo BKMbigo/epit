@@ -298,6 +298,11 @@ android {
 //                    }
 //                }
 //            }
+//            ktor(libs.versions.ktor.get()) {
+//                Ktor.Ktor.values().forEach {
+//                    implementation(it)
+//                }
+//            }
         }
     }
 }
