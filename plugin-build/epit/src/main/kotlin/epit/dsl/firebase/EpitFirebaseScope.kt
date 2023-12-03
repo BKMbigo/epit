@@ -14,10 +14,17 @@ class EpitFirebaseScope internal constructor(
 ) {
 
     @ExperimentalEpitApi
-    val bom = Firebase.firebase_bom.moduleName joinWithColon firebaseBOMVersion
+    val DependencyHandlerScope.bom
+        get() = platform(bomAsDependency)
 
     @ExperimentalEpitApi
-    fun bom(customVersion: String) = Firebase.firebase_bom.moduleName joinWithColon customVersion
+    val bomAsDependency = Firebase.firebase_bom.moduleName joinWithColon firebaseBOMVersion
+
+    @ExperimentalEpitApi
+    fun DependencyHandlerScope.bom(customVersion: String) = platform(bomAsDependency(customVersion))
+
+    @ExperimentalEpitApi
+    fun bomAsDependency(customVersion: String) = Firebase.firebase_bom.moduleName joinWithColon customVersion
 
     @ExperimentalEpitApi
     val Firebase.dependency

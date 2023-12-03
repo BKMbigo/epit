@@ -222,8 +222,8 @@ coroutines(/* version */) {
 >               core(libs.versions.androidx.core.toString()) { /* Dependencies */ }
 >           }
 >       }
->       coroutines(libs.versions.kotlinx.coroutines.get()) {
->       
+>       kotlinx {
+>           coroutines(libs.versions.kotlinx.coroutines.get()) { /* Dependencies */ }
 >       }
 >   }
 > }
@@ -234,11 +234,17 @@ coroutines(/* version */) {
 You can now place your dependencies inside the block
 
 ```kotlin
-coroutines("1.7.3") {
-    implementation(KotlinX.Coroutines.coroutines_core)
-    implementation(KotlinX.Coroutines.coroutines_rxjava2)
-    testImplementation(KotlinX.Coroutines.coroutines_test.dependency)
-    androidTestImplementation(KotlinX.Coroutines.coroutines_test.dependency("1.5.1"))
+dependencies {
+    epitPreview {
+        kotlinx {
+            coroutines("1.7.3") {
+                implementation(KotlinX.Coroutines.coroutines_core)
+                implementation(KotlinX.Coroutines.coroutines_rxjava2)
+                testImplementation(KotlinX.Coroutines.coroutines_test.dependency)
+                androidTestImplementation(KotlinX.Coroutines.coroutines_test.dependency("1.5.1"))
+            }
+        }
+    }
 }
 ```
 
@@ -328,10 +334,14 @@ dependencies {
 >   compose("2023.10.01") {
 >       implementation(AndroidX.Compose.Runtime.Runtime.runtime)
 > 
->       androidTestImplementation(platform(bom))
+>       androidTestImplementation(bom)
+>       /* You can also use */
+>       androidTestImplementation(platform(bomAsDependency))
 >       androidTestImplementation(AndroidX.Compose.UI.ui_test_junit4)
 >
->       testImplementation(platform(bom("2023.09.00"))) /* Loads a different BOM version */
+>       testImplementation(bom("2023.09.00")) /* Loads a different BOM version */
+>       /* You can also use */
+>       testImplementation(platform(bomAsDependency("2023.09.00"))) /* Loads a different BOM version */
 >       testImplementation(AndroidX.Compose.UI.ui_test_junit4)
 >   }
 > }

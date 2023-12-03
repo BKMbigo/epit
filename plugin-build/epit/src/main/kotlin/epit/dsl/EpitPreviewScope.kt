@@ -41,7 +41,7 @@ class EpitPreviewScope internal constructor(
     fun firebase(bomVersion: String, block: EpitFirebaseScope.() -> Unit) {
         val firebaseScope = EpitFirebaseScope(bomVersion)
         with(dependencyHandlerScope) {
-            add("implementation", platform(firebaseScope.bom))
+            add("implementation", firebaseScope.bomAsDependency)
         }
         block(firebaseScope)
     }
@@ -50,7 +50,7 @@ class EpitPreviewScope internal constructor(
     fun coil(bomVersion: String, block: EpitCoilScope.() -> Unit) {
         val coilScope = EpitCoilScope(bomVersion)
         with(dependencyHandlerScope) {
-            add("implementation", platform(coilScope.bom))
+            add("implementation", platform(coilScope.bomAsDependency))
         }
         block(coilScope)
     }
@@ -59,7 +59,7 @@ class EpitPreviewScope internal constructor(
     fun koin(bomVersion: String, block: EpitKoinScope.() -> Unit) {
         val koinScope = EpitKoinScope(bomVersion)
         with(dependencyHandlerScope) {
-            add("implementation", platform(koinScope.bom))
+            add("implementation", platform(koinScope.bomAsDependency))
         }
         block(koinScope)
     }

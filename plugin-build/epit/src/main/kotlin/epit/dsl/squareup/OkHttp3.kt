@@ -14,10 +14,17 @@ class EpitSquareOkHttp3BOMScope internal constructor(
 ) {
 
     @ExperimentalEpitApi
-    val bom = SquareUp.OkHttp3.okhttp_bom.moduleName joinWithColon squareOkHttp3BOMVersion
+    val DependencyHandlerScope.bom
+        get() = platform(bomAsDependency)
 
     @ExperimentalEpitApi
-    fun bom(customVersion: String) = SquareUp.OkHttp3.okhttp_bom.moduleName joinWithColon customVersion
+    val bomAsDependency = SquareUp.OkHttp3.okhttp_bom.moduleName joinWithColon squareOkHttp3BOMVersion
+
+    @ExperimentalEpitApi
+    fun DependencyHandlerScope.bom(customVersion: String) = platform(bomAsDependency(customVersion))
+
+    @ExperimentalEpitApi
+    fun bomAsDependency(customVersion: String) = SquareUp.OkHttp3.okhttp_bom.moduleName joinWithColon customVersion
 
     @ExperimentalEpitApi
     val SquareUp.OkHttp3.dependency

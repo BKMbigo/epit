@@ -32,7 +32,7 @@ class EpitAndroidxGeneralComposeScope internal constructor(
     ) {
         val composeScope = EpitAndroidXComposeBomScope(bomVersion)
         with(this.dependencyHandlerScope) {
-            add("implementation", platform(composeScope.bom))
+            add("implementation", platform(composeScope.bomAsDependency))
         }
         block(composeScope)
     }

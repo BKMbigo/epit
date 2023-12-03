@@ -44,10 +44,10 @@ class ComposeTest {
                         compose("2023.10.01") {
                             implementation(AndroidX.Compose.Runtime.Runtime.runtime)
 
-                            customImplementation(platform(bom))
+                            customImplementation(bom)
                             customImplementation(AndroidX.Compose.Runtime.Runtime.runtime.dependency)
 
-                            customVersionImplementation(platform(bom("2023.09.00")))
+                            customVersionImplementation(bom("2023.09.00"))
                             customVersionImplementation(AndroidX.Compose.Runtime.Runtime.runtime.dependency("1.1.1"))
                         }
                     }

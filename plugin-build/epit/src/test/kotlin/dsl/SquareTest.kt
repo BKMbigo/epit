@@ -48,10 +48,10 @@ class SquareTest {
                     okhttp3("1.0.0") {
                         implementation(SquareUp.OkHttp3.okhttp)
 
-                        customImplementation(platform(bom))
+                        customImplementation(bom)
                         customImplementation(SquareUp.OkHttp3.okhttp.dependency)
 
-                        customVersionImplementation(platform(bom("1.1.1")))
+                        customVersionImplementation(bom("1.1.1"))
                         customVersionImplementation(SquareUp.OkHttp3.okhttp.dependency("1.1.1"))
                     }
                     picasso("1.0.0") {

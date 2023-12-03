@@ -42,10 +42,10 @@ class FirebaseTest {
                 firebase("32.6.0") {
                     implementation(Firebase.firebase_firestore)
 
-                    customImplementation(platform(bom))
+                    customImplementation(bom)
                     customImplementation(Firebase.firebase_firestore.dependency)
 
-                    customVersionImplementation(platform(bom("1.1.1")))
+                    customVersionImplementation(bom("1.1.1"))
                     customVersionImplementation(Firebase.firebase_firestore.dependency("1.1.1"))
                 }
             }

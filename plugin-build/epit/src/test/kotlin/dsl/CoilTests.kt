@@ -127,7 +127,7 @@ class CoilTests {
         var bomName = ""
 
         EpitCoilScope("1.0.0").apply {
-            bomName = bom
+            bomName = bomAsDependency
         }
 
         assertEquals(
@@ -141,7 +141,7 @@ class CoilTests {
         var bomName = ""
 
         EpitCoilScope("1.0.0").apply {
-            bomName = bom("1.1.2")
+            bomName = bomAsDependency("1.1.2")
         }
 
         assertEquals(

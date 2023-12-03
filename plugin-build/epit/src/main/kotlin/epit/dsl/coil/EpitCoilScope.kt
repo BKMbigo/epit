@@ -14,10 +14,17 @@ class EpitCoilScope internal constructor(
 ) {
 
     @ExperimentalEpitApi
-    val bom = Coil.coil_bom.moduleName joinWithColon coilBOMVersion
+    val DependencyHandlerScope.bom
+        get() = platform(bomAsDependency)
 
     @ExperimentalEpitApi
-    fun bom(customVersion: String) = Coil.coil_bom.moduleName joinWithColon customVersion
+    val bomAsDependency = Coil.coil_bom.moduleName joinWithColon coilBOMVersion
+
+    @ExperimentalEpitApi
+    fun DependencyHandlerScope.bom(customVersion: String) = platform(bomAsDependency(customVersion))
+
+    @ExperimentalEpitApi
+    fun bomAsDependency(customVersion: String) = Coil.coil_bom.moduleName joinWithColon customVersion
 
     @ExperimentalEpitApi
     val Coil.dependency
