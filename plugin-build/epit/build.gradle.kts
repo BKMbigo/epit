@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "io.github.bkmbigo.epit"
-version = "0.0.0-beta.3"
+version = "2023.12.00-beta"
 
 repositories {
     mavenCentral()
@@ -31,7 +31,7 @@ gradlePlugin {
         create("io.github.bkmbigo.epit") {
             id = "io.github.bkmbigo.epit"
             implementationClass = "EpitPlugin"
-            version = "0.0.0-beta.3"
+            version = "2023.12.00-beta"
             displayName = "Epit"
             description = "The Plugins adds type-safe dependency declarations to your kotlin build scripts"
             tags.set(listOf("dependencies", "android", "kotlin"))
