@@ -134,14 +134,9 @@ class EpitAndroidXNavigationScope internal constructor(
     @ExperimentalEpitApi
     fun AndroidX.Navigation.dependencyAsString(version: String) = moduleName joinWithColon version
 
+    @Deprecated("The method has been deprecated in favor of Epit namespace")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(navigation: AndroidX.Navigation) {
         add("implementation", navigation.dependencyAsString)
-    }
-
-    @Suppress("UNUSED_PARAMETER")
-    @InvalidScopeEpitDependency
-    fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
-        throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")
     }
 }

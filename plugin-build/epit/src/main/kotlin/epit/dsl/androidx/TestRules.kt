@@ -30,14 +30,9 @@ class EpitAndroidXTestRulesScope internal constructor(
     @ExperimentalEpitApi
     fun AndroidX.Test.Rules.dependencyAsString(version: String) = moduleName joinWithColon version
 
+    @Deprecated("The method has been deprecated in favor of Epit namespace")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(rules: AndroidX.Test.Rules) {
         add("implementation", rules.dependencyAsString)
-    }
-
-    @Suppress("UNUSED_PARAMETER")
-    @InvalidScopeEpitDependency
-    fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
-        throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")
     }
 }

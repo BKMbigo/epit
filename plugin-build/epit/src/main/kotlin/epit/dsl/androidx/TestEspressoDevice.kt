@@ -29,14 +29,9 @@ class EpitAndroidXTestEspressoDeviceScope internal constructor(
     @ExperimentalEpitApi
     fun AndroidX.Test.Espresso.EspressoDevice.dependencyAsString(version: String) = moduleName joinWithColon version
 
+    @Deprecated("The method has been deprecated in favor of Epit namespace")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(espressoDevice: AndroidX.Test.Espresso.EspressoDevice) {
         add("implementation", espressoDevice.dependencyAsString)
-    }
-
-    @Suppress("UNUSED_PARAMETER")
-    @InvalidScopeEpitDependency
-    fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
-        throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")
     }
 }

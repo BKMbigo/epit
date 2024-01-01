@@ -31,14 +31,9 @@ class EpitAndroidXTestMonitorScope internal constructor(
     @ExperimentalEpitApi
     fun AndroidX.Test.Monitor.dependencyAsString(version: String) = moduleName joinWithColon version
 
+    @Deprecated("The method has been deprecated in favor of Epit namespace")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(monitor: AndroidX.Test.Monitor) {
         add("implementation", monitor.dependencyAsString)
-    }
-
-    @Suppress("UNUSED_PARAMETER")
-    @InvalidScopeEpitDependency
-    fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
-        throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")
     }
 }
