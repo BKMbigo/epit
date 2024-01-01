@@ -1,5 +1,6 @@
 package epit.dsl.kotlinx
 
+import Epit
 import epit.EpitDependency
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
@@ -12,6 +13,14 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 class EpitKotlinxDatetimeScope internal constructor(
     internal val kotlinxDatetimeVersion: String
 ) {
+
+    @ExperimentalEpitApi
+    val Epit.datetime
+        get() = KotlinX.Datetime.datetime.dependencyAsString
+
+    @ExperimentalEpitApi
+    fun Epit.datetime(version: String) =
+        KotlinX.Datetime.datetime.dependencyAsString(version)
 
     @ExperimentalEpitApi
     val KotlinX.Datetime.dependencyAsString

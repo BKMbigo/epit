@@ -1,9 +1,8 @@
 package epit.dsl.kotlinx
 
-import epit.EpitDependency
+import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InvalidScopeEpitDependency
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -12,6 +11,17 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 class EpitKotlinxAtomicFUScope internal constructor(
     internal val kotlinxAtomicfuVersion: String
 ) {
+
+    @ExperimentalEpitApi
+    val Epit.atomicfu
+        get() = KotlinX.AtomicFU.atomicfu.dependencyAsString
+
+    @ExperimentalEpitApi
+    fun Epit.atomicfu(version: String) =
+        KotlinX.AtomicFU.atomicfu.dependencyAsString(version)
+
+    /* Internal functions */
+
     @ExperimentalEpitApi
     val KotlinX.AtomicFU.dependencyAsString
         get(): String = moduleName joinWithColon kotlinxAtomicfuVersion
@@ -22,12 +32,6 @@ class EpitKotlinxAtomicFUScope internal constructor(
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(atomicFU: KotlinX.AtomicFU) {
         add("implementation", atomicFU.dependencyAsString)
-    }
-
-    @Suppress("UNUSED_PARAMETER")
-    @InvalidScopeEpitDependency
-    fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
-        throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")
     }
 }
 

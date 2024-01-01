@@ -1,5 +1,6 @@
 package epit.dsl.kotlinx
 
+import Epit
 import epit.EpitDependency
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
@@ -12,6 +13,23 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 class EpitKotlinxSerializationScope internal constructor(
     internal val kotlinxSerializationVersion: String
 ) {
+
+    @ExperimentalEpitApi
+    val Epit.serialization_core
+        get() = KotlinX.Serialization.serialization_core.dependencyAsString
+
+    @ExperimentalEpitApi
+    fun Epit.serialization_core(version: String) =
+        KotlinX.Serialization.serialization_core.dependencyAsString(version)
+
+    @ExperimentalEpitApi
+    val Epit.serialization_json
+        get() = KotlinX.Serialization.serialization_json.dependencyAsString
+
+    @ExperimentalEpitApi
+    fun Epit.serialization_json(version: String) =
+        KotlinX.Serialization.serialization_json.dependencyAsString(version)
+
     @ExperimentalEpitApi
     val KotlinX.Serialization.dependencyAsString
         get(): String = moduleName joinWithColon kotlinxSerializationVersion
