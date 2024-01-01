@@ -1,5 +1,6 @@
 package dsl.glide
 
+import Epit
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.epitPreview
 import epit.dsl.glide.Glide
@@ -13,20 +14,24 @@ class GlideTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that glide block implementation adds dependencies`() {
+    fun `verify that glide val adds dependencies`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
         val config = project.configurations.create("implementation")
 
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
+
         project.dependencies {
             epitPreview {
                 glide {
                     glide("1.0.0") {
-                        implementation(Glide.Glide.glide)
+                        implementation(Epit.glide)
                     }
                     glideKtx("1.0.0") {
-                        implementation(Glide.GlideKtx.compose)
+                        implementation(Epit.compose)
                     }
                 }
             }
@@ -46,20 +51,24 @@ class GlideTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that glide block implementation adds dependencies in correct version`() {
+    fun `verify that glide val adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
         val config = project.configurations.create("implementation")
 
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
+
         project.dependencies {
             epitPreview {
                 glide {
                     glide("1.0.0") {
-                        implementation(Glide.Glide.glide)
+                        implementation(Epit.glide)
                     }
                     glideKtx("1.0.0") {
-                        implementation(Glide.GlideKtx.compose)
+                        implementation(Epit.compose)
                     }
                 }
             }
@@ -79,7 +88,7 @@ class GlideTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that glide block dependency adds the correct dependency on custom configuration`() {
+    fun `verify that glide block fun() adds the correct dependency on custom configuration`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -93,10 +102,10 @@ class GlideTests {
             epitPreview {
                 glide {
                     glide("1.0.0") {
-                        customImplementation(Glide.Glide.glide.dependencyAsString)
+                        customImplementation(Epit.glide("1.1.2"))
                     }
                     glideKtx("1.0.0") {
-                        customImplementation(Glide.GlideKtx.compose.dependencyAsString)
+                        customImplementation(Epit.compose("1.1.2"))
                     }
                 }
             }
@@ -116,81 +125,7 @@ class GlideTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that glide block dependency adds dependencies in correct version`() {
-        val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("io.github.bkmbigo.epit")
-
-        val customConfig = project.configurations.create("customImplementation")
-
-        fun DependencyHandlerScope.customImplementation(dependency: String) {
-            add("customImplementation", dependency)
-        }
-
-        project.dependencies {
-            epitPreview {
-                glide {
-                    glide("1.0.0") {
-                        customImplementation(Glide.Glide.glide.dependencyAsString)
-                    }
-                    glideKtx("1.0.0") {
-                        customImplementation(Glide.GlideKtx.compose.dependencyAsString)
-                    }
-                }
-            }
-        }
-
-        val expectedDependencies = listOf(
-            Glide.Glide.glide.moduleName,
-            Glide.GlideKtx.compose.moduleName
-        )
-
-        assertContentEquals(
-            List(expectedDependencies.size) { "1.0.0" },
-            customConfig.dependencies.map { it.version },
-            "glide val dependency does not add dependencies in the correct version"
-        )
-    }
-
-    @OptIn(ExperimentalEpitApi::class)
-    @Test
-    fun `verify that glide block fun dependency adds the correct dependency on custom configuration`() {
-        val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("io.github.bkmbigo.epit")
-
-        val customConfig = project.configurations.create("customImplementation")
-
-        fun DependencyHandlerScope.customImplementation(dependency: String) {
-            add("customImplementation", dependency)
-        }
-
-        project.dependencies {
-            epitPreview {
-                glide {
-                    glide("1.0.0") {
-                        customImplementation(Glide.Glide.glide.dependencyAsString("1.1.2"))
-                    }
-                    glideKtx("1.0.0") {
-                        customImplementation(Glide.GlideKtx.compose.dependencyAsString("1.1.2"))
-                    }
-                }
-            }
-        }
-
-        val expectedDependencies = listOf(
-            Glide.Glide.glide.moduleName,
-            Glide.GlideKtx.compose.moduleName
-        )
-
-        assertContentEquals(
-            expectedDependencies,
-            customConfig.dependencies.map { "${it.group}:${it.name}" },
-            "glide val dependency does not add dependencies in the correct version"
-        )
-    }
-
-    @OptIn(ExperimentalEpitApi::class)
-    @Test
-    fun `verify that glide block fun dependency adds dependencies in correct version`() {
+    fun `verify that glide block fun() adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -204,10 +139,10 @@ class GlideTests {
             epitPreview {
                 glide {
                     glide("1.0.0") {
-                        customVersionImplementation(Glide.Glide.glide.dependencyAsString("1.1.2"))
+                        customVersionImplementation(Epit.glide("1.1.2"))
                     }
                     glideKtx("1.0.0") {
-                        customVersionImplementation(Glide.GlideKtx.compose.dependencyAsString("1.1.2"))
+                        customVersionImplementation(Epit.compose("1.1.2"))
                     }
                 }
             }
