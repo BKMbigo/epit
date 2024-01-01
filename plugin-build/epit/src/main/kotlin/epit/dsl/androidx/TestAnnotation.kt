@@ -1,5 +1,6 @@
 package epit.dsl.androidx
 
+import Epit
 import epit.EpitDependency
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
@@ -12,6 +13,17 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 class EpitAndroidXTestAnnotationScope internal constructor(
     private val androidXTestAnnotationVersion: String
 ) {
+
+    @ExperimentalEpitApi
+    val Epit.test_annotation
+        get() = AndroidX.Test.Annotation.test_annotation.dependencyAsString
+
+    @ExperimentalEpitApi
+    fun Epit.test_annotation(version: String) =
+        AndroidX.Test.Annotation.test_annotation.dependencyAsString(version)
+
+    /* internal function */
+
     @ExperimentalEpitApi
     val AndroidX.Test.Annotation.dependencyAsString
         get(): String = moduleName joinWithColon androidXTestAnnotationVersion

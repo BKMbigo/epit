@@ -1,5 +1,6 @@
 package dsl.androidx
 
+import Epit
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.androidx.AndroidX
 import epit.dsl.epitPreview
@@ -13,11 +14,15 @@ class AndroidXComposeCompilerTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose compiler block implementation adds dependencies`() {
+    fun `verify that androidx compose compiler block val adds dependencies`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
         val config = project.configurations.create("implementation")
+
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
 
         project.dependencies {
             epitPreview {
@@ -44,18 +49,22 @@ class AndroidXComposeCompilerTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose compiler block implementation adds dependencies in correct version`() {
+    fun `verify that androidx compose compiler block val adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
         val config = project.configurations.create("implementation")
+
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
 
         project.dependencies {
             epitPreview {
                 androidx {
                     compose {
                         compiler("1.0.0") {
-                            implementation(AndroidX.Compose.Compiler.compiler)
+                            implementation(Epit.compiler)
                         }
                     }
                 }
@@ -75,7 +84,7 @@ class AndroidXComposeCompilerTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose compiler block dependencyAsString adds the correct dependency on custom configuration`() {
+    fun `verify that androidx compose compiler block fun() adds the correct dependency on custom configuration`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -90,7 +99,7 @@ class AndroidXComposeCompilerTests {
                 androidx {
                     compose {
                         compiler("1.0.0") {
-                            customImplementation(AndroidX.Compose.Compiler.compiler.dependencyAsString)
+                            customImplementation(Epit.compiler("1.1.2"))
                         }
                     }
                 }
@@ -110,77 +119,7 @@ class AndroidXComposeCompilerTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose compiler block dependencyAsString adds dependencies in correct version`() {
-        val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("io.github.bkmbigo.epit")
-
-        val customConfig = project.configurations.create("customImplementation")
-
-        fun DependencyHandlerScope.customImplementation(dependency: String) {
-            add("customImplementation", dependency)
-        }
-
-        project.dependencies {
-            epitPreview {
-                androidx {
-                    compose {
-                        compiler("1.0.0") {
-                            customImplementation(AndroidX.Compose.Compiler.compiler.dependencyAsString)
-                        }
-                    }
-                }
-            }
-        }
-
-        val expectedDependencies = listOf(
-            AndroidX.Compose.Compiler.compiler.moduleName
-        )
-
-        assertContentEquals(
-            List(expectedDependencies.size) { "1.0.0" },
-            customConfig.dependencies.map { it.version },
-            "androidx compose compiler val dependency does not add dependencies in the correct version"
-        )
-    }
-
-    @OptIn(ExperimentalEpitApi::class)
-    @Test
-    fun `verify that androidx compose compiler block fun dependencyAsString() adds the correct dependency on custom configuration`() {
-        val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("io.github.bkmbigo.epit")
-
-        val customConfig = project.configurations.create("customImplementation")
-
-        fun DependencyHandlerScope.customImplementation(dependency: String) {
-            add("customImplementation", dependency)
-        }
-
-        project.dependencies {
-            epitPreview {
-                androidx {
-                    compose {
-                        compiler("1.0.0") {
-                            customImplementation(AndroidX.Compose.Compiler.compiler.dependencyAsString("1.1.2"))
-                        }
-                    }
-                }
-            }
-        }
-
-        val expectedDependencies = listOf(
-            AndroidX.Compose.Compiler.compiler.moduleName
-        )
-
-        assertContentEquals(
-            expectedDependencies,
-            customConfig.dependencies.map { "${it.group}:${it.name}" },
-            "androidx compose compiler val dependency does not add dependencies in the correct version"
-        )
-    }
-
-    @OptIn(ExperimentalEpitApi::class)
-    @Test
-    fun `verify that androidx compose compiler block fun dependencyAsString() adds dependencies in correct version`() {
+    fun `verify that androidx compose compiler block fun() adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -195,7 +134,7 @@ class AndroidXComposeCompilerTests {
                 androidx {
                     compose {
                         compiler("1.0.0") {
-                            customVersionImplementation(AndroidX.Compose.Compiler.compiler.dependencyAsString("1.1.2"))
+                            customVersionImplementation(Epit.compiler("1.1.2"))
                         }
                     }
                 }

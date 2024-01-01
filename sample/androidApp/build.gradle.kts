@@ -1,3 +1,4 @@
+import epit.annotations.ExperimentalEpitApi
 import epit.dsl.epitPreview
 
 
@@ -39,55 +40,55 @@ android {
     }
 
     dependencies {
+        @OptIn(ExperimentalEpitApi::class)
         epitPreview {
-            androidx {
+//            androidx {
 //                activity(libs.versions.androidx.activity.get()) {
-//                    implementation(AndroidX.Activity.activity)
-//                    implementation(AndroidX.Activity.activity_compose)
-//                    implementation(AndroidX.Activity.activity_ktx)
+//                    implementation(Epit.activity)
+//                    implementation(Epit.activity_compose)
+//                    implementation(Epit.activity_ktx)
 //                }
 //                appcompat(libs.versions.androidx.appcompat.get()) {
-//                    implementation(AndroidX.Appcompat.appcompat)
-//                    implementation(AndroidX.Appcompat.appcompat_resources)
+//                    implementation(Epit.appcompat)
+//                    implementation(Epit.appcompat_resources)
 //                }
 //                camera(libs.versions.androidx.camera.get()) {
-//                    implementation(AndroidX.Camera.camera_lifecycle)
-//                    implementation(AndroidX.Camera.camera_extensions)
-//                    implementation(AndroidX.Camera.camera_core)
-//                    implementation(AndroidX.Camera.camera_view)
-//                    implementation(AndroidX.Camera.camera_camera2)
-//                    implementation(AndroidX.Camera.camera_video)
+//                    implementation(Epit.camera_lifecycle)
+//                    implementation(Epit.camera_extensions)
+//                    implementation(Epit.camera_core)
+//                    implementation(Epit.camera_view)
+//                    implementation(Epit.camera_camera2)
+//                    implementation(Epit.camera_video)
 //                }
-//                  compose {
-//                      compose(libs.versions.androidx.compose.bom.get()) {
-//                          implementation(AndroidX.Compose.Runtime.Runtime.runtime)
-//                          implementation(AndroidX.Compose.Runtime.Runtime.runtime_livedata)
-//                          implementation(AndroidX.Compose.Foundation.Foundation.foundation)
-//                          implementation(AndroidX.Compose.Material.material)
-//                          implementation(AndroidX.Compose.Material3.Material3.material3)
-//                          implementation(AndroidX.Compose.Material3.Material3.material3_window_size_class)
-//                          implementation(AndroidX.Compose.Material3.Material3.material3_window_size_class)
-//                      }
-//                  }
+//                compose {
+//                    composeBom(libs.versions.androidx.compose.bom.get()) {
+//                        implementation(AndroidX.Compose.Runtime.Runtime.runtime)
+//                        implementation(AndroidX.Compose.Runtime.Runtime.runtime_livedata)
+//                        implementation(AndroidX.Compose.Foundation.Foundation.foundation)
+//                        implementation(AndroidX.Compose.Material.material)
+//                        implementation(AndroidX.Compose.Material3.Material3.material3)
+//                        implementation(AndroidX.Compose.Material3.Material3.material3_window_size_class)
+//                    }
+//                }
 //                constraintLayout {
 //                    constraintlayout(libs.versions.androidx.constraintlayout.toString()) {
-//                        implementation(AndroidX.ConstraintLayout.ConstraintLayout.constraintlayout)
+//                        implementation(Epit.constraintlayout)
 //                    }
 //                    constraintlayoutCompose(libs.versions.androidx.constraintlayout.compose.get()) {
-//                        implementation(AndroidX.ConstraintLayout.ConstraintLayoutCompose.constraintlayout_compose)
+//                        implementation(Epit.constraintlayout_compose)
 //                    }
 //                    constraintlayoutCore(libs.versions.androidx.constraintlayout.core.get()) {
-//                        implementation(AndroidX.ConstraintLayout.ConstraintLayoutCore.constraintlayout_core)
+//                        implementation(Epit.constraintlayout_core)
 //                    }
 //                    constraintlayoutSolver(libs.versions.androidx.constraintlayout.solver.get()) {
-//                        implementation(AndroidX.ConstraintLayout.ConstraintLayoutSolver.constraintlayout_solver)
+//                        implementation(Epit.constraintlayout_solver)
 //                    }
 //                }
 //                core {
 //                    core(libs.versions.androidx.core.toString()) {
-//                        implementation(AndroidX.Core.Core.core)
-//                        implementation(AndroidX.Core.Core.core_ktx)
-////                        androidTestImplementation(Core.core_testing.dependency)
+//                        implementation(Epit.core)
+//                        implementation(Epit.core_ktx)
+//                        androidTestImplementation(Core.core_testing.dependency)
 //                    }
 //                    coreAnimation(libs.versions.androidx.core.animation.get()) {
 //                        AndroidX.Core.CoreAnimation.values().forEach {
@@ -120,17 +121,17 @@ android {
 //                        }
 //                    }
 //                    coreSplashscreen(libs.versions.androidx.core.splashscreen.get()) {
-//                        implementation(AndroidX.Core.CoreSplashscreen.core_splashscreen)
+//                        implementation(Epit.core_splashscreen)
 //                    }
 //                    coreTelecom(libs.versions.androidx.core.telecom.get()) {
-//                        implementation(AndroidX.Core.CoreTelecom.core_telecom)
+//                        implementation(Epit.core_telecom)
 //                    }
 //                }
 //                fragment(libs.versions.androidx.fragment.toString()) {
-//                    implementation(AndroidX.Fragment.fragment)
-//                    implementation(AndroidX.Fragment.fragment_ktx)
-//                    implementation(AndroidX.Fragment.fragment_testing)
-//                    implementation(AndroidX.Fragment.fragment_testing_manifest)
+//                    implementation(Epit.fragment)
+//                    implementation(Epit.fragment_ktx)
+//                    implementation(Epit.fragment_testing)
+//                    implementation(Epit.fragment_testing_manifest)
 //                }
 //                lifecycle(libs.versions.androidx.lifecycle.core.get()) {
 //                    AndroidX.Lifecycle.values().forEach {
@@ -154,45 +155,45 @@ android {
 //                }
 //                test {
 //                    core(libs.versions.androidx.test.core.get()) {
-//                        androidTestImplementation(AndroidX.Test.Core.core.dependency)
+//                        androidTestImplementation(Epit.core)
 //                    }
 //                    runner(libs.versions.androidx.test.runner.get()) {
-//                        androidTestImplementation(AndroidX.Test.Runner.runner.dependency)
+//                        androidTestImplementation(Epit.runner)
 //                    }
 //                    rules(libs.versions.androidx.test.rules.get()) {
-//                        androidTestImplementation(AndroidX.Test.Rules.rules.dependency)
+//                        androidTestImplementation(Epit.rules)
 //                    }
 //                    espresso {
 //                        espresso(libs.versions.androidx.test.espresso.toString()) {
-//                            androidTestImplementation(AndroidX.Test.Espresso.Espresso.espresso_core.dependency)
-//                            androidTestImplementation(AndroidX.Test.Espresso.Espresso.espresso_web.dependency)
-//                            androidTestImplementation(AndroidX.Test.Espresso.Espresso.espresso_remote.dependency)
-//                            androidTestImplementation(AndroidX.Test.Espresso.Espresso.espresso_contrib.dependency)
-//                            androidTestImplementation(AndroidX.Test.Espresso.Espresso.espresso_intents.dependency)
-//                            androidTestImplementation(AndroidX.Test.Espresso.Espresso.espresso_accessibility.dependency)
-//                            androidTestImplementation(AndroidX.Test.Espresso.Espresso.espresso_idling_resource.dependency)
+//                            androidTestImplementation(Epit.espresso_core)
+//                            androidTestImplementation(Epit.espresso_web)
+//                            androidTestImplementation(Epit.espresso_remote)
+//                            androidTestImplementation(Epit.espresso_contrib)
+//                            androidTestImplementation(Epit.espresso_intents)
+//                            androidTestImplementation(Epit.espresso_accessibility)
+//                            androidTestImplementation(Epit.espresso_idling_resource)
 //
-//                            androidTestImplementation(AndroidX.Test.Espresso.Idling.idling_concurrent.dependency)
-//                            androidTestImplementation(AndroidX.Test.Espresso.Idling.idling_net.dependency)
+//                            androidTestImplementation(Epit.idling_concurrent)
+//                            androidTestImplementation(Epit.idling_net)
 //                        }
 //                        espressoDevice(libs.versions.androidx.test.espresso.device.get()) {
-//                            androidTestImplementation(AndroidX.Test.Espresso.EspressoDevice.espresso_device.dependency)
+//                            androidTestImplementation(Epit.espresso_device)
 //                        }
 //                    }
 //                    ext {
 //                        jUnit(libs.versions.androidx.test.ext.junit.junit.get()) {
-//                            testImplementation(AndroidX.Test.Ext.JUnit.junit.dependency)
-//                            testImplementation(AndroidX.Test.Ext.JUnit.junit_ktx.dependency)
+//                            testImplementation(Epit.junit)
+//                            testImplementation(Epit.junit_ktx)
 //                        }
 //                        jUnitGTest(libs.versions.androidx.test.ext.junit.gtest.get()) {
-//                            testImplementation(AndroidX.Test.Ext.JUnitGTest.junit_gtest.dependency)
+//                            testImplementation(Epit.junit_gtest)
 //                        }
 //                        truth(libs.versions.androidx.test.ext.truth.get()) {
-//                            testImplementation(AndroidX.Test.Ext.Truth.truth.dependency)
+//                            testImplementation(Epit.truth)
 //                        }
 //                    }
 //                }
-            }
+//            }
 
 //            firebase(libs.versions.firebase.bom.get()) {
 //                Firebase.values().forEach {

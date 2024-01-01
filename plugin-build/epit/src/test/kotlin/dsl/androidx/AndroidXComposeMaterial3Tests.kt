@@ -1,5 +1,6 @@
 package dsl.androidx
 
+import Epit
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.androidx.AndroidX
 import epit.dsl.epitPreview
@@ -13,11 +14,15 @@ class AndroidXComposeMaterial3Tests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose material3 block implementation adds dependencies`() {
+    fun `verify that androidx compose material3 block val adds dependencies`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
         val config = project.configurations.create("implementation")
+
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
 
         project.dependencies {
             epitPreview {
@@ -25,10 +30,10 @@ class AndroidXComposeMaterial3Tests {
                     compose {
                         material3 {
                             material3("1.0.0") {
-                                implementation(AndroidX.Compose.Material3.Material3.material3)
+                                implementation(Epit.material3)
                             }
                             material3Adaptive("1.0.0") {
-                                implementation(AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive)
+                                implementation(Epit.material3_adaptive)
                             }
                         }
                     }
@@ -50,11 +55,15 @@ class AndroidXComposeMaterial3Tests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose material3 block implementation adds dependencies in correct version`() {
+    fun `verify that androidx compose material3 block val adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
         val config = project.configurations.create("implementation")
+
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
 
         project.dependencies {
             epitPreview {
@@ -62,10 +71,10 @@ class AndroidXComposeMaterial3Tests {
                     compose {
                         material3 {
                             material3("1.0.0") {
-                                implementation(AndroidX.Compose.Material3.Material3.material3)
+                                implementation(Epit.material3)
                             }
                             material3Adaptive("1.0.0") {
-                                implementation(AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive)
+                                implementation(Epit.material3_adaptive)
                             }
                         }
                     }
@@ -87,7 +96,7 @@ class AndroidXComposeMaterial3Tests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose material3 block dependencyAsString adds the correct dependency on custom configuration`() {
+    fun `verify that androidx compose material3 block fun() adds the correct dependency on custom configuration`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -103,95 +112,11 @@ class AndroidXComposeMaterial3Tests {
                     compose {
                         material3 {
                             material3("1.0.0") {
-                                customImplementation(AndroidX.Compose.Material3.Material3.material3.dependencyAsString)
-                            }
-                            material3Adaptive("1.0.0") {
-                                customImplementation(AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive.dependencyAsString)
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        val expectedDependencies = listOf(
-            AndroidX.Compose.Material3.Material3.material3.moduleName,
-            AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive.moduleName
-        )
-
-        assertContentEquals(
-            expectedDependencies,
-            customConfig.dependencies.map { "${it.group}:${it.name}" },
-            "androidx compose material3 val dependencyAsString does not add dependencies in the correct version"
-        )
-    }
-
-    @OptIn(ExperimentalEpitApi::class)
-    @Test
-    fun `verify that androidx compose material3 block dependencyAsString adds dependencies in correct version`() {
-        val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("io.github.bkmbigo.epit")
-
-        val customConfig = project.configurations.create("customImplementation")
-
-        fun DependencyHandlerScope.customImplementation(dependency: String) {
-            add("customImplementation", dependency)
-        }
-
-        project.dependencies {
-            epitPreview {
-                androidx {
-                    compose {
-                        material3 {
-                            material3("1.0.0") {
-                                customImplementation(AndroidX.Compose.Material3.Material3.material3.dependencyAsString)
-                            }
-                            material3Adaptive("1.0.0") {
-                                customImplementation(AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive.dependencyAsString)
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        val expectedDependencies = listOf(
-            AndroidX.Compose.Material3.Material3.material3.moduleName,
-            AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive.moduleName
-        )
-
-        assertContentEquals(
-            List(expectedDependencies.size) { "1.0.0" },
-            customConfig.dependencies.map { it.version },
-            "androidx compose material3 val dependencyAsString does not add dependencies in the correct version"
-        )
-    }
-
-    @OptIn(ExperimentalEpitApi::class)
-    @Test
-    fun `verify that androidx compose material3 block fun dependencyAsString() adds the correct dependency on custom configuration`() {
-        val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("io.github.bkmbigo.epit")
-
-        val customConfig = project.configurations.create("customImplementation")
-
-        fun DependencyHandlerScope.customImplementation(dependency: String) {
-            add("customImplementation", dependency)
-        }
-
-        project.dependencies {
-            epitPreview {
-                androidx {
-                    compose {
-                        material3 {
-                            material3("1.0.0") {
-                                customImplementation(AndroidX.Compose.Material3.Material3.material3.dependencyAsString("1.1.2"))
+                                customImplementation(Epit.material3("1.1.2"))
                             }
                             material3Adaptive("1.0.0") {
                                 customImplementation(
-                                    AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive.dependencyAsString(
-                                        "1.1.2"
-                                    )
+                                    Epit.material3_adaptive("1.1.2")
                                 )
                             }
                         }
@@ -214,7 +139,7 @@ class AndroidXComposeMaterial3Tests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose material3 block fun dependencyAsString() adds dependencies in correct version`() {
+    fun `verify that androidx compose material3 block fun() adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -231,16 +156,12 @@ class AndroidXComposeMaterial3Tests {
                         material3 {
                             material3("1.0.0") {
                                 customVersionImplementation(
-                                    AndroidX.Compose.Material3.Material3.material3.dependencyAsString(
-                                        "1.1.2"
-                                    )
+                                    Epit.material3("1.1.2")
                                 )
                             }
                             material3Adaptive("1.0.0") {
                                 customVersionImplementation(
-                                    AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive.dependencyAsString(
-                                        "1.1.2"
-                                    )
+                                    Epit.material3_adaptive("1.1.2")
                                 )
                             }
                         }

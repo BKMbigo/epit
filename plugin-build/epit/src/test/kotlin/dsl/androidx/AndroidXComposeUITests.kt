@@ -1,5 +1,6 @@
 package dsl.androidx
 
+import Epit
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.androidx.AndroidX
 import epit.dsl.epitPreview
@@ -13,18 +14,22 @@ class AndroidXComposeUITests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose ui block implementation adds dependencies`() {
+    fun `verify that androidx compose ui block val adds dependencies`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
         val config = project.configurations.create("implementation")
+
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
 
         project.dependencies {
             epitPreview {
                 androidx {
                     compose {
                         ui("1.0.0") {
-                            implementation(AndroidX.Compose.UI.ui)
+                            implementation(Epit.ui)
                         }
                     }
                 }
@@ -44,18 +49,22 @@ class AndroidXComposeUITests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose ui block implementation adds dependencies in correct version`() {
+    fun `verify that androidx compose ui block val adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
         val config = project.configurations.create("implementation")
+
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
 
         project.dependencies {
             epitPreview {
                 androidx {
                     compose {
                         ui("1.0.0") {
-                            implementation(AndroidX.Compose.UI.ui)
+                            implementation(Epit.ui)
                         }
                     }
                 }
@@ -75,7 +84,7 @@ class AndroidXComposeUITests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose ui block dependencyAsString adds the correct dependency on custom configuration`() {
+    fun `verify that androidx compose ui block fun() adds the correct dependency on custom configuration`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -90,77 +99,7 @@ class AndroidXComposeUITests {
                 androidx {
                     compose {
                         ui("1.0.0") {
-                            customImplementation(AndroidX.Compose.UI.ui.dependencyAsString)
-                        }
-                    }
-                }
-            }
-        }
-
-        val expectedDependencies = listOf(
-            AndroidX.Compose.UI.ui.moduleName
-        )
-
-        assertContentEquals(
-            expectedDependencies,
-            customConfig.dependencies.map { "${it.group}:${it.name}" },
-            "androidx compose ui val dependencyAsString does not add dependencies in the correct version"
-        )
-    }
-
-    @OptIn(ExperimentalEpitApi::class)
-    @Test
-    fun `verify that androidx compose ui block dependencyAsString adds dependencies in correct version`() {
-        val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("io.github.bkmbigo.epit")
-
-        val customConfig = project.configurations.create("customImplementation")
-
-        fun DependencyHandlerScope.customImplementation(dependency: String) {
-            add("customImplementation", dependency)
-        }
-
-        project.dependencies {
-            epitPreview {
-                androidx {
-                    compose {
-                        ui("1.0.0") {
-                            customImplementation(AndroidX.Compose.UI.ui.dependencyAsString)
-                        }
-                    }
-                }
-            }
-        }
-
-        val expectedDependencies = listOf(
-            AndroidX.Compose.UI.ui.moduleName
-        )
-
-        assertContentEquals(
-            List(expectedDependencies.size) { "1.0.0" },
-            customConfig.dependencies.map { it.version },
-            "androidx compose ui val dependencyAsString does not add dependencies in the correct version"
-        )
-    }
-
-    @OptIn(ExperimentalEpitApi::class)
-    @Test
-    fun `verify that androidx compose ui block fun dependencyAsString() adds the correct dependency on custom configuration`() {
-        val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("io.github.bkmbigo.epit")
-
-        val customConfig = project.configurations.create("customImplementation")
-
-        fun DependencyHandlerScope.customImplementation(dependency: String) {
-            add("customImplementation", dependency)
-        }
-
-        project.dependencies {
-            epitPreview {
-                androidx {
-                    compose {
-                        ui("1.0.0") {
-                            customImplementation(AndroidX.Compose.UI.ui.dependencyAsString("1.1.2"))
+                            customImplementation(Epit.ui("1.1.2"))
                         }
                     }
                 }
@@ -195,7 +134,7 @@ class AndroidXComposeUITests {
                 androidx {
                     compose {
                         ui("1.0.0") {
-                            customVersionImplementation(AndroidX.Compose.UI.ui.dependencyAsString("1.1.2"))
+                            customVersionImplementation(Epit.ui("1.1.2"))
                         }
                     }
                 }

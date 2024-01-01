@@ -1,5 +1,6 @@
 package dsl.androidx
 
+import Epit
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.androidx.AndroidX
 import epit.dsl.epitPreview
@@ -12,17 +13,21 @@ import kotlin.test.assertContentEquals
 class AndroidXRoomTests {
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx room block implementation adds dependencies`() {
+    fun `verify that androidx room block val adds dependencies`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
         val config = project.configurations.create("implementation")
 
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
+
         project.dependencies {
             epitPreview {
                 androidx {
                     room("1.0.0") {
-                        implementation(AndroidX.Room.room_common)
+                        implementation(Epit.room_common)
                     }
                 }
             }
@@ -41,17 +46,21 @@ class AndroidXRoomTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx room block implementation adds dependencies in correct version`() {
+    fun `verify that androidx room block val adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
         val config = project.configurations.create("implementation")
 
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
+
         project.dependencies {
             epitPreview {
                 androidx {
                     room("1.0.0") {
-                        implementation(AndroidX.Room.room_common)
+                        implementation(Epit.room_common)
                     }
                 }
             }
@@ -70,7 +79,7 @@ class AndroidXRoomTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx room block dependency adds the correct dependency on custom configuration`() {
+    fun `verify that androidx room block fun() adds the correct dependency on custom configuration`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -84,7 +93,7 @@ class AndroidXRoomTests {
             epitPreview {
                 androidx {
                     room("1.0.0") {
-                        customImplementation(AndroidX.Room.room_common.dependencyAsString)
+                        customImplementation(Epit.room_common("1.1.2"))
                     }
                 }
             }
@@ -103,73 +112,7 @@ class AndroidXRoomTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx room block dependency adds dependencies in correct version`() {
-        val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("io.github.bkmbigo.epit")
-
-        val customConfig = project.configurations.create("customImplementation")
-
-        fun DependencyHandlerScope.customImplementation(dependency: String) {
-            add("customImplementation", dependency)
-        }
-
-        project.dependencies {
-            epitPreview {
-                androidx {
-                    room("1.0.0") {
-                        customImplementation(AndroidX.Room.room_common.dependencyAsString)
-                    }
-                }
-            }
-        }
-
-        val expectedDependencies = listOf(
-            AndroidX.Room.room_common.moduleName
-        )
-
-        assertContentEquals(
-            List(expectedDependencies.size) { "1.0.0" },
-            customConfig.dependencies.map { it.version },
-            "androidx room val dependency does not add dependencies in the correct version"
-        )
-    }
-
-    @OptIn(ExperimentalEpitApi::class)
-    @Test
-    fun `verify that androidx room block fun dependency adds the correct dependency on custom configuration`() {
-        val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("io.github.bkmbigo.epit")
-
-        val customConfig = project.configurations.create("customImplementation")
-
-        fun DependencyHandlerScope.customImplementation(dependency: String) {
-            add("customImplementation", dependency)
-        }
-
-        project.dependencies {
-            epitPreview {
-                androidx {
-                    room("1.0.0") {
-                        customImplementation(AndroidX.Room.room_common.dependencyAsString("1.1.2"))
-                    }
-                }
-            }
-        }
-
-        val expectedDependencies = listOf(
-            AndroidX.Room.room_common.moduleName
-        )
-
-        assertContentEquals(
-            expectedDependencies,
-            customConfig.dependencies.map { "${it.group}:${it.name}" },
-            "androidx room val dependency does not add dependencies in the correct version"
-        )
-    }
-
-    @OptIn(ExperimentalEpitApi::class)
-    @Test
-    fun `verify that androidx room block fun dependency adds dependencies in correct version`() {
+    fun `verify that androidx room block fun() adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -183,7 +126,7 @@ class AndroidXRoomTests {
             epitPreview {
                 androidx {
                     room("1.0.0") {
-                        customVersionImplementation(AndroidX.Room.room_common.dependencyAsString("1.1.2"))
+                        customVersionImplementation(Epit.room_common("1.1.2"))
                     }
                 }
             }

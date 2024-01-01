@@ -1,5 +1,6 @@
 package dsl
 
+import Epit
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.androidx.AndroidX
 import epit.dsl.epitPreview
@@ -17,11 +18,10 @@ class AndroidxTest {
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
         val config = project.configurations.create("implementation")
-        val customConfig = project.configurations.create("customImplementation")
         val customVersionConfig = project.configurations.create("customVersionImplementation")
 
-        fun DependencyHandlerScope.customImplementation(dependency: String) {
-            add("customImplementation", dependency)
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
         }
 
         fun DependencyHandlerScope.customVersionImplementation(dependency: String) {
@@ -32,288 +32,188 @@ class AndroidxTest {
             epitPreview {
                 androidx {
                     activity("1.0.0") {
-                        implementation(AndroidX.Activity.activity)
-                        customImplementation(AndroidX.Activity.activity.dependencyAsString)
-                        customVersionImplementation(AndroidX.Activity.activity.dependencyAsString("1.1.2"))
+                        implementation(Epit.activity)
+                        customVersionImplementation(Epit.activity("1.1.2"))
                     }
                     appcompat("1.0.0") {
-                        implementation(AndroidX.Appcompat.appcompat)
-                        customImplementation(AndroidX.Appcompat.appcompat.dependencyAsString)
-                        customVersionImplementation(AndroidX.Appcompat.appcompat.dependencyAsString("1.1.2"))
+                        implementation(Epit.appcompat)
+                        customVersionImplementation(Epit.appcompat("1.1.2"))
                     }
                     camera("1.0.0") {
-                        implementation(AndroidX.Camera.camera_camera2)
-                        customImplementation(AndroidX.Camera.camera_camera2.dependencyAsString)
-                        customVersionImplementation(AndroidX.Camera.camera_camera2.dependencyAsString("1.1.2"))
+                        implementation(Epit.camera_camera2)
+                        customVersionImplementation(Epit.camera_camera2("1.1.2"))
                     }
                     compose {
                         animation("1.0.0") {
-                            implementation(AndroidX.Compose.Animation.animation)
-                            customImplementation(AndroidX.Compose.Animation.animation.dependencyAsString)
-                            customVersionImplementation(AndroidX.Compose.Animation.animation.dependencyAsString("1.1.2"))
+                            implementation(Epit.animation)
+                            customVersionImplementation(Epit.animation("1.1.2"))
                         }
                         compiler("1.0.0") {
-                            implementation(AndroidX.Compose.Compiler.compiler)
-                            customImplementation(AndroidX.Compose.Compiler.compiler.dependencyAsString)
-                            customVersionImplementation(AndroidX.Compose.Compiler.compiler.dependencyAsString("1.1.2"))
+                            implementation(Epit.compiler)
+                            customVersionImplementation(Epit.compiler("1.1.2"))
                         }
                         foundation {
                             foundation("1.0.0") {
-                                implementation(AndroidX.Compose.Foundation.Foundation.foundation)
-                                customImplementation(AndroidX.Compose.Foundation.Foundation.foundation.dependencyAsString)
-                                customVersionImplementation(
-                                    AndroidX.Compose.Foundation.Foundation.foundation.dependencyAsString("1.1.2")
-                                )
+                                implementation(Epit.foundation)
+                                customVersionImplementation(Epit.foundation("1.1.2"))
                             }
                             foundationText("1.0.0") {
-                                implementation(AndroidX.Compose.Foundation.FoundationText.foundation_text)
-                                customImplementation(AndroidX.Compose.Foundation.FoundationText.foundation_text.dependencyAsString)
-                                customVersionImplementation(
-                                    AndroidX.Compose.Foundation.FoundationText.foundation_text.dependencyAsString("1.1.2")
-                                )
+                                implementation(Epit.foundation_text)
+                                customVersionImplementation(Epit.foundation_text("1.1.2"))
                             }
                         }
                         material("1.0.0") {
-                            implementation(AndroidX.Compose.Material.material)
-                            customImplementation(AndroidX.Compose.Material.material.dependencyAsString)
-                            customVersionImplementation(AndroidX.Compose.Material.material.dependencyAsString("1.1.2"))
+                            implementation(Epit.material)
+                            customVersionImplementation(Epit.material("1.1.2"))
                         }
                         material3 {
                             material3("1.0.0") {
-                                implementation(AndroidX.Compose.Material3.Material3.material3)
-                                customImplementation(AndroidX.Compose.Material3.Material3.material3.dependencyAsString)
-                                customVersionImplementation(
-                                    AndroidX.Compose.Material3.Material3.material3.dependencyAsString(
-                                        "1.1.2"
-                                    )
-                                )
+                                implementation(Epit.material3)
+                                customVersionImplementation(Epit.material3("1.1.2"))
                             }
                             material3Adaptive("1.0.0") {
-                                implementation(AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive)
-                                customImplementation(AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive.dependencyAsString)
-                                customVersionImplementation(
-                                    AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive.dependencyAsString("1.1.2")
-                                )
+                                implementation(Epit.material3_adaptive)
+                                customVersionImplementation(Epit.material3_adaptive("1.1.2"))
                             }
                         }
                         runtime {
                             runtime("1.0.0") {
-                                implementation(AndroidX.Compose.Runtime.Runtime.runtime)
-                                customImplementation(AndroidX.Compose.Runtime.Runtime.runtime.dependencyAsString)
-                                customVersionImplementation(
-                                    AndroidX.Compose.Runtime.Runtime.runtime.dependencyAsString(
-                                        "1.1.2"
-                                    )
-                                )
+                                implementation(Epit.runtime)
+                                customVersionImplementation(Epit.runtime("1.1.2"))
                             }
                             runtimeTracing("1.0.0") {
-                                implementation(AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing)
-                                customImplementation(AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing.dependencyAsString)
-                                customVersionImplementation(
-                                    AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing.dependencyAsString("1.1.2")
-                                )
+                                implementation(Epit.runtime_tracing)
+                                customVersionImplementation(Epit.runtime_tracing("1.1.2"))
                             }
                         }
                         ui("1.0.0") {
-                            implementation(AndroidX.Compose.UI.ui)
-                            customImplementation(AndroidX.Compose.UI.ui.dependencyAsString)
-                            customVersionImplementation(AndroidX.Compose.UI.ui.dependencyAsString("1.1.2"))
+                            implementation(Epit.ui)
+                            customVersionImplementation(Epit.ui("1.1.2"))
                         }
                     }
                     constraintLayout {
                         constraintlayout("1.0.0") {
-                            implementation(AndroidX.ConstraintLayout.ConstraintLayout.constraintlayout)
-                            customImplementation(AndroidX.ConstraintLayout.ConstraintLayout.constraintlayout.dependencyAsString)
-                            customVersionImplementation(
-                                AndroidX.ConstraintLayout.ConstraintLayout.constraintlayout.dependencyAsString("1.1.2")
-                            )
+                            implementation(Epit.constraintlayout)
+                            customVersionImplementation(Epit.constraintlayout("1.1.2"))
                         }
                         constraintlayoutCompose("1.0.0") {
-                            implementation(AndroidX.ConstraintLayout.ConstraintLayoutCompose.constraintlayout_compose)
-                            customImplementation(AndroidX.ConstraintLayout.ConstraintLayoutCompose.constraintlayout_compose.dependencyAsString)
-                            customVersionImplementation(
-                                AndroidX.ConstraintLayout.ConstraintLayoutCompose.constraintlayout_compose.dependencyAsString(
-                                    "1.1.2"
-                                )
-                            )
+                            implementation(Epit.constraintlayout_compose)
+                            customVersionImplementation(Epit.constraintlayout_compose("1.1.2"))
                         }
                     }
                     core {
                         core("1.0.0") {
-                            implementation(AndroidX.Core.Core.core)
-                            customImplementation(AndroidX.Core.Core.core.dependencyAsString)
-                            customVersionImplementation(AndroidX.Core.Core.core.dependencyAsString("1.1.2"))
+                            implementation(Epit.core)
+                            customVersionImplementation(Epit.core("1.1.2"))
                         }
                         coreAnimation("1.0.0") {
-                            implementation(AndroidX.Core.CoreAnimation.core_animation)
-                            customImplementation(AndroidX.Core.CoreAnimation.core_animation.dependencyAsString)
-                            customVersionImplementation(AndroidX.Core.CoreAnimation.core_animation.dependencyAsString("1.1.2"))
+                            implementation(Epit.core_animation)
+                            customVersionImplementation(Epit.core_animation("1.1.2"))
                         }
                         coreGoogleShortcuts("1.0.0") {
-                            implementation(AndroidX.Core.CoreGoogleShortcuts.core_google_shortcuts)
-                            customImplementation(AndroidX.Core.CoreGoogleShortcuts.core_google_shortcuts.dependencyAsString)
-                            customVersionImplementation(
-                                AndroidX.Core.CoreGoogleShortcuts.core_google_shortcuts.dependencyAsString(
-                                    "1.1.2"
-                                )
-                            )
+                            implementation(Epit.core_google_shortcuts)
+                            customVersionImplementation(Epit.core_google_shortcuts("1.1.2"))
                         }
                         coreLocation("1.0.0") {
-                            implementation(AndroidX.Core.CoreLocation.core_location_altitude)
-                            customImplementation(AndroidX.Core.CoreLocation.core_location_altitude.dependencyAsString)
-                            customVersionImplementation(
-                                AndroidX.Core.CoreLocation.core_location_altitude.dependencyAsString(
-                                    "1.1.2"
-                                )
-                            )
+                            implementation(Epit.core_location_altitude)
+                            customVersionImplementation(Epit.core_location_altitude("1.1.2"))
                         }
                         corePerformance("1.0.0") {
-                            implementation(AndroidX.Core.CorePerformance.core_performance)
-                            customImplementation(AndroidX.Core.CorePerformance.core_performance.dependencyAsString)
-                            customVersionImplementation(
-                                AndroidX.Core.CorePerformance.core_performance.dependencyAsString(
-                                    "1.1.2"
-                                )
-                            )
+                            implementation(Epit.core_performance)
+                            customVersionImplementation(Epit.core_performance("1.1.2"))
                         }
                         coreRemoteViews("1.0.0") {
-                            implementation(AndroidX.Core.CoreRemoteViews.core_remoteviews)
-                            customImplementation(AndroidX.Core.CoreRemoteViews.core_remoteviews.dependencyAsString)
-                            customVersionImplementation(
-                                AndroidX.Core.CoreRemoteViews.core_remoteviews.dependencyAsString(
-                                    "1.1.2"
-                                )
-                            )
+                            implementation(Epit.core_remoteviews)
+                            customVersionImplementation(Epit.core_remoteviews("1.1.2"))
                         }
                         coreRole("1.0.0") {
-                            implementation(AndroidX.Core.CoreRole.core_role)
-                            customImplementation(AndroidX.Core.CoreRole.core_role.dependencyAsString)
-                            customVersionImplementation(AndroidX.Core.CoreRole.core_role.dependencyAsString("1.1.2"))
+                            implementation(Epit.core_role)
+                            customVersionImplementation(Epit.core_role("1.1.2"))
                         }
                         coreSplashscreen("1.0.0") {
-                            implementation(AndroidX.Core.CoreSplashscreen.core_splashscreen)
-                            customImplementation(AndroidX.Core.CoreSplashscreen.core_splashscreen.dependencyAsString)
-                            customVersionImplementation(
-                                AndroidX.Core.CoreSplashscreen.core_splashscreen.dependencyAsString(
-                                    "1.1.2"
-                                )
-                            )
+                            implementation(Epit.core_splashscreen)
+                            customVersionImplementation(Epit.core_splashscreen("1.1.2"))
                         }
                         coreTelecom("1.0.0") {
-                            implementation(AndroidX.Core.CoreTelecom.core_telecom)
-                            customImplementation(AndroidX.Core.CoreTelecom.core_telecom.dependencyAsString)
-                            customVersionImplementation(AndroidX.Core.CoreTelecom.core_telecom.dependencyAsString("1.1.2"))
+                            implementation(Epit.core_telecom)
+                            customVersionImplementation(Epit.core_telecom("1.1.2"))
                         }
                     }
                     fragment("1.0.0") {
-                        implementation(AndroidX.Fragment.fragment)
-                        customImplementation(AndroidX.Fragment.fragment.dependencyAsString)
-                        customVersionImplementation(AndroidX.Fragment.fragment.dependencyAsString("1.1.2"))
+                        implementation(Epit.fragment)
+                        customVersionImplementation(Epit.fragment("1.1.2"))
                     }
                     lifecycle("1.0.0") {
-                        implementation(AndroidX.Lifecycle.lifecycle_common)
-                        customImplementation(AndroidX.Lifecycle.lifecycle_common.dependencyAsString)
-                        customVersionImplementation(AndroidX.Lifecycle.lifecycle_common.dependencyAsString("1.1.2"))
+                        implementation(Epit.lifecycle_common)
+                        customVersionImplementation(Epit.lifecycle_common("1.1.2"))
                     }
                     navigation("1.0.0") {
-                        implementation(AndroidX.Navigation.navigation_common)
-                        customImplementation(AndroidX.Navigation.navigation_common.dependencyAsString)
-                        customVersionImplementation(AndroidX.Navigation.navigation_common.dependencyAsString("1.1.2"))
+                        implementation(Epit.navigation_common)
+                        customVersionImplementation(Epit.navigation_common("1.1.2"))
                     }
                     paging("1.0.0") {
-                        implementation(AndroidX.Paging.paging_common)
-                        customImplementation(AndroidX.Paging.paging_common.dependencyAsString)
-                        customVersionImplementation(AndroidX.Paging.paging_common.dependencyAsString("1.1.2"))
+                        implementation(Epit.paging_common)
+                        customVersionImplementation(Epit.paging_common("1.1.2"))
                     }
                     recyclerview("1.0.0") {
                         implementation(AndroidX.RecyclerView.recyclerview)
-                        customImplementation(AndroidX.RecyclerView.recyclerview.dependencyAsString)
                         customVersionImplementation(AndroidX.RecyclerView.recyclerview.dependencyAsString("1.1.2"))
                     }
                     room("1.0.0") {
-                        implementation(AndroidX.Room.room_common)
-                        customImplementation(AndroidX.Room.room_common.dependencyAsString)
-                        customVersionImplementation(AndroidX.Room.room_common.dependencyAsString("1.1.2"))
+                        implementation(Epit.room_common)
+                        customVersionImplementation(Epit.room_common("1.1.2"))
                     }
                     test {
                         annotation("1.0.0") {
-                            implementation(AndroidX.Test.Annotation.test_annotation)
-                            customImplementation(AndroidX.Test.Annotation.test_annotation.dependencyAsString)
-                            customVersionImplementation(AndroidX.Test.Annotation.test_annotation.dependencyAsString("1.1.2"))
+                            implementation(Epit.test_annotation)
+                            customVersionImplementation(Epit.test_annotation("1.1.2"))
                         }
                         core("1.0.0") {
-                            implementation(AndroidX.Test.Core.core)
-                            customImplementation(AndroidX.Test.Core.core.dependencyAsString)
-                            customVersionImplementation(AndroidX.Test.Core.core.dependencyAsString("1.1.2"))
+                            implementation(Epit.core)
+                            customVersionImplementation(Epit.core("1.1.2"))
                         }
                         monitor("1.0.0") {
-                            implementation(AndroidX.Test.Monitor.monitor)
-                            customImplementation(AndroidX.Test.Monitor.monitor.dependencyAsString)
-                            customVersionImplementation(AndroidX.Test.Monitor.monitor.dependencyAsString("1.1.2"))
+                            implementation(Epit.monitor)
+                            customVersionImplementation(Epit.monitor("1.1.2"))
                         }
                         orchestrator("1.0.0") {
-                            implementation(AndroidX.Test.Orchestrator.orchestrator)
-                            customImplementation(AndroidX.Test.Orchestrator.orchestrator.dependencyAsString)
-                            customVersionImplementation(AndroidX.Test.Orchestrator.orchestrator.dependencyAsString("1.1.2"))
+                            implementation(Epit.orchestrator)
+                            customVersionImplementation(Epit.orchestrator("1.1.2"))
                         }
                         rules("1.0.0") {
-                            implementation(AndroidX.Test.Rules.rules)
-                            customImplementation(AndroidX.Test.Rules.rules.dependencyAsString)
-                            customVersionImplementation(AndroidX.Test.Rules.rules.dependencyAsString("1.1.2"))
+                            implementation(Epit.rules)
+                            customVersionImplementation(Epit.rules("1.1.2"))
                         }
                         runner("1.0.0") {
-                            implementation(AndroidX.Test.Runner.runner)
-                            customImplementation(AndroidX.Test.Runner.runner.dependencyAsString)
-                            customVersionImplementation(AndroidX.Test.Runner.runner.dependencyAsString("1.1.2"))
+                            implementation(Epit.runner)
+                            customVersionImplementation(Epit.runner("1.1.2"))
                         }
                         espresso {
                             espresso("1.0.0") {
-                                implementation(AndroidX.Test.Espresso.Espresso.espresso_core)
-                                customImplementation(AndroidX.Test.Espresso.Espresso.espresso_core.dependencyAsString)
-                                customVersionImplementation(
-                                    AndroidX.Test.Espresso.Espresso.espresso_core.dependencyAsString(
-                                        "1.1.2"
-                                    )
-                                )
+                                implementation(Epit.espresso_core)
+                                customVersionImplementation(Epit.espresso_core("1.1.2"))
                             }
                             espressoDevice("1.0.0") {
-                                implementation(AndroidX.Test.Espresso.EspressoDevice.espresso_device)
-                                customImplementation(AndroidX.Test.Espresso.EspressoDevice.espresso_device.dependencyAsString)
-                                customVersionImplementation(
-                                    AndroidX.Test.Espresso.EspressoDevice.espresso_device.dependencyAsString(
-                                        "1.1.2"
-                                    )
-                                )
+                                implementation(Epit.espresso_device)
+                                customVersionImplementation(Epit.espresso_device("1.1.2"))
                             }
                             espressoIdling("1.0.0") {
-                                implementation(AndroidX.Test.Espresso.Idling.idling_concurrent)
-                                customImplementation(AndroidX.Test.Espresso.Idling.idling_concurrent.dependencyAsString)
-                                customVersionImplementation(
-                                    AndroidX.Test.Espresso.Idling.idling_concurrent.dependencyAsString(
-                                        "1.1.2"
-                                    )
-                                )
+                                implementation(Epit.idling_concurrent)
+                                customVersionImplementation(Epit.idling_concurrent("1.1.2"))
                             }
                         }
                         ext {
                             jUnit("1.0.0") {
-                                implementation(AndroidX.Test.Ext.JUnit.junit)
-                                customImplementation(AndroidX.Test.Ext.JUnit.junit.dependencyAsString)
-                                customVersionImplementation(AndroidX.Test.Ext.JUnit.junit.dependencyAsString("1.1.2"))
+                                implementation(Epit.junit)
+                                customVersionImplementation(Epit.junit("1.1.2"))
                             }
                             jUnitGTest("1.0.0") {
-                                implementation(AndroidX.Test.Ext.JUnitGTest.junit_gtest)
-                                customImplementation(AndroidX.Test.Ext.JUnitGTest.junit_gtest.dependencyAsString)
-                                customVersionImplementation(
-                                    AndroidX.Test.Ext.JUnitGTest.junit_gtest.dependencyAsString(
-                                        "1.1.2"
-                                    )
-                                )
+                                implementation(Epit.junit_gtest)
+                                customVersionImplementation(Epit.junit_gtest("1.1.2"))
                             }
                             truth("1.0.0") {
-                                implementation(AndroidX.Test.Ext.Truth.truth)
-                                customImplementation(AndroidX.Test.Ext.Truth.truth.dependencyAsString)
-                                customVersionImplementation(AndroidX.Test.Ext.Truth.truth.dependencyAsString("1.1.2"))
+                                implementation(Epit.truth)
+                                customVersionImplementation(Epit.truth("1.1.2"))
                             }
                         }
                     }
@@ -370,12 +270,6 @@ class AndroidxTest {
             expectedDependencies,
             config.dependencies.map { "${it.group}:${it.name}" },
             "Androidx dependencies using implementation() differ"
-        )
-
-        assertContentEquals(
-            expectedDependencies,
-            customConfig.dependencies.map { "${it.group}:${it.name}" },
-            "androidx dependencies using implementation(dependency.dependency) differ"
         )
 
         assertContentEquals(

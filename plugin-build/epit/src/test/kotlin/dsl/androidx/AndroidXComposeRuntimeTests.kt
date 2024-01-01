@@ -1,5 +1,6 @@
 package dsl.androidx
 
+import Epit
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.androidx.AndroidX
 import epit.dsl.epitPreview
@@ -13,11 +14,15 @@ class AndroidXComposeRuntimeTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose runtime block implementation adds dependencies`() {
+    fun `verify that androidx compose runtime block val adds dependencies`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
         val config = project.configurations.create("implementation")
+
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
 
         project.dependencies {
             epitPreview {
@@ -50,11 +55,15 @@ class AndroidXComposeRuntimeTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose runtime block implementation adds dependencies in correct version`() {
+    fun `verify that androidx compose runtime block val adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
         val config = project.configurations.create("implementation")
+
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
 
         project.dependencies {
             epitPreview {
@@ -62,10 +71,10 @@ class AndroidXComposeRuntimeTests {
                     compose {
                         runtime {
                             runtime("1.0.0") {
-                                implementation(AndroidX.Compose.Runtime.Runtime.runtime)
+                                implementation(Epit.runtime)
                             }
                             runtimeTracing("1.0.0") {
-                                implementation(AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing)
+                                implementation(Epit.runtime_tracing)
                             }
                         }
                     }
@@ -87,7 +96,7 @@ class AndroidXComposeRuntimeTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose runtime block dependencyAsString adds the correct dependency on custom configuration`() {
+    fun `verify that androidx compose runtime block fun() adds the correct dependency on custom configuration`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -103,93 +112,11 @@ class AndroidXComposeRuntimeTests {
                     compose {
                         runtime {
                             runtime("1.0.0") {
-                                customImplementation(AndroidX.Compose.Runtime.Runtime.runtime.dependencyAsString)
-                            }
-                            runtimeTracing("1.0.0") {
-                                customImplementation(AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing.dependencyAsString)
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        val expectedDependencies = listOf(
-            AndroidX.Compose.Runtime.Runtime.runtime.moduleName,
-            AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing.moduleName
-        )
-
-        assertContentEquals(
-            expectedDependencies,
-            customConfig.dependencies.map { "${it.group}:${it.name}" },
-            "androidx compose runtime val dependency does not add dependencies in the correct version"
-        )
-    }
-
-    @OptIn(ExperimentalEpitApi::class)
-    @Test
-    fun `verify that androidx compose runtime block dependencyAsString adds dependencies in correct version`() {
-        val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("io.github.bkmbigo.epit")
-
-        val customConfig = project.configurations.create("customImplementation")
-
-        fun DependencyHandlerScope.customImplementation(dependency: String) {
-            add("customImplementation", dependency)
-        }
-
-        project.dependencies {
-            epitPreview {
-                androidx {
-                    compose {
-                        runtime {
-                            runtime("1.0.0") {
-                                customImplementation(AndroidX.Compose.Runtime.Runtime.runtime.dependencyAsString)
-                            }
-                            runtimeTracing("1.0.0") {
-                                customImplementation(AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing.dependencyAsString)
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        val expectedDependencies = listOf(
-            AndroidX.Compose.Runtime.Runtime.runtime.moduleName,
-            AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing.moduleName
-        )
-
-        assertContentEquals(
-            List(expectedDependencies.size) { "1.0.0" },
-            customConfig.dependencies.map { it.version },
-            "androidx compose runtime val dependency does not add dependencies in the correct version"
-        )
-    }
-
-    @OptIn(ExperimentalEpitApi::class)
-    @Test
-    fun `verify that androidx compose runtime block fun dependencyAsString() adds the correct dependency on custom configuration`() {
-        val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("io.github.bkmbigo.epit")
-
-        val customConfig = project.configurations.create("customImplementation")
-
-        fun DependencyHandlerScope.customImplementation(dependency: String) {
-            add("customImplementation", dependency)
-        }
-
-        project.dependencies {
-            epitPreview {
-                androidx {
-                    compose {
-                        runtime {
-                            runtime("1.0.0") {
-                                customImplementation(AndroidX.Compose.Runtime.Runtime.runtime.dependencyAsString("1.1.2"))
+                                customImplementation(Epit.runtime("1.1.2"))
                             }
                             runtimeTracing("1.0.0") {
                                 customImplementation(
-                                    AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing.dependencyAsString("1.1.2")
+                                    Epit.runtime_tracing("1.1.2")
                                 )
                             }
                         }
@@ -212,7 +139,7 @@ class AndroidXComposeRuntimeTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose runtime block fun dependencyAsString() adds dependencies in correct version`() {
+    fun `verify that androidx compose runtime block fun() adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -229,14 +156,12 @@ class AndroidXComposeRuntimeTests {
                         runtime {
                             runtime("1.0.0") {
                                 customVersionImplementation(
-                                    AndroidX.Compose.Runtime.Runtime.runtime.dependencyAsString(
-                                        "1.1.2"
-                                    )
+                                    Epit.runtime("1.1.2")
                                 )
                             }
                             runtimeTracing("1.0.0") {
                                 customVersionImplementation(
-                                    AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing.dependencyAsString("1.1.2")
+                                    Epit.runtime_tracing("1.1.2")
                                 )
                             }
                         }

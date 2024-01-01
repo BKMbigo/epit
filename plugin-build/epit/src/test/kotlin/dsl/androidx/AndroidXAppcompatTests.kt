@@ -1,5 +1,6 @@
 package dsl.androidx
 
+import Epit
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.androidx.AndroidX
 import epit.dsl.epitPreview
@@ -13,17 +14,21 @@ class AndroidXAppcompatTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx appcompat block implementation adds dependencies`() {
+    fun `verify that androidx appcompat block val adds dependencies`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
         val config = project.configurations.create("implementation")
 
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
+
         project.dependencies {
             epitPreview {
                 androidx {
                     appcompat("1.0.0") {
-                        implementation(AndroidX.Appcompat.appcompat)
+                        implementation(Epit.appcompat)
                     }
                 }
             }
@@ -42,17 +47,21 @@ class AndroidXAppcompatTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx appcompat block implementation adds dependencies in correct version`() {
+    fun `verify that androidx appcompat block val adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
         val config = project.configurations.create("implementation")
 
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
+
         project.dependencies {
             epitPreview {
                 androidx {
                     appcompat("1.0.0") {
-                        implementation(AndroidX.Appcompat.appcompat)
+                        implementation(Epit.appcompat)
                     }
                 }
             }
@@ -71,7 +80,7 @@ class AndroidXAppcompatTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx appcompat block dependencyAsString adds the correct dependency on custom configuration`() {
+    fun `verify that androidx appcompat block fun() adds the correct dependency on custom configuration`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -85,7 +94,7 @@ class AndroidXAppcompatTests {
             epitPreview {
                 androidx {
                     appcompat("1.0.0") {
-                        customImplementation(AndroidX.Appcompat.appcompat.dependencyAsString)
+                        customImplementation(Epit.appcompat("1.1.2"))
                     }
                 }
             }
@@ -104,73 +113,7 @@ class AndroidXAppcompatTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx appcompat block dependencyAsString adds dependencies in correct version`() {
-        val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("io.github.bkmbigo.epit")
-
-        val customConfig = project.configurations.create("customImplementation")
-
-        fun DependencyHandlerScope.customImplementation(dependency: String) {
-            add("customImplementation", dependency)
-        }
-
-        project.dependencies {
-            epitPreview {
-                androidx {
-                    appcompat("1.0.0") {
-                        customImplementation(AndroidX.Appcompat.appcompat.dependencyAsString)
-                    }
-                }
-            }
-        }
-
-        val expectedDependencies = listOf(
-            AndroidX.Appcompat.appcompat.moduleName
-        )
-
-        assertContentEquals(
-            List(expectedDependencies.size) { "1.0.0" },
-            customConfig.dependencies.map { it.version },
-            "androidx appcompat val dependency does not add dependencies in the correct version"
-        )
-    }
-
-    @OptIn(ExperimentalEpitApi::class)
-    @Test
-    fun `verify that androidx appcompat block fun dependencyAsString() adds the correct dependency on custom configuration`() {
-        val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("io.github.bkmbigo.epit")
-
-        val customConfig = project.configurations.create("customImplementation")
-
-        fun DependencyHandlerScope.customImplementation(dependency: String) {
-            add("customImplementation", dependency)
-        }
-
-        project.dependencies {
-            epitPreview {
-                androidx {
-                    appcompat("1.0.0") {
-                        customImplementation(AndroidX.Appcompat.appcompat.dependencyAsString("1.1.2"))
-                    }
-                }
-            }
-        }
-
-        val expectedDependencies = listOf(
-            AndroidX.Appcompat.appcompat.moduleName
-        )
-
-        assertContentEquals(
-            expectedDependencies,
-            customConfig.dependencies.map { "${it.group}:${it.name}" },
-            "androidx appcompat val dependency does not add dependencies in the correct version"
-        )
-    }
-
-    @OptIn(ExperimentalEpitApi::class)
-    @Test
-    fun `verify that androidx appcompat block fun dependencyAsString() adds dependencies in correct version`() {
+    fun `verify that androidx appcompat block fun() adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -184,7 +127,7 @@ class AndroidXAppcompatTests {
             epitPreview {
                 androidx {
                     appcompat("1.0.0") {
-                        customVersionImplementation(AndroidX.Appcompat.appcompat.dependencyAsString("1.1.2"))
+                        customVersionImplementation(Epit.appcompat("1.1.2"))
                     }
                 }
             }

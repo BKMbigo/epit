@@ -1,5 +1,6 @@
 package dsl.androidx
 
+import Epit
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.androidx.AndroidX
 import epit.dsl.epitPreview
@@ -12,17 +13,21 @@ import kotlin.test.assertContentEquals
 class AndroidXNavigationTests {
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx navigation block implementation adds dependencies`() {
+    fun `verify that androidx navigation block val adds dependencies`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
         val config = project.configurations.create("implementation")
 
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
+
         project.dependencies {
             epitPreview {
                 androidx {
                     navigation("1.0.0") {
-                        implementation(AndroidX.Navigation.navigation_common)
+                        implementation(Epit.navigation_common)
                     }
                 }
             }
@@ -41,17 +46,21 @@ class AndroidXNavigationTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx navigation block implementation adds dependencies in correct version`() {
+    fun `verify that androidx navigation block val adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
         val config = project.configurations.create("implementation")
 
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
+
         project.dependencies {
             epitPreview {
                 androidx {
                     navigation("1.0.0") {
-                        implementation(AndroidX.Navigation.navigation_common)
+                        implementation(Epit.navigation_common)
                     }
                 }
             }
@@ -65,72 +74,6 @@ class AndroidXNavigationTests {
             List(expectedDependencies.size) { "1.0.0" },
             config.dependencies.map { it.version },
             "androidx navigation implementation does not add dependencies in the correct version"
-        )
-    }
-
-    @OptIn(ExperimentalEpitApi::class)
-    @Test
-    fun `verify that androidx navigation block dependency adds the correct dependency on custom configuration`() {
-        val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("io.github.bkmbigo.epit")
-
-        val customConfig = project.configurations.create("customImplementation")
-
-        fun DependencyHandlerScope.customImplementation(dependency: String) {
-            add("customImplementation", dependency)
-        }
-
-        project.dependencies {
-            epitPreview {
-                androidx {
-                    navigation("1.0.0") {
-                        customImplementation(AndroidX.Navigation.navigation_common.dependencyAsString)
-                    }
-                }
-            }
-        }
-
-        val expectedDependencies = listOf(
-            AndroidX.Navigation.navigation_common.moduleName
-        )
-
-        assertContentEquals(
-            expectedDependencies,
-            customConfig.dependencies.map { "${it.group}:${it.name}" },
-            "androidx navigation val dependency does not add dependencies in the correct version"
-        )
-    }
-
-    @OptIn(ExperimentalEpitApi::class)
-    @Test
-    fun `verify that androidx navigation block dependency adds dependencies in correct version`() {
-        val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("io.github.bkmbigo.epit")
-
-        val customConfig = project.configurations.create("customImplementation")
-
-        fun DependencyHandlerScope.customImplementation(dependency: String) {
-            add("customImplementation", dependency)
-        }
-
-        project.dependencies {
-            epitPreview {
-                androidx {
-                    navigation("1.0.0") {
-                        customImplementation(AndroidX.Navigation.navigation_common.dependencyAsString)
-                    }
-                }
-            }
-        }
-
-        val expectedDependencies = listOf(
-            AndroidX.Navigation.navigation_common.moduleName
-        )
-
-        assertContentEquals(
-            List(expectedDependencies.size) { "1.0.0" },
-            customConfig.dependencies.map { it.version },
-            "androidx navigation val dependency does not add dependencies in the correct version"
         )
     }
 
@@ -150,7 +93,7 @@ class AndroidXNavigationTests {
             epitPreview {
                 androidx {
                     navigation("1.0.0") {
-                        customImplementation(AndroidX.Navigation.navigation_common.dependencyAsString("1.1.2"))
+                        customImplementation(Epit.navigation_common("1.1.2"))
                     }
                 }
             }
@@ -183,7 +126,7 @@ class AndroidXNavigationTests {
             epitPreview {
                 androidx {
                     navigation("1.0.0") {
-                        customVersionImplementation(AndroidX.Navigation.navigation_common.dependencyAsString("1.1.2"))
+                        customVersionImplementation(Epit.navigation_common("1.1.2"))
                     }
                 }
             }

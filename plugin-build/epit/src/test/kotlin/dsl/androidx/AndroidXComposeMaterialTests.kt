@@ -1,5 +1,6 @@
 package dsl.androidx
 
+import Epit
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.androidx.AndroidX
 import epit.dsl.epitPreview
@@ -19,12 +20,16 @@ class AndroidXComposeMaterialTests {
 
         val config = project.configurations.create("implementation")
 
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
+
         project.dependencies {
             epitPreview {
                 androidx {
                     compose {
                         material("1.0.0") {
-                            implementation(AndroidX.Compose.Material.material)
+                            implementation(Epit.material)
                         }
                     }
                 }
@@ -50,12 +55,16 @@ class AndroidXComposeMaterialTests {
 
         val config = project.configurations.create("implementation")
 
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
+
         project.dependencies {
             epitPreview {
                 androidx {
                     compose {
                         material("1.0.0") {
-                            implementation(AndroidX.Compose.Material.material)
+                            implementation(Epit.material)
                         }
                     }
                 }
@@ -90,7 +99,7 @@ class AndroidXComposeMaterialTests {
                 androidx {
                     compose {
                         material("1.0.0") {
-                            customImplementation(AndroidX.Compose.Material.material.dependencyAsString)
+                            customImplementation(Epit.material)
                         }
                     }
                 }
@@ -125,7 +134,7 @@ class AndroidXComposeMaterialTests {
                 androidx {
                     compose {
                         material("1.0.0") {
-                            customImplementation(AndroidX.Compose.Material.material.dependencyAsString)
+                            customImplementation(Epit.material)
                         }
                     }
                 }
@@ -160,7 +169,7 @@ class AndroidXComposeMaterialTests {
                 androidx {
                     compose {
                         material("1.0.0") {
-                            customImplementation(AndroidX.Compose.Material.material.dependencyAsString("1.1.2"))
+                            customImplementation(Epit.material("1.1.2"))
                         }
                     }
                 }
@@ -195,7 +204,7 @@ class AndroidXComposeMaterialTests {
                 androidx {
                     compose {
                         material("1.0.0") {
-                            customVersionImplementation(AndroidX.Compose.Material.material.dependencyAsString("1.1.2"))
+                            customVersionImplementation(Epit.material("1.1.2"))
                         }
                     }
                 }

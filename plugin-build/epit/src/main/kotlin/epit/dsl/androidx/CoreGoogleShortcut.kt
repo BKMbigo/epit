@@ -1,5 +1,6 @@
 package epit.dsl.androidx
 
+import Epit
 import epit.EpitDependency
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
@@ -12,6 +13,15 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 class EpitAndroidXCoreGoogleShortcutsScope internal constructor(
     private val androidXCoreGoogleShortcutsVersion: String
 ) {
+
+    @ExperimentalEpitApi
+    val Epit.core_google_shortcuts
+        get() = AndroidX.Core.CoreGoogleShortcuts.core_google_shortcuts.dependencyAsString
+
+    @ExperimentalEpitApi
+    fun Epit.core_google_shortcuts(version: String) =
+        AndroidX.Core.CoreGoogleShortcuts.core_google_shortcuts.dependencyAsString(version)
+
     @ExperimentalEpitApi
     val AndroidX.Core.CoreGoogleShortcuts.dependencyAsString
         get(): String = moduleName joinWithColon androidXCoreGoogleShortcutsVersion

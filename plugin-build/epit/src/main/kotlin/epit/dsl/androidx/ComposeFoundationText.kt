@@ -1,5 +1,6 @@
 package epit.dsl.androidx
 
+import Epit
 import epit.EpitDependency
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
@@ -12,6 +13,17 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 class EpitAndroidXComposeFoundationTextScope internal constructor(
     private val androidXComposeFoundationTextVersion: String
 ) {
+
+    @ExperimentalEpitApi
+    val Epit.foundation_text
+        get() = AndroidX.Compose.Foundation.FoundationText.foundation_text.dependencyAsString
+
+    @ExperimentalEpitApi
+    fun Epit.foundation_text(version: String): String =
+        AndroidX.Compose.Foundation.FoundationText.foundation_text.dependencyAsString(version)
+
+    /* internal functions */
+
     @ExperimentalEpitApi
     val AndroidX.Compose.Foundation.FoundationText.dependencyAsString
         get(): String = moduleName joinWithColon androidXComposeFoundationTextVersion

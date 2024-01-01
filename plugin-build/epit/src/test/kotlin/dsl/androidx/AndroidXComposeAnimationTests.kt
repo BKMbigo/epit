@@ -1,5 +1,6 @@
 package dsl.androidx
 
+import Epit
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.androidx.AndroidX
 import epit.dsl.epitPreview
@@ -13,11 +14,15 @@ class AndroidXComposeAnimationTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose animation block implementation adds dependencies`() {
+    fun `verify that androidx compose animation block val adds dependencies`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
         val config = project.configurations.create("implementation")
+
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
 
         project.dependencies {
             epitPreview {
@@ -44,18 +49,22 @@ class AndroidXComposeAnimationTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx compose animation block implementation adds dependencies in correct version`() {
+    fun `verify that androidx compose animation block val adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
         val config = project.configurations.create("implementation")
+
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
 
         project.dependencies {
             epitPreview {
                 androidx {
                     compose {
                         animation("1.0.0") {
-                            implementation(AndroidX.Compose.Animation.animation)
+                            implementation(Epit.animation)
                         }
                     }
                 }
@@ -70,76 +79,6 @@ class AndroidXComposeAnimationTests {
             List(expectedDependencies.size) { "1.0.0" },
             config.dependencies.map { it.version },
             "androidx compose animation implementation does not add dependencies in the correct version"
-        )
-    }
-
-    @OptIn(ExperimentalEpitApi::class)
-    @Test
-    fun `verify that androidx compose animation block dependency adds the correct dependency on custom configuration`() {
-        val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("io.github.bkmbigo.epit")
-
-        val customConfig = project.configurations.create("customImplementation")
-
-        fun DependencyHandlerScope.customImplementation(dependency: String) {
-            add("customImplementation", dependency)
-        }
-
-        project.dependencies {
-            epitPreview {
-                androidx {
-                    compose {
-                        animation("1.0.0") {
-                            customImplementation(AndroidX.Compose.Animation.animation.dependencyAsString)
-                        }
-                    }
-                }
-            }
-        }
-
-        val expectedDependencies = listOf(
-            AndroidX.Compose.Animation.animation.moduleName
-        )
-
-        assertContentEquals(
-            expectedDependencies,
-            customConfig.dependencies.map { "${it.group}:${it.name}" },
-            "androidx compose animation val dependency does not add dependencies in the correct version"
-        )
-    }
-
-    @OptIn(ExperimentalEpitApi::class)
-    @Test
-    fun `verify that androidx compose animation block dependency adds dependencies in correct version`() {
-        val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("io.github.bkmbigo.epit")
-
-        val customConfig = project.configurations.create("customImplementation")
-
-        fun DependencyHandlerScope.customImplementation(dependency: String) {
-            add("customImplementation", dependency)
-        }
-
-        project.dependencies {
-            epitPreview {
-                androidx {
-                    compose {
-                        animation("1.0.0") {
-                            customImplementation(AndroidX.Compose.Animation.animation.dependencyAsString)
-                        }
-                    }
-                }
-            }
-        }
-
-        val expectedDependencies = listOf(
-            AndroidX.Compose.Animation.animation.moduleName
-        )
-
-        assertContentEquals(
-            List(expectedDependencies.size) { "1.0.0" },
-            customConfig.dependencies.map { it.version },
-            "androidx compose animation val dependency does not add dependencies in the correct version"
         )
     }
 
@@ -160,7 +99,7 @@ class AndroidXComposeAnimationTests {
                 androidx {
                     compose {
                         animation("1.0.0") {
-                            customImplementation(AndroidX.Compose.Animation.animation.dependencyAsString("1.1.2"))
+                            customImplementation(Epit.animation("1.1.2"))
                         }
                     }
                 }
@@ -195,7 +134,7 @@ class AndroidXComposeAnimationTests {
                 androidx {
                     compose {
                         animation("1.0.0") {
-                            customVersionImplementation(AndroidX.Compose.Animation.animation.dependencyAsString("1.1.2"))
+                            customVersionImplementation(Epit.animation("1.1.2"))
                         }
                     }
                 }

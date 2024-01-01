@@ -1,5 +1,6 @@
 package epit.dsl.androidx
 
+import Epit
 import epit.EpitDependency
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
@@ -12,6 +13,17 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 class EpitAndroidXTestOrchestratorScope internal constructor(
     private val androidXTestOrchestratorVersion: String
 ) {
+
+    @ExperimentalEpitApi
+    val Epit.orchestrator
+        get() = AndroidX.Test.Orchestrator.orchestrator.dependencyAsString
+
+    @ExperimentalEpitApi
+    fun Epit.orchestrator(version: String) =
+        AndroidX.Test.Orchestrator.orchestrator.dependencyAsString(version)
+
+    /* internal dependencies */
+
     @ExperimentalEpitApi
     val AndroidX.Test.Orchestrator.dependencyAsString
         get(): String = moduleName joinWithColon androidXTestOrchestratorVersion

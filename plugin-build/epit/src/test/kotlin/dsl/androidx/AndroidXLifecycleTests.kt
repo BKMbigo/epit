@@ -12,17 +12,21 @@ import kotlin.test.assertContentEquals
 class AndroidXLifecycleTests {
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx lifecycle block implementation adds dependencies`() {
+    fun `verify that androidx lifecycle block val adds dependencies`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
         val config = project.configurations.create("implementation")
 
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
+
         project.dependencies {
             epitPreview {
                 androidx {
                     lifecycle("1.0.0") {
-                        implementation(AndroidX.Lifecycle.lifecycle_common)
+                        implementation(Epit.lifecycle_common)
                     }
                 }
             }
@@ -41,17 +45,21 @@ class AndroidXLifecycleTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx lifecycle block implementation adds dependencies in correct version`() {
+    fun `verify that androidx lifecycle block val adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
         val config = project.configurations.create("implementation")
 
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
+
         project.dependencies {
             epitPreview {
                 androidx {
                     lifecycle("1.0.0") {
-                        implementation(AndroidX.Lifecycle.lifecycle_common)
+                        implementation(Epit.lifecycle_common)
                     }
                 }
             }
@@ -70,7 +78,7 @@ class AndroidXLifecycleTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx lifecycle block dependency adds the correct dependency on custom configuration`() {
+    fun `verify that androidx lifecycle block fun() adds the correct dependency on custom configuration`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -84,7 +92,7 @@ class AndroidXLifecycleTests {
             epitPreview {
                 androidx {
                     lifecycle("1.0.0") {
-                        customImplementation(AndroidX.Lifecycle.lifecycle_common.dependencyAsString)
+                        customImplementation(Epit.lifecycle_common("1.1.2"))
                     }
                 }
             }
@@ -103,73 +111,7 @@ class AndroidXLifecycleTests {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx lifecycle block dependency adds dependencies in correct version`() {
-        val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("io.github.bkmbigo.epit")
-
-        val customConfig = project.configurations.create("customImplementation")
-
-        fun DependencyHandlerScope.customImplementation(dependency: String) {
-            add("customImplementation", dependency)
-        }
-
-        project.dependencies {
-            epitPreview {
-                androidx {
-                    lifecycle("1.0.0") {
-                        customImplementation(AndroidX.Lifecycle.lifecycle_common.dependencyAsString)
-                    }
-                }
-            }
-        }
-
-        val expectedDependencies = listOf(
-            AndroidX.Lifecycle.lifecycle_common.moduleName
-        )
-
-        assertContentEquals(
-            List(expectedDependencies.size) { "1.0.0" },
-            customConfig.dependencies.map { it.version },
-            "androidx lifecycle val dependency does not add dependencies in the correct version"
-        )
-    }
-
-    @OptIn(ExperimentalEpitApi::class)
-    @Test
-    fun `verify that androidx lifecycle block fun dependency adds the correct dependency on custom configuration`() {
-        val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("io.github.bkmbigo.epit")
-
-        val customConfig = project.configurations.create("customImplementation")
-
-        fun DependencyHandlerScope.customImplementation(dependency: String) {
-            add("customImplementation", dependency)
-        }
-
-        project.dependencies {
-            epitPreview {
-                androidx {
-                    lifecycle("1.0.0") {
-                        customImplementation(AndroidX.Lifecycle.lifecycle_common.dependencyAsString("1.1.2"))
-                    }
-                }
-            }
-        }
-
-        val expectedDependencies = listOf(
-            AndroidX.Lifecycle.lifecycle_common.moduleName
-        )
-
-        assertContentEquals(
-            expectedDependencies,
-            customConfig.dependencies.map { "${it.group}:${it.name}" },
-            "androidx lifecycle val dependency does not add dependencies in the correct version"
-        )
-    }
-
-    @OptIn(ExperimentalEpitApi::class)
-    @Test
-    fun `verify that androidx lifecycle block fun dependency adds dependencies in correct version`() {
+    fun `verify that androidx lifecycle block fun() adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -183,7 +125,7 @@ class AndroidXLifecycleTests {
             epitPreview {
                 androidx {
                     lifecycle("1.0.0") {
-                        customVersionImplementation(AndroidX.Lifecycle.lifecycle_common.dependencyAsString("1.1.2"))
+                        customVersionImplementation(Epit.lifecycle_common("1.1.2"))
                     }
                 }
             }

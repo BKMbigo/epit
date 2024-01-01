@@ -1,5 +1,6 @@
 package dsl.androidx
 
+import Epit
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.androidx.AndroidX
 import epit.dsl.epitPreview
@@ -12,17 +13,21 @@ import kotlin.test.assertContentEquals
 class AndroidXPaging {
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx paging block implementation adds dependencies`() {
+    fun `verify that androidx paging block val adds dependencies`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
         val config = project.configurations.create("implementation")
 
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
+
         project.dependencies {
             epitPreview {
                 androidx {
                     paging("1.0.0") {
-                        implementation(AndroidX.Paging.paging_compose)
+                        implementation(Epit.paging_compose)
                     }
                 }
             }
@@ -41,17 +46,21 @@ class AndroidXPaging {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx paging block implementation adds dependencies in correct version`() {
+    fun `verify that androidx paging block val adds dependencies in correct version`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
         val config = project.configurations.create("implementation")
 
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
+
         project.dependencies {
             epitPreview {
                 androidx {
                     paging("1.0.0") {
-                        implementation(AndroidX.Paging.paging_compose)
+                        implementation(Epit.paging_compose)
                     }
                 }
             }
@@ -70,7 +79,7 @@ class AndroidXPaging {
 
     @OptIn(ExperimentalEpitApi::class)
     @Test
-    fun `verify that androidx paging block dependency adds the correct dependency on custom configuration`() {
+    fun `verify that androidx paging block fun() adds the correct dependency on custom configuration`() {
         val project = ProjectBuilder.builder().build()
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
@@ -84,73 +93,7 @@ class AndroidXPaging {
             epitPreview {
                 androidx {
                     paging("1.0.0") {
-                        customImplementation(AndroidX.Paging.paging_compose.dependencyAsString)
-                    }
-                }
-            }
-        }
-
-        val expectedDependencies = listOf(
-            AndroidX.Paging.paging_compose.moduleName
-        )
-
-        assertContentEquals(
-            expectedDependencies,
-            customConfig.dependencies.map { "${it.group}:${it.name}" },
-            "androidx paging val dependency does not add dependencies in the correct version"
-        )
-    }
-
-    @OptIn(ExperimentalEpitApi::class)
-    @Test
-    fun `verify that androidx paging block dependency adds dependencies in correct version`() {
-        val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("io.github.bkmbigo.epit")
-
-        val customConfig = project.configurations.create("customImplementation")
-
-        fun DependencyHandlerScope.customImplementation(dependency: String) {
-            add("customImplementation", dependency)
-        }
-
-        project.dependencies {
-            epitPreview {
-                androidx {
-                    paging("1.0.0") {
-                        customImplementation(AndroidX.Paging.paging_compose.dependencyAsString)
-                    }
-                }
-            }
-        }
-
-        val expectedDependencies = listOf(
-            AndroidX.Paging.paging_compose.moduleName
-        )
-
-        assertContentEquals(
-            List(expectedDependencies.size) { "1.0.0" },
-            customConfig.dependencies.map { it.version },
-            "androidx paging val dependency does not add dependencies in the correct version"
-        )
-    }
-
-    @OptIn(ExperimentalEpitApi::class)
-    @Test
-    fun `verify that androidx paging block fun dependency adds the correct dependency on custom configuration`() {
-        val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("io.github.bkmbigo.epit")
-
-        val customConfig = project.configurations.create("customImplementation")
-
-        fun DependencyHandlerScope.customImplementation(dependency: String) {
-            add("customImplementation", dependency)
-        }
-
-        project.dependencies {
-            epitPreview {
-                androidx {
-                    paging("1.0.0") {
-                        customImplementation(AndroidX.Paging.paging_compose.dependencyAsString("1.1.2"))
+                        customImplementation(Epit.paging_compose("1.1.2"))
                     }
                 }
             }
@@ -183,7 +126,7 @@ class AndroidXPaging {
             epitPreview {
                 androidx {
                     paging("1.0.0") {
-                        customVersionImplementation(AndroidX.Paging.paging_compose.dependencyAsString("1.1.2"))
+                        customVersionImplementation(Epit.paging_compose("1.1.2"))
                     }
                 }
             }

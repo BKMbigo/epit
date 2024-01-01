@@ -1,5 +1,6 @@
 package epit.dsl.androidx
 
+import Epit
 import epit.EpitDependency
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
@@ -12,6 +13,24 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 class EpitAndroidXComposeFoundationScope internal constructor(
     private val androidXComposeFoundationVersion: String
 ) {
+
+    @ExperimentalEpitApi
+    val Epit.foundation
+        get() = AndroidX.Compose.Foundation.Foundation.foundation.dependencyAsString
+
+    @ExperimentalEpitApi
+    fun Epit.foundation(version: String) = AndroidX.Compose.Foundation.Foundation.foundation.dependencyAsString(version)
+
+    @ExperimentalEpitApi
+    val Epit.foundation_layout
+        get() = AndroidX.Compose.Foundation.Foundation.foundation_layout.dependencyAsString
+
+    @ExperimentalEpitApi
+    fun Epit.foundation_layout(version: String) =
+        AndroidX.Compose.Foundation.Foundation.foundation_layout.dependencyAsString(version)
+
+    /* internal functions */
+
     @ExperimentalEpitApi
     val AndroidX.Compose.Foundation.Foundation.dependencyAsString
         get(): String = moduleName joinWithColon androidXComposeFoundationVersion

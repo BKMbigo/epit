@@ -1,5 +1,6 @@
 package epit.dsl.androidx
 
+import Epit
 import epit.EpitDependency
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
@@ -12,6 +13,16 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 class EpitAndroidXRecyclerViewScope internal constructor(
     private val androidXRecyclerViewVersion: String
 ) {
+
+    @ExperimentalEpitApi
+    val Epit.recyclerview
+        get() = AndroidX.RecyclerView.recyclerview.dependencyAsString
+
+    @ExperimentalEpitApi
+    fun Epit.recyclerview(version: String) =
+        AndroidX.RecyclerView.recyclerview.dependencyAsString(version)
+
+
     @ExperimentalEpitApi
     val AndroidX.RecyclerView.dependencyAsString
         get(): String = moduleName joinWithColon androidXRecyclerViewVersion
