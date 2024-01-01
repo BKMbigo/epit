@@ -273,13 +273,11 @@ android {
 //                    implementation(it)
 //                }
 //            }
-//            google {
-//                accompanist(libs.versions.google.accompanist.get()) {
-//                    Google.Accompanist.values().forEach {
-//                        implementation(it)
-//                    }
-//                }
-//            }
+            google {
+                accompanist(libs.versions.google.accompanist.get()) {
+                    implementation(Epit.accompanist_permissions)
+                }
+            }
             glide {
                 glide(libs.versions.glide.toString()) {
 

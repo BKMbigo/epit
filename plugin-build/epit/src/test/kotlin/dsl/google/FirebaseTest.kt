@@ -1,5 +1,6 @@
-package dsl
+package dsl.google
 
+import Epit
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.epitPreview
 import epit.dsl.google.Google
@@ -21,11 +22,15 @@ class FirebaseTest {
         val customConfig = project.configurations.create("customImplementation")
         val customVersionConfig = project.configurations.create("customVersionImplementation")
 
-        fun DependencyHandlerScope.customImplementation(dependency: String) {
-            add("customImplementation", dependency)
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
         }
 
         fun DependencyHandlerScope.customImplementation(dependency: Dependency) {
+            add("customImplementation", dependency)
+        }
+
+        fun DependencyHandlerScope.customImplementation(dependency: String) {
             add("customImplementation", dependency)
         }
 
@@ -41,13 +46,13 @@ class FirebaseTest {
             epitPreview {
                 google {
                     firebaseBom("32.6.0") {
-                        implementation(Google.Firebase.firebase_firestore)
+                        implementation(Epit.firebase_firestore)
 
                         customImplementation(bom)
-                        customImplementation(Google.Firebase.firebase_firestore.dependencyAsString)
+                        customImplementation(Epit.firebase_firestore)
 
                         customVersionImplementation(bom("1.1.1"))
-                        customVersionImplementation(Google.Firebase.firebase_firestore.dependencyAsString("1.1.1"))
+                        customVersionImplementation(Epit.firebase_firestore("1.1.1"))
                     }
                 }
             }
