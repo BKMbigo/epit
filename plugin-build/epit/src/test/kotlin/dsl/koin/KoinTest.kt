@@ -1,5 +1,6 @@
-package dsl
+package dsl.koin
 
+import Epit
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.epitPreview
 import epit.dsl.koin.Koin
@@ -22,6 +23,10 @@ class KoinTest {
         val customConfig = project.configurations.create("customImplementation")
         val customVersionConfig = project.configurations.create("customVersionImplementation")
 
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
+
         fun DependencyHandlerScope.customImplementation(dependency: String) {
             add("customImplementation", dependency)
         }
@@ -41,13 +46,13 @@ class KoinTest {
         project.dependencies {
             epitPreview {
                 koinBom("3.5.1") {
-                    implementation(Koin.koin_android)
+                    implementation(Epit.koin_android)
 
                     customImplementation(bom)
-                    customImplementation(Koin.koin_android.dependencyAsString)
+                    customImplementation(Epit.koin_android)
 
                     customVersionImplementation(bom("1.1.1"))
-                    customVersionImplementation(Koin.koin_android.dependencyAsString)
+                    customVersionImplementation(Epit.koin_android)
                 }
             }
         }

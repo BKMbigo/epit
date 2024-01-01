@@ -201,20 +201,20 @@ android {
 //                }
 //            }
 
-//            koin(libs.versions.koin.bom.get()) {
-//                implementation(Koin.koin_android)
-//                implementation(Koin.koin_android_compat)
-//                implementation(Koin.koin_androidx_compose)
-//                implementation(Koin.koin_androidx_compose_navigation)
-//                implementation(Koin.koin_androidx_navigation)
-//                implementation(Koin.koin_androidx_workmanager)
-//                implementation(Koin.koin_compose)
-//                implementation(Koin.koin_core)
-//                implementation(Koin.koin_core_coroutines)
-//                implementation(Koin.koin_ktor)
-//                implementation(Koin.koin_logger_slf4j)
-//                testImplementation(Koin.koin_test.dependency)
-//                androidTestImplementation(Koin.koin_android_test.dependency)
+//            koinBom(libs.versions.koin.bom.get()) {
+//                implementation(Epit.koin_android)
+//                implementation(Epit.koin_android_compat)
+//                implementation(Epit.koin_androidx_compose)
+//                implementation(Epit.koin_androidx_compose_navigation)
+//                implementation(Epit.koin_androidx_navigation)
+//                implementation(Epit.koin_androidx_workmanager)
+//                implementation(Epit.koin_compose)
+//                implementation(Epit.koin_core)
+//                implementation(Epit.koin_core_coroutines)
+//                implementation(Epit.koin_ktor)
+//                implementation(Epit.koin_logger_slf4j)
+//                testImplementation(Epit.koin_test)
+//                androidTestImplementation(Epit.koin_android_test)
 //            }
 
 //            kotlinx {
@@ -273,19 +273,19 @@ android {
 //                    implementation(it)
 //                }
 //            }
-            google {
-                accompanist(libs.versions.google.accompanist.get()) {
-                    implementation(Epit.accompanist_permissions)
-                }
-            }
-            glide {
-                glide(libs.versions.glide.toString()) {
-
-                }
-                glideKtx(libs.versions.glide.ktx.get()) {
-
-                }
-            }
+//            google {
+//                accompanist(libs.versions.google.accompanist.get()) {
+//                    implementation(Epit.accompanist_permissions)
+//                }
+//            }
+//            glide {
+//                glide(libs.versions.glide.toString()) {
+//
+//                }
+//                glideKtx(libs.versions.glide.ktx.get()) {
+//
+//                }
+//            }
 //            raamcosta {
 //                composeDestinations(libs.versions.raamcosta.composeDestinations.get()) {
 //                    Raamcosta.ComposeDestinations.values().forEach {
