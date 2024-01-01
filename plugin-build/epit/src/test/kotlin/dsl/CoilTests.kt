@@ -1,10 +1,12 @@
 package dsl
 
+import Epit
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.coil.Coil
 import epit.dsl.coil.EpitCoilScope
 import epit.dsl.epitPreview
 import epit.utils.joinWithColon
+import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.testfixtures.ProjectBuilder
 import org.junit.jupiter.api.Test
@@ -37,7 +39,7 @@ class CoilTests {
         assertEquals(
             config.dependencies.size,
             1,
-            "coil block other dependency other than bom"
+            "coil block has other dependency other than bom"
         )
 
         assertContentEquals(
@@ -54,11 +56,14 @@ class CoilTests {
 
         val config = project.configurations.create("implementation")
 
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
 
         project.dependencies {
             epitPreview {
                 coilBom("1.0.0") {
-                    implementation(Coil.coil)
+                    implementation(Epit.coil)
                 }
             }
         }
@@ -77,11 +82,14 @@ class CoilTests {
 
         val config = project.configurations.create("implementation")
 
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
 
         project.dependencies {
             epitPreview {
                 coilBom("1.0.0") {
-                    implementation(Coil.coil)
+                    implementation(Epit.coil)
                 }
             }
         }
