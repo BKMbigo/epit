@@ -1,9 +1,8 @@
 package epit.dsl.squareup
 
-import epit.EpitDependency
+import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InvalidScopeEpitDependency
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -12,6 +11,25 @@ import org.gradle.kotlin.dsl.DependencyHandlerScope
 class EpitSquarePicassoScope internal constructor(
     private val squarePicassoVersion: String
 ) {
+
+    @ExperimentalEpitApi
+    val Epit.picasso
+        get() = SquareUp.Picasso.picasso.dependencyAsString
+
+    @ExperimentalEpitApi
+    fun Epit.picasso(version: String) =
+        SquareUp.Picasso.picasso.dependencyAsString(version)
+
+    @ExperimentalEpitApi
+    val Epit.picasso_pollexor
+        get() = SquareUp.Picasso.picasso_pollexor.dependencyAsString
+
+    @ExperimentalEpitApi
+    fun Epit.picasso_pollexor(version: String) =
+        SquareUp.Picasso.picasso_pollexor.dependencyAsString(version)
+
+    /* Internal Functions */
+
     @ExperimentalEpitApi
     val SquareUp.Picasso.dependencyAsString
         get(): String = moduleName joinWithColon squarePicassoVersion
@@ -19,14 +37,9 @@ class EpitSquarePicassoScope internal constructor(
     @ExperimentalEpitApi
     fun SquareUp.Picasso.dependencyAsString(version: String) = moduleName joinWithColon version
 
+    @Deprecated("This function has been deprecated in favour of Epit namespace")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(picasso: SquareUp.Picasso) {
         add("implementation", picasso.dependencyAsString)
-    }
-
-    @Suppress("UNUSED_PARAMETER")
-    @InvalidScopeEpitDependency
-    fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
-        throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")
     }
 }

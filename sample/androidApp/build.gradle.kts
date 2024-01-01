@@ -240,9 +240,7 @@ android {
 
 //            squareup {
 //                retrofit2(libs.versions.squareup.retrofit2.get()) {
-//                    SquareUp.Retrofit2.values().forEach {
-//                        implementation(it)
-//                    }
+//                   implementation(Epit)
 //                }
 //
 //                okhttp3(libs.versions.squareup.okhttp3.bom.get()) {
@@ -263,6 +261,7 @@ android {
 //                    }
 //                }
 //            }
+
 //            voyager(libs.versions.voyager.get()) {
 //                Voyager.values().forEach {
 //                    implementation(it)
