@@ -1,5 +1,6 @@
 package dsl
 
+import Epit
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.androidx.AndroidX
 import epit.dsl.epitPreview
@@ -20,6 +21,10 @@ class ComposeTest {
         val config = project.configurations.create("implementation")
         val customConfig = project.configurations.create("customImplementation")
         val customVersionConfig = project.configurations.create("customVersionImplementation")
+
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
 
         fun DependencyHandlerScope.customImplementation(dependency: String) {
             add("customImplementation", dependency)
@@ -42,13 +47,13 @@ class ComposeTest {
                 androidx {
                     compose {
                         composeBom("2023.10.01") {
-                            implementation(AndroidX.Compose.Runtime.Runtime.runtime)
+                            implementation(Epit.runtime)
 
                             customImplementation(bom)
-                            customImplementation(AndroidX.Compose.Runtime.Runtime.runtime.dependencyAsString)
+                            customImplementation(Epit.runtime)
 
                             customVersionImplementation(bom("2023.09.00"))
-                            customVersionImplementation(AndroidX.Compose.Runtime.Runtime.runtime.dependencyAsString("1.1.1"))
+                            customVersionImplementation(Epit.runtime("1.1.1"))
                         }
                     }
                 }

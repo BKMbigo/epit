@@ -124,7 +124,11 @@ class EpitAndroidXComposeUIScope internal constructor(
     fun Epit.ui_viewbinding(version: String) =
         AndroidX.Compose.UI.ui_viewbinding.dependencyAsString(version)
 
-    /* internal functions */
+    /*
+    * ==================================
+    * ====== Internal Functions ========
+    * ==================================
+    * */
 
     @ExperimentalEpitApi
     val AndroidX.Compose.UI.dependencyAsString

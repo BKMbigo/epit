@@ -30,7 +30,11 @@ class EpitAndroidXComposeMaterial3Scope internal constructor(
     fun Epit.material3_window_size_class(version: String) =
         AndroidX.Compose.Material3.Material3.material3_window_size_class.dependencyAsString(version)
 
-    /* internal function */
+    /*
+    * ===============================
+    * ===== Internal Functions ======
+    * ===============================
+    * */
 
     @ExperimentalEpitApi
     val AndroidX.Compose.Material3.Material3.dependencyAsString

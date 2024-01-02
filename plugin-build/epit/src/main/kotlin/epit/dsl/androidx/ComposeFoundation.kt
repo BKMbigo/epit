@@ -27,7 +27,11 @@ class EpitAndroidXComposeFoundationScope internal constructor(
     fun Epit.foundation_layout(version: String) =
         AndroidX.Compose.Foundation.Foundation.foundation_layout.dependencyAsString(version)
 
-    /* internal functions */
+    /*
+    * ==============================
+    * ==== Internal Functions ======
+    * ==============================
+    * */
 
     @ExperimentalEpitApi
     val AndroidX.Compose.Foundation.Foundation.dependencyAsString

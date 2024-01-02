@@ -35,7 +35,11 @@ class EpitAndroidXComposeCompilerScope internal constructor(
     @ExperimentalEpitApi
     fun Epit.compiler_hosted(version: String) = AndroidX.Compose.Compiler.compiler_hosted.dependencyAsString(version)
 
-    /* internal functions */
+    /*
+    * ==============================
+    * ===== Internal Functions =====
+    * ==============================
+    * */
 
     @ExperimentalEpitApi
     val AndroidX.Compose.Compiler.dependencyAsString

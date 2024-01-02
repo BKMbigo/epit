@@ -44,7 +44,11 @@ class EpitAndroidXComposeMaterialScope internal constructor(
     fun Epit.material_ripple(version: String) =
         AndroidX.Compose.Material.material_ripple.dependencyAsString(version)
 
-    /* internal function */
+    /*
+    * ===============================
+    * ===== Internal Functions ======
+    * ===============================
+    * */
 
     @ExperimentalEpitApi
     val AndroidX.Compose.Material.dependencyAsString

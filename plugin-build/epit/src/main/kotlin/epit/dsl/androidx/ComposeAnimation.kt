@@ -46,7 +46,11 @@ class EpitAndroidXComposeAnimationScope internal constructor(
     fun Epit.animation_tooling_internal(version: String) =
         AndroidX.Compose.Animation.animation_tooling_internal.dependencyAsString(version)
 
-    /* internal functions */
+    /*
+    * ===============================
+    * ===== Internal Functions ======
+    * ===============================
+    * */
 
     @ExperimentalEpitApi
     val AndroidX.Compose.Animation.dependencyAsString

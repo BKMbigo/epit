@@ -52,7 +52,11 @@ class EpitAndroidXComposeRuntimeScope internal constructor(
     fun Epit.runtime_saveable(version: String) =
         AndroidX.Compose.Runtime.Runtime.runtime_saveable.dependencyAsString(version)
 
-    /* internal function */
+    /*
+    * ================================
+    * ===== Internal functions =======
+    * ================================
+    * */
 
     @ExperimentalEpitApi
     val AndroidX.Compose.Runtime.Runtime.dependencyAsString
