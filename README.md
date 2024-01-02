@@ -7,25 +7,27 @@ with epit, you can define your dependencies as shown below:
 
 ```kotlin
 dependencies {
-    androidx {
-        core {
-            core("1.12.0") {
-                implementation(AndroidX.Core.Core.core_ktx)
+    epitPreview {
+        androidx {
+            core {
+                core("1.12.0") {
+                    implementation(Epit.core_ktx)
+                }
+            }
+            navigation("2.7.5") {
+                implementation(Epit.navigation_compose)
             }
         }
-        navigation("2.7.5") {
-            implementation(AndroidX.navigation.navigation_compose)
+        kotlinx {
+            coroutines("1.7.3") {
+                implementation(Epit.coroutines_core)
+                testImplementation(Epit.coroutines_testing)
+            }
         }
-    }
-    kotlinx {
-        coroutines("1.7.3") {
-            implementation(KotlinX.Coroutines.coroutines_core)
-            testImplementation(KotlinX.Coroutines.coroutines_testing.dependency)
+        koin("3.5.1") {
+            implementation(Epit.koin_core)
+            implementation(Epit.koin_android)
         }
-    }
-    koin("3.5.1") {
-        implementation(Koin.koin_core)
-        implementation(Koin.koin_android)
     }
 }
 ```

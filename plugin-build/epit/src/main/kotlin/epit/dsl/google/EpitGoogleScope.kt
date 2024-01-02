@@ -24,7 +24,7 @@ class EpitGoogleScope internal constructor(
     fun firebaseBom(bomVersion: String, block: EpitFirebaseScope.() -> Unit) {
         val firebaseScope = EpitFirebaseScope(bomVersion)
         with(dependencyHandlerScope) {
-            add("implementation", firebaseScope.bomAsString)
+            add("implementation", platform(firebaseScope.bomAsString))
         }
         block(firebaseScope)
     }

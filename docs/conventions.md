@@ -4,7 +4,7 @@ This is a guide on conventions used in the plugin
 
 There are two methods you can use to define a dependency:
 
-### i. epit dependencies
+### i. epit dependencies (DEPRECATED)
 
 You can add dependencies as follows
 > Note that with this option, you have to declare the specific version per dependencies as shown below:
@@ -162,37 +162,37 @@ coroutines(/* version */) {
 >        androidx {
 >           core {
 >               core(/* Enter the version of androidx core: "1.12.0" */) {
->                   implementation(AndroidX.Core.Core.core)
->                   implementation(AndroidX.Core.Core.core_ktx)
->                   implementation(AndroidX.Core.Core.core_testing)
+>                   implementation(Epit.Core.core)
+>                   implementation(Epit.core_ktx)
+>                   implementation(Epit.core_testing)
 >               }
 >               coreAnimation(/* Enter the version of androidx core animation: "1.0.0-rc01" */) {
->                   implementation(AndroidX.Core.CoreAnimation.core_animation)
->                   implementation(AndroidX.Core.CoreAnimation.core_animation_testing)
+>                   implementation(Epit.core_animation)
+>                   implementation(Epit.core_animation_testing)
 >               }
 >               coreGoogleShortcuts(/* Enter the version of androidx core google shortcuts: "1.1.0" */) {
->                   implementation(AndroidX.Core.CoreGoogleShortcuts.core_google_shortcuts)
+>                   implementation(Epit.core_google_shortcuts)
 >               }
 >               coreLocation(/* Enter the version of androidx core location: "1.0.0-alpha01" */) {
->                   implementation(AndroidX.Core.CoreLocation.core_i18n)
->                   implementation(AndroidX.Core.CoreLocation.core_location_altitude)
+>                   implementation(Epit.core_i18n)
+>                   implementation(Epit.core_location_altitude)
 >               }
 >               corePerformance(/* Enter the version of androidx core performance: "1.0.0-beta02" */) {
->                   implementation(AndroidX.Core.CorePerformance.core_performance)
->                   implementation(AndroidX.Core.CorePerformance.core_performance_play_services)
->                   implementation(AndroidX.Core.CorePerformance.core_performance_testing)
+>                   implementation(Epit.core_performance)
+>                   implementation(Epit.core_performance_play_services)
+>                   implementation(Epit.core_performance_testing)
 >               }
 >               coreRemoteViews(/* Enter the version of androidx core remote views: "1.0.0" */) {
->                   implementation(AndroidX.Core.CoreRemoteViews.core_remoteviews)
+>                   implementation(Epit.core_remoteviews)
 >               }
 >               coreRole(/* Enter the version of androidx core role: "1.0.0" */) {
->                   implementation(AndroidX.Core.CoreRole.core_role)
+>                   implementation(Epit.core_role)
 >               }
 >               coreSplashscreen(/* Enter the version of androidx core splashscreen: "1.0.1" */) {
->                   implementation(AndroidX.Core.CoreSplashscreen.core_splashscreen)
+>                   implementation(Epit.core_splashscreen)
 >               }
 >               coreTelecom(/* Enter the version of androidx core telecom: "1.0.0-alpha02" */) {
->                   implementation(AndroidX.Core.CoreTelecom.core_telecom)
+>                   implementation(Epit.core_telecom)
 >               }
 >           }
 >        }
@@ -218,7 +218,7 @@ coroutines(/* version */) {
 >       androidx {
 >           appcompat(libs.versions.androidx.appcompat.get()) { /* Dependencies */ }
 >           core {
->               /* The following declaration does not have a get() method due to "androidx-core-splashscreen" version */
+>               /* The following declaration does not have a get() method due to the conflicting "androidx-core-splashscreen" version */
 >               core(libs.versions.androidx.core.toString()) { /* Dependencies */ }
 >           }
 >       }
@@ -238,22 +238,24 @@ dependencies {
     epitPreview {
         kotlinx {
             coroutines("1.7.3") {
-                implementation(KotlinX.Coroutines.coroutines_core)
-                implementation(KotlinX.Coroutines.coroutines_rxjava2)
-              testImplementation(KotlinX.Coroutines.coroutines_test.dependencyAsString)
-              androidTestImplementation(KotlinX.Coroutines.coroutines_test.dependencyAsString("1.5.1"))
+              implementation(Epit.coroutines_core)
+              implementation(Epit.coroutines_rxjava2)
+              testImplementation(Epit.coroutines_test)
+              androidTestImplementation(Epit.coroutines_test("1.5.1"))
             }
         }
     }
 }
 ```
 
+You can specify to include a separate version by using the function equivalent
+
 The above block adds:
 
 - `org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3` and `org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3` in
   the `implementation` configuration
 - `org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3` in the `testImplementation` configuration
-- `org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.1` in the `testImplementation` configuration
+- `org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.1` in the `androidTestImplementation` configuration
 
 The name of the dependencies, are mostly similar to the path taken to reach the block, for example:
 
@@ -292,62 +294,40 @@ dependencies {
 }
 ```
 
-> **Note**  
-> The plugin cannot guarantee the configurations present in your module, therefore, only `implementation` is implemented
-> in the plugin  
-> When declaring dependencies in the `implementation` configuration, you don't have to use  `.dependencyAsString` at the
-> end of
-> your declaration:
-> ```kotlin
-> ...
-> coroutines("1.7.3") {
->   implementation(KotlinX.Coroutines.coroutines_core)
-> }
-> ...
->```   
-> However, in all other configurations, you have to explicitly call `.dependencyAsString` at the end of your dependency
-> declaration
-> ```kotlin
-> ...
-> coroutines("1.7.3") {
->   debugImplementation(KotlinX.Coroutines.coroutines_rxjava2.dependencyAsString)
->   releaseImplementation(KotlinX.Coroutines.coroutines_rxjava3.dependencyAsString)
-> }
-> ...
-> androidx {
->   room("2.6.2") {
->       ksp(AndroidX.Room.room_compiler.dependencyAsString)
->   }
-> }
-> ...
->```
-> You can also call a different version of a dependency by calling `.dependencyAsString(/* version */)` on the
-> dependency
-> ```kotlin
-> coroutines("1.7.3") {
->   implementation(KotlinX.Coroutines.coroutines_core)
->   implementation(KotlinX.Coroutines.coroutines_rxjava2.dependencyAsString("1.6.4")) /* This will pull in version "1.6.4" of this library */
-> }
->```
-> If your dependencies block is based on a BOM(bill of materials), you can call `bom` to get the bom and use it as
-> follows:
-> ```kotlin
-> androidx {
->   compose("2023.10.01") {
->       implementation(AndroidX.Compose.Runtime.Runtime.runtime)
-> 
->       androidTestImplementation(bom)
->       /* You can also use */
->       androidTestImplementation(platform(bomAsString))
->       androidTestImplementation(AndroidX.Compose.UI.ui_test_junit4)
->
->       testImplementation(bom("2023.09.00")) /* Loads a different BOM version */
->       /* You can also use */
->       testImplementation(platform(bomAsString("2023.09.00"))) /* Loads a different BOM version */
->       testImplementation(AndroidX.Compose.UI.ui_test_junit4)
->   }
-> }
->```
+### BOM convention
+
+if the library includes a bom, the block will be named with a `-bom`suffix (for
+example: `ktorBom`, `composeBom`, `firebaseBom`). Upon adding the block, the plugin will add the bom as a dependency in
+the `implementation` configuration.
+
+```kotlin
+dependencies {
+  epitPreview {
+    koinBom(/* The version of koin you would like: 3.5.1*/) {
+      // This will automatically add implementation(platform("io.insert-koin:koin-bom:3.5.1"))
+
+      implementation(Epit.koin_core)
+    }
+  }
+}
+```
+
+if you want to use the bom in another configuration (other than `implementation` for example, `testImplementation`
+or `androidTestImplementation`), you can use the property `bom` as follows:
+
+```kotlin
+dependencies {
+  epitPreview {
+    koinBom(/* The version of koin you would like: 3.5.1*/) {
+      testImplementation(bom)
+      testImplementation(Epit.koin_test)
+
+      androidTestImplementation(bom("3.5.0")) /* If you want to use a different version */
+      androidTestImplementation(Epit.koin_android_test)
+    }
+  }
+}
+```
 
 ### Versioning
 

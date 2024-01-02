@@ -63,8 +63,8 @@ dependencies {
     epitPreview {
         androidx {
             appcompat(/* Place the version of appcompat library you want: "1.6.1" */) {
-                implementation(AndroidX.Appcompat.appcompat)
-                implementation(AndroidX.Appcompat.appcompat_resources)
+              implementation(Epit.appcompat)
+              implementation(Epit.appcompat_resources)
             }
         }
     }
@@ -78,12 +78,12 @@ dependencies {
     epitPreview {
         androidx {
             camera(/* Place the version of camera library you want: "1.3.0" */) {
-                implementation(AndroidX.Camera.camera_lifecycle)
-                implementation(AndroidX.Camera.camera_extensions)
-                implementation(AndroidX.Camera.camera_core)
-                implementation(AndroidX.Camera.camera_view)
-                implementation(AndroidX.Camera.camera_camera2)
-                implementation(AndroidX.Camera.camera_video)
+              implementation(Epit.camera_lifecycle)
+              implementation(Epit.camera_extensions)
+              implementation(Epit.camera_core)
+              implementation(Epit.camera_view)
+              implementation(Epit.camera_camera2)
+              implementation(Epit.camera_video)
             }
         }
     }
@@ -101,8 +101,8 @@ dependencies {
         androidx {
             compose {
               composeBom(/* Enter the version of compose-bom: "2023.10.01" */) {
-                    implementation(AndroidX.Compose.Animation.animation)
-                    implementation(AndroidX.Compose.Runtime.Runtime.runtime)
+                implementation(Epit.animation)
+                implementation(Epit.runtime)
                 }
             }
         }
@@ -127,10 +127,10 @@ dependencies {
         androidx {
             compose {
                 animation(/* Place the version of compose.animation library you want: "1.5.4" */) {
-                    implementation(AndroidX.Compose.Animation.animation)
-                    implementation(AndroidX.Compose.Animation.animation_core)
-                    implementation(AndroidX.Compose.Animation.animation_graphics)
-                    implementation(AndroidX.Compose.Animation.animation_tooling_internal)
+                  implementation(Epit.animation)
+                  implementation(Epit.animation_core)
+                  implementation(Epit.animation_graphics)
+                  implementation(Epit.animation_tooling_internal)
                 }
             }
         }
@@ -148,9 +148,9 @@ dependencies {
         androidx {
             compose {
                 compiler(/* Place the version of compose.compiler library you want: "1.5.4" */) {
-                    implementation(AndroidX.Compose.Compiler.compiler)
-                    implementation(AndroidX.Compose.Compiler.compiler_daemon)
-                    implementation(AndroidX.Compose.Compiler.compiler_hosted)
+                  implementation(Epit.compiler)
+                  implementation(Epit.compiler_daemon)
+                  implementation(Epit.compiler_hosted)
                 }
             }
         }
@@ -169,8 +169,8 @@ dependencies {
             compose {
                 foundation {
                     foundation(/* Place the version of compose.foundation library you want: "1.5.4" */) {
-                        implementation(AndroidX.Compose.Foundation.Foundation.foundation)
-                        implementation(AndroidX.Compose.Foundation.Foundation.foundation_layout)
+                      implementation(Epit.foundation)
+                      implementation(Epit.foundation_layout)
                     }
                 }
             }
@@ -189,7 +189,7 @@ dependencies {
 >               compose {
 >                   foundation {
 >                       foundationText(/* Place the version of compose.foundation_text library you want: "1.0.0-alpha07" */) {
->                           implementation(AndroidX.Compose.Foundation.FoundationText.foundation_text)
+>                           implementation(Epit.foundation_text)
 >                       }
 >                   }
 >               }
@@ -209,10 +209,10 @@ dependencies {
         androidx {
             compose {
                 material(/* Place the version of compose.material library you want: "1.5.4" */) {
-                    implementation(AndroidX.Compose.Material.material)
-                    implementation(AndroidX.Compose.Material.material_icons_core)
-                    implementation(AndroidX.Compose.Material.material_icons_extended)
-                    implementation(AndroidX.Compose.Material.material_ripple)
+                  implementation(Epit.material)
+                  implementation(Epit.material_icons_core)
+                  implementation(Epit.material_icons_extended)
+                  implementation(Epit.material_ripple)
                 }
             }
         }
@@ -231,8 +231,8 @@ dependencies {
             compose {
                 material3 {
                     material3(/* Place the version of compose.material3 library you want: "1.1.2" */) {
-                        implementation(AndroidX.Compose.Material3.Material3.material3)
-                        implementation(AndroidX.Compose.Material3.Material3.material3_window_size_class)
+                      implementation(Epit.material3)
+                      implementation(Epit.material3_window_size_class)
                     }
                 }
             }
@@ -253,8 +253,8 @@ dependencies {
 >                compose {
 >                   material3 {
 >                       material3Adaptive(/* Place the version of compose.material3 library you want: "1.0.0-alpha01" */) {
->                           implementation(AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive)
->                           implementation(AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive_navigation_suite)
+>                           implementation(Epit.material3_adaptive)
+>                           implementation(Epit.material3_adaptive_navigation_suite)
 >                       }
 >                   }
 >               }
@@ -274,11 +274,11 @@ dependencies {
             compose {
                 runtime {
                     runtime(/* Place the version of compose.runtime library you want: "1.5.4" */) {
-                        implementation(AndroidX.Compose.Runtime.Runtime.runtime)
-                        implementation(AndroidX.Compose.Runtime.Runtime.runtime_livedata)
-                        implementation(AndroidX.Compose.Runtime.Runtime.runtime_rxjava2)
-                        implementation(AndroidX.Compose.Runtime.Runtime.runtime_rxjava3)
-                        implementation(AndroidX.Compose.Runtime.Runtime.runtime_saveable)
+                      implementation(Epit.runtime)
+                      implementation(Epit.runtime_livedata)
+                      implementation(Epit.runtime_rxjava2)
+                      implementation(Epit.runtime_rxjava3)
+                      implementation(Epit.runtime_saveable)
                     }
                 }
             }
@@ -299,7 +299,7 @@ dependencies {
 >               compose {
 >                   runtime {
 >                       runtimeTracing(/* Place the version of compose.runtime_tracing library you want: "1.0.0-alpha05" */) {
->                           implementation(AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing)
+>                           implementation(Epit.runtime_tracing)
 >                       }
 >                   }
 >               }
@@ -319,10 +319,10 @@ dependencies {
         androidx {
             compose {
                 ui(/* Place the version of compose.ui library you want: "1.5.4" */) {
-                    implementation(AndroidX.Compose.UI.ui)
-                    implementation(AndroidX.Compose.UI.ui_android_stubs)
-                    implementation(AndroidX.Compose.UI.ui_geometry)
-                    implementation(AndroidX.Compose.UI.ui_graphics)
+                    implementation(Epit.ui)
+                    implementation(Epit.ui_android_stubs)
+                    implementation(Epit.ui_geometry)
+                    implementation(Epit.ui_graphics)
                     ...
                 }
             }
@@ -340,16 +340,16 @@ dependencies {
         androidx {
            constraintLayout {
                constraintLayout(/* Enter the version of constraint layout: "2.1.4" */) {
-                   implementation(AndroidX.ConstraintLayout.ConstraintLayout.constraintlayout)
+                   implementation(Epit.constraintlayout)
                }
                constraintLayoutCompose(/* Enter the version of constraint layout compose: "" */) {
-                   implementation(AndroidX.ConstraintLayout.ConstraintLayoutCompose.constraintlayout_compose)
+                   implementation(Epit.constraintlayout_compose)
                }
                constraintLayoutCore(/* Enter the version of constraint layout core: "1.0.4" */) {
-                   implementation(AndroidX.ConstraintLayout.ConstraintLayoutCore.constraintlayout_core)
+                   implementation(Epit.constraintlayout_core)
                }
                constriaintLayoutSolver(/* Enter the version of constraint layout solver: "2.0.4" */) {
-                   implementation(AndroidX.ConstraintLayout.ConstraintLayoutCore.constraintlayout_solver)
+                   implementation(Epit.constraintlayout_solver)
                }
            }
         }
@@ -366,37 +366,37 @@ dependencies {
         androidx {
            core {
                core(/* Enter the version of androidx core: "1.12.0" */) {
-                   implementation(AndroidX.Core.Core.core)
-                   implementation(AndroidX.Core.Core.core_ktx)
-                   implementation(AndroidX.Core.Core.core_testing)
+                 implementation(Epit.core)
+                 implementation(Epit.core_ktx)
+                 implementation(Epit.core_testing)
                }
                coreAnimation(/* Enter the version of androidx core animation: "1.0.0-rc01" */) {
-                   implementation(AndroidX.Core.CoreAnimation.core_animation)
-                   implementation(AndroidX.Core.CoreAnimation.core_animation_testing)
+                 implementation(Epit.core_animation)
+                 implementation(Epit.core_animation_testing)
                }
                coreGoogleShortcuts(/* Enter the version of androidx core google shortcuts: "1.1.0" */) {
-                   implementation(AndroidX.Core.CoreGoogleShortcuts.core_google_shortcuts)
+                 implementation(Epit.core_google_shortcuts)
                }
                coreLocation(/* Enter the version of androidx core location: "1.0.0-alpha01" */) {
-                   implementation(AndroidX.Core.CoreLocation.core_i18n)
-                   implementation(AndroidX.Core.CoreLocation.core_location_altitude)
+                 implementation(Epit.core_i18n)
+                 implementation(Epit.core_location_altitude)
                }
                corePerformance(/* Enter the version of androidx core performance: "1.0.0-beta02" */) {
-                   implementation(AndroidX.Core.CorePerformance.core_performance)
-                   implementation(AndroidX.Core.CorePerformance.core_performance_play_services)
-                   implementation(AndroidX.Core.CorePerformance.core_performance_testing)
+                 implementation(Epit.core_performance)
+                 implementation(Epit.core_performance_play_services)
+                 implementation(Epit.core_performance_testing)
                }
                coreRemoteViews(/* Enter the version of androidx core remote views: "1.0.0" */) {
-                   implementation(AndroidX.Core.CoreRemoteViews.core_remoteviews)
+                 implementation(Epit.core_remoteviews)
                }
                coreRole(/* Enter the version of androidx core role: "1.0.0" */) {
-                   implementation(AndroidX.Core.CoreRole.core_role)
+                 implementation(Epit.core_role)
                }
                coreSplashscreen(/* Enter the version of androidx core splashscreen: "1.0.1" */) {
-                   implementation(AndroidX.Core.CoreSplashscreen.core_splashscreen)
+                 implementation(Epit.core_splashscreen)
                }
                coreTelecom(/* Enter the version of androidx core telecom: "1.0.0-alpha02" */) {
-                   implementation(AndroidX.Core.CoreTelecom.core_telecom)
+                 implementation(Epit.core_telecom)
                }
            }
         }
@@ -411,10 +411,10 @@ dependencies {
     epitPreview {
         androidx {
             fragment(/* Place the version of fragment library you want: "1.6.2" */) {
-                implementation(AndroidX.Fragment.fragment)
-                implementation(AndroidX.Fragment.fragment_ktx)
-                implementation(AndroidX.Fragment.fragment_testing)
-                implementation(AndroidX.Fragment.fragment_test_manifest)
+              implementation(Epit.fragment)
+              implementation(Epit.fragment_ktx)
+              implementation(Epit.fragment_testing)
+              implementation(Epit.fragment_test_manifest)
             }
         }
     }
@@ -428,7 +428,7 @@ dependencies {
     epitPreview {
         androidx {
             lifecycle(/* Place the version of androidx lifecycle library you want: "2.6.2" */) {
-                implementation(AndroidX.Lifecycle.lifecycle_common)
+              implementation(Epit.lifecycle_common)
                 ...
             }
         }
@@ -446,7 +446,7 @@ dependencies {
     epitPreview {
         androidx {
             navigation(/* Place the version of androidx navigation library you want: "2.7.5" */) {
-                implementation(AndroidX.Navigation.navigation_common)
+              implementation(Epit.navigation_common)
                 ...
             }
         }
@@ -461,7 +461,7 @@ dependencies {
     epitPreview {
         androidx {
             paging(/* Place the version of androidx paging library you want: "3.2.1" */) {
-                implementation(AndroidX.Paging.paging_common)
+              implementation(Epit.paging_common)
                 ...
             }
         }
@@ -476,7 +476,7 @@ dependencies {
     epitPreview {
         androidx {
             paging(/* Place the version of androidx recyclerview library you want: "3.2.1" */) {
-                implementation(AndroidX.RecyclerView.recyclerview)
+              implementation(Epit.recyclerview)
                 ...
             }
         }
@@ -491,7 +491,7 @@ dependencies {
     epitPreview {
         androidx {
             room(/* Place the version of androidx room library you want: "2.6.0" */) {
-                implementation(AndroidX.Room.room_runtime)
+              implementation(Epit.room_runtime)
                 ...
             }
         }
@@ -509,23 +509,23 @@ dependencies {
         androidx {
             test {
                 annotation(/* Enter the version of androidx.test:annotation "1.0.1" */) {
-                  implementation(AndroidX.Test.Annotation.test_annotation)
+                  implementation(Epit.test_annotation)
                 }
                 core(/* Enter the version of androidx.test:core "1.5.0" */) {
-                  implementation(AndroidX.Test.Core.core)
-                  implementation(AndroidX.Test.Core.core_ktx)
+                  implementation(Epit.core)
+                  implementation(Epit.core_ktx)
                 }
                 monitor(/* Enter the version of androidx.test:monitor "1.6.1" */) {
-                  implementation(AndroidX.Test.Monitor.monitor)
+                  implementation(Epit.monitor)
                 }
                 orchestrator(/* Enter the version of androidx.test:orchestrator "1.4.2" */) {
-                  implementation(AndroidX.Test.Orchestrator.orchestrator)
+                  implementation(Epit.orchestrator)
                 }
                 rules(/* Enter the version of androidx.test:rules "1.4.2" */) {
-                  implementation(AndroidX.Test.Rules.rules)
+                  implementation(Epit.rules)
                 }
                 runner(/* Enter the version of androidx.test:runner "1.5.2" */) {
-                  implementation(AndroidX.Test.Runner.runner)
+                  implementation(Epit.runner)
                 }
             }
         }
@@ -542,23 +542,23 @@ dependencies {
             test {
                 espresso {
                     espresso(/* Enter the version of androidx.test.espresso: "3.5.1" */) {
-                        implementation(AndroidX.Test.Espresso.Espresso.espresso_accessibility)
-                        implementation(AndroidX.Test.Espresso.Espresso.espresso_contrib)
-                        implementation(AndroidX.Test.Espresso.Espresso.espresso_core)
-                        implementation(AndroidX.Test.Espresso.Espresso.espresso_idling_resource)
-                        implementation(AndroidX.Test.Espresso.Espresso.espresso_intents)
-                        implementation(AndroidX.Test.Espresso.Espresso.espresso_remote)
-                        implementation(AndroidX.Test.Espresso.Espresso.espresso_web)
+                      implementation(Epit.espresso_accessibility)
+                      implementation(Epit.espresso_contrib)
+                      implementation(Epit.espresso_core)
+                      implementation(Epit.espresso_idling_resource)
+                      implementation(Epit.espresso_intents)
+                      implementation(Epit.espresso_remote)
+                      implementation(Epit.espresso_web)
 
                         /* You can also include libraries under the group androidx.test.espresso.idling */
-                        implementation(AndroidX.Test.Espresso.Idling.idling_concurrent)
-                        implementation(AndroidX.Test.Espresso.Idling.idling_net)
+                      implementation(Epit.idling_concurrent)
+                      implementation(Epit.idling_net)
                     }
 
                     /* Alternatively, you can declare them in a serparate block */
                     idling(/* Enter the version of androidx.test.espresso.idling: "3.5.1" */) {
-                        implementation(AndroidX.Test.Espresso.Idling.idling_concurrent)
-                        implementation(AndroidX.Test.Espresso.Idling.idling_net)
+                      implementation(Epit.idling_concurrent)
+                      implementation(Epit.idling_net)
                     }
                 }
             }
@@ -576,7 +576,7 @@ dependencies {
 >            test {
 >               espresso{
 >                   espressoDevice(/* Enter the version of androidx.test.espresso:espresso-device: "1.0.0-alpha06" */) {
->                       implementation(AndroidX.Test.Espresso.EspressoDevice.espresso_device)
+>                       implementation(Epit.espresso_device)
 >                   }
 >               }
 >            }
@@ -595,14 +595,14 @@ dependencies {
             test {
                 ext {
                     jUnit(/* Enter the version of androidx.test.ext:junit "1.1.5"  */) {
-                        implementation(AndroidX.Text.Ext.JUnit.junit)
-                        implementation(AndroidX.Text.Ext.JUnit.junit_ktx)
+                      implementation(Epit.junit)
+                      implementation(Epit.junit_ktx)
                     }
                     jUnitGTest(/* Enter the version of androidx.test.ext:junit-gtest "1.0.0-alpha02"  */) {
-                        implementation(AndroidX.Text.Ext.JUnitGTest.junit_gtest)
+                      implementation(Epit.junit_gtest)
                     }
                     truth(/* Enter the version of androidx.test.ext:truth "1.5.0" */) {
-                        implementation(AndroidX.Text.Ext.Truth.truth)
+                      implementation(Epit.truth)
                     }
                 }
             }
@@ -618,21 +618,21 @@ dependencies {
     epitPreview {
         kotlinx {
             atomicfu(/* Place the version of kotlinx.atomicfu library you want: "0.23.0" */) {
-                implementation(KotlinX.AtomicFU.atomicfu)
+              implementation(Epit.atomicfu)
             }
             collectionsImmutable(/* Place the version of kotlinx.collections-immutable library you want: "0.3.6" */) {
-                implementation(KotlinX.CollectionsImmutable.collections_immutable)
+              implementation(Epit.collections_immutable)
             }
             coroutines(/* Place the version of kotlinx.coroutines library you want: "1.7.3" */) {
-                implementation(KotlinX.Coroutines.coroutines_core)
+              implementation(Epit.coroutines_core)
                 ...
             }
             datetime(/* Place the version of kotlinx.datetime library you want: "0.4.1" */) {
-                implementation(KotlinX.Datetime.datetime)
+              implementation(Epit.datetime)
             }
             serialization(/* Place the version of kotlinx.serialization library you want: "1.6.1" */) {
-                implementation(KotlinX.Serialization.serialization_core)
-                implementation(KotlinX.Serialization.serialization_json)
+              implementation(Epit.serialization_core)
+              implementation(Epit.serialization_json)
             }
         }
     }
@@ -645,7 +645,7 @@ dependencies {
 dependencies {
     epitPreview {
       koinBom(/* Enter the version of koin bom you would like: "3.5.2-RC1" */) {
-            implementation(Koin.koin_core)
+        implementation(Epit.koin_core)
             ..
         }
     }
@@ -658,7 +658,7 @@ dependencies {
 dependencies {
     epitPreview {
         voyager(/* Enter the version of voyager you would like: "1.0.0-rc10" */) {
-            implementation(Voyager.voyager_navigator)
+          implementation(Epit.voyager_navigator)
             ..
         }
     }
@@ -671,7 +671,7 @@ dependencies {
 dependencies {
     epitPreview {
       coilBom(/* Enter the version of coil bom you would like: "1.0.0-rc10" */) {
-            implementation(Coil.coil)
+        implementation(Epit.coil)
             ..
         }
     }
@@ -680,17 +680,19 @@ dependencies {
 
 ### Glide
 
+Glide libraries are divided into `Glide` and  `GlideKtx`, where `GlideKtx` contains `com.github.bumptech.glide:compose`
+and `com.github.bumptech.glide:ktx`
 ```kotlin
 dependencies {
     epitPreview {
         glide {
             glide(/* Enter the version of glide bom you would like: "5.0.0-rc01" */) {
-                implementation(Glide.Glide.glide)
+              implementation(Epit.glide)
                 ..
             }
             glideKtx(/* Enter the version of glide compose/ktx you want: "1.0.0-beta01" */) {
-                implementation(Glide.GlideKtx.glide_ktx)
-                implementation(Glide.GlideKtx.glide_compose)
+              implementation(Epit.glide_ktx)
+              implementation(Epit.glide_compose)
             }
         }
     }
@@ -706,8 +708,8 @@ dependencies {
     epitPreview {
         raamcosta {
             composeDestinations(/* Enter the version of compose destinations you want: "" */) {
-                implementation(Raamcosta.ComposeDestinations.core)
-              ksp(Raamcosta.ComposeDestinations.ksp.dependencyAsString)
+              implementation(Epit.core)
+              ksp(Epit.ksp)
                 ...
             }
         }
@@ -724,7 +726,7 @@ dependencies {
     epitPreview {
         google {
             accompanist(/* Enter the version of accompanist you want: "0.33.2-alpha" */) {
-                implementation(Google.Accompanist.accompanist_permissions)
+              implementation(Epit.accompanist_permissions)
                 ...
             }
         }
@@ -747,7 +749,7 @@ dependencies {
   epitPreview {
     google {
       firebase(/* Enter the version of firebase bom you would like: "32.6.0" */) {
-        implementation(Google.Firebase.firebase_auth)
+        implementation(Epit.firebase_auth)
       }
     }
   }
@@ -762,7 +764,7 @@ Unfortunately, the API for ktor is currently extremely experimental and is bound
 dependencies {
   epitPreview {
     ktorBom(/* Enter ktor bom version: "2.6.2" */) {
-      implementation(Ktor.Ktor.ktor_client_core)
+      implementation(Epit.ktor_client_core)
     }
   }
 }
