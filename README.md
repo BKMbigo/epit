@@ -41,7 +41,7 @@ dependencies {
 
 ## How to use
 
-The current version is `2023.12.00-beta`
+The current version is `2024.01.00-preview`
 
 > Please note that this plugin:
 >    - Only works on `gradle.kts` scripts
@@ -51,7 +51,7 @@ To use the plugin in your projects, add the following in your project's `build.g
 
 ```kotlin
 plugins {
-    id("io.github.bkmbigo.epit") version "2023.12.00-beta" apply false
+    id("io.github.bkmbigo.epit") version "2024.01.00-preview" apply false
 }
 ```
 
