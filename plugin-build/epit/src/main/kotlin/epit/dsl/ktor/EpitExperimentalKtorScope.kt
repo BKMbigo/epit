@@ -13,6 +13,9 @@ class EpitExperimentalKtorScope internal constructor(
     private val ktorBOMVersion: String
 ) {
 
+
+    /* Internal Function */
+
     @ExperimentalEpitApi
     val DependencyHandlerScope.bom
         get() = platform(bomAsString)
