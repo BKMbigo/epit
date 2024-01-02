@@ -1,10 +1,12 @@
 package dsl.ktor
 
+import Epit
 import epit.annotations.ExperimentalEpitApi
 import epit.dsl.epitPreview
 import epit.dsl.ktor.EpitExperimentalKtorScope
 import epit.dsl.ktor.Ktor
-import epit.utils.joinWithColon
+import org.gradle.api.artifacts.Dependency
+import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.testfixtures.ProjectBuilder
 import org.junit.jupiter.api.Test
@@ -53,12 +55,40 @@ class ExperimentalKtorTests {
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
         val config = project.configurations.create("implementation")
+        val customConfig = project.configurations.create("customImplementation")
+        val customVersionConfig = project.configurations.create("customVersionImplementation")
 
+        fun DependencyHandlerScope.implementation(dependency: String) {
+            add("implementation", dependency)
+        }
+
+        fun DependencyHandlerScope.customImplementation(dependency: String) {
+            add("customImplementation", dependency)
+        }
+
+        fun DependencyHandlerScope.customImplementation(dependency: Dependency) {
+            add("customImplementation", dependency)
+        }
+
+        fun DependencyHandlerScope.customVersionImplementation(dependency: String) {
+            add("customVersionImplementation", dependency)
+        }
+
+        fun DependencyHandlerScope.customVersionImplementation(dependency: Dependency) {
+            add("customVersionImplementation", dependency)
+        }
 
         project.dependencies {
             epitPreview {
                 ktorBom("1.0.0") {
-                    implementation(Ktor.Ktor.ktor_io)
+                    implementation(Epit.ktor_io)
+
+                    customImplementation(bom)
+                    customImplementation(Epit.ktor_io)
+
+                    customVersionImplementation(bom("1.1.2"))
+                    customVersionImplementation(Epit.ktor_io)
+
                 }
             }
         }
@@ -68,85 +98,35 @@ class ExperimentalKtorTests {
             Ktor.Ktor.ktor_io.moduleName,
             "ktor block implementation does not add dependencies to the configuration"
         )
-    }
-
-    @Test
-    fun `verify that ktor block implementation adds the correct version of dependency`() {
-        val project = ProjectBuilder.builder().build()
-        project.pluginManager.apply("io.github.bkmbigo.epit")
-
-        val config = project.configurations.create("implementation")
-
-
-        project.dependencies {
-            epitPreview {
-                ktorBom("1.0.0") {
-                    implementation(Ktor.Ktor.ktor_client_android)
-                }
-            }
-        }
 
         assertContains(
-            config.dependencies.map { it.version },
-            "1.0.0",
+            config.dependencies.map { "${it.group}:${it.name}" },
+            "io.ktor:ktor-bom",
             "ktor block implementation does not add dependencies to the configuration"
         )
-    }
 
-    @Test
-    fun `verify that ktor block val dependency returns the module name`() {
-        var dependency = ""
-
-        EpitExperimentalKtorScope("1.0.0").apply {
-            dependency = Ktor.Ktor.ktor_io.dependencyAsString
-        }
-
-        assertEquals(
+        assertContains(
+            customConfig.dependencies.map { "${it.group}:${it.name}" },
             Ktor.Ktor.ktor_io.moduleName,
-            dependency
+            "ktor block implementation does not add dependencies to the configuration"
         )
-    }
 
-
-    @Test
-    fun `verify that ktor block val dependency returns the dependency with a different version`() {
-        var dependency: String
-
-        EpitExperimentalKtorScope("1.0.0").apply {
-            dependency = Ktor.Ktor.ktor_io.dependencyAsString("1.1.2")
-        }
-
-        assertEquals(
-            Ktor.Ktor.ktor_io.moduleName joinWithColon "1.1.2",
-            dependency
+        assertContains(
+            customConfig.dependencies.map { "${it.group}:${it.name}" },
+            "io.ktor:ktor-bom",
+            "ktor block implementation does not add dependencies to the configuration"
         )
-    }
 
-    @Test
-    fun `verify that ktor block val bom returns the bom's module name`() {
-        var bomName: String
-
-        EpitExperimentalKtorScope("1.0.0").apply {
-            bomName = bomAsString
-        }
-
-        assertEquals(
-            EpitExperimentalKtorScope.ktor_bom_module_name joinWithColon "1.0.0",
-            bomName
+        assertContains(
+            customVersionConfig.dependencies.map { "${it.group}:${it.name}" },
+            Ktor.Ktor.ktor_io.moduleName,
+            "ktor block implementation does not add dependencies to the configuration"
         )
-    }
 
-    @Test
-    fun `verify that ktor block fun bom returns the bom with different version`() {
-        var bomName: String
-
-        EpitExperimentalKtorScope("1.0.0").apply {
-            bomName = bomAsString("1.1.2")
-        }
-
-        assertEquals(
-            EpitExperimentalKtorScope.ktor_bom_module_name joinWithColon "1.1.2",
-            bomName
+        assertContains(
+            customVersionConfig.dependencies.map { "${it.group}:${it.name}" },
+            "io.ktor:ktor-bom",
+            "ktor block implementation does not add dependencies to the configuration"
         )
     }
 }
