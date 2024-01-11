@@ -2,26 +2,6 @@
 
 This is a guide on conventions used in the plugin
 
-There are two methods you can use to define a dependency:
-
-### i. epit dependencies (DEPRECATED)
-
-You can add dependencies as follows
-> Note that with this option, you have to declare the specific version per dependencies as shown below:
-
-```kotlin
-dependencies {
-    implementation(AndroidX.Appcompat.appcompat.withVersion("1.6.1"))
-    implementation(AndroidX.Compose.Material3.Material3.material3.withVersion("1.1.2"))
-}
-```
-
-> The dependencies naming scheme is influenced by the scheme below:
-
-### ii. epit blocks
-
-This are curated blocks that help you define dependencies in blocks, as defined in their group names
-
 #### 1. add an `epitPreview` block
 
 ```kotlin
@@ -58,10 +38,12 @@ dependencies {
             }
         }
         kotlinx {
+          /* For org.jetbrains.kotlinx:kotlinx-coroutines */
             coroutines(/* version */) {
 
             }
         }
+      /* For "io.ktor:" */
         koin(/* version */) {
 
         }
