@@ -1,40 +1,25 @@
-package epit.dsl.androidx
+package epit.dependencies
 
 import epit.EpitDependency
-import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InternalEpitApi
-import epit.utils.joinWithColon
 
-@Deprecated("The use of this API will be deprecated in version 2024.01.01")
-@InternalEpitApi
-@ExperimentalEpitApi
-sealed interface AndroidX : EpitDependency {
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
+internal sealed interface AndroidX : EpitDependency {
+
     enum class Activity(
         internal val moduleName: String
     ) : AndroidX {
         activity("androidx.activity:activity"),
         activity_compose("androidx.activity:activity-compose"),
         activity_ktx("androidx.activity:activity-ktx");
-
-        override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
     enum class Appcompat(
         internal val moduleName: String
     ) : AndroidX {
         appcompat(moduleName = "androidx.appcompat:appcompat"),
-        appcompat_resources("androidx.appcompat:appcompat-resources");
-
-        override fun withVersion(version: String): String = moduleName joinWithColon version
+        appcompat_resources("androidx.appcompat:appcompat-resources")
     }
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
     enum class Camera(
         internal val moduleName: String
     ) : AndroidX {
@@ -48,21 +33,12 @@ sealed interface AndroidX : EpitDependency {
         camera_view("androidx.camera:camera-view");
 //    camera_viewfinder("androidx.camera:camera-viewfinder")
 
-        override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
     sealed interface Compose : AndroidX {
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
         sealed interface ComposeBomDependency : Compose
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         enum class Animation(
             internal val moduleName: String
         ) : Compose, ComposeBomDependency {
@@ -78,43 +54,25 @@ sealed interface AndroidX : EpitDependency {
 
             //        animation_graphics_android(moduleName = "androidx.compose.animation:animation-graphics-android"),
 //        animation_graphics_desktop(moduleName = "androidx.compose.animation:animation-graphics-desktop"),
-            animation_tooling_internal(moduleName = "androidx.compose.animation:animation-tooling-internal");
-
-            override fun withVersion(version: String): String = moduleName joinWithColon version
+            animation_tooling_internal(moduleName = "androidx.compose.animation:animation-tooling-internal")
         }
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         enum class Bom(
             internal val moduleName: String
         ) : Compose {
-            compose_bom("androidx.compose:compose-bom");
-
-            override fun withVersion(version: String): String = moduleName joinWithColon version
+            compose_bom("androidx.compose:compose-bom")
         }
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         enum class Compiler(
             internal val moduleName: String
         ) : Compose, ComposeBomDependency {
             compiler(moduleName = "androidx.compose.compiler:compiler"),
             compiler_daemon(moduleName = "androidx.compose.compiler:compiler-daemon"),
-            compiler_hosted(moduleName = "androidx.compose.compiler:compiler-hosted");
-
-            override fun withVersion(version: String): String = moduleName joinWithColon version
+            compiler_hosted(moduleName = "androidx.compose.compiler:compiler-hosted")
         }
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         sealed interface Foundation : Compose {
 
-            @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-            @InternalEpitApi
-            @ExperimentalEpitApi
             enum class Foundation(
                 internal val moduleName: String
             ) : MainFoundation, ComposeBomDependency {
@@ -125,25 +83,15 @@ sealed interface AndroidX : EpitDependency {
                 foundation_layout(moduleName = "androidx.compose.foundation:foundation-layout");
                 //  foundation_layout_android(moduleName = "androidx.compose.foundation:foundation-layout-android"),
                 //  foundation_layout_desktop(moduleName = "androidx.compose.foundation:foundation-desktop")
-
-                override fun withVersion(version: String): String = moduleName joinWithColon version
             }
 
-            @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-            @InternalEpitApi
-            @ExperimentalEpitApi
             enum class FoundationText(
                 internal val moduleName: String
             ) : MainFoundation {
-                foundation_text(moduleName = "androidx.compose.foundation:foundation-text");
-
-                override fun withVersion(version: String): String = moduleName joinWithColon version
+                foundation_text(moduleName = "androidx.compose.foundation:foundation-text")
             }
         }
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         enum class Material(
             internal val moduleName: String
         ) : Compose, ComposeBomDependency {
@@ -162,16 +110,10 @@ sealed interface AndroidX : EpitDependency {
             material_ripple(moduleName = "androidx.compose.material:material-ripple");
             //  material_ripple_android(moduleName = "androidx.compose.material:material-ripple-android"),
             //  material_ripple_desktop(moduleName = "androidx.compose.material:material-ripple-desktop")
-
-            override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         sealed interface Material3 : Compose {
-            @InternalEpitApi
-            @ExperimentalEpitApi
+
             enum class Material3(
                 internal val moduleName: String
             ) : MainMaterial3, ComposeBomDependency {
@@ -182,12 +124,8 @@ sealed interface AndroidX : EpitDependency {
                 material3_window_size_class("androidx.compose.material3:material3-window-size-class");
                 //  material3_window_size_class_android("androidx.compose.material3:material3-window-size-class-android"),
                 //  material3_window_size_class_desktop("androidx.compose.material3:material3-window-size-class-desktop")
-
-                override fun withVersion(version: String): String = moduleName joinWithColon version
             }
 
-            @InternalEpitApi
-            @ExperimentalEpitApi
             enum class Material3Adaptive(
                 internal val moduleName: String
             ) : MainMaterial3 {
@@ -198,19 +136,11 @@ sealed interface AndroidX : EpitDependency {
                 material3_adaptive_navigation_suite("androidx.compose.material3:material3-adaptive-navigation-suite");
                 //  material3_adaptive_navigation_suite_android("androidx.compose.material3:material3-adaptive-navigation-suite-android"),
                 //  material3_adaptive_navigation_suite_desktop("androidx.compose.material3:material3-adaptive-navigation-suite-desktop")
-
-                override fun withVersion(version: String): String = moduleName joinWithColon version
             }
         }
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         sealed interface Runtime : Compose {
 
-            @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-            @InternalEpitApi
-            @ExperimentalEpitApi
             enum class Runtime(
                 internal val moduleName: String
             ) : MainRuntime, ComposeBomDependency {
@@ -225,36 +155,21 @@ sealed interface AndroidX : EpitDependency {
                 runtime_saveable(moduleName = "androidx.compose.runtime:runtime-saveable");
                 //  runtime_saveable_android(moduleName = "androidx.compose.runtime:runtime-saveable-android"),
                 //  runtime_saveable_desktop(moduleName = "androidx.compose.runtime:runtime-saveable-desktop")
-
-                override fun withVersion(version: String): String = moduleName joinWithColon version
             }
 
-            @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-            @InternalEpitApi
-            @ExperimentalEpitApi
             enum class RuntimeSavedInstanceState(
                 internal val moduleName: String
             ) : MainRuntime {
-                runtime_saved_instance_state(moduleName = "androidx.compose.runtime:runtime-saved-instance-state");
-
-                override fun withVersion(version: String): String = moduleName joinWithColon version
+                runtime_saved_instance_state(moduleName = "androidx.compose.runtime:runtime-saved-instance-state")
             }
 
-            @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-            @InternalEpitApi
-            @ExperimentalEpitApi
             enum class RuntimeTracing(
                 internal val moduleName: String
             ) : Compose {
-                runtime_tracing(moduleName = "androidx.compose.runtime:runtime-tracing");
-
-                override fun withVersion(version: String): String = moduleName joinWithColon version
+                runtime_tracing(moduleName = "androidx.compose.runtime:runtime-tracing")
             }
         }
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         enum class UI(
             internal val moduleName: String
         ) : Compose, ComposeBomDependency {
@@ -307,71 +222,40 @@ sealed interface AndroidX : EpitDependency {
             //  ui_util_android("androidx.compose.ui:ui-util-android"),
             //  ui_util_desktop("androidx.compose.ui:ui-util-desktop"),
             ui_viewbinding("androidx.compose.ui:ui-viewbinding");
-
-            override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
     }
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
     sealed interface ConstraintLayout : AndroidX {
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         enum class ConstraintLayout(
             internal val moduleName: String
         ) : AndroidX.ConstraintLayout {
             constraintlayout(moduleName = "androidx.constraintlayout:constraintlayout");
-
-            override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         enum class ConstraintLayoutCompose(
             internal val moduleName: String
         ) : AndroidX.ConstraintLayout {
             constraintlayout_compose(moduleName = "androidx.constraintlayout:constraintlayout-compose");
             //    constraintlayout_compose_android(moduleName = "androidx.constraintlayout:constraintlayout-compose-android")
-
-            override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         enum class ConstraintLayoutCore(
             internal val moduleName: String
         ) : AndroidX.ConstraintLayout {
             constraintlayout_core(moduleName = "androidx.constraintlayout:constraintlayout-core");
-
-            override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         enum class ConstraintLayoutSolver(
             internal val moduleName: String
         ) : AndroidX.ConstraintLayout {
             constraintlayout_solver(moduleName = "androidx.constraintlayout:constraintlayout-solver");
-
-            override fun withVersion(version: String): String = moduleName joinWithColon version
         }
     }
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
     sealed interface Core {
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         enum class Core(
             internal val moduleName: String
         ) : AndroidX {
@@ -392,106 +276,62 @@ sealed interface AndroidX : EpitDependency {
 //    core_splashscreen(moduleName = "androidx.core:core-splashscreen")
 //    core_telecom(moduleName = "androidx.core:core-telecom")
             core_testing(moduleName = "androidx.core:core-testing");
-
-            override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         enum class CoreAnimation(
             internal val moduleName: String
         ) : AndroidX {
             core_animation(moduleName = "androidx.core:core-animation"),
             core_animation_testing(moduleName = "androidx.core:core-animation-testing");
-
-            override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         enum class CoreGoogleShortcuts(
             internal val moduleName: String
         ) : AndroidX {
             core_google_shortcuts(moduleName = "androidx.core:core-google-shortcuts");
-
-            override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         enum class CoreLocation(
             internal val moduleName: String
         ) : AndroidX {
             core_i18n(moduleName = "androidx.core:core-i18n"),
             core_location_altitude(moduleName = "androidx.core:core-location-altitude");
-
-            override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         enum class CorePerformance(
             internal val moduleName: String
         ) : AndroidX {
             core_performance(moduleName = "androidx.core:core-performance"),
             core_performance_play_services(moduleName = "androidx.core:core-performance-play-services"),
             core_performance_testing(moduleName = "androidx.core:core-performance-testing");
-
-            override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         enum class CoreRemoteViews(
             internal val moduleName: String
         ) : AndroidX {
             core_remoteviews(moduleName = "androidx.core:core-remoteviews");
-
-            override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         enum class CoreRole(
             internal val moduleName: String
         ) : AndroidX {
             core_role(moduleName = "androidx.core:core-role");
-
-            override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         enum class CoreSplashscreen(
             internal val moduleName: String
         ) : AndroidX {
             core_splashscreen(moduleName = "androidx.core:core-splashscreen");
-
-            override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         enum class CoreTelecom(
             internal val moduleName: String
         ) : AndroidX {
             core_telecom(moduleName = "androidx.core:core-telecom");
-
-            override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
     }
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
     enum class Fragment(
         internal val moduleName: String
     ) : AndroidX {
@@ -499,13 +339,8 @@ sealed interface AndroidX : EpitDependency {
         fragment_ktx(moduleName = "androidx.fragment:fragment-ktx"),
         fragment_testing(moduleName = "androidx.fragment:fragment-testing"),
         fragment_testing_manifest(moduleName = "androidx.fragment:fragment-testing-manifest");
-
-        override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
     enum class Lifecycle(
         internal val moduleName: String
     ) : AndroidX {
@@ -530,12 +365,8 @@ sealed interface AndroidX : EpitDependency {
         lifecycle_viewmodel_compose("androidx.lifecycle:lifecycle-viewmodel-compose"),
         lifecycle_viewmodel_ktx("androidx.lifecycle:lifecycle-viewmodel-ktx"),
         lifecycle_viewmodel_savedstate("androidx.lifecycle:lifecycle-viewmodel-savedstate");
-
-        override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
     enum class Navigation(
         internal val moduleName: String
     ) : AndroidX {
@@ -553,13 +384,8 @@ sealed interface AndroidX : EpitDependency {
         navigation_runtime_testing(moduleName = "androidx.navigation:navigation-testing"),
         navigation_runtime_ui(moduleName = "androidx.navigation:navigation-ui"),
         navigation_runtime_ui_ktx(moduleName = "androidx.navigation:navigation-ui-ktx");
-
-        override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
     enum class Paging(
         internal val moduleName: String
     ) : AndroidX {
@@ -592,25 +418,15 @@ sealed interface AndroidX : EpitDependency {
         //        paging_testing_linuxx64(moduleName = "androidx.paging:paging-testing-linuxx64"),
         //        paging_testing_macosarm64(moduleName = "androidx.paging:paging-testing-macosarm64"),
         //        paging_testing_macosx64(moduleName = "androidx.paging:paging-testing-macosx64")
-
-        override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
     enum class RecyclerView(
         internal val moduleName: String
     ) : AndroidX {
         recyclerview(moduleName = "androidx.recyclerview:recyclerview");
 //    recyclerview_selection("androidx.recyclerview:recyclerview-selection")
-
-        override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
     enum class Room(
         internal val moduleName: String
     ) : AndroidX {
@@ -633,87 +449,49 @@ sealed interface AndroidX : EpitDependency {
         room_rxjava2(moduleName = "androidx.room:room-rxjava2"),
         room_rxjava3(moduleName = "androidx.room:room-rxjava3"),
         room_testing(moduleName = "androidx.room:room-testing");
-
-        override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
     sealed interface Test : AndroidX {
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         enum class Annotation(
             internal val moduleName: String
         ) : AndroidX {
             test_annotation(moduleName = "androidx.test:annotation");
-
-            override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         enum class Core(
             internal val moduleName: String
         ) : AndroidX {
             core(moduleName = "androidx.test:core"),
             core_ktx(moduleName = "androidx.test:core-ktx");
-
-            override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         enum class Monitor(
             internal val moduleName: String
         ) : AndroidX {
             monitor(moduleName = "androidx.test:monitor");
-
-            override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         enum class Orchestrator(
             internal val moduleName: String
         ) : AndroidX {
             orchestrator(moduleName = "androidx.test:orchestrator");
-
-            override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         enum class Rules(
             internal val moduleName: String
         ) : AndroidX {
             rules(moduleName = "androidx.test:rules");
-
-            override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         enum class Runner(
             internal val moduleName: String
         ) : AndroidX {
             runner("androidx.test:runner");
-
-            override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         sealed interface Espresso : Test {
-            @InternalEpitApi
+
             enum class Espresso(
                 internal val moduleName: String
             ) : MainEspresso {
@@ -726,74 +504,46 @@ sealed interface AndroidX : EpitDependency {
                 espresso_intents(moduleName = "androidx.test.espresso:espresso-intents"),
                 espresso_remote(moduleName = "androidx.test.espresso:espresso-remote"),
                 espresso_web(moduleName = "androidx.test.espresso:espresso-web");
-
-                override fun withVersion(version: String): String = moduleName joinWithColon version
             }
 
-            @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-            @InternalEpitApi
             enum class EspressoDevice(
                 internal val moduleName: String
             ) : MainEspresso {
                 espresso_device(moduleName = "androidx.test.espresso:espresso-device");
-
-                override fun withVersion(version: String): String = moduleName joinWithColon version
             }
 
-            @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-            @InternalEpitApi
             enum class Idling(
                 internal val moduleName: String
             ) : MainEspresso {
                 idling_concurrent(moduleName = "androidx.test.espresso.idling:idling-concurrent"),
                 idling_net(moduleName = "androidx.test.espresso.idling:idling-net");
-
-                override fun withVersion(version: String): String = moduleName joinWithColon version
             }
         }
 
-        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-        @InternalEpitApi
-        @ExperimentalEpitApi
         sealed interface Ext {
-            @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-            @InternalEpitApi
-            @ExperimentalEpitApi
+
             enum class JUnit(
                 internal val moduleName: String
             ) : AndroidX {
                 junit(moduleName = "androidx.test.ext:junit"),
-                junit_ktx(moduleName = "androidx.test.ext:junit-ktx");
-
-                override fun withVersion(version: String): String = moduleName joinWithColon version
+                junit_ktx(moduleName = "androidx.test.ext:junit-ktx")
             }
 
-            @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-            @InternalEpitApi
-            @ExperimentalEpitApi
             enum class JUnitGTest(
                 internal val moduleName: String
             ) : AndroidX {
                 junit_gtest(moduleName = "androidx.test.ext:junit-gtest");
-
-                override fun withVersion(version: String): String = moduleName joinWithColon version
             }
 
-            @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-            @InternalEpitApi
-            @ExperimentalEpitApi
             enum class Truth(
                 internal val moduleName: String
             ) : AndroidX {
                 truth(moduleName = "androidx.test.ext:truth");
-
-                override fun withVersion(version: String): String = moduleName joinWithColon version
             }
         }
     }
 }
 
-@OptIn(ExperimentalEpitApi::class, InternalEpitApi::class)
 private typealias MainEspresso = AndroidX.Test.Espresso
 private typealias MainFoundation = AndroidX.Compose.Foundation
 private typealias MainRuntime = AndroidX.Compose.Runtime

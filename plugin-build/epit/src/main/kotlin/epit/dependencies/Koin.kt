@@ -1,14 +1,9 @@
-package epit.dsl.koin
+package epit.dependencies
 
 import epit.EpitDependency
-import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InternalEpitApi
-import epit.utils.joinWithColon
 
-@Deprecated("The use of this API will be deprecated in version 2024.01.01")
-@InternalEpitApi
-@ExperimentalEpitApi
-enum class Koin(
+
+internal enum class Koin(
     internal val moduleName: String
 ) : EpitDependency {
     koin_bom(moduleName = "io.insert-koin:koin-bom"),
@@ -25,6 +20,4 @@ enum class Koin(
     koin_androidx_compose_navigation(moduleName = "io.insert-koin:koin-androidx-compose-navigation"),
     koin_ktor(moduleName = "io.insert-koin:koin-ktor"),
     koin_logger_slf4j(moduleName = "io.insert-koin:koin-logger-slf4j");
-
-    override fun withVersion(version: String): String = moduleName joinWithColon version
 }

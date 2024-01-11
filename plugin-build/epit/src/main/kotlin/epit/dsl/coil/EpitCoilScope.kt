@@ -3,7 +3,7 @@ package epit.dsl.coil
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InternalEpitApi
+import epit.dependencies.Coil
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -92,21 +92,10 @@ class EpitCoilScope internal constructor(
     @ExperimentalEpitApi
     fun bomAsString(customVersion: String) = Coil.coil_bom.moduleName joinWithColon customVersion
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    val Coil.dependencyAsString
+    internal val Coil.dependencyAsString
         get() = moduleName
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    fun Coil.dependencyAsString(version: String) = moduleName joinWithColon version
+    internal fun Coil.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(coil: Coil) {
-        add("implementation", coil.moduleName)
-    }
 
 }

@@ -3,9 +3,8 @@ package epit.dsl.kotlinx
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InternalEpitApi
+import epit.dependencies.KotlinX
 import epit.utils.joinWithColon
-import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
@@ -119,20 +118,9 @@ class EpitKotlinxCoroutinesScope internal constructor(
 
     /* Internal Functions */
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    val KotlinX.Coroutines.dependencyAsString
+    internal val KotlinX.Coroutines.dependencyAsString
         get(): String = moduleName joinWithColon kotlinxCoroutinesVersion
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    fun KotlinX.Coroutines.dependencyAsString(version: String) = moduleName joinWithColon version
+    internal fun KotlinX.Coroutines.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(coroutines: KotlinX.Coroutines) {
-        add("implementation", coroutines.dependencyAsString)
-    }
 }

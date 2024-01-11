@@ -2,7 +2,7 @@ package dsl
 
 import Epit
 import epit.annotations.ExperimentalEpitApi
-import epit.dsl.androidx.AndroidX
+import epit.dependencies.AndroidX
 import epit.dsl.epitPreview
 import org.gradle.api.artifacts.Dependency
 import org.gradle.kotlin.dsl.DependencyHandlerScope

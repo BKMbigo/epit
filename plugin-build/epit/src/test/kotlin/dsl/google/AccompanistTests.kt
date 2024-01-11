@@ -2,8 +2,8 @@ package dsl.google
 
 import Epit
 import epit.annotations.ExperimentalEpitApi
+import epit.dependencies.Google
 import epit.dsl.epitPreview
-import epit.dsl.google.Google
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.testfixtures.ProjectBuilder

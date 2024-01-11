@@ -1,14 +1,10 @@
-package epit.dsl.squareup
+package epit.dependencies
 
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InternalEpitApi
-import epit.utils.joinWithColon
 
-@Deprecated("The use of this API will be deprecated in version 2024.01.01")
-@InternalEpitApi
-@ExperimentalEpitApi
-sealed interface SquareUp : EpitDependency {
+internal sealed interface SquareUp : EpitDependency {
 
     @InternalEpitApi
     enum class LeakCanary(
@@ -47,8 +43,6 @@ sealed interface SquareUp : EpitDependency {
 //        leakcanary_analyzer_core(moduleName = "com.squareup.leakcanary:leakcanary-analyzer-core"),
 //        leakcanary_support_fragment(moduleName = "com.squareup.leakcanary:leakcanary-support-fragment"),
 //        leakcanary_android_no_op(moduleName = "com.squareup.leakcanary:leakcanary-android-no-op")
-
-        override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
     @InternalEpitApi
@@ -86,8 +80,6 @@ sealed interface SquareUp : EpitDependency {
 //        okhttp_testing_support(moduleName = "com.squareup.okhttp3:okhttp-testing-support"),
 //        parent(moduleName = "com.squareup.okhttp3:parent"),
 //        okhttp_ws(moduleName = "com.squareup.okhttp3:okhttp-ws")
-
-        override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
     @InternalEpitApi
@@ -99,8 +91,6 @@ sealed interface SquareUp : EpitDependency {
         //    picasso_sample(moduleName = "com.squareup.picasso:picasso-sample"),
         //    picasso_parent(moduleName = "com.squareup.picasso:picasso-parent"),
         picasso_pollexor(moduleName = "com.squareup.picasso:picasso-pollexor");
-
-        override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
     @InternalEpitApi
@@ -128,6 +118,5 @@ sealed interface SquareUp : EpitDependency {
 //    retrofit_converters(moduleName = "com.squareup.retrofit2:retrofit-converters"),
 //    retrofit_adapters(moduleName = "com.squareup.retrofit2:retrofit-adapters"),
 //    parent(moduleName = "com.squareup.retrofit2:parent")
-override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 }

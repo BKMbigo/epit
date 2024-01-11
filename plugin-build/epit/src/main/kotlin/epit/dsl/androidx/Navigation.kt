@@ -3,9 +3,8 @@ package epit.dsl.androidx
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InternalEpitApi
+import epit.dependencies.AndroidX
 import epit.utils.joinWithColon
-import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
@@ -125,21 +124,11 @@ class EpitAndroidXNavigationScope internal constructor(
     fun Epit.navigation_runtime_ui_ktx(version: String) =
         AndroidX.Navigation.navigation_runtime_ui_ktx.dependencyAsString(version)
 
+    /* Internal Functions */
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    val AndroidX.Navigation.dependencyAsString
+    internal val AndroidX.Navigation.dependencyAsString
         get(): String = moduleName joinWithColon androidXNavigationVersion
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    fun AndroidX.Navigation.dependencyAsString(version: String) = moduleName joinWithColon version
+    internal fun AndroidX.Navigation.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(navigation: AndroidX.Navigation) {
-        add("implementation", navigation.dependencyAsString)
-    }
 }

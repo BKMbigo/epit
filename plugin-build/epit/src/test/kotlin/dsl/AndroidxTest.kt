@@ -2,7 +2,7 @@ package dsl
 
 import Epit
 import epit.annotations.ExperimentalEpitApi
-import epit.dsl.androidx.AndroidX
+import epit.dependencies.AndroidX
 import epit.dsl.epitPreview
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.dependencies
@@ -156,8 +156,8 @@ class AndroidxTest {
                         customVersionImplementation(Epit.paging_common("1.1.2"))
                     }
                     recyclerview("1.0.0") {
-                        implementation(AndroidX.RecyclerView.recyclerview)
-                        customVersionImplementation(AndroidX.RecyclerView.recyclerview.dependencyAsString("1.1.2"))
+                        implementation(Epit.recyclerview)
+                        customVersionImplementation(Epit.recyclerview("1.1.2"))
                     }
                     room("1.0.0") {
                         implementation(Epit.room_common)

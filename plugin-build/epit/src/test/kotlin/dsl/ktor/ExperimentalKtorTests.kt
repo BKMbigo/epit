@@ -2,9 +2,9 @@ package dsl.ktor
 
 import Epit
 import epit.annotations.ExperimentalEpitApi
+import epit.dependencies.Ktor
 import epit.dsl.epitPreview
 import epit.dsl.ktor.EpitExperimentalKtorScope
-import epit.dsl.ktor.Ktor
 import org.gradle.api.artifacts.Dependency
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.dependencies
@@ -23,6 +23,7 @@ class ExperimentalKtorTests {
         project.pluginManager.apply("io.github.bkmbigo.epit")
 
         val config = project.configurations.create("implementation")
+
 
         project.dependencies {
             epitPreview {
@@ -95,7 +96,7 @@ class ExperimentalKtorTests {
 
         assertContains(
             config.dependencies.map { "${it.group}:${it.name}" },
-            Ktor.Ktor.ktor_io.moduleName,
+            Ktor.ktor_io.moduleName,
             "ktor block implementation does not add dependencies to the configuration"
         )
 
@@ -107,7 +108,7 @@ class ExperimentalKtorTests {
 
         assertContains(
             customConfig.dependencies.map { "${it.group}:${it.name}" },
-            Ktor.Ktor.ktor_io.moduleName,
+            Ktor.ktor_io.moduleName,
             "ktor block implementation does not add dependencies to the configuration"
         )
 
@@ -119,7 +120,7 @@ class ExperimentalKtorTests {
 
         assertContains(
             customVersionConfig.dependencies.map { "${it.group}:${it.name}" },
-            Ktor.Ktor.ktor_io.moduleName,
+            Ktor.ktor_io.moduleName,
             "ktor block implementation does not add dependencies to the configuration"
         )
 

@@ -3,7 +3,7 @@ package epit.dsl.koin
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InternalEpitApi
+import epit.dependencies.Koin
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -132,20 +132,11 @@ class EpitKoinScope internal constructor(
     @ExperimentalEpitApi
     fun bomAsString(customVersion: String) = Koin.koin_bom.moduleName joinWithColon customVersion
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    val Koin.dependencyAsString
+    /* Internal Functions */
+
+    internal val Koin.dependencyAsString
         get() = moduleName
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    fun Koin.dependencyAsString(version: String) = moduleName joinWithColon version
+    internal fun Koin.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(koin: Koin) {
-        add("implementation", koin.moduleName)
-    }
 }

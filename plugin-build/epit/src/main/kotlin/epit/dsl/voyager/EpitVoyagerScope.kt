@@ -3,9 +3,8 @@ package epit.dsl.voyager
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InternalEpitApi
+import epit.dependencies.Voyager
 import epit.utils.joinWithColon
-import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
@@ -86,20 +85,10 @@ class EpitVoyagerScope internal constructor(
         Voyager.voyager_rxjava.dependencyAsString(version)
 
     /* Internal Functions */
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    val Voyager.dependencyAsString
+
+    internal val Voyager.dependencyAsString
         get() = moduleName joinWithColon voyagerVersion
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    fun Voyager.dependencyAsString(version: String) = moduleName joinWithColon version
+    internal fun Voyager.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(voyager: Voyager) {
-        add("implementation", voyager.dependencyAsString)
-    }
 }

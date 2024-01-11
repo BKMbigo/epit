@@ -2,7 +2,7 @@ package dsl
 
 import Epit
 import epit.annotations.ExperimentalEpitApi
-import epit.dsl.coil.Coil
+import epit.dependencies.Coil
 import epit.dsl.coil.EpitCoilScope
 import epit.dsl.epitPreview
 import epit.utils.joinWithColon

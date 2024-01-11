@@ -1,21 +1,10 @@
-package epit.dsl.ktor
+package epit.dependencies
 
 import epit.EpitDependency
-import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InternalEpitApi
-import epit.utils.joinWithColon
 
-@Deprecated("The use of this API will be deprecated in version 2024.01.01")
-@InternalEpitApi
-@ExperimentalEpitApi
-sealed interface Ktor : EpitDependency {
-
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    enum class Ktor(
+internal enum class Ktor(
         internal val moduleName: String,
-    ) : MainKtor {
+) : EpitDependency {
         ktor_client(moduleName = "io.ktor:ktor-client"),
 
         ktor_http(moduleName = "io.ktor:ktor-http"),
@@ -141,11 +130,6 @@ sealed interface Ktor : EpitDependency {
         ktor_serialization_kotlinx_json(moduleName = "io.ktor:ktor-serialization-kotlinx-json"),
         ktor_serialization_kotlinx_protobuf(moduleName = "io.ktor:ktor-serialization-kotlinx-protobuf"),
         ktor_serialization_kotlinx_tests(moduleName = "io.ktor:ktor-serialization-kotlinx-tests"),
-        ktor_serialization_kotlinx_xml(moduleName = "io.ktor:ktor-serialization-kotlinx-xml"), ;
+        ktor_serialization_kotlinx_xml(moduleName = "io.ktor:ktor-serialization-kotlinx-xml");
 
-        override fun withVersion(version: String): String = moduleName joinWithColon version
-
-    }
 }
-
-private typealias MainKtor = Ktor

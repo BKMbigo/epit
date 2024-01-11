@@ -2,8 +2,8 @@ package dsl.voyager
 
 import Epit
 import epit.annotations.ExperimentalEpitApi
+import epit.dependencies.Voyager
 import epit.dsl.epitPreview
-import epit.dsl.voyager.Voyager
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.testfixtures.ProjectBuilder

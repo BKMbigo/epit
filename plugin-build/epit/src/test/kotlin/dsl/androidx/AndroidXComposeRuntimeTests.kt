@@ -2,7 +2,7 @@ package dsl.androidx
 
 import Epit
 import epit.annotations.ExperimentalEpitApi
-import epit.dsl.androidx.AndroidX
+import epit.dependencies.AndroidX
 import epit.dsl.epitPreview
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.dependencies
@@ -30,10 +30,10 @@ class AndroidXComposeRuntimeTests {
                     compose {
                         runtime {
                             runtime("1.0.0") {
-                                implementation(AndroidX.Compose.Runtime.Runtime.runtime)
+                                implementation(Epit.runtime)
                             }
                             runtimeTracing("1.0.0") {
-                                implementation(AndroidX.Compose.Runtime.RuntimeTracing.runtime_tracing)
+                                implementation(Epit.runtime_tracing)
                             }
                         }
                     }

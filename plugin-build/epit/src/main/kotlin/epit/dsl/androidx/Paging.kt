@@ -3,9 +3,8 @@ package epit.dsl.androidx
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InternalEpitApi
+import epit.dependencies.AndroidX
 import epit.utils.joinWithColon
-import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
@@ -93,20 +92,11 @@ class EpitAndroidXPagingScope internal constructor(
     fun Epit.paging_testing(version: String) =
         AndroidX.Paging.paging_testing.dependencyAsString(version)
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    val AndroidX.Paging.dependencyAsString
+    /* Internal Functions */
+
+    internal val AndroidX.Paging.dependencyAsString
         get(): String = moduleName joinWithColon androidXPagingVersion
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    fun AndroidX.Paging.dependencyAsString(version: String) = moduleName joinWithColon version
+    internal fun AndroidX.Paging.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(paging: AndroidX.Paging) {
-        add("implementation", paging.dependencyAsString)
-    }
 }

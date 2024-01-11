@@ -1,14 +1,9 @@
-package epit.dsl.glide
+package epit.dependencies
 
 import epit.EpitDependency
-import epit.annotations.InternalEpitApi
-import epit.utils.joinWithColon
 
-@Deprecated("The use of this API will be deprecated in version 2024.01.01")
-@InternalEpitApi
-sealed interface Glide : EpitDependency {
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
+internal sealed interface Glide : EpitDependency {
+
     enum class Glide(
         internal val moduleName: String
     ) : MainGlide {
@@ -34,19 +29,13 @@ sealed interface Glide : EpitDependency {
         mocks(moduleName = "com.github.bumptech.glide:mocks"),
         annotations(moduleName = "com.github.bumptech.glide:annotations");
 
-        override fun withVersion(version: String): String = moduleName joinWithColon version
-
     }
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
     enum class GlideKtx(
         internal val moduleName: String
     ) : MainGlide {
         compose(moduleName = "com.github.bumptech.glide:compose"),
         ktx(moduleName = "com.github.bumptech.glide:ktx");
-
-        override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
 }

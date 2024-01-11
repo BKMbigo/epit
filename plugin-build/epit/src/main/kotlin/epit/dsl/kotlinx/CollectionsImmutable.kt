@@ -3,9 +3,8 @@ package epit.dsl.kotlinx
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InternalEpitApi
+import epit.dependencies.KotlinX
 import epit.utils.joinWithColon
-import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
@@ -27,20 +26,9 @@ class EpitKotlinxImmutableCollectionsScope internal constructor(
     * ============================
     * */
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    val KotlinX.CollectionsImmutable.dependencyAsString
+    internal val KotlinX.CollectionsImmutable.dependencyAsString
         get(): String = moduleName joinWithColon kotlinxCollectionsImmutableVersion
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    fun KotlinX.CollectionsImmutable.dependencyAsString(version: String) = moduleName joinWithColon version
+    internal fun KotlinX.CollectionsImmutable.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(collectionsImmutable: KotlinX.CollectionsImmutable) {
-        add("implementation", collectionsImmutable.dependencyAsString)
-    }
 }

@@ -3,9 +3,8 @@ package epit.dsl.androidx
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InternalEpitApi
+import epit.dependencies.AndroidX
 import epit.utils.joinWithColon
-import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
@@ -29,20 +28,10 @@ class EpitAndroidXCoreLocationScope internal constructor(
     fun Epit.core_location_altitude(version: String) =
         AndroidX.Core.CoreLocation.core_location_altitude.dependencyAsString(version)
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    val AndroidX.Core.CoreLocation.dependencyAsString
+    /* Internal Functions */
+
+    internal val AndroidX.Core.CoreLocation.dependencyAsString
         get(): String = moduleName joinWithColon androidXCoreLocationVersion
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    fun AndroidX.Core.CoreLocation.dependencyAsString(version: String) = moduleName joinWithColon version
-
-    @Deprecated("The method has been deprecated in favor of Epit namespace")
-    @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(coreLocation: AndroidX.Core.CoreLocation) {
-        add("implementation", coreLocation.dependencyAsString)
-    }
+    internal fun AndroidX.Core.CoreLocation.dependencyAsString(version: String) = moduleName joinWithColon version
 }

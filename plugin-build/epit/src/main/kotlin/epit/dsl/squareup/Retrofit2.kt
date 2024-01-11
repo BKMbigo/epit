@@ -3,9 +3,8 @@ package epit.dsl.squareup
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InternalEpitApi
+import epit.dependencies.SquareUp
 import epit.utils.joinWithColon
-import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
@@ -159,20 +158,10 @@ class EpitSquareRetrofit2Scope internal constructor(
 
 
     /* Internal functions */
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    val SquareUp.Retrofit2.dependencyAsString
+
+    internal val SquareUp.Retrofit2.dependencyAsString
         get(): String = moduleName joinWithColon squareRetrofit2Version
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    fun SquareUp.Retrofit2.dependencyAsString(version: String) = moduleName joinWithColon version
+    internal fun SquareUp.Retrofit2.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(retrofit2: SquareUp.Retrofit2) {
-        add("implementation", retrofit2.dependencyAsString)
-    }
 }

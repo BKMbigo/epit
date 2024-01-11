@@ -3,9 +3,8 @@ package epit.dsl.androidx
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InternalEpitApi
+import epit.dependencies.AndroidX
 import epit.utils.joinWithColon
-import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
@@ -151,30 +150,9 @@ class EpitAndroidXRoomScope internal constructor(
 
     /* internal functions */
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    val AndroidX.Room.dependencyAsString
+    internal val AndroidX.Room.dependencyAsString
         get(): String = moduleName joinWithColon androidXRoomVersion
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    fun AndroidX.Room.dependencyAsString(version: String) = moduleName joinWithColon version
+    internal fun AndroidX.Room.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(room: AndroidX.Room) {
-        add("implementation", room.dependencyAsString)
-    }
-
-//    @ExperimentalEpitApi
-//    fun DependencyHandlerScope.kapt(room: AndroidX.Room) {
-//        add("kapt", room.dependencyAsString)
-//    }
-//
-//    @ExperimentalEpitApi
-//    fun DependencyHandlerScope.ksp(room: AndroidX.Room) {
-//        add("ksp", room.dependencyAsString)
-//    }
 }

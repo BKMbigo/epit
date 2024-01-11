@@ -3,8 +3,8 @@ package epit.dsl.raamcosta
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
+import epit.dependencies.Raamcosta
 import epit.utils.joinWithColon
-import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @EpitDsl
 class EpitComposeDestinationsScope internal constructor(
@@ -57,18 +57,9 @@ class EpitComposeDestinationsScope internal constructor(
     * ==============================
     * */
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @ExperimentalEpitApi
-    val Raamcosta.ComposeDestinations.dependencyAsString
+    internal val Raamcosta.ComposeDestinations.dependencyAsString
         get(): String = moduleName joinWithColon composeDestinationsVersion
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @ExperimentalEpitApi
-    fun Raamcosta.ComposeDestinations.dependencyAsString(version: String) = moduleName joinWithColon version
+    internal fun Raamcosta.ComposeDestinations.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(composeDestinations: Raamcosta.ComposeDestinations) {
-        add("implementation", composeDestinations.dependencyAsString)
-    }
 }

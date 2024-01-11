@@ -3,9 +3,8 @@ package epit.dsl.androidx
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InternalEpitApi
+import epit.dependencies.AndroidX
 import epit.utils.joinWithColon
-import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
@@ -23,20 +22,9 @@ class EpitAndroidXTestOrchestratorScope internal constructor(
 
     /* internal dependencies */
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    val AndroidX.Test.Orchestrator.dependencyAsString
+    internal val AndroidX.Test.Orchestrator.dependencyAsString
         get(): String = moduleName joinWithColon androidXTestOrchestratorVersion
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    fun AndroidX.Test.Orchestrator.dependencyAsString(version: String) = moduleName joinWithColon version
+    internal fun AndroidX.Test.Orchestrator.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(orchestrator: AndroidX.Test.Orchestrator) {
-        add("implementation", orchestrator.dependencyAsString)
-    }
 }

@@ -3,9 +3,8 @@ package epit.dsl.androidx
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InternalEpitApi
+import epit.dependencies.AndroidX
 import epit.utils.joinWithColon
-import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
@@ -61,20 +60,10 @@ class EpitAndroidXCameraScope internal constructor(
     @ExperimentalEpitApi
     fun Epit.camera_video(version: String) = AndroidX.Camera.camera_video.dependencyAsString(version)
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    val AndroidX.Camera.dependencyAsString
+    /* Internal functions */
+
+    internal val AndroidX.Camera.dependencyAsString
         get(): String = moduleName joinWithColon androidXCameraVersion
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    fun AndroidX.Camera.dependencyAsString(version: String) = moduleName joinWithColon version
-
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(camera: AndroidX.Camera) {
-        add("implementation", camera.dependencyAsString)
-    }
+    internal fun AndroidX.Camera.dependencyAsString(version: String) = moduleName joinWithColon version
 }

@@ -2,8 +2,8 @@ package dsl.raamcosta
 
 import Epit
 import epit.annotations.ExperimentalEpitApi
+import epit.dependencies.Raamcosta
 import epit.dsl.epitPreview
-import epit.dsl.raamcosta.Raamcosta
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.testfixtures.ProjectBuilder

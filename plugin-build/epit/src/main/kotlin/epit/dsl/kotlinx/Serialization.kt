@@ -3,9 +3,8 @@ package epit.dsl.kotlinx
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InternalEpitApi
+import epit.dependencies.KotlinX
 import epit.utils.joinWithColon
-import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
@@ -35,17 +34,9 @@ class EpitKotlinxSerializationScope internal constructor(
     * ============================
     * */
 
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    val KotlinX.Serialization.dependencyAsString
+    internal val KotlinX.Serialization.dependencyAsString
         get(): String = moduleName joinWithColon kotlinxSerializationVersion
 
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    fun KotlinX.Serialization.dependencyAsString(version: String) = moduleName joinWithColon version
+    internal fun KotlinX.Serialization.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(serialization: KotlinX.Serialization) {
-        add("implementation", serialization.dependencyAsString)
-    }
 }

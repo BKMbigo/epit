@@ -2,7 +2,7 @@ package dsl.androidx
 
 import Epit
 import epit.annotations.ExperimentalEpitApi
-import epit.dsl.androidx.AndroidX
+import epit.dependencies.AndroidX
 import epit.dsl.epitPreview
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.dependencies
@@ -29,7 +29,7 @@ class AndroidXComposeCompilerTests {
                 androidx {
                     compose {
                         compiler("1.0.0") {
-                            implementation(AndroidX.Compose.Compiler.compiler)
+                            implementation(Epit.compiler)
                         }
                     }
                 }

@@ -2,8 +2,8 @@ package dsl.glide
 
 import Epit
 import epit.annotations.ExperimentalEpitApi
+import epit.dependencies.Glide
 import epit.dsl.epitPreview
-import epit.dsl.glide.Glide
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.testfixtures.ProjectBuilder

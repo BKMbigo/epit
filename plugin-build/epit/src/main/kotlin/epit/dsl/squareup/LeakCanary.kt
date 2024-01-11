@@ -3,9 +3,8 @@ package epit.dsl.squareup
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InternalEpitApi
+import epit.dependencies.SquareUp
 import epit.utils.joinWithColon
-import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
@@ -198,20 +197,10 @@ class EpitSquareLeakCanaryScope internal constructor(
         SquareUp.LeakCanary.leakcanary_android_core.dependencyAsString(version)
 
     /* Internal Functions */
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    val SquareUp.LeakCanary.dependencyAsString
+
+    internal val SquareUp.LeakCanary.dependencyAsString
         get(): String = moduleName joinWithColon squareLeakCanaryVersion
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    fun SquareUp.LeakCanary.dependencyAsString(version: String) = moduleName joinWithColon version
+    internal fun SquareUp.LeakCanary.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(leakCanary: SquareUp.LeakCanary) {
-        add("implementation", leakCanary.dependencyAsString)
-    }
 }

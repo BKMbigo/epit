@@ -2,8 +2,8 @@ package dsl.kotlinx
 
 import Epit
 import epit.annotations.ExperimentalEpitApi
+import epit.dependencies.KotlinX
 import epit.dsl.epitPreview
-import epit.dsl.kotlinx.KotlinX
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.testfixtures.ProjectBuilder

@@ -1,6 +1,7 @@
 package epit.dsl.androidx
 
 import epit.annotations.ExperimentalEpitApi
+import epit.dependencies.AndroidX
 
 @OptIn(ExperimentalEpitApi::class)
 internal val AndroidX.Compose.ComposeBomDependency.moduleName

@@ -2,7 +2,7 @@ package dsl.androidx
 
 import Epit
 import epit.annotations.ExperimentalEpitApi
-import epit.dsl.androidx.AndroidX
+import epit.dependencies.AndroidX
 import epit.dsl.epitPreview
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.dependencies
@@ -30,10 +30,10 @@ class AndroidXComposeFoundationTests {
                     compose {
                         foundation {
                             foundation("1.0.0") {
-                                implementation(AndroidX.Compose.Foundation.Foundation.foundation)
+                                implementation(Epit.foundation)
                             }
                             foundationText("1.0.0") {
-                                implementation(AndroidX.Compose.Foundation.FoundationText.foundation_text)
+                                implementation(Epit.foundation_text)
                             }
                         }
                     }

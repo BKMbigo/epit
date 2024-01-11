@@ -1,17 +1,9 @@
-package epit.dsl.google
+package epit.dependencies
 
 import epit.EpitDependency
-import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InternalEpitApi
-import epit.utils.joinWithColon
 
-@Deprecated("The use of this API will be deprecated in version 2024.01.01")
-@InternalEpitApi
-@ExperimentalEpitApi
-sealed interface Google : EpitDependency {
-    @InternalEpitApi
+internal sealed interface Google : EpitDependency {
 
-    @ExperimentalEpitApi
     enum class Accompanist(
         internal val moduleName: String
     ) : Google {
@@ -38,12 +30,8 @@ sealed interface Google : EpitDependency {
         accompanist_appcompat_theme(moduleName = "com.google.accompanist:accompanist-appcompat-theme");
 //        accompanist_insets(moduleName = "com.google.accompanist:accompanist-insets");
 
-        override fun withVersion(version: String): String = moduleName joinWithColon version
-
     }
 
-    @InternalEpitApi
-    @ExperimentalEpitApi
     enum class Firebase(
         internal val moduleName: String
     ) : Google {
@@ -182,8 +170,6 @@ sealed interface Google : EpitDependency {
 //    perf_plugin(moduleName = "com.google.firebase:perf-plugin"),
 //    protolite_well_known_types(moduleName = "com.google.firebase:protolite-well-known-types"),
 //    testlab_instr_lib(moduleName = "com.google.firebase:testlab-instr-lib")
-
-        override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
 }

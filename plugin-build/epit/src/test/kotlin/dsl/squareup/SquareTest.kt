@@ -2,8 +2,8 @@ package dsl.squareup
 
 import Epit
 import epit.annotations.ExperimentalEpitApi
+import epit.dependencies.SquareUp
 import epit.dsl.epitPreview
-import epit.dsl.squareup.SquareUp
 import org.gradle.api.artifacts.Dependency
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 import org.gradle.kotlin.dsl.dependencies

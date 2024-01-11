@@ -1,14 +1,10 @@
-package epit.dsl.voyager
+package epit.dependencies
 
-import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InternalEpitApi
+import epit.EpitDependency
 
-@Deprecated("The use of this API will be deprecated in version 2024.01.01")
-@InternalEpitApi
-@ExperimentalEpitApi
-enum class Voyager(
+internal enum class Voyager(
     internal val moduleName: String
-) {
+) : EpitDependency {
     voyager_navigator("cafe.adriel.voyager:voyager-navigator"),
     voyager_bottom_sheet_navigator("cafe.adriel.voyager:voyager-bottom-sheet-navigator"),
     voyager_tab_navigator("cafe.adriel.voyager:voyager-tab-navigator"),

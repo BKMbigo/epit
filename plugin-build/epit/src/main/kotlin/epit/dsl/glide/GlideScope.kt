@@ -3,9 +3,8 @@ package epit.dsl.glide
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InternalEpitApi
+import epit.dependencies.Glide
 import epit.utils.joinWithColon
-import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 
 @ExperimentalEpitApi
@@ -159,20 +158,9 @@ class EpitGlideScope internal constructor(
 
     /* Internal functions */
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    val Glide.Glide.dependencyAsString
+    internal val Glide.Glide.dependencyAsString
         get(): String = moduleName joinWithColon glideVersion
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    fun Glide.Glide.dependencyAsString(version: String) = moduleName joinWithColon version
+    internal fun Glide.Glide.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(glide: Glide.Glide) {
-        add("implementation", glide.dependencyAsString)
-    }
 }

@@ -3,9 +3,8 @@ package epit.dsl.androidx
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InternalEpitApi
+import epit.dependencies.AndroidX
 import epit.utils.joinWithColon
-import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
 @EpitDsl
@@ -165,21 +164,11 @@ class EpitAndroidXLifecycleScope internal constructor(
     fun Epit.lifecycle_service(version: String) =
         AndroidX.Lifecycle.lifecycle_service.dependencyAsString(version)
 
+    /* Internal Functions */
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    val AndroidX.Lifecycle.dependencyAsString
+    internal val AndroidX.Lifecycle.dependencyAsString
         get(): String = moduleName joinWithColon androidXLifecycleVersion
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @InternalEpitApi
-    @ExperimentalEpitApi
-    fun AndroidX.Lifecycle.dependencyAsString(version: String) = moduleName joinWithColon version
+    internal fun AndroidX.Lifecycle.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
-    @ExperimentalEpitApi
-    fun DependencyHandlerScope.implementation(lifecycle: AndroidX.Lifecycle) {
-        add("implementation", lifecycle.dependencyAsString)
-    }
 }
