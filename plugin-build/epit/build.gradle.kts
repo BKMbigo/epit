@@ -14,7 +14,9 @@ repositories {
 }
 
 dependencies {
+    implementation(libs.kotlinGradlePluginApi)
     testImplementation("org.jetbrains.kotlin:kotlin-test")
+    testImplementation(libs.mockk)
 }
 
 tasks.withType<KotlinCompile> {

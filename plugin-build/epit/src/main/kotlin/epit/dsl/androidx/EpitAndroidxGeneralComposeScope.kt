@@ -4,11 +4,12 @@ import epit.EpitDependency
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
+import epit.dependencyhandler.EpitDependencyHandler
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @EpitDsl
 class EpitAndroidxGeneralComposeScope internal constructor(
-    private val dependencyHandlerScope: DependencyHandlerScope
+    private val dependencyHandler: EpitDependencyHandler
 ) {
 
     @ExperimentalEpitApi
@@ -33,8 +34,8 @@ class EpitAndroidxGeneralComposeScope internal constructor(
         block: EpitAndroidXComposeBomScope.() -> Unit
     ) {
         val composeScope = EpitAndroidXComposeBomScope(bomVersion)
-        with(this.dependencyHandlerScope) {
-            add("implementation", platform(composeScope.bomAsString))
+        with(this.dependencyHandler) {
+            implementation(platform(composeScope.bomAsString))
         }
         block(composeScope)
     }

@@ -1,7 +1,13 @@
 package epit.dsl
 
-import org.gradle.kotlin.dsl.DependencyHandlerScope
+import epit.dependencyhandler.generateEpitDependencyHandler
+import org.gradle.api.artifacts.dsl.DependencyHandler
+import org.jetbrains.kotlin.gradle.plugin.KotlinDependencyHandler
 
-fun DependencyHandlerScope.epitPreview(block: EpitPreviewScope.() -> Unit) {
-    block(EpitPreviewScope(this))
+fun DependencyHandler.epitPreview(block: EpitPreviewScope.() -> Unit) {
+    block(EpitPreviewScope(this.generateEpitDependencyHandler()))
+}
+
+fun KotlinDependencyHandler.epitPreview(block: EpitPreviewScope.() -> Unit) {
+    block(EpitPreviewScope(this.generateEpitDependencyHandler()))
 }
