@@ -2,10 +2,13 @@ package epit.dsl.google
 
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 
+@InternalEpitApi
 @ExperimentalEpitApi
 sealed interface Google : EpitDependency {
+    @InternalEpitApi
 
     @ExperimentalEpitApi
     enum class Accompanist(
@@ -38,6 +41,7 @@ sealed interface Google : EpitDependency {
 
     }
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     enum class Firebase(
         internal val moduleName: String

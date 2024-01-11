@@ -3,6 +3,7 @@ package epit.dsl.voyager
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -85,11 +86,12 @@ class EpitVoyagerScope internal constructor(
         Voyager.voyager_rxjava.dependencyAsString(version)
 
     /* Internal Functions */
-
+    @InternalEpitApi
     @ExperimentalEpitApi
     val Voyager.dependencyAsString
         get() = moduleName joinWithColon voyagerVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun Voyager.dependencyAsString(version: String) = moduleName joinWithColon version
 

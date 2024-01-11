@@ -3,6 +3,7 @@ package epit.dsl.androidx
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -22,10 +23,12 @@ class EpitAndroidXCoreRemoteViewsScope internal constructor(
         AndroidX.Core.CoreRemoteViews.core_remoteviews.dependencyAsString(version)
 
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Core.CoreRemoteViews.dependencyAsString
         get(): String = moduleName joinWithColon androidXCoreRemoteViewsVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Core.CoreRemoteViews.dependencyAsString(version: String) = moduleName joinWithColon version
 

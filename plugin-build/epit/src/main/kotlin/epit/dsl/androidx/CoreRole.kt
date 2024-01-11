@@ -3,6 +3,7 @@ package epit.dsl.androidx
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -21,10 +22,12 @@ class EpitAndroidXCoreRoleScope internal constructor(
     fun Epit.core_role(version: String) =
         AndroidX.Core.CoreRole.core_role.dependencyAsString(version)
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Core.CoreRole.dependencyAsString
         get(): String = moduleName joinWithColon androidXCoreRoleVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Core.CoreRole.dependencyAsString(version: String) = moduleName joinWithColon version
 

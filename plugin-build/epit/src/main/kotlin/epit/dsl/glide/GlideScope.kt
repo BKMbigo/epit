@@ -3,6 +3,7 @@ package epit.dsl.glide
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -158,10 +159,12 @@ class EpitGlideScope internal constructor(
 
     /* Internal functions */
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     val Glide.Glide.dependencyAsString
         get(): String = moduleName joinWithColon glideVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun Glide.Glide.dependencyAsString(version: String) = moduleName joinWithColon version
 

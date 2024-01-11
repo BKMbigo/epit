@@ -1,9 +1,12 @@
 package epit
 
+import epit.annotations.InternalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 interface EpitDependency {
+
+    @InternalEpitApi
     fun withVersion(version: String): String
 
 }

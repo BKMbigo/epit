@@ -2,11 +2,14 @@ package epit.dsl.ktor
 
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 
+@InternalEpitApi
 @ExperimentalEpitApi
 sealed interface Ktor : EpitDependency {
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     enum class Ktor(
         internal val moduleName: String,

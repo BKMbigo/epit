@@ -1,10 +1,9 @@
 package epit.dsl.androidx
 
 import Epit
-import epit.EpitDependency
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InvalidScopeEpitDependency
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -127,10 +126,12 @@ class EpitAndroidXNavigationScope internal constructor(
         AndroidX.Navigation.navigation_runtime_ui_ktx.dependencyAsString(version)
 
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Navigation.dependencyAsString
         get(): String = moduleName joinWithColon androidXNavigationVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Navigation.dependencyAsString(version: String) = moduleName joinWithColon version
 

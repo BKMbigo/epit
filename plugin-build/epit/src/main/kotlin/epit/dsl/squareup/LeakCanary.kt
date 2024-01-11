@@ -3,6 +3,7 @@ package epit.dsl.squareup
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -198,10 +199,12 @@ class EpitSquareLeakCanaryScope internal constructor(
 
     /* Internal Functions */
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     val SquareUp.LeakCanary.dependencyAsString
         get(): String = moduleName joinWithColon squareLeakCanaryVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun SquareUp.LeakCanary.dependencyAsString(version: String) = moduleName joinWithColon version
 

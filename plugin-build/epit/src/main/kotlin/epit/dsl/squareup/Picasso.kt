@@ -3,6 +3,7 @@ package epit.dsl.squareup
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -30,10 +31,12 @@ class EpitSquarePicassoScope internal constructor(
 
     /* Internal Functions */
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     val SquareUp.Picasso.dependencyAsString
         get(): String = moduleName joinWithColon squarePicassoVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun SquareUp.Picasso.dependencyAsString(version: String) = moduleName joinWithColon version
 

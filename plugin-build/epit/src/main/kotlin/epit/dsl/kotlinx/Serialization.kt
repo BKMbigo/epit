@@ -4,6 +4,7 @@ import Epit
 import epit.EpitDependency
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
@@ -30,10 +31,18 @@ class EpitKotlinxSerializationScope internal constructor(
     fun Epit.serialization_json(version: String) =
         KotlinX.Serialization.serialization_json.dependencyAsString(version)
 
+    /*
+    * ============================
+    * ==== Internal Functions ====
+    * ============================
+    * */
+
+    @InternalEpitApi
     @ExperimentalEpitApi
     val KotlinX.Serialization.dependencyAsString
         get(): String = moduleName joinWithColon kotlinxSerializationVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun KotlinX.Serialization.dependencyAsString(version: String) = moduleName joinWithColon version
 

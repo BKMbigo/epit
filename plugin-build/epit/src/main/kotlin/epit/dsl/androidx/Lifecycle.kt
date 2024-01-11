@@ -1,10 +1,9 @@
 package epit.dsl.androidx
 
 import Epit
-import epit.EpitDependency
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InvalidScopeEpitDependency
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -167,10 +166,12 @@ class EpitAndroidXLifecycleScope internal constructor(
         AndroidX.Lifecycle.lifecycle_service.dependencyAsString(version)
 
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Lifecycle.dependencyAsString
         get(): String = moduleName joinWithColon androidXLifecycleVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Lifecycle.dependencyAsString(version: String) = moduleName joinWithColon version
 

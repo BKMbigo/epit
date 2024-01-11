@@ -2,8 +2,10 @@ package epit.dsl.coil
 
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 
+@InternalEpitApi
 @ExperimentalEpitApi
 enum class Coil(
     internal val moduleName: String

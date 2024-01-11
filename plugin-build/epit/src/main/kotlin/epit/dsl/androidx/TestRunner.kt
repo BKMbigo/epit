@@ -1,10 +1,9 @@
 package epit.dsl.androidx
 
 import Epit
-import epit.EpitDependency
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InvalidScopeEpitDependency
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -24,10 +23,12 @@ class EpitAndroidXTestRunnerScope internal constructor(
 
     /* internal dependencies */
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Test.Runner.dependencyAsString
         get(): String = moduleName joinWithColon androidXTestCoreVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Test.Runner.dependencyAsString(version: String) = moduleName joinWithColon version
 

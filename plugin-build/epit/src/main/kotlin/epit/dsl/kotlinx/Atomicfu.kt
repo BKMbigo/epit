@@ -3,6 +3,7 @@ package epit.dsl.kotlinx
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -22,10 +23,12 @@ class EpitKotlinxAtomicFUScope internal constructor(
 
     /* Internal functions */
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     val KotlinX.AtomicFU.dependencyAsString
         get(): String = moduleName joinWithColon kotlinxAtomicfuVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun KotlinX.AtomicFU.dependencyAsString(version: String) = moduleName joinWithColon version
 

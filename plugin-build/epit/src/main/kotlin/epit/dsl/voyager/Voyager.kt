@@ -1,7 +1,9 @@
 package epit.dsl.voyager
 
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 
+@InternalEpitApi
 @ExperimentalEpitApi
 enum class Voyager(
     internal val moduleName: String

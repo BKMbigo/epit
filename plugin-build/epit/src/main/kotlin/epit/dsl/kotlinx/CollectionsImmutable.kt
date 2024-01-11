@@ -4,6 +4,7 @@ import Epit
 import epit.EpitDependency
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
@@ -22,10 +23,18 @@ class EpitKotlinxImmutableCollectionsScope internal constructor(
     fun Epit.collections_immutable(version: String) =
         KotlinX.CollectionsImmutable.collections_immutable.dependencyAsString(version)
 
+    /*
+    * ============================
+    * ==== Internal Functions ====
+    * ============================
+    * */
+
+    @InternalEpitApi
     @ExperimentalEpitApi
     val KotlinX.CollectionsImmutable.dependencyAsString
         get(): String = moduleName joinWithColon kotlinxCollectionsImmutableVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun KotlinX.CollectionsImmutable.dependencyAsString(version: String) = moduleName joinWithColon version
 

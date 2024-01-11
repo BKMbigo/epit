@@ -3,6 +3,7 @@ package epit.dsl.squareup
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -140,10 +141,12 @@ class EpitSquareOkHttp3BOMScope internal constructor(
     @ExperimentalEpitApi
     fun bomAsString(customVersion: String) = SquareUp.OkHttp3.okhttp_bom.moduleName joinWithColon customVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     val SquareUp.OkHttp3.dependencyAsString
         get(): String = moduleName joinWithColon squareOkHttp3BOMVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun SquareUp.OkHttp3.dependencyAsString(version: String) = moduleName joinWithColon version
 

@@ -2,11 +2,14 @@ package epit.dsl.raamcosta
 
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 
+@InternalEpitApi
 @ExperimentalEpitApi
 sealed interface Raamcosta : EpitDependency {
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     enum class ComposeDestinations(
         internal val moduleName: String

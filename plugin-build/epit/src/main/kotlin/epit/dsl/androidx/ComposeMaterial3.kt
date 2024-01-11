@@ -3,6 +3,7 @@ package epit.dsl.androidx
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -36,10 +37,12 @@ class EpitAndroidXComposeMaterial3Scope internal constructor(
     * ===============================
     * */
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Compose.Material3.Material3.dependencyAsString
         get(): String = moduleName joinWithColon androidXComposeMaterial3Version
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Compose.Material3.Material3.dependencyAsString(version: String) = moduleName joinWithColon version
 

@@ -1,9 +1,12 @@
 package epit.dsl.glide
 
 import epit.EpitDependency
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 
+@InternalEpitApi
 sealed interface Glide : EpitDependency {
+    @InternalEpitApi
     enum class Glide(
         internal val moduleName: String
     ) : MainGlide {
@@ -33,6 +36,7 @@ sealed interface Glide : EpitDependency {
 
     }
 
+    @InternalEpitApi
     enum class GlideKtx(
         internal val moduleName: String
     ) : MainGlide {

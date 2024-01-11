@@ -3,6 +3,7 @@ package epit.dsl.androidx
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -39,11 +40,18 @@ class EpitAndroidXCorePerformanceScope internal constructor(
     fun Epit.core_performance_testing(version: String) =
         AndroidX.Core.CorePerformance.core_performance_testing.dependencyAsString(version)
 
+    /*
+    * ============================
+    * ==== Internal Functions ====
+    * ============================
+    * */
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Core.CorePerformance.dependencyAsString
         get(): String = moduleName joinWithColon androidXCorePerformanceVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Core.CorePerformance.dependencyAsString(version: String) = moduleName joinWithColon version
 

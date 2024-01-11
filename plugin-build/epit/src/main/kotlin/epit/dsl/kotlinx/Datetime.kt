@@ -4,6 +4,7 @@ import Epit
 import epit.EpitDependency
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
@@ -26,9 +27,13 @@ class EpitKotlinxDatetimeScope internal constructor(
     val KotlinX.Datetime.dependencyAsString
         get(): String = moduleName joinWithColon kotlinxDatetimeVersion
 
+    /* Internal Functions */
+
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun KotlinX.Datetime.dependencyAsString(version: String) = moduleName joinWithColon version
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(datetime: KotlinX.Datetime) {
         add("implementation", datetime.dependencyAsString)

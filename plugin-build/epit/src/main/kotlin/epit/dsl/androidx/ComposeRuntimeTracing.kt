@@ -3,6 +3,7 @@ package epit.dsl.androidx
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -22,10 +23,12 @@ class EpitAndroidXComposeRuntimeTracingScope internal constructor(
 
     /* internal function */
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Compose.Runtime.RuntimeTracing.dependencyAsString
         get(): String = moduleName joinWithColon androidXComposeRuntimeTracingVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Compose.Runtime.RuntimeTracing.dependencyAsString(version: String) = moduleName joinWithColon version
 

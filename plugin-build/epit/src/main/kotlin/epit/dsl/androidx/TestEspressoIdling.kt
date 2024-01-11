@@ -1,10 +1,9 @@
 package epit.dsl.androidx
 
 import Epit
-import epit.EpitDependency
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InvalidScopeEpitDependency
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -29,11 +28,18 @@ class EpitAndroidXTestEspressoIdlingScope internal constructor(
     fun Epit.idling_net(version: String) =
         AndroidX.Test.Espresso.Idling.idling_net.dependencyAsString(version)
 
+    /*
+    * ============================
+    * ==== Internal Functions ====
+    * ============================
+    * */
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Test.Espresso.Idling.dependencyAsString
         get(): String = moduleName joinWithColon androidXTestEspressoIdlingVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Test.Espresso.Idling.dependencyAsString(version: String) = moduleName joinWithColon version
 

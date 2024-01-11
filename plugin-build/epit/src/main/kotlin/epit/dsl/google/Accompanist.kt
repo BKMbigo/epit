@@ -1,10 +1,9 @@
 package epit.dsl.google
 
 import Epit
-import epit.EpitDependency
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InvalidScopeEpitDependency
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -184,10 +183,12 @@ class EpitGoogleAccompanistScope internal constructor(
 
     /* Internal functions */
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     val Google.Accompanist.dependencyAsString
         get(): String = moduleName joinWithColon accompanistVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun Google.Accompanist.dependencyAsString(version: String) = moduleName joinWithColon version
 

@@ -4,6 +4,7 @@ import Epit
 import epit.EpitDependency
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.annotations.InvalidScopeEpitDependency
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
@@ -363,10 +364,12 @@ class EpitFirebaseScope internal constructor(
     @ExperimentalEpitApi
     fun bomAsString(customVersion: String) = Google.Firebase.firebase_bom.moduleName joinWithColon customVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     val Google.Firebase.dependencyAsString
         get() = moduleName
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun Google.Firebase.dependencyAsString(version: String) = moduleName joinWithColon version
 

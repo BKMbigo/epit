@@ -3,6 +3,7 @@ package epit.dsl.androidx
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -332,10 +333,12 @@ class EpitAndroidXComposeBomScope internal constructor(
     @ExperimentalEpitApi
     fun bomAsString(customVersion: String) = AndroidX.Compose.Bom.compose_bom.moduleName joinWithColon customVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Compose.ComposeBomDependency.dependencyAsString
         get() = this.moduleName
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Compose.dependencyAsString(version: String) = moduleName joinWithColon version
 

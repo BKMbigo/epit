@@ -3,6 +3,7 @@ package epit.dsl.androidx
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -48,10 +49,12 @@ class EpitAndroidXFragmentScope internal constructor(
     fun Epit.fragment_testing_manifest(version: String) =
         AndroidX.Fragment.fragment_testing_manifest.dependencyAsString(version)
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Fragment.dependencyAsString
         get(): String = this.moduleName joinWithColon androidXFragmentVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Fragment.dependencyAsString(version: String) = moduleName joinWithColon version
 

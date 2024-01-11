@@ -1,10 +1,9 @@
 package epit.dsl.androidx
 
 import Epit
-import epit.EpitDependency
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InvalidScopeEpitDependency
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -22,10 +21,12 @@ class EpitAndroidXTestEspressoDeviceScope internal constructor(
     fun Epit.espresso_device(version: String) =
         AndroidX.Test.Espresso.EspressoDevice.espresso_device.dependencyAsString(version)
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Test.Espresso.EspressoDevice.dependencyAsString
         get(): String = moduleName joinWithColon androidXTestEspressoDeviceVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Test.Espresso.EspressoDevice.dependencyAsString(version: String) = moduleName joinWithColon version
 

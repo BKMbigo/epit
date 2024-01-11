@@ -3,6 +3,7 @@ package epit.dsl.androidx
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -28,10 +29,12 @@ class EpitAndroidXCoreLocationScope internal constructor(
     fun Epit.core_location_altitude(version: String) =
         AndroidX.Core.CoreLocation.core_location_altitude.dependencyAsString(version)
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Core.CoreLocation.dependencyAsString
         get(): String = moduleName joinWithColon androidXCoreLocationVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Core.CoreLocation.dependencyAsString(version: String) = moduleName joinWithColon version
 

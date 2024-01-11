@@ -3,6 +3,7 @@ package epit.dsl.ktor
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -856,10 +857,12 @@ class EpitExperimentalKtorScope internal constructor(
     @ExperimentalEpitApi
     fun bomAsString(customVersion: String) = ktor_bom_module_name joinWithColon customVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     val Ktor.Ktor.dependencyAsString
         get() = moduleName
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun Ktor.Ktor.dependencyAsString(version: String) = moduleName joinWithColon version
 

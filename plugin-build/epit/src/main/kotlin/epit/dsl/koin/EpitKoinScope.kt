@@ -3,6 +3,7 @@ package epit.dsl.koin
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -131,10 +132,12 @@ class EpitKoinScope internal constructor(
     @ExperimentalEpitApi
     fun bomAsString(customVersion: String) = Koin.koin_bom.moduleName joinWithColon customVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     val Koin.dependencyAsString
         get() = moduleName
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun Koin.dependencyAsString(version: String) = moduleName joinWithColon version
 

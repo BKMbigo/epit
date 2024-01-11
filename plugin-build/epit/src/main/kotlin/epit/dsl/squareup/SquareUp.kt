@@ -2,11 +2,14 @@ package epit.dsl.squareup
 
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 
+@InternalEpitApi
 @ExperimentalEpitApi
 sealed interface SquareUp : EpitDependency {
 
+    @InternalEpitApi
     enum class LeakCanary(
         internal val moduleName: String
     ) : EpitDependency {
@@ -47,6 +50,7 @@ sealed interface SquareUp : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     enum class OkHttp3(
         internal val moduleName: String
@@ -85,6 +89,7 @@ sealed interface SquareUp : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @InternalEpitApi
     enum class Picasso(
         internal val moduleName: String
     ) : EpitDependency {
@@ -97,6 +102,7 @@ sealed interface SquareUp : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @InternalEpitApi
     enum class Retrofit2(
         internal val moduleName: String
     ) : EpitDependency {

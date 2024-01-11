@@ -3,6 +3,7 @@ package epit.dsl.squareup
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -158,11 +159,12 @@ class EpitSquareRetrofit2Scope internal constructor(
 
 
     /* Internal functions */
-
+    @InternalEpitApi
     @ExperimentalEpitApi
     val SquareUp.Retrofit2.dependencyAsString
         get(): String = moduleName joinWithColon squareRetrofit2Version
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun SquareUp.Retrofit2.dependencyAsString(version: String) = moduleName joinWithColon version
 

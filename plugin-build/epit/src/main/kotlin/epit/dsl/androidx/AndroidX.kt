@@ -2,11 +2,14 @@ package epit.dsl.androidx
 
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 
+@InternalEpitApi
 @ExperimentalEpitApi
 sealed interface AndroidX : EpitDependency {
 
+    @InternalEpitApi
     enum class Activity(
         internal val moduleName: String
     ) : AndroidX {
@@ -17,6 +20,7 @@ sealed interface AndroidX : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @InternalEpitApi
     enum class Appcompat(
         internal val moduleName: String
     ) : AndroidX {
@@ -26,6 +30,7 @@ sealed interface AndroidX : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @InternalEpitApi
     enum class Camera(
         internal val moduleName: String
     ) : AndroidX {
@@ -42,11 +47,14 @@ sealed interface AndroidX : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     sealed interface Compose : AndroidX {
 
+        @InternalEpitApi
         sealed interface ComposeBomDependency : Compose
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         enum class Animation(
             internal val moduleName: String
@@ -68,6 +76,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         enum class Bom(
             internal val moduleName: String
@@ -77,6 +86,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         enum class Compiler(
             internal val moduleName: String
@@ -88,9 +98,11 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         sealed interface Foundation : Compose {
 
+            @InternalEpitApi
             @ExperimentalEpitApi
             enum class Foundation(
                 internal val moduleName: String
@@ -106,6 +118,7 @@ sealed interface AndroidX : EpitDependency {
                 override fun withVersion(version: String): String = moduleName joinWithColon version
             }
 
+            @InternalEpitApi
             @ExperimentalEpitApi
             enum class FoundationText(
                 internal val moduleName: String
@@ -116,6 +129,7 @@ sealed interface AndroidX : EpitDependency {
             }
         }
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         enum class Material(
             internal val moduleName: String
@@ -139,8 +153,10 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         sealed interface Material3 : Compose {
+            @InternalEpitApi
             @ExperimentalEpitApi
             enum class Material3(
                 internal val moduleName: String
@@ -156,6 +172,7 @@ sealed interface AndroidX : EpitDependency {
                 override fun withVersion(version: String): String = moduleName joinWithColon version
             }
 
+            @InternalEpitApi
             @ExperimentalEpitApi
             enum class Material3Adaptive(
                 internal val moduleName: String
@@ -172,8 +189,10 @@ sealed interface AndroidX : EpitDependency {
             }
         }
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         sealed interface Runtime : Compose {
+            @InternalEpitApi
             @ExperimentalEpitApi
             enum class Runtime(
                 internal val moduleName: String
@@ -193,6 +212,7 @@ sealed interface AndroidX : EpitDependency {
                 override fun withVersion(version: String): String = moduleName joinWithColon version
             }
 
+            @InternalEpitApi
             @ExperimentalEpitApi
             enum class RuntimeSavedInstanceState(
                 internal val moduleName: String
@@ -202,6 +222,7 @@ sealed interface AndroidX : EpitDependency {
                 override fun withVersion(version: String): String = moduleName joinWithColon version
             }
 
+            @InternalEpitApi
             @ExperimentalEpitApi
             enum class RuntimeTracing(
                 internal val moduleName: String
@@ -212,6 +233,7 @@ sealed interface AndroidX : EpitDependency {
             }
         }
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         enum class UI(
             internal val moduleName: String
@@ -271,9 +293,11 @@ sealed interface AndroidX : EpitDependency {
 
     }
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     sealed interface ConstraintLayout : AndroidX {
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         enum class ConstraintLayout(
             internal val moduleName: String
@@ -283,6 +307,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         enum class ConstraintLayoutCompose(
             internal val moduleName: String
@@ -293,6 +318,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         enum class ConstraintLayoutCore(
             internal val moduleName: String
@@ -302,6 +328,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         enum class ConstraintLayoutSolver(
             internal val moduleName: String
@@ -312,9 +339,11 @@ sealed interface AndroidX : EpitDependency {
         }
     }
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     sealed interface Core {
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         enum class Core(
             internal val moduleName: String
@@ -340,6 +369,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         enum class CoreAnimation(
             internal val moduleName: String
@@ -350,6 +380,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         enum class CoreGoogleShortcuts(
             internal val moduleName: String
@@ -359,6 +390,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         enum class CoreLocation(
             internal val moduleName: String
@@ -369,6 +401,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         enum class CorePerformance(
             internal val moduleName: String
@@ -380,6 +413,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         enum class CoreRemoteViews(
             internal val moduleName: String
@@ -389,6 +423,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         enum class CoreRole(
             internal val moduleName: String
@@ -398,6 +433,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         enum class CoreSplashscreen(
             internal val moduleName: String
@@ -407,6 +443,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         enum class CoreTelecom(
             internal val moduleName: String
@@ -418,6 +455,7 @@ sealed interface AndroidX : EpitDependency {
 
     }
 
+    @InternalEpitApi
     enum class Fragment(
         internal val moduleName: String
     ) : AndroidX {
@@ -429,6 +467,7 @@ sealed interface AndroidX : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     enum class Lifecycle(
         internal val moduleName: String
@@ -458,6 +497,7 @@ sealed interface AndroidX : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @InternalEpitApi
     enum class Navigation(
         internal val moduleName: String
     ) : AndroidX {
@@ -479,6 +519,7 @@ sealed interface AndroidX : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     enum class Paging(
         internal val moduleName: String
@@ -516,6 +557,7 @@ sealed interface AndroidX : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     enum class RecyclerView(
         internal val moduleName: String
@@ -526,6 +568,7 @@ sealed interface AndroidX : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     enum class Room(
         internal val moduleName: String
@@ -553,9 +596,11 @@ sealed interface AndroidX : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     sealed interface Test : AndroidX {
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         enum class Annotation(
             internal val moduleName: String
@@ -565,6 +610,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         enum class Core(
             internal val moduleName: String
@@ -575,6 +621,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         enum class Monitor(
             internal val moduleName: String
@@ -584,6 +631,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         enum class Orchestrator(
             internal val moduleName: String
@@ -593,6 +641,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         enum class Rules(
             internal val moduleName: String
@@ -602,6 +651,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         enum class Runner(
             internal val moduleName: String
@@ -611,8 +661,10 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         sealed interface Espresso : Test {
+            @InternalEpitApi
             enum class Espresso(
                 internal val moduleName: String
             ) : MainEspresso {
@@ -629,6 +681,7 @@ sealed interface AndroidX : EpitDependency {
                 override fun withVersion(version: String): String = moduleName joinWithColon version
             }
 
+            @InternalEpitApi
             enum class EspressoDevice(
                 internal val moduleName: String
             ) : MainEspresso {
@@ -637,6 +690,7 @@ sealed interface AndroidX : EpitDependency {
                 override fun withVersion(version: String): String = moduleName joinWithColon version
             }
 
+            @InternalEpitApi
             enum class Idling(
                 internal val moduleName: String
             ) : MainEspresso {
@@ -647,8 +701,10 @@ sealed interface AndroidX : EpitDependency {
             }
         }
 
+        @InternalEpitApi
         @ExperimentalEpitApi
         sealed interface Ext {
+            @InternalEpitApi
             @ExperimentalEpitApi
             enum class JUnit(
                 internal val moduleName: String
@@ -659,6 +715,7 @@ sealed interface AndroidX : EpitDependency {
                 override fun withVersion(version: String): String = moduleName joinWithColon version
             }
 
+            @InternalEpitApi
             @ExperimentalEpitApi
             enum class JUnitGTest(
                 internal val moduleName: String
@@ -668,6 +725,7 @@ sealed interface AndroidX : EpitDependency {
                 override fun withVersion(version: String): String = moduleName joinWithColon version
             }
 
+            @InternalEpitApi
             @ExperimentalEpitApi
             enum class Truth(
                 internal val moduleName: String
@@ -680,7 +738,7 @@ sealed interface AndroidX : EpitDependency {
     }
 }
 
-@OptIn(ExperimentalEpitApi::class)
+@OptIn(ExperimentalEpitApi::class, InternalEpitApi::class)
 private typealias MainEspresso = AndroidX.Test.Espresso
 private typealias MainFoundation = AndroidX.Compose.Foundation
 private typealias MainRuntime = AndroidX.Compose.Runtime

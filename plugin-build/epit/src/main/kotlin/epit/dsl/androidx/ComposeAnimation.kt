@@ -3,6 +3,7 @@ package epit.dsl.androidx
 import Epit
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -52,10 +53,12 @@ class EpitAndroidXComposeAnimationScope internal constructor(
     * ===============================
     * */
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Compose.Animation.dependencyAsString
         get(): String = moduleName joinWithColon androidXComposeAnimationVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Compose.Animation.dependencyAsString(version: String) = moduleName joinWithColon version
 

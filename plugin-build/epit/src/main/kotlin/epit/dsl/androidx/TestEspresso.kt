@@ -1,10 +1,9 @@
 package epit.dsl.androidx
 
 import Epit
-import epit.EpitDependency
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InvalidScopeEpitDependency
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -87,20 +86,25 @@ class EpitAndroidXTestEspressoScope internal constructor(
     fun Epit.idling_net(version: String) =
         AndroidX.Test.Espresso.Idling.idling_net.dependencyAsString(version)
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Test.Espresso.Espresso.dependencyAsString
         get(): String = moduleName joinWithColon androidXTestEspressoVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Test.Espresso.Idling.dependencyAsString
         get(): String = moduleName joinWithColon androidXTestEspressoVersion
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Test.Espresso.Espresso.dependencyAsString(version: String) = moduleName joinWithColon version
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Test.Espresso.Idling.dependencyAsString(version: String) = moduleName joinWithColon version
 
+    @Deprecated("The method has been deprecated in favor of Epit namespace")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(espresso: AndroidX.Test.Espresso.Espresso) {
         add("implementation", espresso.dependencyAsString)

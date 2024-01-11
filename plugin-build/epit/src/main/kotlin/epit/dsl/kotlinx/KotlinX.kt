@@ -2,11 +2,14 @@ package epit.dsl.kotlinx
 
 import epit.EpitDependency
 import epit.annotations.ExperimentalEpitApi
+import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 
+@InternalEpitApi
 @ExperimentalEpitApi
 interface KotlinX : EpitDependency {
 
+    @InternalEpitApi
     enum class AtomicFU(
         internal val moduleName: String
     ) : KotlinX {
@@ -15,6 +18,7 @@ interface KotlinX : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @InternalEpitApi
     enum class CollectionsImmutable(
         internal val moduleName: String
     ) : KotlinX {
@@ -23,6 +27,7 @@ interface KotlinX : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @InternalEpitApi
     @ExperimentalEpitApi
     enum class Coroutines(
         internal val moduleName: String
@@ -44,6 +49,7 @@ interface KotlinX : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @InternalEpitApi
     enum class Datetime(
         internal val moduleName: String
     ) : KotlinX {
@@ -52,6 +58,7 @@ interface KotlinX : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @InternalEpitApi
     enum class Serialization(
         internal val moduleName: String
     ) : KotlinX {
