@@ -857,16 +857,18 @@ class EpitExperimentalKtorScope internal constructor(
     @ExperimentalEpitApi
     fun bomAsString(customVersion: String) = ktor_bom_module_name joinWithColon customVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val Ktor.Ktor.dependencyAsString
         get() = moduleName
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun Ktor.Ktor.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("This method has been deprecated in favor of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(ktor: Ktor.Ktor) {
         add("implementation", ktor.moduleName)

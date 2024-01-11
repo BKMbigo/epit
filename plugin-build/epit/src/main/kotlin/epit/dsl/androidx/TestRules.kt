@@ -21,17 +21,24 @@ class EpitAndroidXTestRulesScope internal constructor(
     fun Epit.rules(version: String) =
         AndroidX.Test.Rules.rules.dependencyAsString(version)
 
+    /*
+    * ============================
+    * ==== Internal Functions ====
+    * ============================
+    *  */
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Test.Rules.dependencyAsString
         get(): String = moduleName joinWithColon androidXTestRulesVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Test.Rules.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The method has been deprecated in favor of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(rules: AndroidX.Test.Rules) {
         add("implementation", rules.dependencyAsString)

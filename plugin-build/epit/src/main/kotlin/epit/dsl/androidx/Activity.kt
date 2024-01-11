@@ -45,7 +45,7 @@ class EpitAndroidXActivityScope internal constructor(
     @ExperimentalEpitApi
     fun AndroidX.Activity.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The method has been deprecated in favor of Epit namespace")
+    @Deprecated("The api has been deprecated in favor of the new API. It will be fully deprecated in 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(activity: AndroidX.Activity) {
         add("implementation", activity.dependencyAsString)

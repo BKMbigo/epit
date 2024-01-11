@@ -49,16 +49,18 @@ class EpitAndroidXFragmentScope internal constructor(
     fun Epit.fragment_testing_manifest(version: String) =
         AndroidX.Fragment.fragment_testing_manifest.dependencyAsString(version)
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Fragment.dependencyAsString
         get(): String = this.moduleName joinWithColon androidXFragmentVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Fragment.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The method has been deprecated in favor of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(fragment: AndroidX.Fragment) {
         add("implementation", fragment.dependencyAsString)

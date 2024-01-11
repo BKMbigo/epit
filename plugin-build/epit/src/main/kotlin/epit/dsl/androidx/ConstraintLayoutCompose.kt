@@ -21,17 +21,19 @@ class EpitAndroidXConstraintLayoutComposeScope internal constructor(
     fun Epit.constraintlayout_compose(version: String) =
         AndroidX.ConstraintLayout.ConstraintLayoutCompose.constraintlayout_compose.dependencyAsString(version)
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.ConstraintLayout.ConstraintLayoutCompose.dependencyAsString
         get(): String = moduleName joinWithColon androidXConstraintLayoutComposeVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.ConstraintLayout.ConstraintLayoutCompose.dependencyAsString(version: String) =
         moduleName joinWithColon version
 
-    @Deprecated("The method has been deprecated in favor of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(constraintLayoutCompose: AndroidX.ConstraintLayout.ConstraintLayoutCompose) {
         add("implementation", constraintLayoutCompose.dependencyAsString)

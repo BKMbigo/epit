@@ -5,10 +5,12 @@ import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 
+@Deprecated("The use of this API will be deprecated in version 2024.01.01")
 @InternalEpitApi
 @ExperimentalEpitApi
 sealed interface AndroidX : EpitDependency {
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     enum class Activity(
         internal val moduleName: String
@@ -20,6 +22,7 @@ sealed interface AndroidX : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     enum class Appcompat(
         internal val moduleName: String
@@ -30,6 +33,7 @@ sealed interface AndroidX : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     enum class Camera(
         internal val moduleName: String
@@ -47,13 +51,16 @@ sealed interface AndroidX : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     sealed interface Compose : AndroidX {
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         sealed interface ComposeBomDependency : Compose
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         enum class Animation(
@@ -76,6 +83,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         enum class Bom(
@@ -86,6 +94,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         enum class Compiler(
@@ -98,10 +107,12 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         sealed interface Foundation : Compose {
 
+            @Deprecated("The use of this API will be deprecated in version 2024.01.01")
             @InternalEpitApi
             @ExperimentalEpitApi
             enum class Foundation(
@@ -118,6 +129,7 @@ sealed interface AndroidX : EpitDependency {
                 override fun withVersion(version: String): String = moduleName joinWithColon version
             }
 
+            @Deprecated("The use of this API will be deprecated in version 2024.01.01")
             @InternalEpitApi
             @ExperimentalEpitApi
             enum class FoundationText(
@@ -129,6 +141,7 @@ sealed interface AndroidX : EpitDependency {
             }
         }
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         enum class Material(
@@ -153,6 +166,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         sealed interface Material3 : Compose {
@@ -189,9 +203,12 @@ sealed interface AndroidX : EpitDependency {
             }
         }
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         sealed interface Runtime : Compose {
+
+            @Deprecated("The use of this API will be deprecated in version 2024.01.01")
             @InternalEpitApi
             @ExperimentalEpitApi
             enum class Runtime(
@@ -212,6 +229,7 @@ sealed interface AndroidX : EpitDependency {
                 override fun withVersion(version: String): String = moduleName joinWithColon version
             }
 
+            @Deprecated("The use of this API will be deprecated in version 2024.01.01")
             @InternalEpitApi
             @ExperimentalEpitApi
             enum class RuntimeSavedInstanceState(
@@ -222,6 +240,7 @@ sealed interface AndroidX : EpitDependency {
                 override fun withVersion(version: String): String = moduleName joinWithColon version
             }
 
+            @Deprecated("The use of this API will be deprecated in version 2024.01.01")
             @InternalEpitApi
             @ExperimentalEpitApi
             enum class RuntimeTracing(
@@ -233,6 +252,7 @@ sealed interface AndroidX : EpitDependency {
             }
         }
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         enum class UI(
@@ -293,10 +313,12 @@ sealed interface AndroidX : EpitDependency {
 
     }
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     sealed interface ConstraintLayout : AndroidX {
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         enum class ConstraintLayout(
@@ -307,6 +329,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         enum class ConstraintLayoutCompose(
@@ -318,6 +341,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         enum class ConstraintLayoutCore(
@@ -328,6 +352,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         enum class ConstraintLayoutSolver(
@@ -339,10 +364,12 @@ sealed interface AndroidX : EpitDependency {
         }
     }
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     sealed interface Core {
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         enum class Core(
@@ -369,6 +396,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         enum class CoreAnimation(
@@ -380,6 +408,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         enum class CoreGoogleShortcuts(
@@ -390,6 +419,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         enum class CoreLocation(
@@ -401,6 +431,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         enum class CorePerformance(
@@ -413,6 +444,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         enum class CoreRemoteViews(
@@ -423,6 +455,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         enum class CoreRole(
@@ -433,6 +466,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         enum class CoreSplashscreen(
@@ -443,6 +477,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         enum class CoreTelecom(
@@ -455,6 +490,7 @@ sealed interface AndroidX : EpitDependency {
 
     }
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     enum class Fragment(
         internal val moduleName: String
@@ -467,6 +503,7 @@ sealed interface AndroidX : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     enum class Lifecycle(
@@ -497,6 +534,7 @@ sealed interface AndroidX : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     enum class Navigation(
         internal val moduleName: String
@@ -519,6 +557,7 @@ sealed interface AndroidX : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     enum class Paging(
@@ -557,6 +596,7 @@ sealed interface AndroidX : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     enum class RecyclerView(
@@ -568,6 +608,7 @@ sealed interface AndroidX : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     enum class Room(
@@ -596,10 +637,12 @@ sealed interface AndroidX : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     sealed interface Test : AndroidX {
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         enum class Annotation(
@@ -610,6 +653,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         enum class Core(
@@ -621,6 +665,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         enum class Monitor(
@@ -631,6 +676,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         enum class Orchestrator(
@@ -641,6 +687,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         enum class Rules(
@@ -651,6 +698,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         enum class Runner(
@@ -661,6 +709,7 @@ sealed interface AndroidX : EpitDependency {
             override fun withVersion(version: String): String = moduleName joinWithColon version
         }
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         sealed interface Espresso : Test {
@@ -681,6 +730,7 @@ sealed interface AndroidX : EpitDependency {
                 override fun withVersion(version: String): String = moduleName joinWithColon version
             }
 
+            @Deprecated("The use of this API will be deprecated in version 2024.01.01")
             @InternalEpitApi
             enum class EspressoDevice(
                 internal val moduleName: String
@@ -690,6 +740,7 @@ sealed interface AndroidX : EpitDependency {
                 override fun withVersion(version: String): String = moduleName joinWithColon version
             }
 
+            @Deprecated("The use of this API will be deprecated in version 2024.01.01")
             @InternalEpitApi
             enum class Idling(
                 internal val moduleName: String
@@ -701,9 +752,11 @@ sealed interface AndroidX : EpitDependency {
             }
         }
 
+        @Deprecated("The use of this API will be deprecated in version 2024.01.01")
         @InternalEpitApi
         @ExperimentalEpitApi
         sealed interface Ext {
+            @Deprecated("The use of this API will be deprecated in version 2024.01.01")
             @InternalEpitApi
             @ExperimentalEpitApi
             enum class JUnit(
@@ -715,6 +768,7 @@ sealed interface AndroidX : EpitDependency {
                 override fun withVersion(version: String): String = moduleName joinWithColon version
             }
 
+            @Deprecated("The use of this API will be deprecated in version 2024.01.01")
             @InternalEpitApi
             @ExperimentalEpitApi
             enum class JUnitGTest(
@@ -725,6 +779,7 @@ sealed interface AndroidX : EpitDependency {
                 override fun withVersion(version: String): String = moduleName joinWithColon version
             }
 
+            @Deprecated("The use of this API will be deprecated in version 2024.01.01")
             @InternalEpitApi
             @ExperimentalEpitApi
             enum class Truth(

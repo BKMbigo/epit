@@ -4,8 +4,10 @@ import epit.EpitDependency
 import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 
+@Deprecated("The use of this API will be deprecated in version 2024.01.01")
 @InternalEpitApi
 sealed interface Glide : EpitDependency {
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     enum class Glide(
         internal val moduleName: String
@@ -36,6 +38,7 @@ sealed interface Glide : EpitDependency {
 
     }
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     enum class GlideKtx(
         internal val moduleName: String

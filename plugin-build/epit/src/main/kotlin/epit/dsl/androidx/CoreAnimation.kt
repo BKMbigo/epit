@@ -29,16 +29,18 @@ class EpitAndroidXCoreAnimationScope internal constructor(
     fun Epit.core_animation_testing(version: String) =
         AndroidX.Core.CoreAnimation.core_animation_testing.dependencyAsString(version)
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Core.CoreAnimation.dependencyAsString
         get(): String = moduleName joinWithColon androidXCoreAnimationVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Core.CoreAnimation.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The method has been deprecated in favor of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(coreAnimation: AndroidX.Core.CoreAnimation) {
         add("implementation", coreAnimation.dependencyAsString)

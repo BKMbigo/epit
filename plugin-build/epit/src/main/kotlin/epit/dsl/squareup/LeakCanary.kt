@@ -198,17 +198,18 @@ class EpitSquareLeakCanaryScope internal constructor(
         SquareUp.LeakCanary.leakcanary_android_core.dependencyAsString(version)
 
     /* Internal Functions */
-
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val SquareUp.LeakCanary.dependencyAsString
         get(): String = moduleName joinWithColon squareLeakCanaryVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun SquareUp.LeakCanary.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("This function has been deprecated in favour of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(leakCanary: SquareUp.LeakCanary) {
         add("implementation", leakCanary.dependencyAsString)

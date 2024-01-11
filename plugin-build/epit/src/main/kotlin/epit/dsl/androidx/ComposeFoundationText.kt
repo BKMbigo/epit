@@ -23,17 +23,19 @@ class EpitAndroidXComposeFoundationTextScope internal constructor(
 
     /* internal functions */
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Compose.Foundation.FoundationText.dependencyAsString
         get(): String = moduleName joinWithColon androidXComposeFoundationTextVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Compose.Foundation.FoundationText.dependencyAsString(version: String) =
         moduleName joinWithColon version
 
-    @Deprecated("The method has been deprecated in favor of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(composeFoundationText: AndroidX.Compose.Foundation.FoundationText) {
         add("implementation", composeFoundationText.dependencyAsString)

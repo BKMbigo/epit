@@ -22,17 +22,18 @@ class EpitAndroidXCoreRemoteViewsScope internal constructor(
     fun Epit.core_remoteviews(version: String) =
         AndroidX.Core.CoreRemoteViews.core_remoteviews.dependencyAsString(version)
 
-
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Core.CoreRemoteViews.dependencyAsString
         get(): String = moduleName joinWithColon androidXCoreRemoteViewsVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Core.CoreRemoteViews.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The method has been deprecated in favor of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(coreRemoteViews: AndroidX.Core.CoreRemoteViews) {
         add("implementation", coreRemoteViews.dependencyAsString)

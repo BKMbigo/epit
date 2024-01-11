@@ -22,16 +22,18 @@ class EpitAndroidXRecyclerViewScope internal constructor(
         AndroidX.RecyclerView.recyclerview.dependencyAsString(version)
 
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.RecyclerView.dependencyAsString
         get(): String = moduleName joinWithColon androidXRecyclerViewVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.RecyclerView.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The method has been deprecated in favor of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(recyclerView: AndroidX.RecyclerView) {
         add("implementation", recyclerView.dependencyAsString)

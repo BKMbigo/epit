@@ -5,10 +5,12 @@ import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 
+@Deprecated("The use of this API will be deprecated in version 2024.01.01")
 @InternalEpitApi
 @ExperimentalEpitApi
 interface KotlinX : EpitDependency {
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     enum class AtomicFU(
         internal val moduleName: String
@@ -18,6 +20,7 @@ interface KotlinX : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     enum class CollectionsImmutable(
         internal val moduleName: String
@@ -27,6 +30,7 @@ interface KotlinX : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     enum class Coroutines(
@@ -49,6 +53,7 @@ interface KotlinX : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     enum class Datetime(
         internal val moduleName: String
@@ -58,6 +63,7 @@ interface KotlinX : EpitDependency {
         override fun withVersion(version: String): String = moduleName joinWithColon version
     }
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     enum class Serialization(
         internal val moduleName: String

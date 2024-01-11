@@ -5,10 +5,12 @@ import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InternalEpitApi
 import epit.utils.joinWithColon
 
+@Deprecated("The use of this API will be deprecated in version 2024.01.01")
 @InternalEpitApi
 @ExperimentalEpitApi
 sealed interface Ktor : EpitDependency {
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     enum class Ktor(

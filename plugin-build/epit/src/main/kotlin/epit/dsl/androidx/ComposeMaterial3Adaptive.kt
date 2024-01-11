@@ -30,17 +30,19 @@ class EpitAndroidXComposeMaterial3AdaptiveScope internal constructor(
         AndroidX.Compose.Material3.Material3Adaptive.material3_adaptive_navigation_suite.dependencyAsString(version)
 
     /* Internal functions */
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Compose.Material3.Material3Adaptive.dependencyAsString
         get(): String = moduleName joinWithColon androidXComposeMaterial3AdaptiveVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Compose.Material3.Material3Adaptive.dependencyAsString(version: String) =
         moduleName joinWithColon version
 
-    @Deprecated("The method has been deprecated in favor of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(composeMaterial3Adaptive: AndroidX.Compose.Material3.Material3Adaptive) {
         add("implementation", composeMaterial3Adaptive.dependencyAsString)

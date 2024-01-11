@@ -1,11 +1,9 @@
 package epit.dsl.kotlinx
 
 import Epit
-import epit.EpitDependency
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InternalEpitApi
-import epit.annotations.InvalidScopeEpitDependency
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -29,23 +27,20 @@ class EpitKotlinxImmutableCollectionsScope internal constructor(
     * ============================
     * */
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val KotlinX.CollectionsImmutable.dependencyAsString
         get(): String = moduleName joinWithColon kotlinxCollectionsImmutableVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun KotlinX.CollectionsImmutable.dependencyAsString(version: String) = moduleName joinWithColon version
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(collectionsImmutable: KotlinX.CollectionsImmutable) {
         add("implementation", collectionsImmutable.dependencyAsString)
-    }
-
-    @Suppress("UNUSED_PARAMETER")
-    @InvalidScopeEpitDependency
-    fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
-        throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")
     }
 }

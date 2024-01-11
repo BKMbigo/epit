@@ -37,16 +37,18 @@ class EpitAndroidXComposeMaterial3Scope internal constructor(
     * ===============================
     * */
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Compose.Material3.Material3.dependencyAsString
         get(): String = moduleName joinWithColon androidXComposeMaterial3Version
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Compose.Material3.Material3.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The method has been deprecated in favor of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(composeMaterial3: AndroidX.Compose.Material3.Material3) {
         add("implementation", composeMaterial3.dependencyAsString)

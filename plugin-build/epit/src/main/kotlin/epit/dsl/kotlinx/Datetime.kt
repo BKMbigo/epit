@@ -1,11 +1,9 @@
 package epit.dsl.kotlinx
 
 import Epit
-import epit.EpitDependency
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
 import epit.annotations.InternalEpitApi
-import epit.annotations.InvalidScopeEpitDependency
 import epit.utils.joinWithColon
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
@@ -23,26 +21,24 @@ class EpitKotlinxDatetimeScope internal constructor(
     fun Epit.datetime(version: String) =
         KotlinX.Datetime.datetime.dependencyAsString(version)
 
+    /* Internal Functions */
+
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     val KotlinX.Datetime.dependencyAsString
         get(): String = moduleName joinWithColon kotlinxDatetimeVersion
 
-    /* Internal Functions */
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun KotlinX.Datetime.dependencyAsString(version: String) = moduleName joinWithColon version
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(datetime: KotlinX.Datetime) {
         add("implementation", datetime.dependencyAsString)
-    }
-
-    @Suppress("UNUSED_PARAMETER")
-    @InvalidScopeEpitDependency
-    fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
-        throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")
     }
 
 }

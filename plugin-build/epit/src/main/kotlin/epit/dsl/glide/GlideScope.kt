@@ -159,15 +159,18 @@ class EpitGlideScope internal constructor(
 
     /* Internal functions */
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val Glide.Glide.dependencyAsString
         get(): String = moduleName joinWithColon glideVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun Glide.Glide.dependencyAsString(version: String) = moduleName joinWithColon version
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(glide: Glide.Glide) {
         add("implementation", glide.dependencyAsString)

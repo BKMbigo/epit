@@ -92,16 +92,18 @@ class EpitCoilScope internal constructor(
     @ExperimentalEpitApi
     fun bomAsString(customVersion: String) = Coil.coil_bom.moduleName joinWithColon customVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val Coil.dependencyAsString
         get() = moduleName
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun Coil.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The method has been deprecated in favor of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(coil: Coil) {
         add("implementation", coil.moduleName)

@@ -53,16 +53,18 @@ class EpitAndroidXComposeAnimationScope internal constructor(
     * ===============================
     * */
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Compose.Animation.dependencyAsString
         get(): String = moduleName joinWithColon androidXComposeAnimationVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Compose.Animation.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The method has been deprecated in favor of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(composeAnimation: AndroidX.Compose.Animation) {
         add("implementation", composeAnimation.dependencyAsString)

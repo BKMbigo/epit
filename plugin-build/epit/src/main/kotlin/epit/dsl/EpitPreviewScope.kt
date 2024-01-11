@@ -1,9 +1,7 @@
 package epit.dsl
 
-import epit.EpitDependency
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InvalidScopeEpitDependency
 import epit.dsl.androidx.EpitAndroidxScope
 import epit.dsl.coil.EpitCoilScope
 import epit.dsl.glide.EpitGlideGeneralScope
@@ -84,11 +82,5 @@ class EpitPreviewScope internal constructor(
     @ExperimentalEpitApi
     fun voyager(voyagerVersion: String, block: EpitVoyagerScope.() -> Unit) {
         block(EpitVoyagerScope(voyagerVersion))
-    }
-
-    @Suppress("UNUSED_PARAMETER")
-    @InvalidScopeEpitDependency
-    fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
-        throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")
     }
 }

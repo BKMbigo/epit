@@ -132,16 +132,18 @@ class EpitKoinScope internal constructor(
     @ExperimentalEpitApi
     fun bomAsString(customVersion: String) = Koin.koin_bom.moduleName joinWithColon customVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val Koin.dependencyAsString
         get() = moduleName
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun Koin.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("This has been deprecated in favor of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(koin: Koin) {
         add("implementation", koin.moduleName)

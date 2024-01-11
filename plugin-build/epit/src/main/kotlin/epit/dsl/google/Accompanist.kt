@@ -183,16 +183,18 @@ class EpitGoogleAccompanistScope internal constructor(
 
     /* Internal functions */
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val Google.Accompanist.dependencyAsString
         get(): String = moduleName joinWithColon accompanistVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun Google.Accompanist.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("This has been deprecated in favor of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(accompanist: Google.Accompanist) {
         add("implementation", accompanist.dependencyAsString)

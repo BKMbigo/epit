@@ -1,9 +1,7 @@
 package epit.dsl.androidx
 
-import epit.EpitDependency
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InvalidScopeEpitDependency
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @EpitDsl
@@ -64,11 +62,5 @@ class EpitAndroidxGeneralComposeScope internal constructor(
     @ExperimentalEpitApi
     fun EpitAndroidxGeneralComposeScope.ui(composeUIVersion: String, block: EpitAndroidXComposeUIScope.() -> Unit) {
         block(EpitAndroidXComposeUIScope(composeUIVersion))
-    }
-
-    @Suppress("UNUSED_PARAMETER")
-    @InvalidScopeEpitDependency
-    fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
-        throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")
     }
 }

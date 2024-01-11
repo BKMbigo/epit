@@ -86,16 +86,18 @@ class EpitVoyagerScope internal constructor(
         Voyager.voyager_rxjava.dependencyAsString(version)
 
     /* Internal Functions */
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val Voyager.dependencyAsString
         get() = moduleName joinWithColon voyagerVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun Voyager.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("This method has been deprecated in favor of implementation")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(voyager: Voyager) {
         add("implementation", voyager.dependencyAsString)

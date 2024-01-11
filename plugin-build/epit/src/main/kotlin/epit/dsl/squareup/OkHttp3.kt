@@ -141,16 +141,18 @@ class EpitSquareOkHttp3BOMScope internal constructor(
     @ExperimentalEpitApi
     fun bomAsString(customVersion: String) = SquareUp.OkHttp3.okhttp_bom.moduleName joinWithColon customVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val SquareUp.OkHttp3.dependencyAsString
         get(): String = moduleName joinWithColon squareOkHttp3BOMVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun SquareUp.OkHttp3.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("This function has been deprecated in favour of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(okHttp3: SquareUp.OkHttp3) {
         add("implementation", okHttp3.moduleName)

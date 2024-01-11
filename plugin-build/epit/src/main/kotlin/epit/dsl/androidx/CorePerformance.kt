@@ -46,16 +46,18 @@ class EpitAndroidXCorePerformanceScope internal constructor(
     * ============================
     * */
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Core.CorePerformance.dependencyAsString
         get(): String = moduleName joinWithColon androidXCorePerformanceVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Core.CorePerformance.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The method has been deprecated in favor of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(corePerformance: AndroidX.Core.CorePerformance) {
         add("implementation", corePerformance.dependencyAsString)

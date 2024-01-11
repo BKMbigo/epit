@@ -126,16 +126,18 @@ class EpitAndroidXNavigationScope internal constructor(
         AndroidX.Navigation.navigation_runtime_ui_ktx.dependencyAsString(version)
 
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Navigation.dependencyAsString
         get(): String = moduleName joinWithColon androidXNavigationVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Navigation.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The method has been deprecated in favor of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(navigation: AndroidX.Navigation) {
         add("implementation", navigation.dependencyAsString)

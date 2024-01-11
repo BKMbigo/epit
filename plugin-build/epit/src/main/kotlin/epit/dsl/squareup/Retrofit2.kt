@@ -159,16 +159,18 @@ class EpitSquareRetrofit2Scope internal constructor(
 
 
     /* Internal functions */
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val SquareUp.Retrofit2.dependencyAsString
         get(): String = moduleName joinWithColon squareRetrofit2Version
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun SquareUp.Retrofit2.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The function has been deprecated in favor of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(retrofit2: SquareUp.Retrofit2) {
         add("implementation", retrofit2.dependencyAsString)

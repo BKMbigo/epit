@@ -31,16 +31,18 @@ class EpitAndroidXTestExtJUnitScope internal constructor(
 
     /* internal functions */
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Test.Ext.JUnit.dependencyAsString
         get(): String = moduleName joinWithColon androidXTestExtJunitVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Test.Ext.JUnit.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The method has been deprecated in favor of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(jUnit: AndroidX.Test.Ext.JUnit) {
         add("implementation", jUnit.dependencyAsString)

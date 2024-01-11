@@ -23,16 +23,18 @@ class EpitAndroidXComposeRuntimeTracingScope internal constructor(
 
     /* internal function */
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Compose.Runtime.RuntimeTracing.dependencyAsString
         get(): String = moduleName joinWithColon androidXComposeRuntimeTracingVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Compose.Runtime.RuntimeTracing.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The method has been deprecated in favor of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(composeRuntimeTracing: AndroidX.Compose.Runtime.RuntimeTracing) {
         add("implementation", composeRuntimeTracing.dependencyAsString)

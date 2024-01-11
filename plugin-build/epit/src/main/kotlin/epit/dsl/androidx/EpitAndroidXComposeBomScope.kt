@@ -333,16 +333,18 @@ class EpitAndroidXComposeBomScope internal constructor(
     @ExperimentalEpitApi
     fun bomAsString(customVersion: String) = AndroidX.Compose.Bom.compose_bom.moduleName joinWithColon customVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Compose.ComposeBomDependency.dependencyAsString
         get() = this.moduleName
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Compose.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("This method has been deprecated in favor of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(compose: AndroidX.Compose.ComposeBomDependency) {
         add("implementation", compose.moduleName)

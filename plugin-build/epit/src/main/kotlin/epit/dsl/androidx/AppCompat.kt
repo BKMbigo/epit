@@ -29,16 +29,18 @@ class EpitAndroidXAppCompatScope internal constructor(
     fun Epit.appcompat_resources(version: String) =
         AndroidX.Appcompat.appcompat_resources.dependencyAsString(version)
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Appcompat.dependencyAsString
         get(): String = moduleName joinWithColon androidXAppcompatVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Appcompat.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The method has been deprecated in favor of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(appcompat: AndroidX.Appcompat) {
         add("implementation", appcompat.dependencyAsString)

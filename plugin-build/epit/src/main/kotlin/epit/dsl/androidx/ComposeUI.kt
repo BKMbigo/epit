@@ -131,16 +131,18 @@ class EpitAndroidXComposeUIScope internal constructor(
     * ==================================
     * */
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Compose.UI.dependencyAsString
         get(): String = moduleName joinWithColon androidXComposeUIVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Compose.UI.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The method has been deprecated in favor of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(composeUI: AndroidX.Compose.UI) {
         add("implementation", composeUI.dependencyAsString)

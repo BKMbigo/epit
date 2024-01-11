@@ -86,31 +86,41 @@ class EpitAndroidXTestEspressoScope internal constructor(
     fun Epit.idling_net(version: String) =
         AndroidX.Test.Espresso.Idling.idling_net.dependencyAsString(version)
 
+    /*
+    * ============================
+    * ==== Internal Functions ====
+    * ============================
+    * */
+
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Test.Espresso.Espresso.dependencyAsString
         get(): String = moduleName joinWithColon androidXTestEspressoVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Test.Espresso.Idling.dependencyAsString
         get(): String = moduleName joinWithColon androidXTestEspressoVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Test.Espresso.Espresso.dependencyAsString(version: String) = moduleName joinWithColon version
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Test.Espresso.Idling.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The method has been deprecated in favor of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(espresso: AndroidX.Test.Espresso.Espresso) {
         add("implementation", espresso.dependencyAsString)
     }
 
-    @Deprecated("The method has been deprecated in favor of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(espressoIdling: AndroidX.Test.Espresso.Idling) {
         add("implementation", espressoIdling.dependencyAsString)

@@ -1,9 +1,7 @@
 package epit.dsl.androidx
 
-import epit.EpitDependency
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import epit.annotations.InvalidScopeEpitDependency
 import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @ExperimentalEpitApi
@@ -75,10 +73,5 @@ class EpitAndroidxScope internal constructor(
     @ExperimentalEpitApi
     fun test(block: EpitAndroidxGeneralTestScope.() -> Unit) {
         block(EpitAndroidxGeneralTestScope)
-    }
-
-    @InvalidScopeEpitDependency
-    fun DependencyHandlerScope.implementation(epitDependency: EpitDependency) {
-        throw IllegalStateException("You have called a dependency from the wrong scope. Please refer to Epit documentation for reference")
     }
 }

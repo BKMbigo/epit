@@ -21,16 +21,18 @@ class EpitAndroidXTestEspressoDeviceScope internal constructor(
     fun Epit.espresso_device(version: String) =
         AndroidX.Test.Espresso.EspressoDevice.espresso_device.dependencyAsString(version)
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Test.Espresso.EspressoDevice.dependencyAsString
         get(): String = moduleName joinWithColon androidXTestEspressoDeviceVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Test.Espresso.EspressoDevice.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The method has been deprecated in favor of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(espressoDevice: AndroidX.Test.Espresso.EspressoDevice) {
         add("implementation", espressoDevice.dependencyAsString)

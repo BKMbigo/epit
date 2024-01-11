@@ -23,16 +23,18 @@ class EpitAndroidXCoreTelecomScope internal constructor(
         AndroidX.Core.CoreTelecom.core_telecom.dependencyAsString(version)
 
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Core.CoreTelecom.dependencyAsString
         get(): String = moduleName joinWithColon androidXCoreTelecomVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Core.CoreTelecom.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The method has been deprecated in favor of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(coreTelecom: AndroidX.Core.CoreTelecom) {
         add("implementation", coreTelecom.dependencyAsString)

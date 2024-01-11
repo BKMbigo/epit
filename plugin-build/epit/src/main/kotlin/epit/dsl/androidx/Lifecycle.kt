@@ -166,16 +166,18 @@ class EpitAndroidXLifecycleScope internal constructor(
         AndroidX.Lifecycle.lifecycle_service.dependencyAsString(version)
 
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     val AndroidX.Lifecycle.dependencyAsString
         get(): String = moduleName joinWithColon androidXLifecycleVersion
 
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @InternalEpitApi
     @ExperimentalEpitApi
     fun AndroidX.Lifecycle.dependencyAsString(version: String) = moduleName joinWithColon version
 
-    @Deprecated("The method has been deprecated in favor of Epit namespace")
+    @Deprecated("The use of this API will be deprecated in version 2024.01.01")
     @ExperimentalEpitApi
     fun DependencyHandlerScope.implementation(lifecycle: AndroidX.Lifecycle) {
         add("implementation", lifecycle.dependencyAsString)
