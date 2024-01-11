@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -20,6 +21,15 @@ dependencies {
 tasks.withType<KotlinCompile> {
     /* Opt-in to content receivers */
     kotlinOptions.freeCompilerArgs += "-Xcontext-receivers"
+}
+
+tasks.named<KotlinCompilationTask<*>>("compileKotlin").configure {
+    compilerOptions.freeCompilerArgs.addAll(
+        listOf(
+            "-opt-in=epit.annotations.InternalEpitApi",
+            "-opt-in=epit.annotations.ExperimentalEpitApi"
+        )
+    )
 }
 
 tasks.test {
