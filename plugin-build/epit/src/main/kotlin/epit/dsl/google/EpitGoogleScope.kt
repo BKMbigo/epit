@@ -3,11 +3,12 @@ package epit.dsl.google
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
 import org.gradle.kotlin.dsl.DependencyHandlerScope
+import epit.dependencyhandler.EpitDependencyHandler
 
 @ExperimentalEpitApi
 @EpitDsl
 class EpitGoogleScope internal constructor(
-    private val dependencyHandlerScope: DependencyHandlerScope
+    private val dependencyHandler: EpitDependencyHandler
 ) {
 
     @ExperimentalEpitApi
@@ -21,8 +22,8 @@ class EpitGoogleScope internal constructor(
     @ExperimentalEpitApi
     fun firebaseBom(bomVersion: String, block: EpitFirebaseScope.() -> Unit) {
         val firebaseScope = EpitFirebaseScope(bomVersion)
-        with(dependencyHandlerScope) {
-            add("implementation", platform(firebaseScope.bomAsString))
+        with(dependencyHandler) {
+            implementation(platform(firebaseScope.bomAsString))
         }
         block(firebaseScope)
     }

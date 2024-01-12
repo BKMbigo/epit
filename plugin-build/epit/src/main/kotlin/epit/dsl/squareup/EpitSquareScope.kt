@@ -2,12 +2,12 @@ package epit.dsl.squareup
 
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
-import org.gradle.kotlin.dsl.DependencyHandlerScope
+import epit.dependencyhandler.EpitDependencyHandler
 
 @ExperimentalEpitApi
 @EpitDsl
 class EpitSquareScope internal constructor(
-    internal val dependencyHandlerScope: DependencyHandlerScope
+    internal val dependencyHandler: EpitDependencyHandler
 ) {
 
     @ExperimentalEpitApi
@@ -18,8 +18,8 @@ class EpitSquareScope internal constructor(
     @ExperimentalEpitApi
     fun okhttp3Bom(okhttpBOMVersion: String, block: EpitSquareOkHttp3BOMScope.() -> Unit) {
         val okHttp3BOMScope = EpitSquareOkHttp3BOMScope(okhttpBOMVersion)
-        with(dependencyHandlerScope) {
-            add("implementation", platform(okHttp3BOMScope.bomAsString))
+        with(dependencyHandler) {
+            implementation(platform(okHttp3BOMScope.bomAsString))
         }
         block(okHttp3BOMScope)
     }

@@ -2,6 +2,7 @@ package epit.dsl
 
 import epit.annotations.EpitDsl
 import epit.annotations.ExperimentalEpitApi
+import epit.dependencyhandler.EpitDependencyHandler
 import epit.dsl.androidx.EpitAndroidxScope
 import epit.dsl.coil.EpitCoilScope
 import epit.dsl.glide.EpitGlideGeneralScope
@@ -12,21 +13,20 @@ import epit.dsl.ktor.EpitExperimentalKtorScope
 import epit.dsl.raamcosta.EpitRaamcostaScope
 import epit.dsl.squareup.EpitSquareScope
 import epit.dsl.voyager.EpitVoyagerScope
-import org.gradle.kotlin.dsl.DependencyHandlerScope
 
 @EpitDsl
 class EpitPreviewScope internal constructor(
-    private val dependencyHandlerScope: DependencyHandlerScope
+    private val dependencyHandler: EpitDependencyHandler
 ) {
 
     @OptIn(ExperimentalEpitApi::class)
     fun androidx(block: EpitAndroidxScope.() -> Unit) {
-        block(EpitAndroidxScope(dependencyHandlerScope))
+        block(EpitAndroidxScope(dependencyHandler))
     }
 
     @ExperimentalEpitApi
     fun google(block: EpitGoogleScope.() -> Unit) {
-        block(EpitGoogleScope(dependencyHandlerScope))
+        block(EpitGoogleScope(dependencyHandler))
     }
 
     @ExperimentalEpitApi
@@ -37,8 +37,8 @@ class EpitPreviewScope internal constructor(
     @ExperimentalEpitApi
     fun coilBom(bomVersion: String, block: EpitCoilScope.() -> Unit) {
         val coilScope = EpitCoilScope(bomVersion)
-        with(dependencyHandlerScope) {
-            add("implementation", platform(coilScope.bomAsString))
+        with(dependencyHandler) {
+            implementation(platform(coilScope.bomAsString))
         }
         block(coilScope)
     }
@@ -46,8 +46,8 @@ class EpitPreviewScope internal constructor(
     @OptIn(ExperimentalEpitApi::class)
     fun koinBom(bomVersion: String, block: EpitKoinScope.() -> Unit) {
         val koinScope = EpitKoinScope(bomVersion)
-        with(dependencyHandlerScope) {
-            add("implementation", platform(koinScope.bomAsString))
+        with(dependencyHandler) {
+            implementation(platform(koinScope.bomAsString))
         }
         block(koinScope)
     }
@@ -68,15 +68,15 @@ class EpitPreviewScope internal constructor(
         block: EpitExperimentalKtorScope.() -> Unit
     ) {
         val ktorScope = EpitExperimentalKtorScope(ktorBOMVersion)
-        with(dependencyHandlerScope) {
-            add("implementation", platform(ktorScope.bomAsString))
+        with(dependencyHandler) {
+            implementation(platform(ktorScope.bomAsString))
         }
         block(ktorScope)
     }
 
     @ExperimentalEpitApi
     fun squareup(block: EpitSquareScope.() -> Unit) {
-        block(EpitSquareScope(dependencyHandlerScope))
+        block(EpitSquareScope(dependencyHandler))
     }
 
     @ExperimentalEpitApi
