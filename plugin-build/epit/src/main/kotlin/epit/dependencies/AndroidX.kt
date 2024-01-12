@@ -13,11 +13,66 @@ internal sealed interface AndroidX : EpitDependency {
         activity_ktx("androidx.activity:activity-ktx");
     }
 
+    enum class Annotation(
+        internal val moduleName: String
+    ) : AndroidX {
+        annotation_annotation(moduleName = "androidx.annotation:annotation"),
+        experimental(moduleName = "androidx.annotation:annotation-experimental"),
+        experimental_lint(moduleName = "androidx.annotation:annotation-experimental-lint"),
+//        annotation_iosarm64(moduleName = "androidx.annotation:annotation-iosarm64"),
+//        annotation_iossimulationarm64(moduleName = "androidx.annotation:annotation-iossimulatorarm64"),
+//        annotation_iosx64(moduleName = "androidx.annotation:annotation-iosx64"),
+//        annotation_jvm(moduleName = "androidx.annotation:annotation-jvm"),
+//        annotation_linuxx64(moduleName = "androidx.annotation:annotation-linuxx64"),
+//        annotation_macosarm64(moduleName = "androidx.annotation:annotation-macosarm64"),
+//        annotation_macosx64(moduleName = "androidx.annotation:annotation-macosx64"),
+    }
+
     enum class Appcompat(
         internal val moduleName: String
     ) : AndroidX {
         appcompat(moduleName = "androidx.appcompat:appcompat"),
         appcompat_resources("androidx.appcompat:appcompat-resources")
+    }
+
+    enum class Autofill(
+        internal val moduleName: String
+    ) : AndroidX {
+        autofill(moduleName = "androidx.autofill:autofill")
+    }
+
+    enum class Benchmark(
+        internal val moduleName: String
+    ) : AndroidX {
+        androidx_benchmark_gradle_plugin("androidx.benchmark:androidx.benchmark.gradle.plugin"),
+
+        //        benchmark(moduleName = "androidx.benchmark:benchmark"),
+        benchmark_baseline_profile_gradle_plugin(moduleName = "androidx.benchmark:benchmark-baseline-profile-gradle-plugin"),
+        benchmark_common(moduleName = "androidx.benchmark:benchmark-common"),
+        benchmark_gradle_plugin(moduleName = "androidx.benchmark:benchmark-gradle-plugin"),
+        benchmark_junit4(moduleName = "androidx.benchmark:benchmark-junit4"),
+        benchmark_macro(moduleName = "androidx.benchmark:benchmark-macro"),
+        benchmark_macro_junit4(moduleName = "androidx.benchmark:benchmark-macro-junit4");
+    }
+
+    enum class Biometric(
+        internal val moduleName: String
+    ) : AndroidX {
+        biometric(moduleName = "androidx.biometric:biometric"),
+        biometric_ktx(moduleName = "androidx.biometric:biometric-ktx")
+    }
+
+    enum class Bluetooth(
+        internal val moduleName: String
+    ) : AndroidX {
+        bluetooth(moduleName = "androidx.bluetooth:bluetooth"),
+        bluetooth_testing(moduleName = "androidx.bluetooth:bluetooth-testing"),
+    }
+
+    enum class Browser(
+        internal val moduleName: String
+    ) : AndroidX {
+        browser(moduleName = "androidx.browser:browser")
     }
 
     enum class Camera(
@@ -33,6 +88,38 @@ internal sealed interface AndroidX : EpitDependency {
         camera_view("androidx.camera:camera-view");
 //    camera_viewfinder("androidx.camera:camera-viewfinder")
 
+    }
+
+    sealed interface Car : AndroidX {
+
+        enum class App(
+            internal val moduleName: String
+        ) : Car {
+            app(moduleName = "androidx.car.app:app"),
+            app_automotive(moduleName = "androidx.car.app:app-automotive"),
+            app_projected(moduleName = "androidx.car.app:app-projected"),
+            app_testing(moduleName = "androidx.car.app:app-testing"),
+        }
+    }
+
+    enum class CardView(
+        internal val moduleName: String
+    ) : AndroidX {
+        cardview(moduleName = "androidx.cardview:cardview")
+    }
+
+    enum class Collection(
+        internal val moduleName: String
+    ) : AndroidX {
+        collection(moduleName = "androidx.collection:collection"),
+        collection_ktx(moduleName = "androidx.collection:collection-ktx"),
+//        collection_iosarm64(moduleName = "androidx.collection:collection-iosarm64"),
+//        collection_iossimulatorarm64(moduleName = "androidx.collection:collection-iossimulatorarm64"),
+//        collection_iosx64(moduleName = "androidx.collection:collection-iosx64"),
+//        collection_jvm(moduleName = "androidx.collection:collection-jvm"),
+//        collection_linuxx64(moduleName = "androidx.collection:collection-linuxx64"),
+//        collection_macosarm64(moduleName = "androidx.collection:collection-macosarm64"),
+//        collection_macosx64(moduleName = "androidx.collection:collection-macosx64"),
     }
 
     sealed interface Compose : AndroidX {
@@ -226,6 +313,16 @@ internal sealed interface AndroidX : EpitDependency {
 
     }
 
+    enum class Concurrent(
+        internal val moduleName: String
+    ) : AndroidX {
+        concurrent_futures(moduleName = "androidx.concurrent:concurrent-futures"),
+        concurrent_futures_ktx(moduleName = "androidx.concurrent:concurrent-futures-ktx"),
+//            concurrent_listenablefuture(moduleName = "androidx.concurrent:concurrent-listenablefuture"),
+//            concurrent_listenablefuture_callback(moduleName = "androidx.concurrent:concurrent-listenablefuture-callback"),
+//            futures(moduleName = "androidx.concurrent:concurrent-futures")
+    }
+
     sealed interface ConstraintLayout : AndroidX {
 
         enum class ConstraintLayout(
@@ -252,6 +349,18 @@ internal sealed interface AndroidX : EpitDependency {
         ) : AndroidX.ConstraintLayout {
             constraintlayout_solver(moduleName = "androidx.constraintlayout:constraintlayout-solver");
         }
+    }
+
+    enum class ContentPager(
+        internal val moduleName: String
+    ) : AndroidX {
+        contentpager(moduleName = "androidx.contentpager:contentpager")
+    }
+
+    enum class CoordinatorLayout(
+        internal val moduleName: String
+    ) : AndroidX {
+        coordinatorlayout(moduleName = "androidx.coordinatorlayout:coordinatorlayout")
     }
 
     sealed interface Core {
@@ -330,6 +439,158 @@ internal sealed interface AndroidX : EpitDependency {
             core_telecom(moduleName = "androidx.core:core-telecom");
         }
 
+
+        /* androidx.core.uwb */
+//        enum class CoreUwb(
+//            internal val moduleName: String
+//        ) : AndroidX {
+//            uwb(moduleName = "androidx.core.uwb:uwb"),
+//            uwb_rxjava3(moduleName = "androidx.core.uwb:uwb-rxjava3")
+//        }
+    }
+
+    enum class Credentials(
+        internal val moduleName: String
+    ) : AndroidX {
+        credentials(moduleName = "androidx.credentials:credentials"),
+        credentials_play_services_auth(moduleName = "androidx.credentials:credentials-play-services-auth")
+    }
+
+    enum class CursorAdapter(
+        internal val moduleName: String
+    ) : AndroidX {
+        cursoradapter(moduleName = "androidx.cursoradapter:cursoradapter")
+    }
+
+    enum class CustomView(
+        internal val moduleName: String
+    ) : AndroidX {
+        customview(moduleName = "androidx.customview:customview"),
+        customview_poolingcontainer(moduleName = "androidx.customview:customview-poolingcontainer")
+    }
+
+    enum class DataBinding(
+        internal val moduleName: String
+    ) : AndroidX {
+        //        adapters(moduleName = "androidx.databinding:adapters"),
+//        baseLibrary(moduleName = "androidx.databinding:baseLibrary"),
+//        compiler(moduleName = "androidx.databinding:compiler"),
+//        compilerCommon(moduleName = "androidx.databinding:compilerCommon"),
+        databinding_adapters(moduleName = "androidx.databinding:databinding-adapters"),
+        databinding_common(moduleName = "androidx.databinding:databinding-common"),
+        databinding_compiler(moduleName = "androidx.databinding:databinding-compiler"),
+        databinding_compiler_common(moduleName = "androidx.databinding:databinding-compiler-common"),
+        databinding_ktx(moduleName = "androidx.databinding:databinding-ktx"),
+        databinding_runtime(moduleName = "androidx.databinding:databinding-runtime"),
+
+        //        library(moduleName = "androidx.databinding:library"),
+        viewbinding(moduleName = "androidx.databinding:viewbinding")
+    }
+
+    enum class DataStore(
+        internal val moduleName: String
+    ) : AndroidX {
+        datastore(moduleName = "androidx.datastore:datastore"),
+
+        //        datastore_android(moduleName = "androidx.datastore:datatore-android"),
+        datastore_core(moduleName = "androidx.datastore:datastore-core"),
+
+        //        datastore_core_android(moduleName = "androidx.datastore:datastore-core-android"),
+//        datastore_core_iosarm64(moduleName = "androidx.datastore:datastore-core-iosarm64"),
+//        datastore_core_iossimulatorarm64(moduleName = "androidx.datastore:datastore-core-iossimulatorarm64"),
+//        datastore_core_iosx64(moduleName = "androidx.datastore:datastore-core-iosx64"),
+//        datastore_core_jvm(moduleName = "androidx.datastore:datastore-core-jvm"),
+//        datastore_core_linuxx64(moduleName = "androidx.datastore:datastore-core-linuxx64"),
+//        datastore_core_macosarm64(moduleName = "androidx.datastore:datastore-core-macosarm64"),
+//        datastore_core_macosx64(moduleName = "androidx.datastore:datastore-core-macosx64"),
+        datastore_core_okio(moduleName = "androidx.datastore:datastore-core-okio"),
+
+        //        datastore_core_okio_iosarm64(moduleName = "androidx.datastore:datastore-core-okio-iosarm64"),
+//        datastore_core_okio_iossimulatorarm64(moduleName = "androidx.datastore:datastore-core-okio-iossimulatorarm64"),
+//        datastore_core_okio_iosx64(moduleName = "androidx.datastore:datastore-core-okio-iosx64"),
+//        datastore_core_okio_jvm(moduleName = "androidx.datastore:datastore-core-okio-jvm"),
+//        datastore_core_okio_linuxx64(moduleName = "androidx.datastore:datastore-core-okio-linuxx64"),
+//        datastore_core_okio_macosarm64(moduleName = "androidx.datastore:datastore-core-okio-macosarm64"),
+//        datastore_core_okio_macosx64(moduleName = "androidx.datastore:datastore-core-okio-macosx64"),
+//        datastore_iosarm64(moduleName = "androidx.datastore:datastore-iosarm64"),
+//        datastore_iossimulatorarm64(moduleName = "androidx.datastore:datastore-iossimulatorarm64"),
+//        datastore_iosx64(moduleName = "androidx.datastore:datastore-iosx64"),
+//        datastore_jvm(moduleName = "androidx.datastore:datastore-jvm"),
+//        datastore_linuxx64(moduleName = "androidx.datastore:datastore-linuxx64"),
+//        datastore_macosarm64(moduleName = "androidx.datastore:datastore-macosarm64"),
+//        datastore_macosx64(moduleName = "androidx.datastore:datastore-macosx64"),
+        datastore_preferences(moduleName = "androidx.datastore:datastore-preferences"),
+
+        //        datastore_preferences_android(moduleName = "androidx.datastore:datastore-preferences-android"),
+        datastore_preferences_core(moduleName = "androidx.datastore:datastore-preferences-core"),
+
+        //        datastore_preferences_core_iosarm64(moduleName = "androidx.datastore:datastore-preferences-core-iosarm64"),
+//        datastore_preferences_core_iossimulatorarm64(moduleName = "androidx.datastore:datastore-preferences-core-iossimulatorarm64"),
+//        datastore_preferences_core_iosx64(moduleName = "androidx.datastore:datastore-preferences-core-iosx64"),
+//        datastore_preferences_core_jvm(moduleName = "androidx.datastore:datastore-preferences-core-jvm"),
+//        datastore_preferences_core_linuxx64(moduleName = "androidx.datastore:datastore-preferences-core-linuxx64"),
+//        datastore_preferences_core_macosarm64(moduleName = "androidx.datastore:datastore-preferences-core-macosarm64"),
+//        datastore_preferences_core_macosx64(moduleName = "androidx.datastore:datastore-preferences-core-macosx64"),
+//        datastore_preferences_iosarm64(moduleName = "androidx.datastore:datastore-preferences-iosarm64"),
+//        datastore_preferences_iossimulatorarm64(moduleName = "androidx.datastore:datastore-preferences-iossimulatorarm64"),
+//        datastore_preferences_iosx64(moduleName = "androidx.datastore:datastore-preferences-iosx64"),
+//        datastore_preferences_jvm(moduleName = "androidx.datastore:datastore-preferences-jvm"),
+//        datastore_preferences_linuxx64(moduleName = "androidx.datastore:datastore-preferences-linuxx64"),
+//        datastore_preferences_macosarm64(moduleName = "androidx.datastore:datastore-preferences-macosarm64"),
+//        datastore_preferences_macosx64(moduleName = "androidx.datastore:datastore-preferences-macosx64"),
+        datastore_preferences_rxjava2(moduleName = "androidx.datastore:datastore-preferences-rxjava2"),
+        datastore_preferences_rxjava3(moduleName = "androidx.datastore:datastore-preferences-rxjava3"),
+        datastore_rxjava2(moduleName = "androidx.datastore:datastore-rxjava2"),
+        datastore_rxjava3(moduleName = "androidx.datastore:datastore-rxjava3")
+    }
+
+    enum class DocumentFile(
+        internal val moduleName: String
+    ) : AndroidX {
+        documentfile(moduleName = "androidx.documentfile:documentfile")
+    }
+
+    enum class DragAndDrop(
+        internal val moduleName: String
+    ) : AndroidX {
+        draganddrop(moduleName = "androidx.draganddrop:draganddrop")
+    }
+
+    enum class DrawerLayout(
+        internal val moduleName: String
+    ) : AndroidX {
+        drawerlayout(moduleName = "androidx.drawerlayout:drawerlayout")
+    }
+
+    enum class DynamicAnimation(
+        internal val moduleName: String
+    ) : AndroidX {
+        dynamicanimation(moduleName = "androidx.dynamicanimation:dynamicanimation"),
+        dynamicanimation_ktx(moduleName = "androidx.dynamicanimation:dynamicanimation-ktx")
+    }
+
+    enum class Emoji(
+        internal val moduleName: String
+    ) : AndroidX {
+        emoji(moduleName = "androidx.emoji:emoji"),
+        emoji_appcompat(moduleName = "androidx.emoji:emoji-appcompat"),
+        emoji_bundled(moduleName = "androidx.emoji:emoji-bundled")
+    }
+
+    enum class Emoji2(
+        internal val moduleName: String
+    ) : AndroidX {
+        emoji2(moduleName = "androidx.emoji2:emoji2"),
+        emoji2_bundled(moduleName = "androidx.emoji2:emoji2-bundled"),
+        emoji2_emojipicker(moduleName = "androidx.emoji2:emoji2-emojipicker"),
+        emoji2_views(moduleName = "androidx.emoji2:emoji2-views"),
+        emoji2_views_helper(moduleName = "androidx.emoji2:emoji2-views-helper"),
+    }
+
+    enum class ExifInterface(
+        internal val moduleName: String
+    ) : AndroidX {
+        exifinterface(moduleName = "androidx.exifinterface:exifinterface")
     }
 
     enum class Fragment(
@@ -339,6 +600,37 @@ internal sealed interface AndroidX : EpitDependency {
         fragment_ktx(moduleName = "androidx.fragment:fragment-ktx"),
         fragment_testing(moduleName = "androidx.fragment:fragment-testing"),
         fragment_testing_manifest(moduleName = "androidx.fragment:fragment-testing-manifest");
+    }
+
+    enum class Glance(
+        internal val moduleName: String
+    ) : AndroidX {
+        glance(moduleName = "androidx.glance:glance"),
+        glance_appwidget(moduleName = "androidx.glance:glance-appwidget"),
+
+        //        glance_appwidget_proto(moduleName = "androidx.glance:glance-appwidget-proto"),
+        glance_material(moduleName = "androidx.glance:glance-material"),
+        glance_material3(moduleName = "androidx.glance:glance-material3"),
+        glance_wear_tiles(moduleName = "androidx.glance:glance-wear-tiles")
+    }
+
+    enum class GridLayout(
+        internal val moduleName: String
+    ) : AndroidX {
+        gridlayout(moduleName = "androidx.gridlayout:gridlayout")
+    }
+
+    enum class Hilt(
+        internal val moduleName: String
+    ) : AndroidX {
+        hilt_common(moduleName = "androidx.hilt:hilt-common"),
+        hilt_compiler(moduleName = "androidx.hilt:hilt-compiler"),
+
+        //        hilt_lifecycle_viewmodel(moduleName = "androidx.hilt:hilt-lifecycle-viewmodel"),
+        hilt_navigation(moduleName = "androidx.hilt:hilt-navigation"),
+        hilt_navigation_compose(moduleName = "androidx.hilt:hilt-navigation-common"),
+        hilt_navigation_fragment(moduleName = "androidx.hilt:hilt-navigation-fragment"),
+        hilt_work(moduleName = "androidx.hilt:hilt-work"),
     }
 
     enum class Lifecycle(
@@ -365,6 +657,62 @@ internal sealed interface AndroidX : EpitDependency {
         lifecycle_viewmodel_compose("androidx.lifecycle:lifecycle-viewmodel-compose"),
         lifecycle_viewmodel_ktx("androidx.lifecycle:lifecycle-viewmodel-ktx"),
         lifecycle_viewmodel_savedstate("androidx.lifecycle:lifecycle-viewmodel-savedstate");
+    }
+
+    enum class Media(
+        internal val moduleName: String
+    ) : AndroidX {
+        media(moduleName = "androidx.media:media"),
+        media_widget(moduleName = "androidx.media:media-widget"),
+    }
+
+    enum class Media2(
+        internal val moduleName: String
+    ) : AndroidX {
+        //        media2(moduleName = "androidx.media2:media2"),
+        media2_common(moduleName = "androidx.media2:media2-common"),
+        media2_exoplayer(moduleName = "androidx.media2:media2-exoplayer"),
+        media2_player(moduleName = "androidx.media2:media2-player"),
+        media2_session(moduleName = "androidx.media2:media2-session"),
+        media2_widget(moduleName = "androidx.media2:media2-widget")
+    }
+
+    enum class Media3(
+        internal val moduleName: String
+    ) : AndroidX {
+        media3_cast(moduleName = "androidx.media3:media3-cast"),
+        media3_common(moduleName = "androidx.media3:media3-common"),
+        media3_container(moduleName = "androidx.media3:media3-container"),
+        media3_database(moduleName = "androidx.media3:media3-database"),
+        media3_datasource(moduleName = "androidx.media3:media3-datasource"),
+        media3_datasource_cronet(moduleName = "androidx.media3:media3-datasource-cronet"),
+        media3_datasource_okhttp(moduleName = "androidx.media3:media3-datasource-okhttp"),
+        media3_datasource_rtmp(moduleName = "androidx.media3:media3-datasource-rtmp"),
+        media3_decoder(moduleName = "androidx.media3:media3-decoder"),
+        media3_effect(moduleName = "androidx.media3:media3-effect"),
+        media3_exoplayer(moduleName = "androidx.media3:media3-exoplayer"),
+        media3_exoplayer_dash(moduleName = "androidx.media3:media3-exoplayer-dash"),
+        media3_exoplayer_hls(moduleName = "androidx.media3:media3-exoplayer-hls"),
+        media3_exoplayer_ima(moduleName = "androidx.media3:media3-exoplayer-ima"),
+        media3_exoplayer_midi(moduleName = "androidx.media3:media3-exoplayer-midi"),
+        media3_exoplayer_rtmp(moduleName = "androidx.media3:media3-exoplayer-rtsp"),
+        media3_exoplayer_smoothstreaming(moduleName = "androidx.media3:media3-exoplayer-smoothstreaming"),
+        media3_exoplayer_workmanager(moduleName = "androidx.media3:media3-exoplayer-workmanager"),
+        media3_extractor(moduleName = "androidx.media3:media3-extractor"),
+        media3_muxer(moduleName = "androidx.media3:media3-muxer"),
+        media3_session(moduleName = "androidx.media3:media3-session"),
+        media3_test_utils(moduleName = "androidx.media3:media3-test-utils"),
+        media3_test_utils_robolectric(moduleName = "androidx.media3:media3-test-utils-robolectric"),
+        media3_transformer(moduleName = "androidx.media3:media3-transformer"),
+        media3_ui(moduleName = "androidx.media3:media3-ui"),
+        media3_ui_leanback(moduleName = "androidx.media3:media3-ui-leanback")
+    }
+
+    enum class MediaRouter(
+        internal val moduleName: String
+    ) : AndroidX {
+        mediarouter(moduleName = "androidx.mediarouter:mediarouter"),
+        mediarouter_testing(moduleName = "androidx.mediarouter:mediarouter-testing")
     }
 
     enum class Navigation(
@@ -420,6 +768,19 @@ internal sealed interface AndroidX : EpitDependency {
         //        paging_testing_macosx64(moduleName = "androidx.paging:paging-testing-macosx64")
     }
 
+    enum class Preference(
+        internal val moduleName: String
+    ) : AndroidX {
+        preference(moduleName = "androidx.preference:preference"),
+        preference_ktx(moduleName = "androidx.preference:preference-ktx")
+    }
+
+    enum class ProfileInstaller(
+        internal val moduleName: String
+    ) : AndroidX {
+        profileinstaller(moduleName = "androidx.profileinstaller:profileinstaller")
+    }
+
     enum class RecyclerView(
         internal val moduleName: String
     ) : AndroidX {
@@ -449,6 +810,27 @@ internal sealed interface AndroidX : EpitDependency {
         room_rxjava2(moduleName = "androidx.room:room-rxjava2"),
         room_rxjava3(moduleName = "androidx.room:room-rxjava3"),
         room_testing(moduleName = "androidx.room:room-testing");
+    }
+
+    enum class SavedState(
+        internal val moduleName: String
+    ) : AndroidX {
+        savedstate(moduleName = "androidx.savedstate:savedstate"),
+        savedstate_ktx(moduleName = "androidx.savedstate:savedstate-ktx"),
+    }
+
+    enum class SQLite(
+        internal val moduleName: String
+    ) : AndroidX {
+        sqlite(moduleName = "androidx.sqlite:sqlite"),
+        sqlite_framework(moduleName = "androidx.sqlite:sqlite-framework"),
+        sqlite_ktx(moduleName = "androidx.sqlite:sqlite-ktx")
+    }
+
+    enum class SwipeRefreshLayout(
+        internal val moduleName: String
+    ) : AndroidX {
+        swiperefreshlayout(moduleName = "androidx.swiperefreshlayout:swiperefreshlayout")
     }
 
     sealed interface Test : AndroidX {
@@ -541,7 +923,95 @@ internal sealed interface AndroidX : EpitDependency {
                 truth(moduleName = "androidx.test.ext:truth");
             }
         }
+
+        enum class Services(
+            internal val moduleName: String
+        ) : AndroidX {
+            storage(moduleName = "androidx.test.services:storage"),
+            test_services(moduleName = "androidx.test.services:test-services")
+        }
     }
+
+    sealed interface Tracing : AndroidX {
+
+        enum class Tracing(
+            internal val moduleName: String
+        ) : AndroidX {
+            tracing(moduleName = "androidx.tracing:tracing"),
+            tracing_ktx(moduleName = "androidx.tracing:tracing-ktx")
+        }
+
+        enum class TracingPerfetto(
+            internal val moduleName: String
+        ) : AndroidX {
+            tracing_perfetto(moduleName = "androidx.tracing:tracing-perfetto"),
+            tracing_perfetto_binary(moduleName = "androidx.tracing:tracing-perfetto-binary"),
+
+            //            tracing_perfetto_common(moduleName = "androidx.tracing:tracing-perfetto"),
+            tracing_perfetto_handshake(moduleName = "androidx.tracing:tracing-perfetto-handshake"),
+        }
+    }
+
+    enum class Transition(
+        internal val moduleName: String
+    ) : AndroidX {
+        transition(moduleName = "androidx.transition:transition"),
+        transition_ktx(moduleName = "androidx.transition:transition-ktx")
+    }
+
+    enum class ViewPager(
+        internal val moduleName: String
+    ) : AndroidX {
+        viewpager(moduleName = "androidx.viewpager:viewpager")
+    }
+
+    enum class ViewPager2(
+        internal val moduleName: String
+    ) : AndroidX {
+        viewpager2(moduleName = "androidx.viewpager2:viewpager2")
+    }
+
+    enum class Webkit(
+        internal val moduleName: String
+    ) : AndroidX {
+        webkit(moduleName = "androidx.webkit:webkit")
+    }
+
+    sealed interface Window {
+        enum class Window(
+            internal val moduleName: String
+        ) : AndroidX {
+            window("androidx.window:window"),
+            window_core("androidx.window:window-core"),
+
+            //        window_core_android("androidx.window:window-core-android"),
+            window_core_jvm("androidx.window:window-core-jvm"),
+            window_extensions("androidx.window:window-extensions"),
+            window_java("androidx.window:window-java"),
+            window_rxjava2("androidx.window:window-rxjava2"),
+            window_rxjava3("androidx.window:window-rxjava3"),
+            window_testing("androidx.window:window-testing")
+        }
+
+        enum class WindowExtensionsCore(
+            internal val moduleName: String
+        ) : AndroidX {
+            core(moduleName = "androidx.window.extensions.core:core")
+        }
+    }
+
+    enum class Work(
+        internal val moduleName: String
+    ) : AndroidX {
+        work_gcm(moduleName = "androidx.work:work-gcm"),
+        work_multiprocess(moduleName = "androidx.work:work-multiprocess"),
+        work_runtime(moduleName = "androidx.work:work-runtime"),
+        work_runtime_ktx(moduleName = "androidx.work:work-runtime-ktx"),
+        work_rxjava2(moduleName = "androidx.work:work-rxjava2"),
+        work_rxjava3(moduleName = "androidx.work:work-rxjava3"),
+        work_testing(moduleName = "androidx.work:work-testing")
+    }
+
 }
 
 private typealias MainEspresso = AndroidX.Test.Espresso
