@@ -7,23 +7,21 @@ import epit.dependencies.AndroidX
 import epit.dsl.epitPreview
 import org.junit.jupiter.api.Test
 
-class AndroidXComposeUITests {
+class AndroidxCredentialsTests {
 
     @Test
-    fun `verify that androidx compose ui block implementation adds dependencies`() = testEpitDsl(
-        "androidx compose ui",
+    fun `verify that androidx credentials block implementation adds dependencies`() = testEpitDsl(
+        "androidx credentials",
         expectedModuleNames = listOf(
-            AndroidX.Compose.UI.ui.moduleName
+            AndroidX.Credentials.credentials.moduleName
         )
     ) { implementation, customVersionImplementation ->
         epitPreview {
             @OptIn(ExperimentalEpitApi::class)
             androidx {
-                compose {
-                    ui("1.0.0") {
-                        implementation(Epit.ui)
-                        customVersionImplementation(Epit.ui("1.1.2"))
-                    }
+                credentials("1.0.0") {
+                    implementation(Epit.credentials)
+                    customVersionImplementation(Epit.credentials("1.1.2"))
                 }
             }
         }

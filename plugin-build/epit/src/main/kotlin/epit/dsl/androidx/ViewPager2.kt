@@ -15,7 +15,7 @@ class EpitAndroidxViewPager2Scope internal constructor(
         get() = AndroidX.ViewPager2.viewpager2.dependencyAsString
 
     @ExperimentalEpitApi
-    fun Epit.viewpager(version: String) =
+    fun Epit.viewpager2(version: String) =
         AndroidX.ViewPager2.viewpager2.dependencyAsString(version)
 
 

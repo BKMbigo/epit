@@ -7,23 +7,21 @@ import epit.dependencies.AndroidX
 import epit.dsl.epitPreview
 import org.junit.jupiter.api.Test
 
-class AndroidXComposeUITests {
+class AndroidxContentPager {
 
     @Test
-    fun `verify that androidx compose ui block implementation adds dependencies`() = testEpitDsl(
-        "androidx compose ui",
+    fun `verify that androidx content pager block implementation adds dependencies`() = testEpitDsl(
+        "androidx content pager",
         expectedModuleNames = listOf(
-            AndroidX.Compose.UI.ui.moduleName
+            AndroidX.ContentPager.contentpager.moduleName
         )
     ) { implementation, customVersionImplementation ->
         epitPreview {
             @OptIn(ExperimentalEpitApi::class)
             androidx {
-                compose {
-                    ui("1.0.0") {
-                        implementation(Epit.ui)
-                        customVersionImplementation(Epit.ui("1.1.2"))
-                    }
+                contentpager("1.0.0") {
+                    implementation(Epit.contentpager)
+                    customVersionImplementation(Epit.contentpager("1.1.2"))
                 }
             }
         }

@@ -7,23 +7,21 @@ import epit.dependencies.AndroidX
 import epit.dsl.epitPreview
 import org.junit.jupiter.api.Test
 
-class AndroidXComposeUITests {
+class AndroidxBiometricTests {
 
     @Test
-    fun `verify that androidx compose ui block implementation adds dependencies`() = testEpitDsl(
-        "androidx compose ui",
+    fun `verify that androidx biometric block implementation adds dependencies`() = testEpitDsl(
+        "androidx biometric",
         expectedModuleNames = listOf(
-            AndroidX.Compose.UI.ui.moduleName
+            AndroidX.Biometric.biometric.moduleName
         )
     ) { implementation, customVersionImplementation ->
         epitPreview {
             @OptIn(ExperimentalEpitApi::class)
             androidx {
-                compose {
-                    ui("1.0.0") {
-                        implementation(Epit.ui)
-                        customVersionImplementation(Epit.ui("1.1.2"))
-                    }
+                biometric("1.0.0") {
+                    implementation(Epit.biometric)
+                    customVersionImplementation(Epit.biometric("1.1.2"))
                 }
             }
         }

@@ -58,4 +58,12 @@ object EpitAndroidxGeneralTestScope {
     fun EpitAndroidxGeneralTestScope.ext(block: EpitAndroidxGeneralTestExtScope.() -> Unit) {
         block(EpitAndroidxGeneralTestExtScope)
     }
+
+    @ExperimentalEpitApi
+    fun EpitAndroidxGeneralTestScope.service(
+        testServiceVersion: String,
+        block: EpitAndroidXTestServicesScope.() -> Unit
+    ) {
+        block(EpitAndroidXTestServicesScope(testServiceVersion))
+    }
 }

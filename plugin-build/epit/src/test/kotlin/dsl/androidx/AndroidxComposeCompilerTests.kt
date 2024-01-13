@@ -7,22 +7,22 @@ import epit.dependencies.AndroidX
 import epit.dsl.epitPreview
 import org.junit.jupiter.api.Test
 
-class AndroidXComposeUITests {
+class AndroidxComposeCompilerTests {
 
     @Test
-    fun `verify that androidx compose ui block implementation adds dependencies`() = testEpitDsl(
-        "androidx compose ui",
+    fun `verify that androidx compose compiler block implementation adds dependencies`() = testEpitDsl(
+        "androidx compose compiler",
         expectedModuleNames = listOf(
-            AndroidX.Compose.UI.ui.moduleName
+            AndroidX.Annotation.annotation_annotation.moduleName
         )
     ) { implementation, customVersionImplementation ->
         epitPreview {
             @OptIn(ExperimentalEpitApi::class)
             androidx {
                 compose {
-                    ui("1.0.0") {
-                        implementation(Epit.ui)
-                        customVersionImplementation(Epit.ui("1.1.2"))
+                    compiler("1.0.0") {
+                        implementation(Epit.compiler)
+                        customVersionImplementation(Epit.compiler("1.1.2"))
                     }
                 }
             }

@@ -7,23 +7,22 @@ import epit.dependencies.AndroidX
 import epit.dsl.epitPreview
 import org.junit.jupiter.api.Test
 
-class AndroidXComposeUITests {
+@OptIn(ExperimentalEpitApi::class)
+class AndroidxCameraTests {
 
     @Test
-    fun `verify that androidx compose ui block implementation adds dependencies`() = testEpitDsl(
-        "androidx compose ui",
+    fun `verify that androidx camera block implementation adds dependencies`() = testEpitDsl(
+        "androidx camera",
         expectedModuleNames = listOf(
-            AndroidX.Compose.UI.ui.moduleName
+            AndroidX.Camera.camera_camera2.moduleName
         )
     ) { implementation, customVersionImplementation ->
         epitPreview {
             @OptIn(ExperimentalEpitApi::class)
             androidx {
-                compose {
-                    ui("1.0.0") {
-                        implementation(Epit.ui)
-                        customVersionImplementation(Epit.ui("1.1.2"))
-                    }
+                camera("1.0.0") {
+                    implementation(Epit.camera_camera2)
+                    customVersionImplementation(Epit.camera_camera2("1.1.2"))
                 }
             }
         }

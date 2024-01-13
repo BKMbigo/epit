@@ -1,29 +1,26 @@
 package dsl.androidx
 
-import Epit
 import dsl.utils.testEpitDsl
 import epit.annotations.ExperimentalEpitApi
 import epit.dependencies.AndroidX
 import epit.dsl.epitPreview
 import org.junit.jupiter.api.Test
 
-class AndroidXComposeUITests {
+class AndroidxWorkTests {
 
     @Test
-    fun `verify that androidx compose ui block implementation adds dependencies`() = testEpitDsl(
-        "androidx compose ui",
+    fun `verify that androidx work block implementation adds dependencies`() = testEpitDsl(
+        "androidx work",
         expectedModuleNames = listOf(
-            AndroidX.Compose.UI.ui.moduleName
+            AndroidX.Work.work_gcm.moduleName
         )
     ) { implementation, customVersionImplementation ->
         epitPreview {
             @OptIn(ExperimentalEpitApi::class)
             androidx {
-                compose {
-                    ui("1.0.0") {
-                        implementation(Epit.ui)
-                        customVersionImplementation(Epit.ui("1.1.2"))
-                    }
+                work("1.0.0") {
+                    implementation(Epit.work_gcm)
+                    customVersionImplementation(Epit.work_gcm("1.1.2"))
                 }
             }
         }
