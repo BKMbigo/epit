@@ -13,7 +13,7 @@ class AndroidxComposeCompilerTests {
     fun `verify that androidx compose compiler block implementation adds dependencies`() = testEpitDsl(
         "androidx compose compiler",
         expectedModuleNames = listOf(
-            AndroidX.Annotation.annotation_annotation.moduleName
+            AndroidX.Compose.Compiler.compiler.moduleName
         )
     ) { implementation, customVersionImplementation ->
         epitPreview {
